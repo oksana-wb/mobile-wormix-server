@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean class="com.pragmatix.arena.coliseum.ColiseumDao"/>
+    <bean class="com.pragmatix.arena.coliseum.ColiseumService"/>
+
+    <util:list id="ColiseumService.hats" value-type="java.lang.Short">
+        <value>1000</value>
+        <value>1002</value>
+        <value>1003</value>
+        <value>1004</value>
+        <value>1005</value>
+        <value>1006</value>
+        <value>1007</value>
+        <value>1008</value>
+        <value>1010</value>
+        <value>1011</value>
+        <value>1012</value>
+        <value>1014</value>
+        <value>1015</value>
+        <value>1016</value>
+        <value>1018</value>
+        <value>1019</value>
+        <value>1021</value>
+        <value>1022</value>
+        <value>1023</value>
+        <value>1024</value>
+        <value>1025</value>
+        <value>1026</value>
+        <value>1028</value>
+        <value>1029</value>
+        <value>1030</value>
+        <value>1031</value>
+        <value>1032</value>
+        <value>1033</value>
+        <value>1041</value>
+        <value>1042</value>
+        <value>1047</value>
+        <value>1050</value>
+        <value>1051</value>
+        <value>1052</value>
+        <value>1055</value>
+        <value>1056</value>
+        <value>1057</value>
+        <value>1058</value>
+        <value>1061</value>
+        <value>1062</value>
+        <value>1063</value>
+        <value>1064</value>
+        <value>1065</value>
+        <value>1066</value>
+        <value>1074</value>
+        <value>1075</value>
+        <value>1077</value>
+        <value>1078</value>
+        <value>1079</value>
+        <value>1080</value>
+        <value>1084</value>
+        <value>1091</value>
+        <value>1095</value>
+        <value>1097</value>
+        <value>1098</value>
+        <value>1102</value>
+        <value>1121</value>
+        <value>1122</value>
+        <value>1129</value>
+        <value>1130</value>
+        <value>1131</value>
+        <value>1132</value>
+        <value>1150</value>
+    </util:list>
+
+    <util:list id="ColiseumService.kits" value-type="java.lang.Short">
+        <value>2001</value>
+        <value>2002</value>
+        <value>2003</value>
+        <value>2004</value>
+        <value>2005</value>
+        <value>2006</value>
+        <value>2008</value>
+        <value>2009</value>
+        <value>2010</value>
+        <value>2011</value>
+        <value>2012</value>
+        <value>2013</value>
+        <value>2014</value>
+        <value>2015</value>
+        <value>2017</value>
+        <value>2019</value>
+        <value>2021</value>
+        <value>2028</value>
+        <value>2029</value>
+        <value>2030</value>
+        <value>2033</value>
+        <value>2042</value>
+        <value>2043</value>
+        <value>2044</value>
+        <value>2045</value>
+        <value>2046</value>
+        <value>2047</value>
+        <value>2048</value>
+        <value>2049</value>
+        <value>2051</value>
+        <value>2052</value>
+        <value>2053</value>
+        <value>2054</value>
+        <value>2056</value>
+        <value>2057</value>
+    </util:list>
+
+    <bean name="ColiseumRewardItem" class="com.pragmatix.arena.coliseum.ColiseumRewardItem" scope="prototype"/>
+
+    <util:map id="ColiseumService.rewardMap">
+        <entry key="0">
+            <util:list>
+                <bean parent="ColiseumRewardItem" p:weaponId="72" p:weaponCount="3"/>
+                <bean parent="ColiseumRewardItem" p:weaponId="80" p:weaponCount="3"/>
+            </util:list>
+        </entry>
+        <entry key="1">
+            <util:list>
+                <bean parent="ColiseumRewardItem" p:weaponId="72" p:weaponCount="3"/>
+                <bean parent="ColiseumRewardItem" p:weaponId="80" p:weaponCount="3"/>
+                <bean parent="ColiseumRewardItem" p:randomRewardCount="1">
+                    <property name="randomReward">
+                        <list>
+                            <bean parent="ColiseumRewardItem" p:reactionMin="5" p:reactionMax="10"/>
+                            <bean parent="ColiseumRewardItem" p:fuzeMin="100" p:fuzeMax="300"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="2" p:weaponMax="4"/>
+                        </list>
+                    </property>
+                </bean>
+            </util:list>
+        </entry>
+        <entry key="2">
+            <util:list>
+                <bean parent="ColiseumRewardItem" p:weaponId="72" p:weaponCount="2"/>
+                <bean parent="ColiseumRewardItem" p:weaponId="80" p:weaponCount="2"/>
+                <bean parent="ColiseumRewardItem" p:rubyMin="2" p:rubyMax="4"/>
+                <bean parent="ColiseumRewardItem" p:randomRewardCount="1">
+                    <property name="randomReward">
+                        <list>
+                            <bean parent="ColiseumRewardItem" p:reactionMin="5" p:reactionMax="10"/>
+                            <bean parent="ColiseumRewardItem" p:fuzeMin="100" p:fuzeMax="300"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="2" p:weaponMax="4"/>
+                        </list>
+                    </property>
+                </bean>
+            </util:list>
+        </entry>
+        <entry key="3">
+            <util:list>
+                <bean parent="ColiseumRewardItem" p:weaponId="72" p:weaponCount="2"/>
+                <bean parent="ColiseumRewardItem" p:weaponId="80" p:weaponCount="2"/>
+                <bean parent="ColiseumRewardItem" p:rubyMin="2" p:rubyMax="4"/>
+                <bean parent="ColiseumRewardItem" p:randomRewardCount="2">
+                    <property name="randomReward">
+                        <list>
+                            <bean parent="ColiseumRewardItem" p:reactionMin="5" p:reactionMax="10"/>
+                            <bean parent="ColiseumRewardItem" p:fuzeMin="100" p:fuzeMax="300"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="2" p:weaponMax="4"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="2" p:weaponMax="4"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="2" p:weaponMax="4"/>
+                        </list>
+                    </property>
+                </bean>
+            </util:list>
+        </entry>
+        <entry key="4">
+            <util:list>
+                <bean parent="ColiseumRewardItem" p:rubyMin="6" p:rubyMax="7"/>
+                <bean parent="ColiseumRewardItem" p:fuzeMin="200" p:fuzeMax="300"/>
+                <bean parent="ColiseumRewardItem" p:randomRewardCount="2">
+                    <property name="randomReward">
+                        <list>
+                            <bean parent="ColiseumRewardItem" p:reactionMin="5" p:reactionMax="10"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="2" p:weaponMax="4"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="2" p:weaponMax="4"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="2" p:weaponMax="4"/>
+                        </list>
+                    </property>
+                </bean>
+            </util:list>
+        </entry>
+        <entry key="5">
+            <util:list>
+                <bean parent="ColiseumRewardItem" p:rubyMin="7" p:rubyMax="8"/>
+                <bean parent="ColiseumRewardItem" p:fuzeMin="200" p:fuzeMax="400"/>
+                <bean parent="ColiseumRewardItem" p:randomRewardCount="2">
+                    <property name="randomReward">
+                        <list>
+                            <bean parent="ColiseumRewardItem" p:reactionMin="10" p:reactionMax="15"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="2" p:weaponMax="4"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="2" p:weaponMax="4"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="2" p:weaponMax="4"/>
+                        </list>
+                    </property>
+                </bean>
+            </util:list>
+        </entry>
+        <entry key="6">
+            <util:list>
+                <bean parent="ColiseumRewardItem" p:rubyMin="8" p:rubyMax="9"/>
+                <bean parent="ColiseumRewardItem" p:fuzeMin="200" p:fuzeMax="400"/>
+                <bean parent="ColiseumRewardItem" p:randomRewardCount="2">
+                    <property name="randomReward">
+                        <list>
+                            <bean parent="ColiseumRewardItem" p:reactionMin="10" p:reactionMax="15"/>
+                            <bean parent="ColiseumRewardItem" p:fuzeMin="200" p:fuzeMax="300"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="3" p:weaponMax="5"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="3" p:weaponMax="5"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="3" p:weaponMax="5"/>
+                        </list>
+                    </property>
+                </bean>
+            </util:list>
+        </entry>
+        <entry key="7">
+            <util:list>
+                <bean parent="ColiseumRewardItem" p:rubyMin="10" p:rubyMax="12"/>
+                <bean parent="ColiseumRewardItem" p:reactionMin="10" p:reactionMax="15"/>
+                <bean parent="ColiseumRewardItem" p:fuzeMin="200" p:fuzeMax="400"/>
+                <bean parent="ColiseumRewardItem" p:randomRewardCount="2">
+                    <property name="randomReward">
+                        <list>
+                            <bean parent="ColiseumRewardItem" p:medalsMin="2" p:medalsMax="4"/>
+                            <bean parent="ColiseumRewardItem" p:fuzeMin="200" p:fuzeMax="300"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="3" p:weaponMax="5"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="3" p:weaponMax="5"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="3" p:weaponMax="5"/>
+                        </list>
+                    </property>
+                </bean>
+            </util:list>
+        </entry>
+        <entry key="8">
+            <util:list>
+                <bean parent="ColiseumRewardItem" p:rubyMin="12" p:rubyMax="14"/>
+                <bean parent="ColiseumRewardItem" p:reactionMin="15" p:reactionMax="20"/>
+                <bean parent="ColiseumRewardItem" p:fuzeMin="200" p:fuzeMax="500"/>
+                <bean parent="ColiseumRewardItem" p:randomRewardCount="2">
+                    <property name="randomReward">
+                        <list>
+                            <bean parent="ColiseumRewardItem" p:medalsMin="2" p:medalsMax="4"/>
+                            <bean parent="ColiseumRewardItem" p:fuzeMin="200" p:fuzeMax="400"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="3" p:weaponMax="5"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="3" p:weaponMax="5"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="2" p:weaponMax="4"/>
+                        </list>
+                    </property>
+                </bean>
+            </util:list>
+        </entry>
+        <entry key="9">
+            <util:list>
+                <bean parent="ColiseumRewardItem" p:rubyMin="14" p:rubyMax="16"/>
+                <bean parent="ColiseumRewardItem" p:reactionMin="15" p:reactionMax="20"/>
+                <bean parent="ColiseumRewardItem" p:fuzeMin="300" p:fuzeMax="500"/>
+                <bean parent="ColiseumRewardItem" p:randomRewardCount="3">
+                    <property name="randomReward">
+                        <list>
+                            <bean parent="ColiseumRewardItem" p:medalsMin="2" p:medalsMax="4"/>
+                            <bean parent="ColiseumRewardItem" p:fuzeMin="200" p:fuzeMax="400"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="3" p:weaponMax="5"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="3" p:weaponMax="5"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="2" p:weaponMax="4"/>
+                        </list>
+                    </property>
+                </bean>
+                <bean parent="ColiseumRewardItem" p:seasonStuff="true"/>
+            </util:list>
+        </entry>
+        <entry key="10">
+            <util:list>
+                <bean parent="ColiseumRewardItem" p:rubyMin="16" p:rubyMax="18"/>
+                <bean parent="ColiseumRewardItem" p:reactionMin="20" p:reactionMax="25"/>
+                <bean parent="ColiseumRewardItem" p:fuzeMin="300" p:fuzeMax="500"/>
+                <bean parent="ColiseumRewardItem" p:randomRewardCount="4">
+                    <property name="randomReward">
+                        <list>
+                            <bean parent="ColiseumRewardItem" p:medalsMin="2" p:medalsMax="4"/>
+                            <bean parent="ColiseumRewardItem" p:fuzeMin="300" p:fuzeMax="400"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="3" p:weaponMax="5"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="3" p:weaponMax="5"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="2" p:weaponMax="4"/>
+                        </list>
+                    </property>
+                </bean>
+                <bean parent="ColiseumRewardItem" p:seasonStuff="true"/>
+            </util:list>
+        </entry>
+        <entry key="10_0">
+            <util:list>
+                <bean parent="ColiseumRewardItem" p:rubyMin="18" p:rubyMax="18"/>
+                <bean parent="ColiseumRewardItem" p:reactionMin="25" p:reactionMax="25"/>
+                <bean parent="ColiseumRewardItem" p:fuzeMin="400" p:fuzeMax="600"/>
+                <bean parent="ColiseumRewardItem" p:randomRewardCount="4">
+                    <property name="randomReward">
+                        <list>
+                            <bean parent="ColiseumRewardItem" p:medalsMin="2" p:medalsMax="4"/>
+                            <bean parent="ColiseumRewardItem" p:fuzeMin="300" p:fuzeMax="400"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="4" p:weaponMax="5"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="4" p:weaponMax="5"/>
+                            <bean parent="ColiseumRewardItem" p:weaponMin="3" p:weaponMax="4"/>
+                        </list>
+                    </property>
+                </bean>
+                <bean parent="ColiseumRewardItem" p:seasonStuff="true"/>
+            </util:list>
+        </entry>
+    </util:map>
+
+</beans>

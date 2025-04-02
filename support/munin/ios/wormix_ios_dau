@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# Плагин для мониторинга DAU
+
+HOST=lord.rmart.ru
+DB=wormswar_mobile
+USER=smos
+
+if [ "$1" = "config" ]; then
+    echo 'graph_title Daily Active Users'
+    echo 'graph_vlabel count'
+    echo 'graph_args -l 0'
+    echo 'graph_noscale true'
+    echo 'graph_category Wormix iOS Stat'
+    echo 'graph_info Daily Active Users Stat on Wormix iOS'
+
+    echo 'dau.label dau'
+    echo 'dau.info DAU'
+    echo 'dau.min 0'
+
+    exit 0
+fi
+
+echo -n "dau.value "
+echo "select count(id) from wormswar.user_profile where last_login_time > now() - interval '24 hours'" | psql -h $HOST -d $DB -U $USER -t

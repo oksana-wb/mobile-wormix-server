@@ -1,0 +1,105 @@
+{
+  "battleId": 2,
+  "start": "2016-07-21 13:54:58",
+  "finish": "2016-07-21 13:55:05",
+  "battleType": 4,
+  "wager": 15,
+  "mapId": 0,
+  "duration": "00:00:06",
+  "turnCount": 4,
+  "participants": [
+    {
+      "profile": {
+        "profileId": 58027748,
+        "socialNetId": 1,
+        "rating": 304,
+        "dailyRating": 0,
+        "level": 30,
+        "rankPoints": 273,
+        "units": [ 30, 5 ]
+      },
+      "battleResult": 1,
+      "setBattleResultAgo": ".22",
+      "team": 0,
+      "lastState": 6,
+      "battles": 0,
+      "trueSkillMean": 1.06,
+      "trueSkillSpread": 0.05,
+      "awarded": {
+        "rating": 0,
+        "rankPoints": -11
+      },
+      "lobbyTime": ".13",
+      "gridQuality": 0,
+      "groupHp": 1407,
+      "matchQuality": 0.71,
+      "reactionLevel": [ 13, 0 ]
+    },
+    {
+      "profile": {
+        "profileId": 58027749,
+        "socialNetId": 1,
+        "rating": 60,
+        "dailyRating": 0,
+        "level": 30,
+        "rankPoints": 30,
+        "units": [ 30, 5 ]
+      },
+      "battleResult": 0,
+      "setBattleResultAgo": "0",
+      "team": 1,
+      "lastState": 0,
+      "battles": 0,
+      "trueSkillMean": 0.87,
+      "trueSkillSpread": 0.05,
+      "awarded": {
+        "rating": 15,
+        "rankPoints": 11
+      },
+      "lobbyTime": ".101",
+      "gridQuality": 0,
+      "groupHp": 1407,
+      "matchQuality": 0.71,
+      "reactionLevel": [ 3, 0 ]
+    }
+  ],
+  "penalty": 0,
+  "battleLog": {
+    "turns": [
+      {
+        "turnNum": 1,
+        "start": 1469098498708,
+        "playerNum": 0,
+        "valid": true,
+        "reason": "OK",
+        "shotsByWeapon": {
+          "50": 4
+        },
+        "currentWeaponId": 49
+      },
+      {
+        "turnNum": 2,
+        "start": 1469098501329,
+        "playerNum": 1,
+        "valid": true,
+        "reason": "UNCHECKED",
+        "shotsByWeapon": {},
+        "currentWeaponId": 0
+      },
+      {
+        "turnNum": 3,
+        "start": 1469098503931,
+        "playerNum": 0,
+        "valid": false,
+        "reason": "WEAPON_USAGE_HIGH",
+        "cheatFrame": 1,
+        "shotsByWeapon": {
+          "49": 1,
+          "50": 7
+        },
+        "currentWeaponId": 50
+      }
+    ]
+  }
+}
+

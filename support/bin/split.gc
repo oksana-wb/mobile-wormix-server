@@ -1,0 +1,11 @@
+#!/bin/sh
+
+USER=user
+SERVER=server
+
+REP=/home/${USER}/.m2/repository
+
+cd /home/${USER}/${SERVER}/logs/
+
+java -cp ${REP}/com/pragmatix/gameapp-common/0.0.3/gameapp-common-0.0.3.jar:${REP}/commons-io/commons-io/2.0.1/commons-io-2.0.1.jar com.pragmatix.common.utils.GcLogSplitter
+

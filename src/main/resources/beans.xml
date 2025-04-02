@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/tx
+           http://www.springframework.org/schema/tx/spring-tx.xsd
+           http://www.springframework.org/schema/util
+           http://www.springframework.org/schema/util/spring-util.xsd
+           http://www.springframework.org/schema/task
+           http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <bean id="propertyPlaceholderConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:gameapp.properties</value>
+                <value>classpath:run-profiles/${server.id:development}/server.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <util:map id="ArenaService_arenaWorkTime" key-type="com.pragmatix.pvp.BattleWager">
+        <entry key="WAGER_300_DUEL" value="09:00,23:59:59"/>
+        <entry key="WAGER_50_3_FOR_ALL" value="09:00,23:59:59"/>
+    </util:map>
+
+    <import resource="steam-beans/award-beans.xml"/>
+    <import resource="run-profiles/${server.id:development}/beans-server.xml"/>
+
+    <util:properties id="messages" location="messages.properties"/>
+
+    <import resource="steam-beans/service-beans.xml"/>
+    <import resource="steam-beans/price-beans.xml"/>
+    <import resource="steam-beans/achieve-beans.xml"/>
+    <import resource="steam-beans/battle-awards.xml"/>
+    <import resource="steam-beans/battle-beans.xml"/>
+    <import resource="steam-beans/items-beans.xml"/>
+    <import resource="steam-beans/craft-beans.xml"/>
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.pragmatix,generated"
+                            name-generator="com.pragmatix.spring.ServerBeanNameGenerator"/>
+
+    <bean class="com.pragmatix.gameapp.GameApp">
+        <property name="filterRouterChain" ref="com.pragmatix.routers.filters.FilterRouterChain"/>
+        <property name="appInfo" ref="com.pragmatix.gameapp.info.AppInfo"/>
+        <property name="serverSettings" ref="serverSettings"/>
+        <property name="connections" ref="connections"/>
+    </bean>
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="persistenceUnitName" value="AGS"/>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="database" value="POSTGRESQL"/>
+                <property name="databasePlatform" value="org.hibernate.dialect.PostgreSQL9Dialect"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://commons.apache.org/dbcp/configuration.html -->
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://${dataSource.host:127.0.0.1}:${dataSource.port:5432}/${dataSource.db:wormswar}"/>
+        <property name="username" value="${dataSource.username:smos}"/>
+        <property name="password" value="${dataSource.password:RbtdkzyRf}"/>
+        <property name="initialSize" value="${dataSource.connection.initialSize:32}"/>
+        <property name="maxTotal" value="${dataSource.connection.maxActive:100}"/>
+        <property name="maxIdle" value="${dataSource.connection.maxIdle:50}"/>
+        <property name="minIdle" value="${dataSource.connection.minIdle:32}"/>
+        <property name="maxWaitMillis" value="1000"/>
+        <property name="validationQuery" value="SELECT 1 FROM (SELECT 2) AS A"/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="timeBetweenEvictionRunsMillis" value="10000"/>
+        <property name="minEvictableIdleTimeMillis" value="60000"/>
+        <property name="removeAbandonedOnBorrow" value="true"/>
+        <property name="removeAbandonedOnMaintenance" value="true"/>
+        <property name="removeAbandonedTimeout" value="120"/>
+        <property name="logAbandoned" value="true"/>
+    </bean>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+
+    <tx:annotation-driven/>
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+        <property name="jpaDialect">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect"/>
+        </property>
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+        <property name="transactionManager" ref="transactionManager"/>
+    </bean>
+
+    <task:annotation-driven scheduler="scheduler"/>
+
+    <task:scheduler id="scheduler" pool-size="2"/>
+
+    <!--настройки main соединения-->
+    <bean id="nettyMainConnection" class="com.pragmatix.connections.netty.NettySocketConnection">
+        <property name="connectionId" value="${connection.main.index:0}"/>
+        <property name="name" value="Main"/>
+        <property name="port" value="${connection.main.port:6000}"/>
+        <property name="authTimeout" value="${connection.main.authTimeout:10000}"/>
+        <property name="pipeHandlers" ref="sharedPipeHandlers"/>
+    </bean>
+
+    <!--настройки main соединения-->
+    <bean id="mainWsConnection" class="com.pragmatix.connections.websoсket.WebSocketConnection">
+        <property name="connectionId" value="${connection.main.index:0}"/>
+        <property name="name" value="Main"/>
+        <property name="port" value="${connection.main.port:6000}"/>
+        <property name="authTimeout" value="${connection.main.authTimeout:10000}"/>
+        <property name="pipeHandlers" ref="sharedPipeHandlers"/>
+    </bean>
+
+    <!--настройки main http соединения (мобильная версия)-->
+    <bean id="mainHttpConnection" class="com.pragmatix.connections.http.HttpSocketConnection">
+        <property name="connectionId" value="${connection.main.index}"/>
+        <property name="name" value="Main"/>
+        <property name="port" value="${connection.main.port:6080}"/>
+        <property name="sessionIdleTimeoutInSeconds" value="${connection.http.sessionIdleTimeoutInSeconds:30}"/>
+        <property name="pipeHandlers">
+            <list>
+                <bean class="com.pragmatix.handler.http.CrossdomainHandler"/>
+            </list>
+        </property>
+        <property name="pingRequestClass" value="com.pragmatix.app.messages.client.Ping"/>
+        <property name="pongResponseClass" value="com.pragmatix.app.messages.server.Pong"/>
+        <property name="debugMode" value="${connection.debugMode:false}"/>
+    </bean>
+
+    <!-- настройки admin соединения -->
+    <bean id="nettyAdminConnection" class="com.pragmatix.connections.netty.NettySocketConnection">
+        <property name="connectionId" value="${connection.admin.index:1}"/>
+        <property name="name" value="Admin"/>
+        <property name="port" value="${connection.admin.port:7369}"/>
+        <property name="acceptorsCount" value="1"/>
+        <property name="authTimeout" value="${connection.admin.authTimeout:10000}"/>
+        <property name="pipeHandlers" ref="sharedPipeHandlers"/>
+        <property name="collectStatistic" value="false"/>
+    </bean>
+
+    <!-- настройки pvp соединения -->
+    <bean id="nettyPvpConnection" class="com.pragmatix.connections.netty.NettySocketConnection">
+        <property name="connectionId" value="${connection.pvp.index:2}"/>
+        <property name="name" value="Pvp"/>
+        <property name="port" value="${connection.pvp.port:6004}"/>
+        <property name="authTimeout" value="${connection.pvp.authTimeout:10000}"/>
+        <property name="pipeHandlers" ref="sharedPipeHandlers"/>
+    </bean>
+
+    <!-- настройки clan соединения -->
+    <bean id="clanConnection" class="com.pragmatix.connections.netty.NettySocketConnection">
+        <property name="connectionId" value="${connection.clan.index:7}"/>
+        <property name="name" value="Clan"/>
+        <property name="port" value="${connection.clan.port:6007}"/>
+        <property name="authTimeout" value="${connection.clan.authTimeout:10000}"/>
+        <property name="pipeHandlers" ref="sharedPipeHandlers"/>
+    </bean>
+
+    <util:list id="sharedPipeHandlers">
+        <bean class="com.pragmatix.handler.socket.PingHandler"
+              p:serializer-ref="com.pragmatix.serialization.AppBinarySerializer"
+              p:pingRequestClass="com.pragmatix.app.messages.client.Ping"
+              p:pongResponseClass="com.pragmatix.app.messages.server.Pong"
+        />
+    </util:list>
+
+    <!-- настройки achieve соединения -->
+    <bean id="achieveConnection" class="com.pragmatix.connections.http.HttpSocketConnection">
+        <property name="connectionId" value="${connection.achieve.index:4}"/>
+        <property name="name" value="Achieve"/>
+        <property name="port" value="${connection.achieve.port:6005}"/>
+        <property name="sessionIdleTimeoutInSeconds" value="${connection.http.sessionIdleTimeoutInSeconds:30}"/>
+        <property name="pipeHandlers">
+            <list>
+                <bean class="com.pragmatix.handler.http.CrossdomainHandler"/>
+            </list>
+        </property>
+        <property name="pingRequestClass" value="com.pragmatix.app.messages.client.Ping"/>
+        <property name="pongResponseClass" value="com.pragmatix.app.messages.server.Pong"/>
+        <property name="debugMode" value="${connection.debugMode:false}"/>
+    </bean>
+
+    <bean id="achieveWsConnection" class="com.pragmatix.connections.websoсket.WebSocketConnection">
+        <property name="connectionId" value="${connection.achieve.index:4}"/>
+        <property name="name" value="Achieve"/>
+        <property name="port" value="${connection.achieve.port:6005}"/>
+        <property name="authTimeout" value="${connection.achieve.authTimeout:10000}"/>
+        <property name="pipeHandlers" ref="sharedPipeHandlers"/>
+    </bean>
+
+    <bean class="com.pragmatix.gameapp.services.TaskService" init-method="init">
+        <property name="transactionTaskPoolSize" value="${server.transactionTaskPoolSize:2}"/>
+        <property name="simpleTaskPoolSize" value="${server.simpleTaskPoolSize:2}"/>
+        <property name="reliableTaskPoolSize" value="${server.reliableTaskPoolSize:1}"/>
+    </bean>
+
+    <bean id="appRestTemplate" class="org.springframework.web.client.RestTemplate">
+        <property name="requestFactory">
+            <bean class="org.springframework.http.client.HttpComponentsClientHttpRequestFactory"
+                  p:connectTimeout="300"
+                  p:readTimeout="1000"/>
+        </property>
+    </bean>
+
+    <bean id="userProfileRestHandler" class="com.pragmatix.app.services.interrop.UserProfileRestHandler"/>
+    <bean id="bansRestHandler" class="com.pragmatix.app.services.interrop.BansRestHandler"/>
+    <bean id="adminRestHandler" class="com.pragmatix.webadmin.AdminHandler"/>
+
+    <bean class="org.eclipse.jetty.server.Server" destroy-method="stop">
+        <property name="connectors">
+            <list>
+                <bean id="connector" class="org.eclipse.jetty.server.nio.SelectChannelConnector">
+                    <property name="port" value="${embedded.httpServer.port}"/>
+                    <property name="maxIdleTime" value="5000"/>
+                    <property name="acceptors" value="${embedded.httpServer.acceptors}"/>
+                </bean>
+            </list>
+        </property>
+
+        <property name="handler" ref="appJettyHandlers"/>
+    </bean>
+
+    <bean id="baseJettyHandlers" class="org.eclipse.jetty.server.handler.HandlerCollection" abstract="true">
+        <property name="handlers">
+            <list>
+                <bean class="org.eclipse.jetty.server.handler.ContextHandler">
+                    <property name="contextPath" value="/api/profile"/>
+                    <property name="handler" ref="userProfileRestHandler"/>
+                </bean>
+                <bean class="org.eclipse.jetty.server.handler.ContextHandler">
+                    <property name="contextPath" value="/api/bans"/>
+                    <property name="handler" ref="bansRestHandler"/>
+                </bean>
+                <bean class="org.eclipse.jetty.server.handler.ContextHandler">
+                    <property name="contextPath" value="/admin"/>
+                    <property name="handler" ref="adminRestHandler"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+
+</beans>

@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# Плагин для мониторинга DUR
+
+if [ "$1" = "config" ]; then
+    echo 'graph_title Daily User Registrations Stat'
+    echo 'graph_vlabel count'
+    echo 'graph_args -l 0'
+    echo 'graph_noscale true'
+    echo 'graph_category Wormix Steam'
+    echo 'graph_info Daily User Registrations on Wormix Steam'
+
+    echo 'dur.label dur'
+    echo 'dur.info DUR'
+    echo 'dur.min 0'
+
+    exit 0
+fi
+DB=wormswar_steam
+USER=smos
+
+echo -n "dur.value"
+echo "select count(id) from wormswar.creation_date where creation_date > now() - interval '24 hours'" | psql -d $DB -U $USER -t

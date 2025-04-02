@@ -1,0 +1,14 @@
+
+.idea
+logs/*
+data/*
+*.log
+*.log.1
+target/*
+/*.sh
+/groovy/test*
+1/*
+/test/java/com/pragmatix/testcase/TestJava.java
+/test/scala/TestApp.scala
+
+*.iml

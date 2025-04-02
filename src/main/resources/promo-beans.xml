@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c" xmlns:wormix="http://pragmatix-corp.com/schema/wormix"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd http://pragmatix-corp.com/schema/wormix http://pragmatix-corp.com/schema/wormix.xsd">
+
+    <bean class="com.pragmatix.app.services.PromoService" c:promoDataSource-ref="promoDataSource">
+        <property name="promoAwards">
+            <map>
+                <entry key="RAID">
+                    <wormix:award realMoney="50" race="ALIEN" skins="101,102"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <!-- http://commons.apache.org/dbcp/configuration.html -->
+    <bean id="promoDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://${promo.dataSource.host:127.0.0.1}:${promo.dataSource.port:5432}/${promo.dataSource.db:promo}"/>
+        <property name="username" value="${promo.dataSource.username:promo_wormix}"/>
+        <property name="password" value="${promo.dataSource.password:mmZOVm2I6NES}"/>
+        <property name="initialSize" value="${promo.dataSource.connection.initialSize:2}"/>
+        <property name="maxActive" value="${promo.dataSource.connection.maxActive:16}"/>
+        <property name="maxIdle" value="${promo.dataSource.connection.maxIdle:8}"/>
+        <property name="minIdle" value="${promo.dataSource.connection.minIdle:2}"/>
+        <property name="maxWait" value="1000"/>
+        <property name="validationQuery" value="SELECT 1 FROM (SELECT 2) AS A"/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="timeBetweenEvictionRunsMillis" value="10000"/>
+        <property name="minEvictableIdleTimeMillis" value="60000"/>
+        <property name="removeAbandoned" value="true"/>
+        <property name="removeAbandonedTimeout" value="120"/>
+        <property name="logAbandoned" value="true"/>
+    </bean>
+
+</beans>

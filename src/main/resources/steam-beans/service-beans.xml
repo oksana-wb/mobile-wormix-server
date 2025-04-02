@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/util
+           http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean class="com.pragmatix.app.services.rating.RatingServiceMobileImpl"/>
+
+    <bean class="com.pragmatix.pvp.services.SteamRatingFormula">
+        <property name="fixedRank" value="5"/>
+        <property name="fixedLevel" value="30"/>
+    </bean>
+
+    <bean class="com.pragmatix.app.services.rating.RankService" p:enabled="false" p:maxRatingPoints="100">
+        <property name="battleModeBonus">
+            <bean class="java.util.EnumMap">
+                <constructor-arg>
+                    <util:map key-type="com.pragmatix.pvp.PvpBattleKey" value-type="java.lang.Double">
+                        <entry key="WAGER_PvP_DUEL_15" value="1.0"/>
+                        <entry key="WAGER_PvP_DUEL_50" value="1.2"/>
+                        <entry key="WAGER_PvP_2x2" value="1.5"/>
+                    </util:map>
+                </constructor-arg>
+            </bean>
+        </property>
+        <property name="teamSizeModifiers">
+            <list>
+                <value>0.1</value>
+                <value>0.3</value>
+                <value>0.6</value>
+                <value>1.0</value>
+            </list>
+        </property>
+        <property name="ranks">
+            <list>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="0" c:pointsToNext="-1" c:maxVictoryPoints="999" c:victoryBonus="1.5" c:defeatPenalty="1.2"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="1" c:pointsToNext="700" c:maxVictoryPoints="100" c:victoryBonus="1.4" c:defeatPenalty="1.2"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="2" c:pointsToNext="650" c:maxVictoryPoints="95" c:victoryBonus="1.3" c:defeatPenalty="1.1"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="3" c:pointsToNext="600" c:maxVictoryPoints="90" c:victoryBonus="1.2" c:defeatPenalty="1.0"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="4" c:pointsToNext="550" c:maxVictoryPoints="85" c:victoryBonus="1.1" c:defeatPenalty="0.9"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="5" c:pointsToNext="500" c:maxVictoryPoints="75" c:victoryBonus="1.0" c:defeatPenalty="0.8"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="6" c:pointsToNext="450" c:maxVictoryPoints="75" c:victoryBonus="0.75" c:defeatPenalty="0.7"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="7" c:pointsToNext="400" c:maxVictoryPoints="70" c:victoryBonus="0.75" c:defeatPenalty="0.65"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="8" c:pointsToNext="350" c:maxVictoryPoints="65" c:victoryBonus="0.75" c:defeatPenalty="0.6"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="9" c:pointsToNext="300" c:maxVictoryPoints="60" c:victoryBonus="0.75" c:defeatPenalty="0.55"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="10" c:pointsToNext="250" c:maxVictoryPoints="50" c:victoryBonus="0.75" c:defeatPenalty="0.5"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="11" c:pointsToNext="200" c:maxVictoryPoints="40" c:victoryBonus="0.625" c:defeatPenalty="0.45"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="12" c:pointsToNext="150" c:maxVictoryPoints="30" c:victoryBonus="0.625" c:defeatPenalty="0.4"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="13" c:pointsToNext="100" c:maxVictoryPoints="25" c:victoryBonus="0.625" c:defeatPenalty="0.35"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="14" c:pointsToNext="70" c:maxVictoryPoints="20" c:victoryBonus="0.625" c:defeatPenalty="0.3"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="15" c:pointsToNext="50" c:maxVictoryPoints="18" c:victoryBonus="0.625" c:defeatPenalty="0.25"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="16" c:pointsToNext="40" c:maxVictoryPoints="15" c:victoryBonus="0.5" c:defeatPenalty="0"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="17" c:pointsToNext="30" c:maxVictoryPoints="12" c:victoryBonus="0.5" c:defeatPenalty="0"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="18" c:pointsToNext="20" c:maxVictoryPoints="10" c:victoryBonus="0.5" c:defeatPenalty="0"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="19" c:pointsToNext="15" c:maxVictoryPoints="8" c:victoryBonus="0.5" c:defeatPenalty="0"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="20" c:pointsToNext="10" c:maxVictoryPoints="7" c:victoryBonus="0.5" c:defeatPenalty="0"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean class="com.pragmatix.app.services.rating.DailyRatingService"
+        p:firstPlaceDailyTopAward-ref="firstPlaceDailyTopAward"
+        p:secondPlaceDailyTopAward-ref="secondPlaceDailyTopAward"
+        p:thirdPlaceDailyTopAward-ref="thirdPlaceDailyTopAward"
+    />
+
+    <bean class="com.pragmatix.app.services.authorize.SuccessAuthorizeObserverMobileImpl"/>
+
+    <bean class="com.pragmatix.app.services.DepositService"/>
+
+    <bean id="serverConfigHandler" class="com.pragmatix.app.handler.ServerConfigHandler"/>
+
+    <bean class="com.pragmatix.serialization.utils.EncryptionUtils">
+        <property name="method" value="AES"/>
+        <property name="seed" value="ki/dP#xUya2(f.OZ"/>
+    </bean>
+
+    <bean class="com.pragmatix.app.services.rating.SeasonMobileService"/>
+
+</beans>

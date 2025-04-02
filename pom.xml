@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.pragmatix</groupId>
+    <artifactId>wormswar-server</artifactId>
+    <version>1.51.3-steam</version>
+
+    <properties>
+        <common.version>0.6.wormix</common.version>
+        <core.version>3.8.wormix</core.version>
+        <serialization.version>1.3.wormix</serialization.version>
+        <generation.version>1.6.wormix</generation.version>
+        <gameapp-common.version>2.15.wormix</gameapp-common.version>
+
+        <wormix-admin-interop.version>3.7.1</wormix-admin-interop.version>
+
+        <spring.version>5.3.39</spring.version>
+        <hibernate.version>5.4.33.Final</hibernate.version>
+        <netty.version>4.1.114.Final</netty.version>
+        <jgroups.version>3.6.10.Final</jgroups.version>
+        <slf4j-api.version>1.7.25</slf4j-api.version>
+        <logback.version>1.2.3</logback.version>
+        <postgresql.version>9.4.1208</postgresql.version>
+        <commons-io.version>2.6</commons-io.version>
+        <commons-lang3.version>3.9</commons-lang3.version>
+        <commons-codec.version>1.12</commons-codec.version>
+        <commons-compress.version>1.18</commons-compress.version>
+        <commons-dbcp2.version>2.6.0</commons-dbcp2.version>
+        <gson.version>2.10.1</gson.version><!-- Не обновлять! -->
+        <xstream.version>1.4.20</xstream.version><!-- Не обновлять! -->
+        <jackson-databind.version>2.17.2</jackson-databind.version>
+        <groovy.version>4.0.23</groovy.version>
+        <junit.version>4.13.2</junit.version>
+        <vavr.version>0.10.4</vavr.version>
+
+        <logback.rootLoggerLevel>ERROR</logback.rootLoggerLevel>
+
+        <mainClass>com.pragmatix.AppServer</mainClass>
+        <jvm.xms>3g</jvm.xms>
+        <jvm.xmx>3g</jvm.xmx>
+        <logback.configurationFile>logback-production.xml</logback.configurationFile>
+
+        <java>java21</java>
+        <java.version>21</java.version>
+
+        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+        <maven-processor-plugin.version>5.1</maven-processor-plugin.version>
+        <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <skipTests>true</skipTests>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.pragmatix</groupId>
+            <artifactId>core</artifactId>
+            <version>${core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.pragmatix</groupId>
+            <artifactId>common</artifactId>
+            <version>${common.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.pragmatix</groupId>
+            <artifactId>gameapp-common</artifactId>
+            <version>${gameapp-common.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.pragmatix</groupId>
+            <artifactId>wormix-admin-interop</artifactId>
+            <version>${wormix-admin-interop.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/wormix-admin-interop-3.7.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.pragmatix</groupId>
+            <artifactId>generation</artifactId>
+            <version>${generation.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.pragmatix</groupId>
+            <artifactId>serialization</artifactId>
+            <version>${serialization.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-databind.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson-databind.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-parameter-names</artifactId>
+            <version>${jackson-databind.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jdk8</artifactId>
+            <version>${jackson-databind.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${jackson-databind.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.pragmatix</groupId>
+            <artifactId>jskills</artifactId>
+            <version>0.0.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>lombok</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j-api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.janino</groupId>
+            <artifactId>janino</artifactId>
+            <version>2.5.16</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <version>${commons-dbcp2.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>juli</artifactId>
+            <version>6.0.20</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>${netty.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>7.6.5.v20120716</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-servlet</artifactId>
+            <version>7.6.5.v20120716</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jgroups</groupId>
+            <artifactId>jgroups</artifactId>
+            <version>${jgroups.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.groovy</groupId>
+            <artifactId>groovy</artifactId>
+            <version>${groovy.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <version>2.3</version>
+            <classifier>jdk15</classifier>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.3.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+            <version>${xstream.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.notnoop.apns</groupId>
+            <artifactId>apns</artifactId>
+            <version>0.2.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.http-client</groupId>
+            <artifactId>google-http-client</artifactId>
+            <version>1.42.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.http-client</groupId>
+            <artifactId>google-http-client-jackson2</artifactId>
+            <version>1.42.3</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.google.apis</groupId>
+            <artifactId>google-api-services-androidpublisher</artifactId>
+            <version>v3-rev20220511-1.32.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.gcm</groupId>
+            <artifactId>gcm-server</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.vavr</groupId>
+            <artifactId>vavr</artifactId>
+            <version>${vavr.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-admin</artifactId>
+            <version>8.1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.crypto.tink</groupId>
+            <artifactId>tink</artifactId>
+            <version>1.3.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>${commons-codec.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+            <version>${commons-compress.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>3.3.0</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>UTF-8</encoding>
+                    <compilerArgs>
+                        <arg>-proc:none</arg>
+                    </compilerArgs>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.ow2.asm</groupId>
+                        <artifactId>asm</artifactId>
+                        <version>6.2</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <plugin>
+                <groupId>org.bsc.maven</groupId>
+                <artifactId>maven-processor-plugin</artifactId>
+                <version>${maven-processor-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>process</id>
+                        <goals>
+                            <goal>process</goal>
+                        </goals>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <encoding>UTF-8</encoding>
+                            <options>
+                                <appName>Wormix</appName>
+                            </options>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>${exec-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+                <configuration>
+                    <executable>${java}</executable>
+                    <classpathScope>compile</classpathScope>
+                    <arguments>
+                        <argument>-Dserver.id=${server.id}</argument>
+                        <argument>-Dlogback.rootLoggerLevel=${logback.rootLoggerLevel}</argument>
+                        <argument>-Dlogback.configurationFile=${logback.configurationFile}</argument>
+                        <argument>-Xms${jvm.xms}</argument>
+                        <argument>-Xmx${jvm.xmx}</argument>
+                        <argument>-Xlog:gc=debug:file=logs/gc-%t.log:time,level,tags</argument>
+                        <argument>-Dsun.lang.ClassLoader.allowArraySyntax=true</argument>
+                        <argument>-XX:-OmitStackTraceInFastThrow</argument>
+                        <argument>-Djava.net.preferIPv4Stack=true</argument>
+                        <argument>-Dio.netty.leakDetection.level=advanced</argument>
+                        <argument>-classpath</argument>
+                        <classpath/>
+                        <argument>${mainClass}</argument>
+                    </arguments>
+                    <killAfter/>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>steam</id>
+            <properties>
+                <server.id>steam</server.id>
+                <jvm.xms>2g</jvm.xms>
+                <jvm.xmx>5g</jvm.xmx>
+            </properties>
+        </profile>
+        
+        <profile>
+            <id>development</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <server.id>development</server.id>
+                <jvm.xms>128m</jvm.xms>
+                <jvm.xmx>256m</jvm.xmx>
+                <logback.rootLoggerLevel>DEBUG</logback.rootLoggerLevel>
+            </properties>
+        </profile>
+    </profiles>
+
+    <repositories>
+        <repository>
+            <id>GreenPixelMain</id>
+            <url>https://repo.pixel.green/repository/maven-main/</url>
+        </repository>
+    </repositories>
+
+</project>

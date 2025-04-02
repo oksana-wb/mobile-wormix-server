@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:wormix="http://pragmatix-corp.com/schema/wormix"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://pragmatix-corp.com/schema/wormix http://pragmatix-corp.com/schema/wormix.xsd">
+
+    <bean class="com.pragmatix.pvp.services.RankBasedRatingFormula"/>
+
+    <bean class="com.pragmatix.app.services.rating.RankService" p:enabled="true" p:maxRatingPoints="70">
+        <property name="networkDefeatModifiers">
+            <map>
+                <entry key="vkontakte" value="1.2"/>
+                <entry key="odnoklassniki" value="1.2"/>
+                <entry key="facebook" value="1.2"/>
+                <entry key="mailru" value="1.2"/>
+            </map>
+        </property>
+        <property name="battleModeBonus">
+            <bean class="java.util.EnumMap">
+                <constructor-arg>
+                    <util:map key-type="com.pragmatix.pvp.PvpBattleKey" value-type="java.lang.Double">
+                        <entry key="WAGER_PvP_DUEL_15" value="1.0"/>
+                        <entry key="WAGER_PvP_DUEL_300" value="1.2"/>
+                        <entry key="WAGER_PvP_3_FOR_ALL" value="1.2"/>
+                        <entry key="WAGER_PvP_2x2" value="1.5"/>
+                    </util:map>
+                </constructor-arg>
+            </bean>
+        </property>
+        <property name="overrideTeamSize">
+            <bean class="java.util.EnumMap">
+                <constructor-arg>
+                    <util:map key-type="com.pragmatix.pvp.PvpBattleKey" value-type="java.lang.Integer">
+                        <entry key="WAGER_PvP_DUEL_20" value="1"/>
+                    </util:map>
+                </constructor-arg>
+            </bean>
+        </property>
+        <property name="teamSizeModifiers">
+            <list>
+                <value>0.2</value>
+                <value>0.4</value>
+                <value>0.6</value>
+                <value>1.0</value>
+            </list>
+        </property>
+        <property name="ranks">
+            <list>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="0" c:pointsToNext="-1" c:maxVictoryPoints="999" c:victoryBonus="1.5" c:defeatPenalty="1.2"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="1" c:pointsToNext="700" c:maxVictoryPoints="100" c:victoryBonus="1.4" c:defeatPenalty="1.2"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="2" c:pointsToNext="650" c:maxVictoryPoints="95" c:victoryBonus="1.3" c:defeatPenalty="1.1"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="3" c:pointsToNext="600" c:maxVictoryPoints="90" c:victoryBonus="1.2" c:defeatPenalty="1.0"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="4" c:pointsToNext="550" c:maxVictoryPoints="85" c:victoryBonus="1.1" c:defeatPenalty="0.9"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="5" c:pointsToNext="500" c:maxVictoryPoints="75" c:victoryBonus="1.0" c:defeatPenalty="0.8"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="6" c:pointsToNext="450" c:maxVictoryPoints="75" c:victoryBonus="0.75" c:defeatPenalty="0.7"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="7" c:pointsToNext="400" c:maxVictoryPoints="70" c:victoryBonus="0.75" c:defeatPenalty="0.65"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="8" c:pointsToNext="350" c:maxVictoryPoints="65" c:victoryBonus="0.75" c:defeatPenalty="0.6"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="9" c:pointsToNext="300" c:maxVictoryPoints="60" c:victoryBonus="0.75" c:defeatPenalty="0.55"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="10" c:pointsToNext="250" c:maxVictoryPoints="50" c:victoryBonus="0.75" c:defeatPenalty="0.5"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="11" c:pointsToNext="200" c:maxVictoryPoints="40" c:victoryBonus="0.625" c:defeatPenalty="0.45"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="12" c:pointsToNext="150" c:maxVictoryPoints="30" c:victoryBonus="0.625" c:defeatPenalty="0.4"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="13" c:pointsToNext="100" c:maxVictoryPoints="25" c:victoryBonus="0.625" c:defeatPenalty="0.35"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="14" c:pointsToNext="70" c:maxVictoryPoints="20" c:victoryBonus="0.625" c:defeatPenalty="0.3"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="15" c:pointsToNext="50" c:maxVictoryPoints="18" c:victoryBonus="0.625" c:defeatPenalty="0.25"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="16" c:pointsToNext="40" c:maxVictoryPoints="15" c:victoryBonus="0.5" c:defeatPenalty="0"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="17" c:pointsToNext="30" c:maxVictoryPoints="12" c:victoryBonus="0.5" c:defeatPenalty="0"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="18" c:pointsToNext="20" c:maxVictoryPoints="10" c:victoryBonus="0.5" c:defeatPenalty="0"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="19" c:pointsToNext="15" c:maxVictoryPoints="8" c:victoryBonus="0.5" c:defeatPenalty="0"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:rank="20" c:pointsToNext="10" c:maxVictoryPoints="7" c:victoryBonus="0.5" c:defeatPenalty="0"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean class="com.pragmatix.app.services.rating.SeasonService" depends-on="weaponsCreator">
+        <property name="seasonItems">
+            <map>
+                <!-- january -->
+                <entry key="1">
+                    <bean class="com.pragmatix.app.model.SeasonItems">
+                        <property name="seasonWeapons">
+                            <list>
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="106" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Вызов подкрепления-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="119" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Электромагнитный снаряд-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="121" p:clanAwardParam1="0.1" p:clanAwardParam2="2"/><!--Генератор помех-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="122" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Связка гранат-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="128" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Мастер-ключ-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="134" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Обратный телепорт-->
+                            </list>
+                        </property>
+                        <property name="seasonStuff">
+                            <list>
+                                <value>2020</value><!--Меч глубин-->
+                                <value>1114</value><!--Новогодняя шапка-->
+                                <value>1143</value><!--Арктический шлем-->
+                                <value>1125</value><!--Шлем тана (чёрный)-->
+                            </list>
+                        </property>
+                    </bean>
+                </entry>
+                <!-- february -->
+                <entry key="2">
+                    <bean class="com.pragmatix.app.model.SeasonItems">
+                        <property name="seasonWeapons">
+                            <list>
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="85" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Колдовской отвар-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="102" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Горящая тыква-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="111" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Печать воскрешения-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="123" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Двуствольная базука-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="126" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Огнестрельная турель-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="135" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Робопираньи-->
+                            </list>
+                        </property>
+                        <property name="seasonStuff">
+                            <list>
+                                <value>2020</value><!--Меч глубин-->
+                                <value>1138</value><!--Сохатый шлем-->
+                                <value>1140</value><!--Шлем Гравимастера-->
+                                <value>1134</value><!--Маска Заклинателя-->
+                            </list>
+                        </property>
+                    </bean>
+                </entry>
+                <!-- march -->
+                <entry key="3">
+                    <bean class="com.pragmatix.app.model.SeasonItems">
+                        <property name="seasonWeapons">
+                            <list>
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="75" p:clanAwardParam1="0.1" p:clanAwardParam2="2"/><!--Буран-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="93" p:clanAwardParam1="0.3" p:clanAwardParam2="2"/><!--Гвоздевая граната-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="101" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Зелье алхимика-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="104" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Марш зомби-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="112" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Радиомачта-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="127" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Крот-->
+                            </list>
+                        </property>
+                        <property name="seasonStuff">
+                            <list>
+                                <value>2020</value><!--Меч глубин-->
+                                <value>2038</value><!--Кузнеческий молот-->
+                                <value>2016</value><!--Копьё Ярла-->
+                                <value>1048</value><!--Повязка Тигра из банды якудза-->
+                            </list>
+                        </property>
+                    </bean>
+                </entry>
+                <!-- april -->
+                <entry key="4">
+                    <bean class="com.pragmatix.app.model.SeasonItems">
+                        <property name="seasonWeapons">
+                            <list>
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="84" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Скверная тыква-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="87" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Снежный ком-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="88" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Глубокая заморозка-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="120" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Обнулитель задержки-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="125" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Стационарная мортира-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="132" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Усыпляющий эликсир-->
+                            </list>
+                        </property>
+                        <property name="seasonStuff">
+                            <list>
+                                <value>2020</value><!--Меч глубин-->
+                                <value>1126</value><!--Шлем тана (зелёный)-->
+                                <value>1137</value><!--Шлем Симбиота-->
+                                <value>1145</value><!--Чёрное сомбреро-->
+                            </list>
+                        </property>
+                    </bean>
+                </entry>
+                <!-- may -->
+                <entry key="5">
+                    <bean class="com.pragmatix.app.model.SeasonItems">
+                        <property name="seasonWeapons">
+                            <list>
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="90" p:clanAwardParam1="0.2" p:clanAwardParam2="1"/><!--Подарочная коробка-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="106" p:clanAwardParam1="0.3" p:clanAwardParam2="2"/><!--Вызов подкрепления-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="108" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Глазированный пончик-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="119" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Электромагнитный снаряд-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="122" p:clanAwardParam1="0.1" p:clanAwardParam2="2"/><!--Связка гранат-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="134" p:clanAwardParam1="0.3" p:clanAwardParam2="2"/><!--Обратный телепорт-->
+                            </list>
+                        </property>
+                        <property name="seasonStuff">
+                            <list>
+                                <value>2020</value><!--Меч глубин-->
+                                <value>2041</value><!--Кирка-->
+                                <value>2032</value><!--Танковая пластина-->
+                                <value>1148</value><!--Шахтёрская каска-->
+                            </list>
+                        </property>
+                    </bean>
+                </entry>
+                <!-- june -->
+                <entry key="6">
+                    <bean class="com.pragmatix.app.model.SeasonItems">
+                        <property name="seasonWeapons">
+                            <list>
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="111" p:clanAwardParam1="0.2" p:clanAwardParam2="3"/><!--Печать воскрешения-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="121" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Генератор помех-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="123" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Двуствольная базука-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="126" p:clanAwardParam1="0.2" p:clanAwardParam2="3"/><!--Огнестрельная турель-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="128" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Мастер-ключ-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="135" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Робопираньи-->
+                            </list>
+                        </property>
+                        <property name="seasonStuff">
+                            <list>
+                                <value>2020</value><!--Меч глубин-->
+                                <value>2038</value><!--Кузнечный молот-->
+                                <value>1127</value><!--Шлем тана (красный)-->
+                                <value>1053</value><!--Кепка Минера-->
+                            </list>
+                        </property>
+                    </bean>
+                </entry>
+                <!-- july -->
+                <entry key="7">
+                    <bean class="com.pragmatix.app.model.SeasonItems">
+                        <property name="seasonWeapons">
+                            <list>
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="75" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Буран-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="84" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Скверная тыква-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="93" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Гвоздевая граната-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="102" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Горящая тыква-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="112" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Радиомачта-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="127" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Крот-->
+                            </list>
+                        </property>
+                        <property name="seasonStuff">
+                            <list>
+                                <value>2020</value><!--Меч глубин-->
+                                <value>2035</value><!--Зеркальный щит-->
+                                <value>1048</value><!--Повязка Тигра из банды Якудза-->
+                                <value>1054</value><!--Шапка пылающих зомби-->
+                            </list>
+                        </property>
+                    </bean>
+                </entry>
+                <!-- august -->
+                <entry key="8">
+                    <bean class="com.pragmatix.app.model.SeasonItems">
+                        <property name="seasonWeapons">
+                            <list>
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="88" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Глубокая заморозка-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="106" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Вызов подкрепления-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="108" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Глазированный пончик-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="120" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Обнулитель задержки-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="125" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Стационарная мортира-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="132" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Усыпляющий эликсир-->
+                            </list>
+                        </property>
+                        <property name="seasonStuff">
+                            <list>
+                                <value>2020</value><!--Меч глубин-->
+                                <value>2032</value><!--Танковая пластина-->
+                                <value>1138</value><!--Сохатый шлем-->
+                                <value>1147</value><!--Шлем Повелителя душ-->
+                            </list>
+                        </property>
+                    </bean>
+                </entry>
+                <!-- september -->
+                <entry key="9">
+                    <bean class="com.pragmatix.app.model.SeasonItems">
+                        <property name="seasonWeapons">
+                            <list>
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="111" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Печать воскрешения-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="119" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Электромагнитный снаряд-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="121" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Генератор помех-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="128" p:clanAwardParam1="0.1" p:clanAwardParam2="2"/><!--Мастер-ключ-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="134" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Обратный телепорт-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="135" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Робопираньи-->
+                            </list>
+                        </property>
+                        <property name="seasonStuff">
+                            <list>
+                                <value>2020</value><!--Меч глубин-->
+                                <value>2041</value><!--Кирка-->
+                                <value>1148</value><!--Шахтёрская каска-->
+                                <value>1053</value><!--Кепка Минера-->
+                            </list>
+                        </property>
+                    </bean>
+                </entry>
+                <!-- october -->
+                <entry key="10">
+                    <bean class="com.pragmatix.app.model.SeasonItems">
+                        <property name="seasonWeapons">
+                            <list>
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="85" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Колдовской отвар-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="101" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Зелье алхимика-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="102" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Горящая тыква-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="104" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Марш зомби-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="123" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Двуствольная базука-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="126" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Огнестрельная турель-->
+                            </list>
+                        </property>
+                        <property name="seasonStuff">
+                            <list>
+                                <value>2020</value><!--Меч глубин-->
+                                <value>1137</value><!--Шлем Симбиота-->
+                                <value>1147</value><!--Шлем Повелителя душ-->
+                                <value>1054</value><!--Шапка пылающих зомби-->
+                            </list>
+                        </property>
+                    </bean>
+                </entry>
+                <!-- november -->
+                <entry key="11">
+                    <bean class="com.pragmatix.app.model.SeasonItems">
+                        <property name="seasonWeapons">
+                            <list>
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="75" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Буран-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="84" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Скверная тыква-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="93" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Гвоздевая граната-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="112" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Радиомачта-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="127" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Крот-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="132" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Усыпляющий эликсир-->
+                            </list>
+                        </property>
+                        <property name="seasonStuff">
+                            <list>
+                                <value>2020</value><!--Меч глубин-->
+                                <value>1145</value><!--Чёрное сомбреро-->
+                                <value>1134</value><!--Маска Заклинателя-->
+                                <value>1124</value><!--Шлем Тана (синий)-->
+                            </list>
+                        </property>
+                    </bean>
+                </entry>
+                <!-- december -->
+                <entry key="12">
+                    <bean class="com.pragmatix.app.model.SeasonItems">
+                        <property name="seasonWeapons">
+                            <list>
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="87" p:clanAwardParam1="0.1" p:clanAwardParam2="2"/><!--Снежный ком-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="88" p:clanAwardParam1="0.1" p:clanAwardParam2="2"/><!--Глубокая заморозка-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="90" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Подарочная коробка-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="108" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/><!--Глазированный пончик-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="120" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Обнулитель задержки-->
+                                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="125" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/><!--Стационарная мортира-->
+                            </list>
+                        </property>
+                        <property name="seasonStuff">
+                            <list>
+                                <value>2020</value><!--Меч глубин-->
+                                <value>2016</value><!--Копьё Ярла-->
+                                <value>1118</value><!--Зимний шлем-->
+                                <value>1140</value><!--Шлем Гравимастера-->
+                            </list>
+                        </property>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+
+        <property name="seasonAward">
+            <list>
+                <wormix:award key="0" money="4000" reactionRate="300"  experience="300" seasonWeapons="8:4" realMoney="10"/>
+                <wormix:award key="1" money="3000" reactionRate="250" experience="250" seasonWeapons="8:4"/>
+                <wormix:award key="2" money="3000" reactionRate="200" experience="200" seasonWeapons="6:4 2:3"/>
+                <wormix:award key="3" money="3000" reactionRate="150" experience="150" seasonWeapons="4:4 4:3"/>
+                <wormix:award key="4" money="3000" reactionRate="130" experience="130" seasonWeapons="2:4 6:3"/>
+                <wormix:award key="5" money="3000" reactionRate="110" experience="110" seasonWeapons="6:4"/>
+                <wormix:award key="6" money="2000" reactionRate="90" experience="90" seasonWeapons="6:4"/>
+                <wormix:award key="7" money="2000" reactionRate="70" experience="70" seasonWeapons="4:4 2:3"/>
+                <wormix:award key="8" money="2000" reactionRate="60" experience="60" seasonWeapons="2:4 4:3"/>
+                <wormix:award key="9" money="2000" reactionRate="50" experience="50" seasonWeapons="6:3"/>
+                <wormix:award key="10" money="2000" reactionRate="40" experience="40" seasonWeapons="4:3 2:2"/>
+                <wormix:award key="11" money="1000" reactionRate="30" experience="30" seasonWeapons="4:3 2:2"/>
+                <wormix:award key="12" money="1000" reactionRate="25" experience="25" seasonWeapons="2:3 4:2"/>
+                <wormix:award key="13" money="1000" reactionRate="20" experience="20" seasonWeapons="4:3"/>
+                <wormix:award key="14" money="1000" reactionRate="15" experience="15" seasonWeapons="2:3 2:2"/>
+                <wormix:award key="15" money="1000" reactionRate="10" experience="10" seasonWeapons="4:2"/>
+            </list>
+        </property>
+
+        <property name="topSeasonsAward">
+            <map>
+                <entry key="1,4,7,10">
+                    <map>
+                        <entry key="1" value="1676"/>
+                        <entry key="2_5" value="1675"/>
+                        <entry key="6_10" value="1674"/>
+                        <entry key="11_50" value="1673"/>
+                        <entry key="51_100" value="1672"/>
+                        <entry key="101_1000" value="1671"/>
+                    </map>
+                </entry>
+                <entry key="2,5,8,11">
+                    <map>
+                        <entry key="1" value="1696"/>
+                        <entry key="2_5" value="1695"/>
+                        <entry key="6_10" value="1694"/>
+                        <entry key="11_50" value="1693"/>
+                        <entry key="51_100" value="1692"/>
+                        <entry key="101_1000" value="1691"/>
+                    </map>
+                </entry>
+                <entry key="3,6,9,12">
+                    <map>
+                        <entry key="1" value="1686"/>
+                        <entry key="2_5" value="1685"/>
+                        <entry key="6_10" value="1684"/>
+                        <entry key="11_50" value="1683"/>
+                        <entry key="51_100" value="1682"/>
+                        <entry key="101_1000" value="1681"/>
+                    </map>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+</beans>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:wormix="http://pragmatix-corp.com/schema/wormix"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://pragmatix-corp.com/schema/wormix http://pragmatix-corp.com/schema/wormix.xsd">
+
+    <bean class="com.pragmatix.arena.mercenaries.MercenariesDao"/>
+    <bean class="com.pragmatix.arena.mercenaries.MercenariesService"/>
+
+    <util:list id="Mercenaries.mercenariesDefs">
+        <bean class="com.pragmatix.arena.mercenaries.messages.MercenariesTeamMember"
+              c:id="1" c:level="12" c:race="3" c:armor="20" c:attack="4" c:hat="1048" c:kit="2534">
+            <property name="backpack"><list>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="341" c:count="2"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="55" c:count="2"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="57" c:count="1"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="116" c:count="1"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="379" c:count="2"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="306" c:count="2"/>
+            </list></property>
+        </bean>
+        <bean class="com.pragmatix.arena.mercenaries.messages.MercenariesTeamMember"
+              c:id="2" c:level="12" c:race="4" c:armor="8" c:attack="16" c:hat="1134" c:kit="2562">
+            <property name="backpack"><list>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="99" c:count="1"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="367" c:count="1"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="60" c:count="1"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="333" c:count="2"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="421" c:count="1"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="358" c:count="1"/>
+            </list></property>
+        </bean>
+        <bean class="com.pragmatix.arena.mercenaries.messages.MercenariesTeamMember"
+              c:id="3" c:level="12" c:race="8" c:armor="10" c:attack="14" c:hat="1525" c:kit="2555">
+            <property name="backpack"><list>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="418" c:count="2"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="366" c:count="1"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="328" c:count="1"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="422" c:count="1"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="119" c:count="1"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="56" c:count="1"/>
+            </list></property>
+        </bean>
+        <bean class="com.pragmatix.arena.mercenaries.messages.MercenariesTeamMember"
+              c:id="4" c:level="12" c:race="5" c:armor="12" c:attack="12" c:hat="1665" c:kit="2615">
+            <property name="backpack"><list>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="86" c:count="2"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="75" c:count="1"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="102" c:count="1"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="84" c:count="1"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="78" c:count="1"/>
+            </list></property>
+        </bean>
+        <bean class="com.pragmatix.arena.mercenaries.messages.MercenariesTeamMember"
+              c:id="5" c:level="12" c:race="2" c:armor="18" c:attack="6" c:hat="1146" c:kit="2041">
+            <property name="backpack"><list>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="346" c:count="2"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="388" c:count="1"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="331" c:count="3"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="364" c:count="1"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="319" c:count="2"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="396" c:count="1"/>
+            </list></property>
+        </bean>
+        <bean class="com.pragmatix.arena.mercenaries.messages.MercenariesTeamMember"
+              c:id="6" c:level="12" c:race="9" c:armor="16" c:attack="8" c:hat="1140" c:kit="2030">
+            <property name="backpack"><list>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="302" c:count="2"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="311" c:count="2"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="385" c:count="2"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="316" c:count="2"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="77" c:count="1"/>
+            </list></property>
+        </bean>
+        <bean class="com.pragmatix.arena.mercenaries.messages.MercenariesTeamMember"
+              c:id="7" c:level="12" c:race="6" c:armor="6" c:attack="18" c:hat="1149" c:kit="2010">
+            <property name="backpack"><list>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="352" c:count="1"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="372" c:count="1"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="378" c:count="1"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="93" c:count="1"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="355" c:count="1"/>
+            </list></property>
+        </bean>
+        <bean class="com.pragmatix.arena.mercenaries.messages.MercenariesTeamMember"
+              c:id="8" c:level="12" c:race="7" c:armor="14" c:attack="10" c:hat="1555" c:kit="2622">
+            <property name="backpack"><list>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="27" c:count="1"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="334" c:count="3"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="64" c:count="1"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="325" c:count="2"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="384" c:count="1"/>
+            </list></property>
+        </bean>
+        <bean class="com.pragmatix.arena.mercenaries.messages.MercenariesTeamMember"
+              c:id="9" c:level="12" c:race="0" c:armor="4" c:attack="20" c:hat="1040" c:kit="2546">
+            <property name="backpack"><list>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="345" c:count="2"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="318" c:count="2"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="309" c:count="2"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="108" c:count="1"/>
+                <bean class="com.pragmatix.arena.mercenaries.messages.BackpackItemShortStruct" c:weaponId="103" c:count="1"/>
+            </list></property>
+        </bean>
+    </util:list>
+
+
+    <util:map id="Mercenaries.completeSeriesAwardByWin" key-type="java.lang.Integer">
+        <entry key="0"><list>
+            <bean class="com.pragmatix.app.settings.GenericAward" p:money="20" p:addExperience="true"/>
+            <ref bean="mercenaries_finishAward_0_wins"/>
+            <ref bean="mercenaries_finishAward_0_wins"/>
+        </list></entry>
+        <entry key="1"><list>
+            <bean class="com.pragmatix.app.settings.GenericAward" p:money="60" p:addExperience="true"/>
+            <ref bean="mercenaries_finishAward_1_wins"/>
+            <ref bean="mercenaries_finishAward_1_wins"/>
+        </list></entry>
+        <entry key="2"><list>
+            <bean class="com.pragmatix.app.settings.GenericAward" p:money="100" p:addExperience="true"/>
+            <ref bean="mercenaries_finishAward_2_wins"/>
+            <ref bean="mercenaries_finishAward_2_wins"/>
+        </list></entry>
+        <entry key="3"><list>
+            <ref bean="mercenaries_finishAward_Slot1"/>
+            <ref bean="mercenaries_finishAward_Slot2_3"/>
+            <ref bean="mercenaries_finishAward_Slot2_3"/>
+        </list></entry>
+    </util:map>
+
+    <bean id="mercenaries_finishAward_Slot1" class="com.pragmatix.app.settings.GenericAwardFactory">
+        <property name="addExperience" value="true"/>
+        <property name="resultAwardMass" value="1:7 2:3 3:20 4:40 5:20 6:10"/>
+        <property name="awards">
+            <list>
+                <wormix:award key="1" realMoney="1" />
+                <wormix:award key="2" realMoney="2" />
+                <wormix:award key="3" money="120"   />
+                <wormix:award key="4" money="140"   />
+                <wormix:award key="5" money="160"   />
+                <wormix:award key="6" money="180"   />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="mercenaries_finishAward_Slot2_3" class="com.pragmatix.app.settings.GenericAward">
+        <property name="singleReagentCountFrom" value="1"/>
+        <property name="singleReagentCountTo" value="3"/>
+        <property name="reagentsMassStr" value="0 0:5 1:5 2:5 3:5 4:5 6:5 9:5 10:5 20:3 21:3 22:3 23:3 24:3 26:3 40:1 41:1 42:1 43:1 44:1 51:1"/>
+    </bean>
+
+    <bean id="mercenaries_finishAward_0_wins" class="com.pragmatix.app.settings.GenericAward">
+        <property name="singleReagentCount" value="1"/>
+        <property name="reagentsMassStr" value="0 0:5 1:5 2:5 3:5 4:5 6:5 9:5 10:5 20:1 21:1 22:1 23:1 24:1 26:1"/>
+    </bean>
+
+    <bean id="mercenaries_finishAward_1_wins" class="com.pragmatix.app.settings.GenericAward">
+        <property name="singleReagentCountFrom" value="1"/>
+        <property name="singleReagentCountTo" value="2"/>
+        <property name="reagentsMassStr" value="0 0:5 1:5 2:5 3:5 4:5 6:5 9:5 10:5 20:3 21:3 22:3 23:3 24:3 26:3"/>
+    </bean>
+
+    <bean id="mercenaries_finishAward_2_wins" class="com.pragmatix.app.settings.GenericAward">
+        <property name="singleReagentCountFrom" value="1"/>
+        <property name="singleReagentCountTo" value="3"/>
+        <property name="reagentsMassStr" value="0 0:5 1:5 2:5 3:5 4:5 6:5 9:5 10:5 20:3 21:3 22:3 23:3 24:3 26:3 40:1 41:1 42:1 43:1 44:1"/>
+    </bean>
+
+</beans>

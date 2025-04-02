@@ -1,0 +1,36 @@
+#!/bin/sh
+#
+# Плагин для мониторинга статистики AnonTaskExecutor
+
+StatDump=/home/user/server/logs/statistics/stat.dump
+
+if [ "$1" = "config" ]; then
+    echo 'graph_title Wormix Main Server (AnonTaskExecutor)'
+    echo 'graph_vlabel main_AnonTaskExecutor'
+    echo 'graph_noscale true'
+    echo 'graph_category Wormix VK Main'
+    echo 'graph_info This graph shows statistics about Wormix Main Server (AnonTaskExecutor)'
+
+    echo 'queueLength_avg.label queueLengthAvg'
+    echo 'queueLength_avg.info Queue length AVG'
+
+    echo 'queueLength_max.label queueLengthMax'                                                                             
+    echo 'queueLength_max.info Queue length MAX'
+
+    echo 'taskProcessTime.label taskProcessTime'
+    echo 'taskProcessTime.info Task process time AVG'
+
+    echo 'taskWaitInQueueTime.label taskWaitInQueueTime'
+    echo 'taskWaitInQueueTime.info Task wait in queue time AVG'
+
+    exit 0
+fi
+
+echo -n "queueLength_avg.value "
+cat $StatDump | grep "AnonExec:queueLength" | awk '{print $3}'
+echo -n "queueLength_max.value "
+cat $StatDump | grep "AnonExec:queueLength" | awk '{print $4}'
+echo -n "taskProcessTime.value "
+cat $StatDump | grep "AnonExec:taskProcessTime" | awk '{print $3}'
+echo -n "taskWaitInQueueTime.value "
+cat $StatDump | grep "AnonExec:taskWaitInQueueTime" | awk '{print $3}'

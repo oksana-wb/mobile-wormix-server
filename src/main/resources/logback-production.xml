@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <conversionRule conversionWord="account" converterClass="com.pragmatix.utils.logging.AccountConverter"/>
+    <conversionRule conversionWord="coloron" converterClass="com.pragmatix.utils.logging.ColorOnConverter"/>
+    <conversionRule conversionWord="coloroff" converterClass="com.pragmatix.utils.logging.ColorOffConverter"/>
+
+    <!-- Log to server.log and roll every hour -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/server.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>
+                logs/server/server-%d{yyyy-MM-dd-HH}.log.zip
+            </FileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>
+                %date{HH:mm:ss.SSS} %level [%thread] [%file:%line] [%account] %msg%n%throwable
+            </Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="syslogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/syslog.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>
+                logs/syslog/syslog-%d{yyyy-MM-dd}.log.zip
+            </FileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>
+                %date{HH:mm:ss.SSS} %level [%thread] [SYSLOG] [%file:%line] %msg%n%throwable
+            </Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="paymentsLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/payments.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>
+                logs/payments/payments-%d{yyyy-MM-dd}.log.zip
+            </FileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>
+                %date{HH:mm:ss.SSS} %level [%thread] [%file:%line] [%account] %msg%n%throwable
+            </Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="statisticsLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/statistics.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>
+                logs/statistics/statistics-%d{yyyy-MM-dd}.log.zip
+            </FileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>
+                %date{HH:mm:ss.SSS} %level [%thread] [%file:%line] [%account] %msg%n%throwable
+            </Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="pvpCdrLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/cdr/pvp_stat.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>
+                logs/cdr/pvp_stat-%d{yyyy-MM-dd}.log.zip
+            </FileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>
+                %date{HH:mm:ss}\t%msg%n
+            </Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="pvpDetailsCdrLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/cdr/pvp/pvp-details.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>
+                logs/cdr/pvp/pvp-details-%d{yyyy-MM-dd}.log.zip
+            </FileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>
+                %msg%n
+            </Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="battlesCdrLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/cdr/battles_stat.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>
+                logs/cdr/battles_stat-%d{yyyy-MM-dd}.log.zip
+            </FileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>
+                %date{HH:mm:ss.SSS}\t%msg%n
+            </Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="eventsCdrLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/cdr/events/events.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>logs/cdr/events/events-%d{yyyy-MM-dd}.log.zip</FileNamePattern>
+            <maxHistory>62</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>
+                %msg%n
+            </Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="clanAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/clan.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>
+                logs/clan/clan-%d{yyyy-MM-dd}.log.zip
+            </FileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>
+                %date{HH:mm:ss.SSS} %level [%thread] [%file:%line] [%account] %msg%n%throwable
+            </Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="clanChatAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/clan/clan_chat.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>
+                logs/clan/clan_chat-%d{yyyy-MM-dd}.log.zip
+            </FileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>
+                %date{HH:mm:ss.SSS}\t%msg%n
+            </Pattern>
+        </encoder>
+    </appender>
+
+    <!-- Log to console -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>
+                %coloron%date{HH:mm:ss.SSS} %level [%thread] [%file:%line] [%account] %msg%coloroff%n%throwable
+            </Pattern>
+        </encoder>
+    </appender>
+
+    <logger name="syslog" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="syslogAppender"/>
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <!-- Логгер платежей -->
+    <logger name="com.pragmatix.gameapp.social.PaymentLogger" additivity="false">
+        <level value="ALL"/>
+        <appender-ref ref="paymentsLogAppender"/>
+    </logger>
+
+    <!-- Отключаем ошибки при десериализации команды Login -->
+    <logger name="generated.com.pragmatix.app.messages.client.LoginBinarySerializer" additivity="false">
+        <level value="OFF"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+    </logger>
+
+    <logger name="com.pragmatix.performance.statictics" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="statisticsLogAppender"/>
+    </logger>
+
+    <logger name="PVP_CDR_LOGGER" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="pvpCdrLogAppender"/>
+    </logger>
+
+    <logger name="PVP_DETAILS_CDR_LOGGER" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="pvpDetailsCdrLogAppender"/>
+    </logger>
+
+    <logger name="BATTLES_CDR_LOGGER" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="battlesCdrLogAppender"/>
+    </logger>
+
+    <logger name="EVENTS_CDR_LOGGER" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="eventsCdrLogAppender"/>
+    </logger>
+
+    <logger name="com.pragmatix.gameapp.cache.SoftCache.vacuumLogger" additivity="false">
+        <level value="ALL"/>
+        <appender-ref ref="statisticsLogAppender"/>
+    </logger>
+
+    <logger name="com.pragmatix.pvp" additivity="false">
+        <level value="${logback.rootLoggerLevel}"/>
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <logger name="DUMP_BATTLES_LOGGER" additivity="false">
+        <level value="ALL"/>
+        <appender-ref ref="FILE"/>
+    </logger>
+
+    <logger name="com.pragmatix.clanserver.services" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="clanAppender"/>
+    </logger>
+
+    <logger name="CLAN_CHAT_LOG" additivity="false">
+        <level value="ALL"/>
+        <appender-ref ref="clanChatAppender"/>
+    </logger>
+
+    <logger name="CLAN_NEWS_LOG" additivity="false">
+        <level value="ALL"/>
+        <appender-ref ref="clanChatAppender"/>
+    </logger>
+
+    <root>
+        <level value="${logback.rootLoggerLevel}"/>
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>

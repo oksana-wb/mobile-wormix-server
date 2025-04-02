@@ -1,0 +1,40 @@
+#!/usr/bin/python2.7
+#
+# Plugin for Retention calculation
+
+import sys
+from pg import DB
+
+days = [1, 2, 3, 4, 5, 6, 7, 14, 30]
+
+if len(sys.argv) > 1 and sys.argv[1] == 'config':
+    print('graph_title User Retention')
+    print('graph_vlabel %')
+    print('graph_args -l 0')
+    print('graph_noscale true')
+    print('graph_category Wormix')
+    print('graph_info Retention on Wormix VK Stat')
+
+    for day in days:
+        print('day_{0}.label day#{0}'.format(day))
+        print('day_{0}.info Day {0}'.format(day))
+
+    sys.exit(0)
+
+sql = "with newly_registered as \
+(select id from wormswar.creation_date where creation_date >= now() - interval '{1} days' and creation_date < now() - interval '{0} days') \
+select count(nr.id) as registered_users, sum(case when up.id is null then 0 else 1 end) as retained_users \
+from newly_registered nr left join wormswar.user_profile up on nr.id = up.id and up.last_login_time >= now() - interval '1 days'"
+
+db = DB(dbname='wormswar', host='127.0.0.1', port=5432, user='smos')
+
+for day in days:
+    cursor = db.query(sql.format(day, day + 1))
+    rows = cursor.getresult()
+    registeredUsers = rows[0][0]
+    retainedUsers = rows[0][1]
+
+    if registeredUsers == 0:
+        print("day_{0}.value 0".format(day))
+    else:
+        print("day_{0}.value {1}".format(day, 100.0 * retainedUsers / registeredUsers))

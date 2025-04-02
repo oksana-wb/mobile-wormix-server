@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <!--Настройки наград за бой с ботами -->
+    <bean id="awardLowLevel"
+          class="com.pragmatix.app.settings.BattleAward">
+        <property name="winnerExp"
+                  value="8"/>
+        <property name="winnerMoney"
+                  value="30"/>
+        <property name="drawGameExp"
+                  value="4"/>
+        <property name="drawGameMoney"
+                  value="20"/>
+    </bean>
+
+    <bean id="awardMyLevel"
+          class="com.pragmatix.app.settings.BattleAward">
+        <property name="winnerExp"
+                  value="10"/>
+        <property name="winnerMoney"
+                  value="40"/>
+        <property name="drawGameExp"
+                  value="5"/>
+        <property name="drawGameMoney"
+                  value="25"/>
+    </bean>
+
+    <bean id="awardHighLevel"
+          class="com.pragmatix.app.settings.BattleAward">
+        <property name="winnerExp"
+                  value="12"/>
+        <property name="winnerMoney"
+                  value="50"/>
+        <property name="drawGameExp"
+                  value="8"/>
+        <property name="drawGameMoney"
+                  value="30"/>
+    </bean>
+
+    <bean id="botsBattleAwardSettings"
+          class="com.pragmatix.app.settings.SimpleBattleSettings">
+        <property name="minLevel"
+                  value="#{levelCreator.minLevel}"/>
+        <property name="maxLevel"
+                  value="#{levelCreator.maxLevel}"/>
+        <property name="awardLowLevel"
+                  ref="awardLowLevel"/>
+        <property name="awardMyLevel"
+                  ref="awardMyLevel"/>
+        <property name="awardHighLevel"
+                  ref="awardHighLevel"/>
+        <property name="maxExpBonus"
+                  value="8"/>
+        <property name="notWinnerExp"
+                  value="3"/>
+        <property name="notWinnerMoney"
+                  value="5"/>
+    </bean>
+
+    <!--Настройки наград для обучающих миссий-->
+    <bean id="learningBattleAwardSettings"
+          class="com.pragmatix.app.settings.LearningBattleSettings"
+          p:minLevel="#{levelCreator.minLevel}"
+          p:maxLevel="4"
+          p:trackedBattle="true"
+          p:decrementBattleCount="true"
+          p:myLevelWinnerExp="12"
+          p:myLevelWinnerMoney="40"
+            >
+    </bean>
+
+    <bean id="firstLearningBattleAwardSettings"
+          parent="learningBattleAwardSettings"
+          p:decrementBattleCount="false"
+            >
+    </bean>
+
+    <!--Настройки наград для миссий c боссами-->
+    <bean id="bossBattleAwardSettings"
+          class="com.pragmatix.app.settings.BossBattleSettings"
+          abstract="true"
+          p:maxLevel="#{levelCreator.maxLevel}"
+          p:trackedBattle="true"
+          p:decrementBattleCount="true"
+            >
+        <property name="awardMyLevel">
+            <bean class="com.pragmatix.app.settings.BattleAward"/>
+        </property>
+    </bean>
+
+    <bean id="bossMission_01"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="90"
+                  p:realMoney="0"
+                  p:experience="50"
+                  p:awardItemsStr="27:1"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="60"
+                  p:realMoney="0"
+                  p:experience="25"
+                  p:awardItemsStr="27:1"/>
+        </property>
+    </bean>
+    <bean id="bossMission_02"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="90"
+                  p:realMoney="0"
+                  p:experience="50"
+                  p:awardItemsStr="71:1"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="60"
+                  p:realMoney="0"
+                  p:experience="25"
+                  p:awardItemsStr="71:1"/>
+        </property>
+    </bean>
+    <bean id="bossMission_03"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="90"
+                  p:realMoney="0"
+                  p:experience="50"
+                  p:awardItemsStr="66:1"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="60"
+                  p:realMoney="0"
+                  p:experience="25"
+                  p:awardItemsStr="66:1"/>
+        </property>
+    </bean>
+    <bean id="bossMission_04"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="90"
+                  p:realMoney="0"
+                  p:experience="50"
+                  p:awardItemsStr="43:1"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="60"
+                  p:realMoney="0"
+                  p:experience="25"
+                  p:awardItemsStr="43:1"/>
+        </property>
+    </bean>
+    <bean id="bossMission_05"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="90"
+                  p:realMoney="0"
+                  p:experience="50"
+                  p:awardItemsStr="51:1"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="60"
+                  p:realMoney="0"
+                  p:experience="25"
+                  p:awardItemsStr="51:1"/>
+        </property>
+    </bean>
+    <bean id="bossMission_06"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="1"
+                  p:experience="60"
+                  p:awardItemsStr="65:1"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="70"
+                  p:realMoney="0"
+                  p:experience="25"
+                  p:awardItemsStr="65:1"/>
+        </property>
+    </bean>
+    <bean id="bossMission_07"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="1"
+                  p:experience="60"
+                  p:awardItemsStr="28:1"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="80"
+                  p:realMoney="0"
+                  p:experience="30"
+                  p:awardItemsStr="28:1"/>
+        </property>
+    </bean>
+    <bean id="bossMission_08"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="1"
+                  p:experience="60"
+                  p:awardItemsStr="32:1"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="80"
+                  p:realMoney="0"
+                  p:experience="30"
+                  p:awardItemsStr="32:1"/>
+        </property>
+    </bean>
+    <bean id="bossMission_09"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="1"
+                  p:experience="60"
+                  p:awardItemsStr="62:1 1037:23"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="80"
+                  p:realMoney="0"
+                  p:experience="30"
+                  p:awardItemsStr="62:1 1037:23"/>
+        </property>
+    </bean>
+    <bean id="bossMission_10"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="1"
+                  p:experience="60"
+                  p:rareAwardMass="90 5002:10"
+                  p:awardItemsStr="63:1 1036:23"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="80"
+                  p:realMoney="0"
+                  p:experience="30"
+                  p:rareAwardMass="90 5002:10"
+                  p:awardItemsStr="63:1 1036:23"/>
+        </property>
+    </bean>
+    <bean id="bossMission_11"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="2"
+                  p:experience="60"
+                  p:awardItemsStr="58:1 1038:23"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="80"
+                  p:realMoney="0"
+                  p:experience="30"
+                  p:awardItemsStr="58:1 1038:23"/>
+        </property>
+    </bean>
+    <bean id="bossMission_12"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="2"
+                  p:experience="60"
+                  p:awardItemsStr="24:1 1035:23"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="80"
+                  p:realMoney="0"
+                  p:experience="30"
+                  p:awardItemsStr="24:1 1035:23"/>
+        </property>
+    </bean>
+    <bean id="bossMission_13"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="2"
+                  p:experience="60"
+                  p:awardItemsStr="64:1 1039:23"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="80"
+                  p:realMoney="0"
+                  p:experience="30"
+                  p:awardItemsStr="64:1 1039:23"/>
+        </property>
+    </bean>
+    <bean id="bossMission_14"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="2"
+                  p:experience="60"
+                  p:awardItemsStr="67:1 1049:23"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="80"
+                  p:realMoney="0"
+                  p:experience="30"
+                  p:awardItemsStr="67:1 1049:23"/>
+        </property>
+    </bean>
+    <bean id="bossMission_15"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="2"
+                  p:experience="80"
+                  p:awardItemsStr="68:2 1044:23"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="90"
+                  p:realMoney="0"
+                  p:experience="40"
+                  p:awardItemsStr="68:2 1044:23"/>
+        </property>
+    </bean>
+    <bean id="bossMission_16"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="3"
+                  p:experience="80"
+                  p:awardItemsStr="28:2 1045:23 1046:23"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="90"
+                  p:realMoney="0"
+                  p:experience="40"
+                  p:awardItemsStr="28:2 1045:23 1046:23"/>
+        </property>
+    </bean>
+    <bean id="bossMission_17"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="5"
+                  p:experience="100"
+                  p:awardItemsStr="64:2 1043:23"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="100"
+                  p:realMoney="0"
+                  p:experience="50"
+                  p:awardItemsStr="64:2 1043:23"/>
+        </property>
+    </bean>
+    <bean id="bossMission_18"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="5"
+                  p:experience="100"
+                  p:rareAwardMass="90 5003:10"
+                  p:awardItemsStr="67:2 1040:23"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="100"
+                  p:realMoney="0"
+                  p:experience="50"
+                  p:rareAwardMass="90 5003:10"
+                  p:awardItemsStr="67:2 1040:23"/>
+        </property>
+    </bean>
+    <bean id="bossMission_19"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="5"
+                  p:experience="120"
+                  p:awardItemsStr="72:1 28:1 1059:23"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="120"
+                  p:realMoney="0"
+                  p:experience="60"
+                  p:awardItemsStr="72:1 28:1 1059:23"/>
+        </property>
+    </bean>
+    <bean id="bossMission_20"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="5"
+                  p:experience="130"
+                  p:awardItemsStr="43:1 80:1 1060:23"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="130"
+                  p:realMoney="0"
+                  p:experience="65"
+                  p:awardItemsStr="43:1 80:1 1060:23"/>
+        </property>
+    </bean>
+    <bean id="bossMission_21"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="7"
+                  p:experience="140"
+                  p:awardItemsStr="72:1 80:1 1067:23"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="130"
+                  p:realMoney="0"
+                  p:experience="70"
+                  p:awardItemsStr="72:1 80:1 1067:23"/>
+        </property>
+    </bean>
+    <bean id="bossMission_22"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="7"
+                  p:experience="150"
+                  p:awardItemsStr="72:1 93:1 1096:23"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="140"
+                  p:realMoney="0"
+                  p:experience="75"
+                  p:awardItemsStr="72:1 93:1 1096:23"/>
+        </property>
+    </bean>
+    <bean id="bossMission_23"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="7"
+                  p:experience="150"
+                  p:rareAwardMass="90 5005:10"
+                  p:awardItemsStr="80:1 84:1 1103:23"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="140"
+                  p:realMoney="0"
+                  p:experience="75"
+                  p:rareAwardMass="90 5005:10"
+                  p:awardItemsStr="80:1 84:1 1103:23"/>
+        </property>
+    </bean>
+    <bean id="bossMission_24"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="7"
+                  p:experience="150"
+                  p:awardItemsStr="72:1 75:1 2018:23"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="150"
+                  p:realMoney="0"
+                  p:experience="75"
+                  p:awardItemsStr="72:1 75:1 2018:23"/>
+        </property>
+    </bean>
+    <bean id="bossMission_25"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="8"
+                  p:experience="160"
+                  p:rareAwardMass="90 5001:10"
+                  p:awardItemsStr="72:1 103:1 1135:23"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="160"
+                  p:realMoney="0"
+                  p:experience="80"
+                  p:rareAwardMass="90 5001:10"
+                  p:awardItemsStr="72:1 103:1 1135:23"/>
+        </property>
+    </bean>
+    <bean id="bossMission_26"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="8"
+                  p:experience="160"
+                  p:awardItemsStr="80:1 101:1 2026:23"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="160"
+                  p:realMoney="0"
+                  p:experience="80"
+                  p:awardItemsStr="80:1 101:1 2026:23"/>
+        </property>
+    </bean>
+    <bean id="bossMission_27"
+          p:minLevel="1"
+          parent="bossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="8"
+                  p:experience="160"
+                  p:awardItemsStr="72:1 104:1 2027:23"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="160"
+                  p:realMoney="0"
+                  p:experience="80"
+                  p:awardItemsStr="72:1 104:1 2027:23"/>
+        </property>
+    </bean>
+
+    <bean id="heroicMissionAwardLevel_0"
+          class="com.pragmatix.app.settings.BossBattleWinAward"
+          p:money="100"
+          p:realMoney="0"
+          p:experience="50"
+          p:awardItemsStr="72:2 80:2 1111:12 "/>
+
+    <bean id="heroicMissionAwardLevel_1"
+          class="com.pragmatix.app.settings.BossBattleWinAward"
+          p:money="130"
+          p:realMoney="0"
+          p:experience="65"
+          p:awardItemsStr="72:2 80:2 1112:12 "/>
+
+    <bean id="heroicMissionAwardLevel_2"
+          class="com.pragmatix.app.settings.BossBattleWinAward"
+          p:money="160"
+          p:realMoney="0"
+          p:experience="80"
+          p:awardItemsStr="72:3 80:3 1113:12 "/>
+
+    <bean id="heroicMissionAwardLevel_3"
+          class="com.pragmatix.app.settings.BossBattleWinAward"
+          p:money="200"
+          p:realMoney="0"
+          p:experience="100"
+          p:awardItemsStr="72:4 80:4 1139:12 "/>
+
+    <!--Награды за совместное прохождения босса-->
+    <bean id="newBossBattleAwardSettings" class="com.pragmatix.app.settings.BossBattleSettings" abstract="true"
+          p:maxLevel="#{levelCreator.maxLevel}"
+          p:trackedBattle="true"
+          p:decrementBattleCount="true"
+          p:newBoss="true"
+            >
+        <property name="awardMyLevel">
+            <bean class="com.pragmatix.app.settings.BattleAward"/>
+        </property>
+    </bean>
+
+    <bean id="bossMission_new_01"
+          p:minLevel="1"
+          p:missionTeamSize="1"
+          parent="newBossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="1"
+                  p:experience="60"
+                  p:rareAwardMass="90 5006:10"
+                  p:awardItemsStr="24:2 58:2 1068:23"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="80"
+                  p:realMoney="0"
+                  p:experience="30"
+                  p:rareAwardMass="90 5006:10"
+                  p:awardItemsStr="24:1 58:1 1068:23"/>
+        </property>
+    </bean>
+    <bean id="bossMission_new_02"
+          p:minLevel="1"
+          p:missionTeamSize="2"
+          parent="newBossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="1"
+                  p:experience="60"
+                  p:awardItemsStr="64:2 107:2 1069:23"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="80"
+                  p:realMoney="0"
+                  p:experience="30"
+                  p:awardItemsStr="64:1 107:1 1069:23"/>
+        </property>
+    </bean>
+    <bean id="bossMission_new_03"
+          p:minLevel="1"
+          p:missionTeamSize="2"
+          parent="newBossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="2"
+                  p:experience="80"
+                  p:awardItemsStr="72:4 24:3 1072:23"/>
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="90"
+                  p:realMoney="0"
+                  p:experience="40"
+                  p:awardItemsStr="72:2 24:2 1072:23"/>
+        </property>
+    </bean>
+
+    <bean id="bossMission_new_04" p:minLevel="1" p:missionTeamSize="2" parent="newBossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="2"
+                  p:experience="80"
+                  p:rareAwardMass="90 5004:10"
+                  p:awardItemsStr="80:4 65:3 28:2 1076:23"
+                    />
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="90"
+                  p:realMoney="0"
+                  p:experience="40"
+                  p:rareAwardMass="90 5004:10"
+                  p:awardItemsStr="80:2 65:2 28:1 1076:23"
+                    />
+        </property>
+    </bean>
+
+    <bean id="bossMission_new_05" p:minLevel="1" p:missionTeamSize="2" parent="newBossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="2"
+                  p:experience="100"
+                  p:awardItemsStr="72:4 75:2 36:2 1073:23"
+                    />
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="100"
+                  p:realMoney="0"
+                  p:experience="50"
+                  p:awardItemsStr="72:2 75:1 36:1 1073:23"
+                    />
+        </property>
+    </bean>
+
+    <bean id="bossMission_new_06" p:minLevel="1" p:missionTeamSize="1" parent="newBossBattleAwardSettings">
+        <property name="firstWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="0"
+                  p:realMoney="2"
+                  p:experience="100"
+                  p:rareAwardMass="90 5007:5 5008:5"
+                  p:awardItemsStr="80:4 67:2 70:2 2007:23"
+                    />
+        </property>
+        <property name="nextWinBattleAward">
+            <bean class="com.pragmatix.app.settings.BossBattleWinAward"
+                  p:money="100"
+                  p:realMoney="0"
+                  p:experience="50"
+                  p:rareAwardMass="90 5007:5 5008:5"
+                  p:awardItemsStr="80:2 67:1 70:1 2007:23"
+                    />
+        </property>
+    </bean>
+</beans>

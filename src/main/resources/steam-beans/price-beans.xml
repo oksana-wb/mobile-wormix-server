@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/util
+           http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- настройки цены одного боя -->
+    <bean id="battlePriceSettings" class="com.pragmatix.app.settings.ItemRequirements">
+        <property name="needMoney" value="100"/>
+        <property name="needRealMoney" value="1"/>
+    </bean>
+
+    <!-- настройки цены lля 5-ти боёв -->
+    <bean id="bulkBattlesPriceSettings" class="com.pragmatix.app.settings.ItemRequirements">
+        <property name="needMoney" value="400"/>
+        <property name="needRealMoney" value="4"/>
+    </bean>
+
+    <!-- настройки цены обнуления профиля -->
+    <bean id="wipePriceSettings" class="com.pragmatix.app.settings.ItemRequirements">
+        <property name="needRealMoney" value="5"/>
+        <property name="needLevel" value="10"/>
+    </bean>
+
+    <!-- настройки цены покупки скорости реакции (только для мобилок, и то возможно не пригодится) -->
+    <bean id="reactionRatePriceSettings" class="com.pragmatix.app.settings.ItemRequirements">
+        <property name="needRealMoney" value="1"/>
+    </bean>
+
+    <!-- настройки цены покупки члена команды в качестве клонированного друга (это параметры формулы, не абсолютные значения!) -->
+    <bean id="friendGroupPriceSettings" class="com.pragmatix.app.settings.ItemRequirements">
+        <property name="needMoney" value="1600"/>
+        <property name="needRealMoney" value="0"/>
+    </bean>
+
+    <!-- настройки цены покупки члена команды в качестве соклановца (это параметры формулы, не абсолютные значения!) -->
+    <bean id="soclanGroupPriceSettings" class="com.pragmatix.app.settings.ItemRequirements">
+        <property name="needMoney" value="3000"/>
+        <property name="needRealMoney" value="0"/>
+    </bean>
+
+    <!-- настройки цены сброса параметров -->
+    <bean id="userParametersPriceSettings" class="com.pragmatix.app.settings.ItemRequirements">
+        <property name="needMoney" value="300"/>
+        <property name="needRealMoney" value="3"/>
+    </bean>
+
+    <!-- настройки цены пропуска одной мисии -->
+    <bean id="unlockMissionPriceSettings" class="com.pragmatix.app.settings.ItemRequirements">
+        <property name="needRealMoney" value="10"/>
+    </bean>
+
+    <!-- настройки цены немедленной смены расы -->
+    <bean id="selectRacePriceSettings" class="com.pragmatix.app.settings.ItemRequirements">
+        <property name="needRealMoney" value="5"/>
+    </bean>
+
+    <!-- настройки цены смены расы  -->
+    <bean class="com.pragmatix.app.settings.RacePriceSettings">
+        <property name="priceMap">
+            <map>
+                <entry key="BOXER">
+                    <bean class="com.pragmatix.app.settings.ItemRequirements" p:needLevel="1" p:needMoney="300" p:needRealMoney="3"/>
+                </entry>
+                <entry key="DEMON">
+                    <bean class="com.pragmatix.app.settings.ItemRequirements" p:needLevel="10" p:needMoney="2000" p:needRealMoney="20"/>
+                </entry>
+                <entry key="RABBIT">
+                    <bean class="com.pragmatix.app.settings.ItemRequirements" p:needLevel="8" p:needMoney="1600" p:needRealMoney="16"/>
+                </entry>
+                <entry key="ZOMBIE">
+                    <bean class="com.pragmatix.app.settings.ItemRequirements" p:needLevel="8" p:needMoney="1200" p:needRealMoney="12"/>
+                </entry>
+                <entry key="CAT">
+                    <bean class="com.pragmatix.app.settings.ItemRequirements" p:needLevel="12" p:needMoney="2500" p:needRealMoney="25"/>
+                </entry>
+                <entry key="DRAGON">
+                    <bean class="com.pragmatix.app.settings.ItemRequirements" p:needLevel="14" p:needMoney="2600" p:needRealMoney="26"/>
+                </entry>
+                <entry key="ROBOT">
+                    <bean class="com.pragmatix.app.settings.ItemRequirements" p:needLevel="16" p:needMoney="3000" p:needRealMoney="30"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <!-- настройки цены смены имени -->
+    <bean id="renamePriceSettings" class="com.pragmatix.app.settings.RenameRequirements">
+        <property name="needMoney" value="100"/>
+        <property name="needRealMoney" value="1"/>
+        <property name="minLength" value="3"/>
+        <property name="maxLength" value="20"/>
+    </bean>
+
+    <!--настройки цены доп.слотов для команды-->
+    <util:list id="extraGroupSlotPriceSettings">
+        <!-- 1 -->
+        <bean class="com.pragmatix.app.settings.ItemRequirements">
+            <property name="needMoney" value="4000"/>
+            <property name="needRealMoney" value="40"/>
+            <property name="needLevel" value="5"/> <!-- т.к. до 5го уровня WormGroupsEntity не существует -->
+        </bean>
+        <!-- 2 -->
+        <bean class="com.pragmatix.app.settings.ItemRequirements">
+            <property name="needMoney" value="10000"/>
+            <property name="needRealMoney" value="100"/>
+            <property name="needLevel" value="5"/> <!-- т.к. до 5го уровня WormGroupsEntity не существует -->
+        </bean>
+        <!-- 3 -->
+        <bean class="com.pragmatix.app.settings.ItemRequirements">
+            <property name="needMoney" value="20000"/>
+            <property name="needRealMoney" value="200"/>
+            <property name="needLevel" value="5"/> <!-- т.к. до 5го уровня WormGroupsEntity не существует -->
+        </bean>
+    </util:list>
+
+    <util:map id="mercenariesConf">
+        <entry key="-1">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="5" p:raceId="2" p:attack="60" p:armor="0" p:hatId="0" p:kitId="0"
+                  p:needLevel="5" p:needMoney="500" p:needRealMoney="5"
+                    />
+        </entry>
+        <entry key="-2">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="5" p:raceId="5" p:attack="24" p:armor="36" p:hatId="1003" p:kitId="0"
+                  p:needLevel="5" p:needMoney="1400" p:needRealMoney="14"
+                    />
+        </entry>
+        <entry key="-3">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="6" p:raceId="4" p:attack="40" p:armor="20" p:hatId="0" p:kitId="0"
+                  p:needLevel="6" p:needMoney="1400" p:needRealMoney="14"
+                    />
+        </entry>
+        <entry key="-4">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="7" p:raceId="2" p:attack="42" p:armor="18" p:hatId="1004" p:kitId="0"
+                  p:needLevel="7" p:needMoney="1200" p:needRealMoney="12"
+                    />
+        </entry>
+        <entry key="-5">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="8" p:raceId="5" p:attack="8" p:armor="52" p:hatId="0" p:kitId="0"
+                  p:needLevel="8" p:needMoney="1100" p:needRealMoney="11"
+                    />
+        </entry>
+        <entry key="-6">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="8" p:raceId="4" p:attack="38" p:armor="22" p:hatId="1006" p:kitId="0"
+                  p:needLevel="8" p:needMoney="2200" p:needRealMoney="22"
+                    />
+        </entry>
+        <entry key="-7">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="9" p:raceId="2" p:attack="27" p:armor="33" p:hatId="1102" p:kitId="0"
+                  p:needLevel="9" p:needMoney="1600" p:needRealMoney="16"
+                    />
+        </entry>
+        <entry key="-8">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="10" p:raceId="5" p:attack="60" p:armor="0" p:hatId="1005" p:kitId="0"
+                  p:needLevel="10" p:needMoney="2100" p:needRealMoney="21"
+                    />
+        </entry>
+        <entry key="-9">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="11" p:raceId="3" p:attack="16" p:armor="44" p:hatId="0" p:kitId="0"
+                  p:needLevel="11" p:needMoney="1600" p:needRealMoney="16"
+                    />
+        </entry>
+        <entry key="-10">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="11" p:raceId="4" p:attack="38" p:armor="22" p:hatId="1023" p:kitId="0"
+                  p:needLevel="11" p:needMoney="2300" p:needRealMoney="23"
+                    />
+        </entry>
+        <entry key="-11">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="12" p:raceId="2" p:attack="10" p:armor="50" p:hatId="1016" p:kitId="0"
+                  p:needLevel="12" p:needMoney="1700" p:needRealMoney="17"
+                    />
+        </entry>
+        <entry key="-12">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="13" p:raceId="3" p:attack="28" p:armor="32" p:hatId="1031" p:kitId="0"
+                  p:needLevel="13" p:needMoney="3500" p:needRealMoney="35"
+                    />
+        </entry>
+        <entry key="-13">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="14" p:raceId="5" p:attack="55" p:armor="5" p:hatId="1010" p:kitId="0"
+                  p:needLevel="14" p:needMoney="2600" p:needRealMoney="26"
+                    />
+        </entry>
+        <entry key="-14">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="14" p:raceId="4" p:attack="39" p:armor="21" p:hatId="1098" p:kitId="0"
+                  p:needLevel="14" p:needMoney="3200" p:needRealMoney="32"
+                    />
+        </entry>
+        <entry key="-15">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="15" p:raceId="6" p:attack="44" p:armor="16" p:hatId="0" p:kitId="0"
+                  p:needLevel="15" p:needMoney="2000" p:needRealMoney="20"
+                    />
+        </entry>
+        <entry key="-16">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="16" p:raceId="2" p:attack="23" p:armor="37" p:hatId="1024" p:kitId="0"
+                  p:needLevel="16" p:needMoney="2600" p:needRealMoney="26"
+                    />
+        </entry>
+        <entry key="-17">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="17" p:raceId="3" p:attack="32" p:armor="28" p:hatId="1012" p:kitId="2004"
+                  p:needLevel="17" p:needMoney="4400" p:needRealMoney="44"
+                    />
+        </entry>
+        <entry key="-18">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="17" p:raceId="4" p:attack="56" p:armor="4" p:hatId="0" p:kitId="2001"
+                  p:needLevel="17" p:needMoney="2100" p:needRealMoney="21"
+                    />
+        </entry>
+        <entry key="-19">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="18" p:raceId="7" p:attack="40" p:armor="20" p:hatId="0" p:kitId="0"
+                  p:needLevel="18" p:needMoney="2100" p:needRealMoney="21"
+                    />
+        </entry>
+        <entry key="-20">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="19" p:raceId="5" p:attack="25" p:armor="35" p:hatId="0" p:kitId="2002"
+                  p:needLevel="19" p:needMoney="1900" p:needRealMoney="19"
+                    />
+        </entry>
+        <entry key="-21">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="20" p:raceId="2" p:attack="9" p:armor="51" p:hatId="1029" p:kitId="0"
+                  p:needLevel="20" p:needMoney="2700" p:needRealMoney="27"
+                    />
+        </entry>
+        <entry key="-22">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="20" p:raceId="6" p:attack="39" p:armor="21" p:hatId="1078" p:kitId="0"
+                  p:needLevel="20" p:needMoney="4400" p:needRealMoney="44"
+                    />
+        </entry>
+        <entry key="-23">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="21" p:raceId="8" p:attack="46" p:armor="14" p:hatId="0" p:kitId="0"
+                  p:needLevel="21" p:needMoney="2300" p:needRealMoney="23"
+                    />
+        </entry>
+        <entry key="-24">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="22" p:raceId="7" p:attack="57" p:armor="3" p:hatId="0" p:kitId="2004"
+                  p:needLevel="22" p:needMoney="2800" p:needRealMoney="28"
+                    />
+        </entry>
+        <entry key="-25">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="23" p:raceId="3" p:attack="26" p:armor="34" p:hatId="1077" p:kitId="0"
+                  p:needLevel="23" p:needMoney="3700" p:needRealMoney="37"
+                    />
+        </entry>
+        <entry key="-26">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="23" p:raceId="5" p:attack="37" p:armor="23" p:hatId="1097" p:kitId="0"
+                  p:needLevel="23" p:needMoney="2500" p:needRealMoney="25"
+                    />
+        </entry>
+        <entry key="-27">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="24" p:raceId="4" p:attack="15" p:armor="45" p:hatId="1030" p:kitId="0"
+                  p:needLevel="24" p:needMoney="4400" p:needRealMoney="44"
+                    />
+        </entry>
+        <entry key="-28">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="25" p:raceId="6" p:attack="41" p:armor="19" p:hatId="0" p:kitId="2005"
+                  p:needLevel="25" p:needMoney="3500" p:needRealMoney="35"
+                    />
+        </entry>
+        <entry key="-29">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="25" p:raceId="2" p:attack="26" p:armor="34" p:hatId="1015" p:kitId="0"
+                  p:needLevel="25" p:needMoney="3300" p:needRealMoney="33"
+                    />
+        </entry>
+        <entry key="-30">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="26" p:raceId="8" p:attack="30" p:armor="30" p:hatId="1064" p:kitId="0"
+                  p:needLevel="26" p:needMoney="5300" p:needRealMoney="53"
+                    />
+        </entry>
+        <entry key="-31">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="26" p:raceId="7" p:attack="48" p:armor="12" p:hatId="0" p:kitId="2010"
+                  p:needLevel="26" p:needMoney="4000" p:needRealMoney="40"
+                    />
+        </entry>
+        <entry key="-32">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="27" p:raceId="5" p:attack="40" p:armor="20" p:hatId="1122" p:kitId="0"
+                  p:needLevel="27" p:needMoney="4200" p:needRealMoney="42"
+                    />
+        </entry>
+        <entry key="-33">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="27" p:raceId="4" p:attack="24" p:armor="36" p:hatId="1014" p:kitId="2008"
+                  p:needLevel="27" p:needMoney="5200" p:needRealMoney="52"
+                    />
+        </entry>
+        <entry key="-34">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="28" p:raceId="7" p:attack="32" p:armor="28" p:hatId="1102" p:kitId="2009"
+                  p:needLevel="28" p:needMoney="4900" p:needRealMoney="49"
+                    />
+        </entry>
+        <entry key="-35">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="28" p:raceId="3" p:attack="9" p:armor="51" p:hatId="1030" p:kitId="0"
+                  p:needLevel="28" p:needMoney="4700" p:needRealMoney="47"
+                    />
+        </entry>
+        <entry key="-36">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="29" p:raceId="6" p:attack="50" p:armor="10" p:hatId="1047" p:kitId="0"
+                  p:needLevel="29" p:needMoney="5600" p:needRealMoney="56"
+                    />
+        </entry>
+        <entry key="-37">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="29" p:raceId="4" p:attack="27" p:armor="33" p:hatId="1002" p:kitId="0"
+                  p:needLevel="29" p:needMoney="5000" p:needRealMoney="50"
+                    />
+        </entry>
+        <entry key="-38">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="30" p:raceId="2" p:attack="44" p:armor="16" p:hatId="1051" p:kitId="0"
+                  p:needLevel="30" p:needMoney="4200" p:needRealMoney="42"
+                    />
+        </entry>
+        <entry key="-39">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="30" p:raceId="8" p:attack="52" p:armor="8" p:hatId="1084" p:kitId="2015"
+                  p:needLevel="30" p:needMoney="7500" p:needRealMoney="75"
+                    />
+        </entry>
+        <entry key="-40">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="30" p:raceId="5" p:attack="18" p:armor="42" p:hatId="1042" p:kitId="0"
+                  p:needLevel="30" p:needMoney="4900" p:needRealMoney="49"
+                    />
+        </entry>
+        <entry key="-41">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="30" p:raceId="3" p:attack="22" p:armor="38" p:hatId="1057" p:kitId="0"
+                  p:needLevel="30" p:needMoney="5000" p:needRealMoney="50"
+                    />
+        </entry>
+        <entry key="-42">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="9" p:raceId="9" p:attack="14" p:armor="4" p:hatId="1009" p:kitId="0"
+                  p:needLevel="9" p:needMoney="1000" p:needRealMoney="10"
+                    />
+        </entry>
+        <entry key="-43">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="19" p:raceId="9" p:attack="24" p:armor="14" p:hatId="1132" p:kitId="0"
+                  p:needLevel="19" p:needMoney="1500" p:needRealMoney="15"
+                    />
+        </entry>
+        <entry key="-44">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="22" p:raceId="9" p:attack="6" p:armor="38" p:hatId="1131" p:kitId="0"
+                  p:needLevel="22" p:needMoney="1600" p:needRealMoney="16"
+                    />
+        </entry>
+        <entry key="-45">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="24" p:raceId="9" p:attack="24" p:armor="24" p:hatId="1065" p:kitId="2014"
+                  p:needLevel="24" p:needMoney="2200" p:needRealMoney="22"
+                    />
+        </entry>
+        <entry key="-46">
+            <bean class="com.pragmatix.app.model.group.MercenaryBean"
+                  p:level="29" p:raceId="9" p:attack="34" p:armor="24" p:hatId="1130" p:kitId="0"
+                  p:needLevel="29" p:needMoney="2900" p:needRealMoney="29"
+                    />
+        </entry>
+    </util:map>
+
+    <!-- level - уровень реакции; value - значение реакции; price - стоимость в рубинах -->
+    <util:list id="reactionRateConf">
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="1" p:value="0" p:price="0"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="2" p:value="5" p:price="1"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="3" p:value="10" p:price="1"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="4" p:value="20" p:price="2"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="5" p:value="30" p:price="2"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="6" p:value="50" p:price="5"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="7" p:value="80" p:price="7"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="8" p:value="130" p:price="10"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="9" p:value="210" p:price="20"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="10" p:value="340" p:price="30"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="11" p:value="540" p:price="45"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="12" p:value="840" p:price="60"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="13" p:value="1290" p:price="90"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="14" p:value="1960" p:price="130"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="15" p:value="2940" p:price="190"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="16" p:value="4350" p:price="270"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="17" p:value="6350" p:price="380"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="18" p:value="9140" p:price="520"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="19" p:value="12980" p:price="700"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="20" p:value="18170" p:price="930"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="21" p:value="25070" p:price="1210"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="22" p:value="34100" p:price="1550"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="23" p:value="45690" p:price="1950"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="24" p:value="60310" p:price="2410"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="25" p:value="78400" p:price="2930"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="26" p:value="100350" p:price="3480"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="27" p:value="126440" p:price="4060"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="28" p:value="156790" p:price="4620"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="29" p:value="191280" p:price="5150"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="30" p:value="229540" p:price="5600"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="31" p:value="275450"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="32" p:value="330540"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="33" p:value="396650"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="34" p:value="475980"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="35" p:value="571180"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="36" p:value="685420"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="37" p:value="822500"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="38" p:value="987000"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="39" p:value="1184400"/>
+        <bean class="com.pragmatix.app.model.ReactionConf" p:level="40" p:value="1421280"/>
+    </util:list>
+
+    <util:list id="depositsConf">
+        <!-- вклады в рубинах -->
+        <bean class="com.pragmatix.app.model.DepositBean" p:id="daily_ruby10" p:moneyType="REAL_MONEY" p:dividendsByDaysStr="2 2 2 2 2"/>
+        <bean class="com.pragmatix.app.model.DepositBean" p:id="daily_ruby20" p:moneyType="REAL_MONEY" p:dividendsByDaysStr="4 4 4 4 4"/>
+        <bean class="com.pragmatix.app.model.DepositBean" p:id="daily_ruby50" p:moneyType="REAL_MONEY" p:dividendsByDaysStr="10 10 10 10 10"/>
+        <bean class="com.pragmatix.app.model.DepositBean" p:id="daily_ruby105" p:moneyType="REAL_MONEY" p:dividendsByDaysStr="20 20 20 20 25"/>
+        <bean class="com.pragmatix.app.model.DepositBean" p:id="daily_ruby220" p:moneyType="REAL_MONEY" p:dividendsByDaysStr="40 40 40 40 60"/>
+        <!-- вклады в фузах -->
+        <bean class="com.pragmatix.app.model.DepositBean" p:id="daily_fuzy1000" p:moneyType="MONEY" p:dividendsByDaysStr="200 200 200 200 200"/>
+        <bean class="com.pragmatix.app.model.DepositBean" p:id="daily_fuzy2000" p:moneyType="MONEY" p:dividendsByDaysStr="400 400 400 400 400"/>
+        <bean class="com.pragmatix.app.model.DepositBean" p:id="daily_fuzy5000" p:moneyType="MONEY" p:dividendsByDaysStr="1000 1000 1000 1000 1000"/>
+        <bean class="com.pragmatix.app.model.DepositBean" p:id="daily_fuzy10500" p:moneyType="MONEY" p:dividendsByDaysStr="2000 2000 2000 2000 2500"/>
+        <bean class="com.pragmatix.app.model.DepositBean" p:id="daily_fuzy22000" p:moneyType="MONEY" p:dividendsByDaysStr="4000 4000 4000 4000 6000"/>
+
+        <!--Apple-->
+        <!-- вклады в рубинах -->
+        <bean class="com.pragmatix.app.model.DepositBean" p:id="daily_r_1" p:moneyType="REAL_MONEY" p:dividendsByDaysStr="2 2 2 2 2"/>
+        <bean class="com.pragmatix.app.model.DepositBean" p:id="daily_r_2" p:moneyType="REAL_MONEY" p:dividendsByDaysStr="4 4 4 4 4"/>
+        <bean class="com.pragmatix.app.model.DepositBean" p:id="daily_r_5" p:moneyType="REAL_MONEY" p:dividendsByDaysStr="10 10 10 10 10"/>
+        <bean class="com.pragmatix.app.model.DepositBean" p:id="daily_r_10" p:moneyType="REAL_MONEY" p:dividendsByDaysStr="20 20 20 20 25"/>
+        <bean class="com.pragmatix.app.model.DepositBean" p:id="daily_r_20" p:moneyType="REAL_MONEY" p:dividendsByDaysStr="40 40 40 40 60"/>
+        <!-- вклады в фузах -->
+        <bean class="com.pragmatix.app.model.DepositBean" p:id="daily_f_1" p:moneyType="MONEY" p:dividendsByDaysStr="200 200 200 200 200"/>
+        <bean class="com.pragmatix.app.model.DepositBean" p:id="daily_f_2" p:moneyType="MONEY" p:dividendsByDaysStr="400 400 400 400 400"/>
+        <bean class="com.pragmatix.app.model.DepositBean" p:id="daily_f_5" p:moneyType="MONEY" p:dividendsByDaysStr="1000 1000 1000 1000 1000"/>
+        <bean class="com.pragmatix.app.model.DepositBean" p:id="daily_f_10" p:moneyType="MONEY" p:dividendsByDaysStr="2000 2000 2000 2000 2500"/>
+        <bean class="com.pragmatix.app.model.DepositBean" p:id="daily_f_20" p:moneyType="MONEY" p:dividendsByDaysStr="4000 4000 4000 4000 6000"/>
+    </util:list>
+
+    <util:list id="SkinService_skins"/>
+
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

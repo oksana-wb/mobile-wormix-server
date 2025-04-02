@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/util
+           http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="wormixAchievementMapper" class="com.pragmatix.achieve.mappers.WormixAchievementsMapperImpl"/>
+
+    <bean class="com.pragmatix.achieve.dao.AchieveDao">
+        <property name="mappers">
+            <map>
+                <entry key="com.pragmatix.achieve.domain.WormixAchievements" value-ref="wormixAchievementMapper"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="wormixAchievementService" class="com.pragmatix.achieve.services.MaintainedAchievementService" scope="prototype">
+        <property name="achieveEntityClass" value="com.pragmatix.achieve.domain.WormixAchievements"/>
+        <property name="awardGrid">
+            <list>
+                <!-- 0 -->
+                <bean p:achievement="burned_enemies" p:progress="50" p:points="50" p:reaction="3" p:awardType="1000" parent="wormixAchieveAward"/>
+                <bean p:achievement="burned_enemies" p:progress="200" p:points="60" p:reaction="5" p:awardType="2000" parent="wormixAchieveAward"/>
+                <bean p:achievement="burned_enemies" p:progress="500" p:points="70" p:reaction="10" p:awardType="3000" parent="wormixAchieveAward"/>
+                <!-- 1 -->
+                <bean p:achievement="destroyed_square" p:progress="1000" p:points="60" p:reaction="10" p:awardType="1001" parent="wormixAchieveAward"/>
+                <bean p:achievement="destroyed_square" p:progress="10000" p:points="70" p:reaction="15" p:awardType="2001" parent="wormixAchieveAward"/>
+                <bean p:achievement="destroyed_square" p:progress="30000" p:points="80" p:ruby="5" p:awardType="3001" parent="wormixAchieveAward"/>
+                <!-- 2 -->
+                <bean p:achievement="drowned_opponents" p:progress="50" p:points="45" p:reaction="3" p:awardType="1002" parent="wormixAchieveAward"/>
+                <bean p:achievement="drowned_opponents" p:progress="250" p:points="60" p:reaction="5" p:awardType="2002" parent="wormixAchieveAward"/>
+                <bean p:achievement="drowned_opponents" p:progress="600" p:points="75" p:reaction="10" p:awardType="3002" parent="wormixAchieveAward"/>
+                <!-- 3 -->
+                <bean p:achievement="wager_winner" p:progress="50" p:points="80" p:reaction="5" p:awardType="1003" parent="wormixAchieveAward"/>
+                <bean p:achievement="wager_winner" p:progress="400" p:points="90" p:reaction="10" p:awardType="2003" parent="wormixAchieveAward"/>
+                <bean p:achievement="wager_winner" p:progress="1000" p:points="100" p:reaction="20" p:awardType="3003" parent="wormixAchieveAward"/>
+                <!-- 4 -->
+                <bean p:achievement="diplomat" p:progress="5" p:points="60" p:fuzy="100" p:awardType="1004" parent="wormixAchieveAward"/>
+                <bean p:achievement="diplomat" p:progress="10" p:points="70" p:fuzy="150" p:awardType="2004" parent="wormixAchieveAward"/>
+                <bean p:achievement="diplomat" p:progress="15" p:points="80" p:fuzy="200" p:awardType="3004" parent="wormixAchieveAward"/>
+                <!-- 5 -->
+                <bean p:achievement="wind_kills" p:progress="20" p:points="60" p:fuzy="100" p:awardType="1005" parent="wormixAchieveAward"/>
+                <bean p:achievement="wind_kills" p:progress="75" p:points="65" p:reaction="5" p:awardType="2005" parent="wormixAchieveAward"/>
+                <bean p:achievement="wind_kills" p:progress="200" p:points="70" p:reaction="10" p:awardType="3005" parent="wormixAchieveAward"/>
+                <!-- 6 -->
+                <bean p:achievement="massive_damage" p:progress="20" p:points="60" p:reaction="3" p:awardType="1006" parent="wormixAchieveAward"/>
+                <bean p:achievement="massive_damage" p:progress="100" p:points="65" p:fuzy="150" p:awardType="2006" parent="wormixAchieveAward"/>
+                <bean p:achievement="massive_damage" p:progress="250" p:points="70" p:reaction="10" p:awardType="3006" parent="wormixAchieveAward"/>
+                <!-- 7 -->
+                <bean p:achievement="graves_sank" p:progress="25" p:points="50" p:fuzy="50" p:awardType="1007" parent="wormixAchieveAward"/>
+                <bean p:achievement="graves_sank" p:progress="80" p:points="60" p:fuzy="100" p:awardType="2007" parent="wormixAchieveAward"/>
+                <bean p:achievement="graves_sank" p:progress="200" p:points="70" p:reaction="10" p:awardType="3007" parent="wormixAchieveAward"/>
+                <!-- 8 -->
+                <bean p:achievement="one_hp_win" p:progress="2" p:points="70" p:ruby="1" p:awardType="1008" parent="wormixAchieveAward"/>
+                <bean p:achievement="one_hp_win" p:progress="4" p:points="80" p:ruby="2" p:awardType="2008" parent="wormixAchieveAward"/>
+                <bean p:achievement="one_hp_win" p:progress="6" p:points="90" p:ruby="3" p:awardType="3008" parent="wormixAchieveAward"/>
+                <!-- 9 -->
+                <bean p:achievement="immobile_kills" p:progress="20" p:points="60" p:fuzy="120" p:awardType="1009" parent="wormixAchieveAward"/>
+                <bean p:achievement="immobile_kills" p:progress="50" p:points="65" p:reaction="7" p:awardType="2009" parent="wormixAchieveAward"/>
+                <bean p:achievement="immobile_kills" p:progress="150" p:points="70" p:reaction="15" p:awardType="3009" parent="wormixAchieveAward"/>
+                <!-- 10 -->
+                <bean p:achievement="zero_looses_victory" p:progress="50" p:points="60" p:fuzy="150" p:awardType="1010" parent="wormixAchieveAward"/>
+                <bean p:achievement="zero_looses_victory" p:progress="250" p:points="70" p:reaction="10" p:awardType="2010" parent="wormixAchieveAward"/>
+                <bean p:achievement="zero_looses_victory" p:progress="1000" p:points="80" p:reaction="20" p:awardType="3010" parent="wormixAchieveAward"/>
+                <!-- 11 -->
+                <bean p:achievement="flew_miles" p:progress="1500" p:points="50" p:fuzy="40" p:awardType="1011" parent="wormixAchieveAward"/>
+                <bean p:achievement="flew_miles" p:progress="3500" p:points="60" p:fuzy="80" p:awardType="2011" parent="wormixAchieveAward"/>
+                <bean p:achievement="flew_miles" p:progress="8000" p:points="70" p:fuzy="120" p:awardType="3011" parent="wormixAchieveAward"/>
+                <!-- 12 -->
+                <bean p:achievement="double_killls" p:progress="20" p:points="50" p:reaction="3" p:awardType="1012" parent="wormixAchieveAward"/>
+                <bean p:achievement="double_killls" p:progress="100" p:points="60" p:fuzy="150" p:awardType="2012" parent="wormixAchieveAward"/>
+                <bean p:achievement="double_killls" p:progress="250" p:points="70" p:reaction="10" p:awardType="3012" parent="wormixAchieveAward"/>
+                <!-- 13 -->
+                <bean p:achievement="medkit_kills" p:progress="15" p:points="60" p:fuzy="75" p:awardType="1013" parent="wormixAchieveAward"/>
+                <bean p:achievement="medkit_kills" p:progress="40" p:points="70" p:fuzy="150" p:awardType="2013" parent="wormixAchieveAward"/>
+                <bean p:achievement="medkit_kills" p:progress="75" p:points="80" p:ruby="3" p:awardType="3013" parent="wormixAchieveAward"/>
+                <!-- 14 -->
+                <bean p:achievement="gathered_supplies" p:progress="100" p:points="45" p:reaction="10" p:awardType="1014" parent="wormixAchieveAward"/>
+                <bean p:achievement="gathered_supplies" p:progress="350" p:points="55" p:ruby="3" p:awardType="2014" parent="wormixAchieveAward"/>
+                <bean p:achievement="gathered_supplies" p:progress="800" p:points="65" p:reaction="20" p:awardType="3014" parent="wormixAchieveAward"/>
+                <!-- 15 -->
+                <bean p:achievement="kamikaze" p:progress="25" p:points="45" p:reaction="3" p:awardType="1015" parent="wormixAchieveAward"/>
+                <bean p:achievement="kamikaze" p:progress="100" p:points="55" p:fuzy="150" p:awardType="2015" parent="wormixAchieveAward"/>
+                <bean p:achievement="kamikaze" p:progress="250" p:points="65" p:reaction="10" p:awardType="3015" parent="wormixAchieveAward"/>
+                <!-- 16 -->
+                <bean p:achievement="roped_miles" p:progress="200" p:points="50" p:fuzy="40" p:awardType="1016" parent="wormixAchieveAward"/>
+                <bean p:achievement="roped_miles" p:progress="800" p:points="55" p:fuzy="80" p:awardType="2016" parent="wormixAchieveAward"/>
+                <bean p:achievement="roped_miles" p:progress="2000" p:points="60" p:fuzy="120" p:awardType="3016" parent="wormixAchieveAward"/>
+                <!-- 17 -->
+                <bean p:achievement="fuzzes_spent" p:progress="10000" p:points="50" p:reaction="10" p:awardType="1017" parent="wormixAchieveAward"/>
+                <bean p:achievement="fuzzes_spent" p:progress="25000" p:points="70" p:reaction="25" p:awardType="2017" parent="wormixAchieveAward"/>
+                <bean p:achievement="fuzzes_spent" p:progress="60000" p:points="90" p:reaction="50" p:awardType="3017" parent="wormixAchieveAward"/>
+                <!-- 18 -->
+                <bean p:achievement="rubies_spent" p:progress="100" p:points="80" p:ruby="5" p:awardType="1018" parent="wormixAchieveAward"/>
+                <bean p:achievement="rubies_spent" p:progress="300" p:points="100" p:reaction="40" p:awardType="2018" parent="wormixAchieveAward"/>
+                <bean p:achievement="rubies_spent" p:progress="800" p:points="150" p:reaction="80" p:awardType="3018" parent="wormixAchieveAward"/>
+                <!-- 19 -->
+                <bean p:achievement="pumped_reaction" p:progress="100" p:points="50" p:fuzy="50" p:awardType="1019" parent="wormixAchieveAward"/>
+                <bean p:achievement="pumped_reaction" p:progress="250" p:points="55" p:fuzy="100" p:awardType="2019" parent="wormixAchieveAward"/>
+                <bean p:achievement="pumped_reaction" p:progress="1000" p:points="60" p:fuzy="200" p:awardType="3019" parent="wormixAchieveAward"/>
+                <!-- 20 -->
+                <bean p:achievement="rubies_found" p:progress="10" p:points="50" p:reaction="3" p:awardType="1020" parent="wormixAchieveAward"/>
+                <bean p:achievement="rubies_found" p:progress="25" p:points="60" p:reaction="6" p:awardType="2020" parent="wormixAchieveAward"/>
+                <bean p:achievement="rubies_found" p:progress="50" p:points="70" p:reaction="12" p:awardType="3020" parent="wormixAchieveAward"/>
+                <!-- 21 -->
+                <bean p:achievement="made_photo" p:progress="10" p:points="40" p:fuzy="40" p:awardType="1021" parent="wormixAchieveAward"/>
+                <bean p:achievement="made_photo" p:progress="25" p:points="50" p:fuzy="80" p:awardType="2021" parent="wormixAchieveAward"/>
+                <bean p:achievement="made_photo" p:progress="100" p:points="60" p:fuzy="120" p:awardType="3021" parent="wormixAchieveAward"/>
+                <!-- 22 -->
+                <bean p:achievement="made_video" p:progress="5" p:points="40" p:fuzy="40" p:awardType="1022" parent="wormixAchieveAward"/>
+                <bean p:achievement="made_video" p:progress="10" p:points="50" p:fuzy="80" p:awardType="2022" parent="wormixAchieveAward"/>
+                <bean p:achievement="made_video" p:progress="30" p:points="60" p:fuzy="120" p:awardType="3022" parent="wormixAchieveAward"/>
+                <!-- 23 -->
+                <bean p:achievement="game_visits" p:progress="5" p:points="100" p:fuzy="200" p:awardType="1023" parent="wormixAchieveAward"/>
+                <bean p:achievement="game_visits" p:progress="10" p:points="150" p:reaction="20" p:awardType="2023" parent="wormixAchieveAward"/>
+                <bean p:achievement="game_visits" p:progress="20" p:points="300" p:ruby="5" p:awardType="3023" parent="wormixAchieveAward"/>
+                <!-- 24 -->
+                <bean p:achievement="idol" p:progress="30" p:points="45" p:fuzy="50" p:awardType="1024" parent="wormixAchieveAward"/>
+                <bean p:achievement="idol" p:progress="80" p:points="55" p:fuzy="100" p:awardType="2024" parent="wormixAchieveAward"/>
+                <bean p:achievement="idol" p:progress="200" p:points="65" p:reaction="10" p:awardType="3024" parent="wormixAchieveAward"/>
+                <!-- 25 -->
+                <bean p:achievement="inquisitor" p:progress="15" p:points="50" p:reaction="5" p:awardType="1025" parent="wormixAchieveAward"/>
+                <bean p:achievement="inquisitor" p:progress="50" p:points="60" p:fuzy="80" p:awardType="2025" parent="wormixAchieveAward"/>
+                <bean p:achievement="inquisitor" p:progress="100" p:points="70" p:fuzy="150" p:awardType="3025" parent="wormixAchieveAward"/>
+                <!-- 26 -->
+                <bean p:achievement="hatlover" p:progress="50" p:points="60" p:fuzy="70" p:awardType="1026" parent="wormixAchieveAward"/>
+                <bean p:achievement="hatlover" p:progress="300" p:points="70" p:fuzy="120" p:awardType="2026" parent="wormixAchieveAward"/>
+                <bean p:achievement="hatlover" p:progress="800" p:points="80" p:ruby="3" p:awardType="3026" parent="wormixAchieveAward"/>
+                 <!-- 27 -->
+                <bean p:achievement="partisan" p:progress="5" p:points="60" p:fuzy="80" p:awardType="1027" parent="wormixAchieveAward"/>
+                <bean p:achievement="partisan" p:progress="20" p:points="70" p:reaction="10" p:awardType="2027" parent="wormixAchieveAward"/>
+                <bean p:achievement="partisan" p:progress="50" p:points="80" p:ruby="3" p:awardType="3027" parent="wormixAchieveAward"/>
+                 <!-- 28 -->
+                <bean p:achievement="collector" p:progress="25" p:points="60" p:fuzy="70" p:awardType="1028" parent="wormixAchieveAward"/>
+                <bean p:achievement="collector" p:progress="70" p:points="65" p:fuzy="120" p:awardType="2028" parent="wormixAchieveAward"/>
+                <bean p:achievement="collector" p:progress="150" p:points="70" p:ruby="3" p:awardType="3028" parent="wormixAchieveAward"/>
+                 <!-- 29 -->
+                <bean p:achievement="drop_water_first_turn" p:progress="5" p:points="50" p:fuzy="50" p:awardType="1029" parent="wormixAchieveAward"/>
+                <bean p:achievement="drop_water_first_turn" p:progress="30" p:points="60" p:fuzy="150" p:awardType="2029" parent="wormixAchieveAward"/>
+                <bean p:achievement="drop_water_first_turn" p:progress="100" p:points="70" p:reaction="30" p:awardType="3029" parent="wormixAchieveAward"/>
+                <!-- 30 -->
+                <bean p:achievement="keymaster" p:progress="20" p:points="60" p:reaction="10" p:awardType="1030" parent="wormixAchieveAward"/>
+                <bean p:achievement="keymaster" p:progress="80" p:points="65" p:reaction="15" p:awardType="2030" parent="wormixAchieveAward"/>
+                <bean p:achievement="keymaster" p:progress="300" p:points="70" p:fuzy="250" p:awardType="3030" parent="wormixAchieveAward"/>
+                <!-- 31 -->
+                <bean p:achievement="crafter" p:progress="5" p:points="60" p:ruby="1" p:awardType="1031" parent="wormixAchieveAward"/>
+                <bean p:achievement="crafter" p:progress="15" p:points="70" p:fuzy="150" p:awardType="2031" parent="wormixAchieveAward"/>
+                <bean p:achievement="crafter" p:progress="50" p:points="80" p:ruby="3" p:awardType="3031" parent="wormixAchieveAward"/>
+                <!-- 32 -->
+                <bean p:achievement="craft_legendary" p:progress="1" p:points="100" p:ruby="5" p:awardType="1032" parent="wormixAchieveAward"/>
+                <bean p:achievement="craft_legendary" p:progress="2" p:points="120" p:reaction="50" p:awardType="2032" parent="wormixAchieveAward"/>
+                <bean p:achievement="craft_legendary" p:progress="3" p:points="150" p:ruby="15" p:awardType="3032" parent="wormixAchieveAward"/>
+                <!-- 33 -->
+                <bean p:achievement="superboss_defeated" p:progress="3" p:points="80" p:fuzy="200" p:awardType="1033" parent="wormixAchieveAward"/>
+                <bean p:achievement="superboss_defeated" p:progress="15" p:points="90" p:ruby="3" p:awardType="2033" parent="wormixAchieveAward"/>
+                <bean p:achievement="superboss_defeated" p:progress="40" p:points="100" p:ruby="7" p:awardType="3033" parent="wormixAchieveAward"/>
+                <!-- 34 -->
+                <bean p:achievement="posts_made" p:progress="5" p:points="40" p:fuzy="40" p:awardType="1034" parent="wormixAchieveAward"/>
+                <bean p:achievement="posts_made" p:progress="20" p:points="50" p:fuzy="60" p:awardType="2034" parent="wormixAchieveAward"/>
+                <bean p:achievement="posts_made" p:progress="50" p:points="60" p:ruby="2" p:awardType="3034" parent="wormixAchieveAward"/>
+                <!-- 35 -->
+                <bean p:achievement="buy_race" p:progress="3" p:points="45" p:reaction="5" p:awardType="1035" parent="wormixAchieveAward"/>
+                <bean p:achievement="buy_race" p:progress="5" p:points="50" p:reaction="10" p:awardType="2035" parent="wormixAchieveAward"/>
+                <bean p:achievement="buy_race" p:progress="7" p:points="55" p:ruby="2" p:awardType="3035" parent="wormixAchieveAward"/>
+                <!-- 36 -->
+                <bean p:achievement="coliseum_win" p:progress="10" p:points="70" p:reaction="10" p:awardType="1036" parent="wormixAchieveAward"/>
+                <bean p:achievement="coliseum_win" p:progress="50" p:points="80" p:fuzy="150" p:awardType="2036" parent="wormixAchieveAward"/>
+                <bean p:achievement="coliseum_win" p:progress="200" p:points="90" p:reaction="40" p:awardType="3036" parent="wormixAchieveAward"/>
+                <!-- 37 -->
+                <bean p:achievement="with_friend_win" p:progress="20" p:points="70" p:fuzy="80" p:awardType="1037" parent="wormixAchieveAward"/>
+                <bean p:achievement="with_friend_win" p:progress="100" p:points="80" p:reaction="20" p:awardType="2037" parent="wormixAchieveAward"/>
+                <bean p:achievement="with_friend_win" p:progress="400" p:points="90" p:reaction="40" p:awardType="3037" parent="wormixAchieveAward"/>
+            </list>
+        </property>
+
+        <property name="boolAwards">
+            <list>
+                <!-- Farmer -->
+                <bean p:boolAchieveIndex="0" p:points="10" p:fuzy="50" p:awardType="5010" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="1" p:points="10" p:fuzy="80" p:awardType="5011" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="2" p:points="10" p:fuzy="80" p:awardType="5012" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="3" p:points="20" p:ruby="1" p:awardType="5013" parent="wormixAchieveAward"/>
+                <!-- Hunter -->
+                <bean p:boolAchieveIndex="4" p:points="10" p:fuzy="90" p:awardType="5020" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="5" p:points="10" p:fuzy="90" p:awardType="5021" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="6" p:points="10" p:fuzy="60" p:awardType="5022" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="7" p:points="20" p:ruby="1" p:awardType="5023" parent="wormixAchieveAward"/>
+                <!-- Maniacs -->
+                <bean p:boolAchieveIndex="8" p:points="10" p:fuzy="90" p:awardType="5030" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="9" p:points="10" p:fuzy="80" p:awardType="5031" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="10" p:points="10" p:fuzy="60" p:awardType="5032" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="11" p:points="20" p:ruby="1" p:awardType="5033" parent="wormixAchieveAward"/>
+                <!-- Miner -->
+                <bean p:boolAchieveIndex="12" p:points="10" p:fuzy="100" p:awardType="5040" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="13" p:points="10" p:fuzy="70" p:awardType="5041" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="14" p:points="10" p:fuzy="80" p:awardType="5042" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="15" p:points="20" p:ruby="1" p:awardType="5043" parent="wormixAchieveAward"/>
+                <!-- Samurai -->
+                <bean p:boolAchieveIndex="16" p:points="10" p:fuzy="60" p:awardType="5050" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="17" p:points="10" p:fuzy="90" p:awardType="5051" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="18" p:points="10" p:fuzy="80" p:awardType="5052" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="19" p:points="20" p:ruby="1" p:awardType="5053" parent="wormixAchieveAward"/>
+                <!-- Sergeant -->
+                <bean p:boolAchieveIndex="20" p:points="10" p:fuzy="60" p:awardType="5060" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="21" p:points="10" p:fuzy="80" p:awardType="5061" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="22" p:points="10" p:fuzy="60" p:awardType="5062" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="23" p:points="20" p:ruby="1" p:awardType="5063" parent="wormixAchieveAward"/>
+                <!-- Burnings -->
+                <bean p:boolAchieveIndex="24" p:points="10" p:fuzy="80" p:awardType="5070" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="25" p:points="10" p:fuzy="90" p:awardType="5071" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="26" p:points="10" p:fuzy="60" p:awardType="5072" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="27" p:points="20" p:ruby="1" p:awardType="5073" parent="wormixAchieveAward"/>
+
+                <!-- из социального: добавление приложения на стену в ВК (пустая заглушка) -->
+                <bean p:boolAchieveIndex="28" p:points="0" p:fuzy="0" p:awardType="5080" parent="wormixAchieveAward"/>
+
+                <!-- Wandering soul -->
+                <bean p:boolAchieveIndex="29" p:points="10" p:fuzy="80" p:awardType="5090" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="30" p:points="10" p:fuzy="60" p:awardType="5091" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="31" p:points="10" p:fuzy="90" p:awardType="5092" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="32" p:points="20" p:ruby="1" p:awardType="5093" parent="wormixAchieveAward"/>
+                <!-- Voodoo shaman -->
+                <bean p:boolAchieveIndex="33" p:points="10" p:fuzy="60" p:awardType="5100" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="34" p:points="10" p:fuzy="70" p:awardType="5101" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="35" p:points="10" p:fuzy="90" p:awardType="5102" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="36" p:points="20" p:ruby="1" p:awardType="5103" parent="wormixAchieveAward"/>
+                <!-- Illusionist-->
+                <bean p:boolAchieveIndex="37" p:points="10" p:fuzy="60" p:awardType="5110" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="38" p:points="10" p:fuzy="90" p:awardType="5111" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="39" p:points="10" p:fuzy="80" p:awardType="5112" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="40" p:points="20" p:ruby="1" p:awardType="5113" parent="wormixAchieveAward"/>
+                <!-- Vikings -->
+                <bean p:boolAchieveIndex="41" p:points="10" p:fuzy="90" p:awardType="5120" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="42" p:points="10" p:fuzy="70" p:awardType="5121" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="43" p:points="10" p:fuzy="80" p:awardType="5122" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="44" p:points="20" p:ruby="1" p:awardType="5123" parent="wormixAchieveAward"/>
+                <!-- Pirate -->
+                <bean p:boolAchieveIndex="45" p:points="10" p:fuzy="90" p:awardType="5130" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="46" p:points="10" p:fuzy="80" p:awardType="5131" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="47" p:points="10" p:fuzy="60" p:awardType="5132" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="48" p:points="20" p:ruby="1" p:awardType="5133" parent="wormixAchieveAward"/>
+                <!-- Wind master -->
+                <bean p:boolAchieveIndex="49" p:points="10" p:fuzy="70" p:awardType="5140" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="50" p:points="10" p:fuzy="60" p:awardType="5141" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="51" p:points="10" p:fuzy="90" p:awardType="5142" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="52" p:points="20" p:ruby="1" p:awardType="5143" parent="wormixAchieveAward"/>
+                <!-- Yakuza -->
+                <bean p:boolAchieveIndex="53" p:points="10" p:fuzy="60" p:awardType="5150" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="54" p:points="10" p:fuzy="80" p:awardType="5151" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="55" p:points="10" p:fuzy="90" p:awardType="5152" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="56" p:points="20" p:ruby="1" p:awardType="5153" parent="wormixAchieveAward"/>
+                <!-- Dead pirate -->
+                <bean p:boolAchieveIndex="57" p:points="10" p:fuzy="90" p:awardType="5160" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="58" p:points="10" p:fuzy="80" p:awardType="5161" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="59" p:points="10" p:fuzy="60" p:awardType="5162" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="60" p:points="20" p:ruby="1" p:awardType="5163" parent="wormixAchieveAward"/>
+                <!-- Romeo -->
+                <bean p:boolAchieveIndex="62" p:points="10" p:fuzy="80" p:awardType="5170" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="63" p:points="10" p:fuzy="60" p:awardType="5171" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="64" p:points="10" p:fuzy="70" p:awardType="5172" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="65" p:points="20" p:ruby="1" p:awardType="5173" parent="wormixAchieveAward"/>
+                <!-- King Dead -->
+                <bean p:boolAchieveIndex="66" p:points="10" p:fuzy="60" p:awardType="5180" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="67" p:points="10" p:fuzy="70" p:awardType="5181" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="68" p:points="10" p:fuzy="80" p:awardType="5182" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="69" p:points="20" p:ruby="1" p:awardType="5183" parent="wormixAchieveAward"/>
+                <!-- Ancient ghost -->
+                <bean p:boolAchieveIndex="70" p:points="10" p:fuzy="60" p:awardType="5190" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="71" p:points="10" p:fuzy="70" p:awardType="5191" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="72" p:points="10" p:fuzy="80" p:awardType="5192" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="73" p:points="20" p:ruby="1" p:awardType="5193" parent="wormixAchieveAward"/>
+                <!-- Engineer -->
+                <bean p:boolAchieveIndex="74" p:points="10" p:fuzy="70" p:awardType="5200" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="75" p:points="10" p:fuzy="80" p:awardType="5201" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="76" p:points="10" p:fuzy="60" p:awardType="5202" parent="wormixAchieveAward"/>
+                <bean p:boolAchieveIndex="77" p:points="20" p:ruby="1" p:awardType="5203" parent="wormixAchieveAward"/>
+            </list>
+        </property>
+
+        <property name="bonusItems" ref="achieveBonusItemsMap"/>
+
+    </bean>
+
+    <util:map id="achieveBonusItemsMap" key-type="java.lang.Integer">
+        <entry key="62">  <bean class="com.pragmatix.achieve.common.BonusItem" c:itemId="62"   c:level="1" c:requires="0" c:replaces="0"/></entry>
+        <entry key="63">  <bean class="com.pragmatix.achieve.common.BonusItem" c:itemId="63"   c:level="1" c:requires="0" c:replaces="0"/></entry>
+
+        <entry key="64">  <bean class="com.pragmatix.achieve.common.BonusItem" c:itemId="64"   c:level="2" c:requires="0" c:replaces="0"/></entry>
+        <entry key="68">  <bean class="com.pragmatix.achieve.common.BonusItem" c:itemId="68"   c:level="2" c:requires="0" c:replaces="0"/></entry>
+
+        <entry key="67">  <bean class="com.pragmatix.achieve.common.BonusItem" c:itemId="67"   c:level="3" c:requires="0" c:replaces="0"/></entry>
+        <entry key="1027"><bean class="com.pragmatix.achieve.common.BonusItem" c:itemId="1027" c:level="3" c:requires="0" c:replaces="0"/></entry>
+        <entry key="78">  <bean class="com.pragmatix.achieve.common.BonusItem" c:itemId="78"   c:level="3" c:requires="0" c:replaces="0"/></entry>
+
+        <entry key="1034"><bean class="com.pragmatix.achieve.common.BonusItem" c:itemId="1034" c:level="4" c:requires="0" c:replaces="0"/></entry>
+        <entry key="77">  <bean class="com.pragmatix.achieve.common.BonusItem" c:itemId="77"   c:level="4" c:requires="0" c:replaces="0"/></entry>
+        <entry key="2022"><bean class="com.pragmatix.achieve.common.BonusItem" c:itemId="2022" c:level="4" c:requires="0" c:replaces="0"/></entry>
+    </util:map>
+
+    <bean id="wormixAchieveAward" class="com.pragmatix.achieve.award.WormixAchieveAward" abstract="true"/>
+
+</beans>

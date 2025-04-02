@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:wormix="http://pragmatix-corp.com/schema/wormix"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://pragmatix-corp.com/schema/wormix http://pragmatix-corp.com/schema/wormix.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean class="com.pragmatix.app.settings.GenericAwardContainerImpl">
+        <property name="awards">
+            <list>
+                <wormix:award key="0" realMoney="10" money="4000" reactionRate="500" seasonWeapons="8:4"/>
+                <wormix:award key="1" money="3000" reactionRate="300" seasonWeapons="8:4"/>
+                <!--<wormix:award key="2" money="3000" reactionRate="275" seasonWeapons="6:4 2:3"/>-->
+                <!--<wormix:award key="3" money="3000" reactionRate="250" seasonWeapons="4:4 4:3"/>-->
+                <!--<wormix:award key="4" money="3000" reactionRate="225" seasonWeapons="2:4 6:3"/>-->
+                <!--<wormix:award key="5" money="3000" reactionRate="200" seasonWeapons="6:4"/>-->
+                <!--<wormix:award key="6" money="2000" reactionRate="100" seasonWeapons="6:4"/>-->
+                <!--<wormix:award key="7" money="2000" reactionRate="90" seasonWeapons="4:4 2:3"/>-->
+                <!--<wormix:award key="8" money="2000" reactionRate="80" seasonWeapons="2:4 4:3"/>-->
+                <!--<wormix:award key="9" money="2000" reactionRate="70" seasonWeapons="6:3"/>-->
+                <!--<wormix:award key="10" money="2000" reactionRate="60" seasonWeapons="4:3 2:2"/>-->
+                <!--<wormix:award key="11" money="1000" reactionRate="30" seasonWeapons="4:3 2:2"/>-->
+                <!--<wormix:award key="12" money="1000" reactionRate="25" seasonWeapons="2:3 4:2"/>-->
+                <!--<wormix:award key="13" money="1000" reactionRate="20" seasonWeapons="4:3"/>-->
+                <!--<wormix:award key="14" money="1000" reactionRate="15" seasonWeapons="2:3 2:2"/>-->
+                <!--<wormix:award key="15" money="1000" reactionRate="10" seasonWeapons="4:2"/>-->
+                <wormix:award key="101" price="2" money="80" reagentsMassStr="0 20:2 21:2 22:2 23:2 24:2 26:2 40:1 41:1 42:1 43:1 44:1 51:1" reagentsCount="2:1-2" addExperience="true" reagentsMap="52:2"/>
+                <wormix:award key="102" price="3" money="120-140" reagentsMassStr="0 20:2 21:2 22:2 23:2 24:2 26:2 40:1 41:1 42:1 43:1 44:1 51:1" reagentsCount="2:2-3" addExperience="true"/>
+                <wormix:award key="103" price="4" money="180-200" reagentsMassStr="0 20:2 21:2 22:2 23:2 24:2 26:2 40:1 41:1 42:1 43:1 44:1 51:1" reagentsCount="2:3" addExperience="true"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="quest02_finishAward_Slot1" class="com.pragmatix.app.settings.GenericAwardFactory">
+        <property name="addExperience" value="true"/>
+        <property name="resultAwardMass" value="1:18 2:10 3:18 4:18 5:18 6:18"/>
+        <property name="awards">
+            <list>
+                <wormix:award key="1" realMoney="1"/>
+                <wormix:award key="2" realMoney="2"/>
+                <wormix:award key="3" money="120"/>
+                <wormix:award key="4" money="140"/>
+                <wormix:award key="5" money="160"/>
+                <wormix:award key="6" money="180"/>
+            </list>
+        </property>
+    </bean>
+
+    <wormix:award id="quest02_finishAward_Slot2_3" reagentsMassStr="0 20:2 21:2 22:2 23:2 24:2 26:2 40:1 41:1 42:1 43:1 44:1 51:1" reagentsCount="1:1-3"/>
+
+</beans>

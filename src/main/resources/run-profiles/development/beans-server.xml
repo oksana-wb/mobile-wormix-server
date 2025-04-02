@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/util
+            http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="profileInitParams" parent="profileInitParamsProd"/>
+
+    <util:list id="connections" value-type="com.pragmatix.connections.ISocketConnection">
+        <ref bean="mainWsConnection"/>
+        <ref bean="nettyPvpConnection"/>
+        <ref bean="nettyAdminConnection"/>
+        <ref bean="intercomAppConnection"/>
+    </util:list>
+
+    <bean id="intercomAppConnection" class="com.pragmatix.connections.intercom.IntercomMultiplexConnection">
+        <property name="connectionId" value="${connection.intercom.index}"/>
+        <property name="connections">
+            <list>
+                <ref bean="loopbackConnectionInitializer"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="loopbackConnectionInitializer" class="com.pragmatix.connections.intercom.LoopbackConnectionInitializer">
+        <property name="name" value="main"/>
+        <property name="addresses" value="pvp,${MainServerAPI.mainAppServerAddress},${AchieveServerAPI.achieveAppServerAddress}"/>
+    </bean>
+
+    <bean id="serverSettings" class="com.pragmatix.settings.ServerSettings">
+        <property name="taskLimit" value="2500"/>
+        <property name="taskWarningLimit" value="2300"/>
+        <property name="emptyEventTimeout" value="400"/>
+        <property name="authTaskThreadCount" value="8"/>
+        <property name="anonTaskThreadCount" value="8"/>
+        <property name="connectionIdleTime" value="20"/>
+    </bean>
+
+    <bean class="com.pragmatix.app.settings.RareItemsAwardFactory" c:code="craft_box_1" c:votes="5">
+        <constructor-arg name="craftBoxItems">
+            <list>
+                <bean class="com.pragmatix.app.settings.RareItemsAwardFactory$CraftBoxItem_RareItem"   c:chance="20" c:count="1"/>
+                <bean class="com.pragmatix.app.settings.RareItemsAwardFactory$CraftBoxItem_Money"      c:chance="35" c:count="2500"/>
+                <bean class="com.pragmatix.app.settings.RareItemsAwardFactory$CraftBoxItem_RealMoney"  c:chance="35" c:count="25"/>
+                <bean class="com.pragmatix.app.settings.RareItemsAwardFactory$CraftBoxItem_Medal"      c:chance="10" c:count="5"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean class="com.pragmatix.app.settings.RareItemsAwardFactory" c:code="craft_box_2" c:votes="10">
+        <constructor-arg name="craftBoxItems">
+            <list>
+                <bean class="com.pragmatix.app.settings.RareItemsAwardFactory$CraftBoxItem_RareItem"   c:chance="20" c:count="2"/>
+                <bean class="com.pragmatix.app.settings.RareItemsAwardFactory$CraftBoxItem_Money"      c:chance="35" c:count="5000"/>
+                <bean class="com.pragmatix.app.settings.RareItemsAwardFactory$CraftBoxItem_RealMoney"  c:chance="35" c:count="50"/>
+                <bean class="com.pragmatix.app.settings.RareItemsAwardFactory$CraftBoxItem_Medal"      c:chance="10" c:count="10"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!-- Настройки для Steam -->
+<!--    <bean name="steamService" class="com.pragmatix.steam.SteamService">-->
+<!--        <property name="privateKey" value="${steam.privateKey}"/>-->
+<!--        <property name="appId" value="${steam.appId}"/>-->
+<!--        <property name="ticketExpireTime" value="#{10 * 60 * 1000}"/>-->
+<!--        <property name="libList">-->
+<!--            <list value-type="java.lang.String">-->
+<!--                <value>.steamapi/linux64/libPragmatix_SteamWorks.so</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--        <property name="debugMode" value="${steam.debugMode:false}"/>-->
+<!--    </bean>-->
+
+    <bean id="wormixSteamAchievementService" parent="wormixAchievementService">
+        <property name="achieveServiceKey">
+            <bean class="com.pragmatix.achieve.services.KeyFactoryBean"
+                  p:applicationId="Wormix"
+                  p:socialId="steam"/>
+        </property>
+    </bean>
+    <!--  -->
+
+    <bean class="com.pragmatix.app.services.rating.OldRatingService">
+        <property name="leagues">
+            <list>
+                <!-- лига новичков-->
+                <bean class="com.pragmatix.app.services.rating.League"
+                      p:min="10" p:max="50" p:divisionCount="1"/>
+                <!-- лига бойцов-->
+                <bean class="com.pragmatix.app.services.rating.League"
+                      p:min="50" p:max="200" p:divisionCount="1"/>
+                <!--лига ветеранов-->
+                <bean class="com.pragmatix.app.services.rating.League"
+                      p:min="200" p:max="500" p:divisionCount="1"/>
+                <!--лига мастеров-->
+                <bean class="com.pragmatix.app.services.rating.League"
+                      p:min="500" p:max="2000" p:divisionCount="1"/>
+                <!--лига асов-->
+                <bean class="com.pragmatix.app.services.rating.League"
+                      p:min="2000" p:max="10000" p:divisionCount="1"/>
+                <!--рубиновая лига-->
+                <bean class="com.pragmatix.app.services.rating.League"
+                      p:min="10000" p:max="#{T(java.lang.Integer).MAX_VALUE}" p:divisionCount="1"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="appJettyHandlers" parent="baseJettyHandlers">
+        <property name="handlers">
+            <list merge="true">
+                <!-- list of additional handler definitions goes here -->
+            </list>
+        </property>
+    </bean>
+
+</beans>

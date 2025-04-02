@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+# Плагин для мониторинга сервера Apple
+
+munin=/home/user/munin
+statDump=${munin}/var/wormswar_mobile_stat.dump
+pvpStatLog=${munin}/var/wormswar_mobile_pvp_stat.log
+
+if [ "$1" = "config" ]; then
+    echo 'graph_title Wormix Apple Online'
+    echo 'graph_vlabel amount'
+    echo 'graph_noscale true'
+    echo 'graph_category wormix_apple'
+    echo 'graph_info This graph shows statistics about apple server online'
+
+    echo 'online_main.label Online'
+    echo 'online_main.info Online'
+
+    echo 'online_pvp.label Online PVP'
+    echo 'online_pvp.info Online PVP'
+
+    exit 0
+fi
+
+awk '
+$1 == "online:main" {print "online_main.value "$3}
+$1 == "online.pvp" {print "online_pvp.value "$2}
+' ${statDump}
+
+
+

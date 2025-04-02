@@ -1,0 +1,83 @@
+#!/bin/sh
+#
+# Плагин для мониторинга распределения PVP боев по типам
+
+StatDump=/home/user/server_pvp/logs/statistics/stat.dump
+
+if [ "$1" = "config" ]; then
+    echo 'graph_title Wormix Server (PVP Wager Battles)'
+    echo 'graph_vlabel pvp wager battles in %'
+    echo 'graph_noscale true'
+    echo 'graph_category Wormix'
+    echo 'graph_info This graph shows statistics about Wormix Server (PVP Wager Battles)'
+
+    echo 'wager_2x2.label WAGER_PvP_2x2_50'
+    echo 'wager_2x2.info WAGER_PvP_2x2 50'
+
+    echo 'wager_3_for_all.label WAGER_PvP_3_FOR_ALL_50'
+    echo 'wager_3_for_all.info WAGER_PvP_3_FOR_ALL 50'
+
+    echo 'wager_duel_15.label WAGER_PvP_DUEL_15'
+    echo 'wager_duel_15.info WAGER_PvP_DUEL 15'
+
+    echo 'wager_duel_300.label WAGER_PvP_DUEL_300'
+    echo 'wager_duel_300.info WAGER_PvP_DUEL 300'
+
+    echo 'wager_duel_0.label PvP_GLADIATOR_DUEL'
+    echo 'wager_duel_0.info PvP_GLADIATOR_DUEL'
+
+    echo 'mercenaries_duel.label PvP_MERCENARIES_DUEL'
+    echo 'mercenaries_duel.info PvP_MERCENARIES_DUEL'
+
+    echo 'quest_duel.label PvP_QUEST_DUEL'
+    echo 'quest_duel.info PvP_QUEST_DUEL'
+
+    echo 'wager_duel_20.label WAGER_PvP_DUEL_20'
+    echo 'wager_duel_20.info WAGER_PvP_DUEL 20'
+
+    exit 0
+fi
+
+cat $StatDump | awk '
+$1 ~ /pvp:WAGER/ {
+  s+=$3
+}
+$1 ~ /pvp:WAGER_PvP_2x2/ {
+  WAGER_PvP_2x2+=$3
+}
+$1 ~ /pvp:WAGER_PvP_3_FOR_ALL/ {
+  WAGER_PvP_3_FOR_ALL+=$3
+}
+$1 ~ /pvp:WAGER_PvP_DUEL_15/ {
+  WAGER_PvP_DUEL_15+=$3
+}
+$1 ~ /pvp:WAGER_PvP_DUEL_300/ {
+  WAGER_PvP_DUEL_300+=$3
+}
+$1 ~ /pvp:GLADIATOR_DUEL/ {
+  s+=$3
+  GLADIATOR_DUEL+=$3
+}
+$1 ~ /pvp:QUEST_DUEL/ {
+  s+=$3
+  QUEST_DUEL+=$3
+}
+$1 ~ /pvp:MERCENARIES_DUEL/ {
+  s+=$3
+  MERCENARIES_DUEL+=$3
+}
+$1 ~ /pvp:WAGER_PvP_DUEL_20/ {
+  WAGER_PvP_DUEL_20+=$3
+}
+
+END {
+  printf("wager_2x2.value %.0f\n",          WAGER_PvP_2x2 * 100 / s)
+  printf("wager_3_for_all.value %.0f\n",    WAGER_PvP_3_FOR_ALL * 100 / s)
+  printf("wager_duel_15.value %.0f\n",      WAGER_PvP_DUEL_15 * 100 / s)
+  printf("wager_duel_300.value %.0f\n",     WAGER_PvP_DUEL_300 * 100 / s)
+  printf("wager_duel_0.value %.0f\n",       GLADIATOR_DUEL * 100 / s)
+  printf("mercenaries_duel.value %.0f\n",   MERCENARIES_DUEL * 100 / s)
+  printf("quest_duel.value %.0f\n",         QUEST_DUEL * 100 / s)
+  printf("wager_duel_20.value %.0f\n",      WAGER_PvP_DUEL_20 * 100 / s)
+}
+'

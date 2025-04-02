@@ -1,0 +1,69 @@
+#!/bin/sh
+# Плагин для мониторинга количества боев
+
+StatDump=/home/user/server_steam/logs/statistics/stat.dump
+
+if [ "$1" = "config" ]; then
+    echo 'graph_title Wormix Steam battles'
+    echo 'graph_vlabel battles count'
+    echo 'graph_noscale true'
+    echo 'graph_category Wormix Steam'
+    echo 'graph_info This graph shows statistics about Wormix Steam battles'
+
+    echo 'bot.label BOT'
+    echo 'bot.info Bot battles'
+
+    echo 'boss.label BOSS'
+    echo 'boss.info Boss battles'
+
+    echo 'wager.label PvP'
+    echo 'wager.info PvP battles'
+
+    echo 'pve.label PvE'
+    echo 'pve.info PvE battles'
+
+    echo 'friend.label FRIEND'
+    echo 'friend.info Friend battles'
+
+    echo 'learning.label LEARNING'
+    echo 'learning.info Learning battles'
+
+    echo 'notInBattle.label NOT_IN_BATTLE'
+    echo 'notInBattle.info Idle state'
+
+    exit 0
+fi
+
+cat $StatDump | awk '
+$1 ~ /battles:BOSS/ {
+  BOSS+=$3
+}
+$1 ~ /battles:BOT/ {
+  BOT+=$3
+}
+$1 ~ /battles:FRIEND/ {
+  FRIEND+=$3
+}
+$1 ~ /battles:LEARNING/ {
+  LEARNING+=$3
+}
+$1 ~ /battles:PvE/ {
+  PvE+=$3
+}
+$1 ~ /battles:PvP/ {
+  PvP+=$3
+}
+$1 ~ /battles:NOT_IN_BATTLE/ {
+  NOT_IN_BATTLE+=$3
+}
+
+END {
+  printf("bot.value %s\n",        BOT)
+  printf("boss.value %s\n",       BOSS)
+  printf("wager.value %s\n",      PvP)
+  printf("pve.value %s\n",        PvE)
+  printf("friend.value %s\n",     FRIEND)
+  printf("learning.value %s\n",   LEARNING)
+  printf("notInBattle.value %s\n",NOT_IN_BATTLE)
+}
+'

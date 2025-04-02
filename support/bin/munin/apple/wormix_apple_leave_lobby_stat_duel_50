@@ -1,0 +1,40 @@
+#!/bin/sh
+#
+# Плагин для мониторинга статистики по не удовлетворенным заявкам (Дуэль 50)
+
+munin=/home/user/munin
+statDump=${munin}/var/wormswar_mobile_stat.dump
+pvpStatLog=${munin}/var/wormswar_mobile_pvp_stat.log
+
+if [ "$1" = "config" ]; then
+    echo 'graph_title Wormix Apple Leave Lobby (Duel 50)'
+    echo 'graph_vlabel not matched cause proportion in procent x10'
+    echo 'graph_noscale true'
+    echo 'graph_category wormix_apple'
+    echo 'graph_info This graph shows statistics about leave lobby (Duel 50)'
+
+    echo 'sandbox.label Sanbox'
+    echo 'sandbox.info Not matched cause of sanbox'
+
+    echo 'level.label Level'
+    echo 'level.info Not matched cause of level'
+
+    echo 'teamSize.label Team size'
+    echo 'teamSize.info Not matched cause of team size'
+
+    echo 'hp.label HP'
+    echo 'hp.info Not matched cause of HP'
+
+    echo 'extra.label Extra'
+    echo 'extra.info Not matched cause one of: same user, fake, Pour downer'
+
+    echo 'skill.label True skill'
+    echo 'skill.info Not matched cause one of true skill'
+
+    echo 'noWagers.label No wagers'
+    echo 'noWagers.info Not matched cause of no wagers registered'
+
+    exit 0
+fi
+
+awk -v from="`date +%Y'-'%m'-'%d'_'%H':'%M':'%S -d "24 hour ago"`" -f ${munin}/bin/filter.awk ${pvpStatLog} | awk -v wager=50 -f ${munin}/bin/leave_stat.awk

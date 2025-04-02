@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <conversionRule conversionWord="account" converterClass="com.pragmatix.utils.logging.AccountConverter"/>
+    <conversionRule conversionWord="coloron" converterClass="com.pragmatix.utils.logging.ColorOnConverter"/>
+    <conversionRule conversionWord="coloroff" converterClass="com.pragmatix.utils.logging.ColorOffConverter"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>
+                %coloron%date{HH:mm:ss.SSS} %-5level [%thread] [%account] %-130msg [at %class.%method\(%file:%line\)]%coloroff%n%throwable
+            </Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/server.log</file>
+        <append>false</append>
+        <encoder>
+            <Pattern>%date{HH:mm:ss.SSS} %-5level [%thread] [%account] %-130msg [at %class.%method\(%file:%line\)]%n%throwable</Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="paymentsLogAppender" class="ch.qos.logback.core.FileAppender">>
+        <file>logs/payments.log</file>
+        <append>false</append>
+        <encoder>
+            <Pattern>
+                %date{HH:mm:ss.SSS} %level [%thread] [%file:%line] [%account] %msg%n%throwable
+            </Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="pvpCdrLogAppender" class="ch.qos.logback.core.FileAppender">
+        <file>logs/cdr/pvp_stat.log</file>
+        <append>false</append>
+        <encoder>
+            <Pattern>%date{HH:mm:ss}\t%msg%n</Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="eventsCdrLogAppender" class="ch.qos.logback.core.FileAppender">
+        <file>logs/cdr/events/events.log</file>
+        <append>false</append>
+        <encoder>
+            <Pattern>%msg%n</Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="pvpDetailsCdrLogAppender" class="ch.qos.logback.core.FileAppender">
+        <file>logs/cdr/pvp/pvp-details.log</file>
+        <append>false</append>
+        <encoder>
+            <Pattern>
+                %msg%n
+            </Pattern>
+        </encoder>
+    </appender>
+
+    <logger name="syslog" additivity="false">
+        <level value="ALL"/>
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <logger name="com.pragmatix.gameapp.social.PaymentLogger" additivity="false">
+        <level value="ALL"/>
+        <appender-ref ref="paymentsLogAppender"/>
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <logger name="PVP_CDR_LOGGER" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="pvpCdrLogAppender"/>
+    </logger>
+
+    <logger name="PVP_DETAILS_CDR_LOGGER" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="pvpDetailsCdrLogAppender"/>
+    </logger>
+
+    <logger name="EVENTS_CDR_LOGGER" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="eventsCdrLogAppender"/>
+    </logger>
+
+    <logger name="DUMP_BATTLES_LOGGER" additivity="false">
+        <level value="ALL"/>
+    </logger>
+
+    <logger name="org.springframework">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="org.springframework.web">
+        <level value="ALL"/>
+    </logger>
+
+    <logger name="org.springframework.http">
+        <level value="ALL"/>
+    </logger>
+
+    <logger name="org.hibernate">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="java.sql">
+        <level value="ALL"/>
+    </logger>
+
+    <logger name="com.notnoop">
+        <level value="ALL"/>
+    </logger>
+
+    <logger name="org.eclipse.jetty">
+        <level value="INFO"/>
+    </logger>
+
+    <logger name="com.pragmatix.serialization.Decoder">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="com.pragmatix.serialization.Encoder">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="com.pragmatix.serialization.netty.CommandDecoder">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="com.pragmatix.serialization.netty.CommandEncoder">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="com.pragmatix.serialization.BinarySerializer">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="com.pragmatix.connections.http.HttpMessageHandler">
+        <level value="INFO"/>
+    </logger>
+
+    <logger name="com.pragmatix.spring.ServerBeanNameGenerator">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="com.pragmatix.gameapp.info.AppInfo">
+        <level value="INFO"/>
+    </logger>
+
+    <logger name="com.pragmatix.gameapp.threads.service.task.TaskExecutorThread">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="com.pragmatix.gameapp.cache.PermanentCache">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="com.pragmatix.connections.AbstractSocketConnection">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="com.pragmatix.app.model.UserProfile">
+        <level value="INFO"/>
+    </logger>
+
+    <logger name="com.pragmatix.connections.http.HttpMessageHandler">
+        <level value="ALL"/>
+    </logger>
+
+    <logger name="com.pragmatix.performance.statictics">
+        <level value="ALL"/>
+    </logger>
+
+    <logger name="com.pragmatix">
+        <level value="DEBUG"/>
+    </logger>
+
+    <logger name="com.pragmatix.app.services.BundleService">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="MESSAGES">
+        <level value="DEBUG"/>
+    </logger>
+
+    <logger name="messages.in">
+        <level value="DEBUG"/>
+    </logger>
+
+    <logger name="messages.out">
+        <level value="DEBUG"/>
+    </logger>
+
+    <root>
+        <level value="WARN"/>
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>

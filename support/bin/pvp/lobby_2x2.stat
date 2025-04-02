@@ -1,0 +1,6 @@
+#!/bin/sh
+
+for f in `ls lobby`
+do
+  awk -f lobby_stat_2x2.awk 'lobby/'$f
+done

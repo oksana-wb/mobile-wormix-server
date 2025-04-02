@@ -1,0 +1,52 @@
+#!/bin/bash
+#
+# Плагин для мониторинга результатов подбора (Дуэль 50)
+
+munin=/home/user/munin
+statDump=${munin}/var/wormswar_mobile_stat.dump
+pvpStatLog=${munin}/var/wormswar_mobile_pvp_stat.log
+
+if [ "$1" = "config" ]; then
+    echo 'graph_title Wormix Apple'
+    echo 'graph_vlabel amount'
+    echo 'graph_noscale true'
+    echo 'graph_category wormix_apple'
+    echo 'graph_info This graph shows statistics about apple server'
+
+    echo 'dao.label DAO'
+    echo 'dao.info DAO'
+
+    echo 'dao_pvp.label DAO PVP'
+    echo 'dao_pvp.info DAO PVP'
+
+    echo 'battles_15.label Duel 15 amount'
+    echo 'battles_15.info Duel 15 amount (last day)'
+
+    echo 'battles_50.label Duel 50 amount'
+    echo 'battles_50.info Duel 50 amount (last day)'
+
+    exit 0
+fi
+
+awk '
+$1 == "dao.value" {print "dao.value "$2}
+' ${statDump}
+
+awk -v from="`date +%Y'-'%m'-'%d'_'%H':'%M':'%S -d "24 hour ago"`" -f ${munin}/bin/filter.awk ${pvpStatLog} | awk '
+$3 == 4 {
+  split($4, arr, "/")
+  if(arr[1] == 15) {
+    battles_15++
+  }else if(arr[1] == 50){
+    battles_50++
+  }
+}
+END{
+   printf("battles_15.value %d\n", battles_15)
+   printf("battles_50.value %d\n", battles_50)
+}
+'
+
+echo -n "dao_pvp.value "
+awk -v from="`date +%Y'-'%m'-'%d'_'%H':'%M':'%S -d "24 hour ago"`" -f ${munin}/bin/filter.awk ${pvpStatLog} | awk '$3 == 4 {print $7; print $19}' | sort | uniq | wc -l
+

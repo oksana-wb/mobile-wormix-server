@@ -1,0 +1,58 @@
+#!/bin/bash
+#
+# Плагин для мониторинга MAU
+
+if [ "$1" = "config" ]; then
+    echo 'graph_title  Active Users Stat'
+    echo 'graph_vlabel count'
+    echo 'graph_args -l 0'
+    echo 'graph_noscale true'
+    echo 'graph_category Wormix VK Stat'
+    echo 'graph_info Active Users Stat on Wormix VK'
+
+    echo 'wau.label wau'
+    echo 'wau.info WAU'
+    echo 'wau.min 0'
+
+    echo 'mau.label mau'
+    echo 'mau.info MAU'
+    echo 'mau.min 0'
+
+    exit 0
+fi
+
+WAU_NAME='main.wau'
+WAU_SYS_TIME=`date +"%Y%m%d%H"`
+DB=wormswar
+USER=smos
+WAU_DB_TIME=`psql -d $DB -U $USER -t -c "select to_char(update_time,'YYYYMMddHH24') from stat.munin where var_name='$WAU_NAME'"`
+WAU_DB_TIME=$(echo $WAU_DB_TIME | tr -d ' ')
+
+if [ "$WAU_SYS_TIME" = "$WAU_DB_TIME" ]; then
+    WAU_VALUE=`psql -d $DB -U $USER -t -c "select var_value from stat.munin where var_name='$WAU_NAME'"`
+else
+    WAU_VALUE=`psql -d $DB -U $USER -t -c "select count(id) from wormswar.user_profile where last_login_time > now() - interval '1 week'"`
+    if [ -z "$WAU_DB_TIME" ]; then
+        psql -d $DB -U $USER -t -c "insert into stat.munin(var_name, var_value) values('$WAU_NAME', $WAU_VALUE)" > /dev/null
+    else
+        psql -d $DB -U $USER -t -c "update stat.munin set var_value = $WAU_VALUE, update_time=now() where var_name='$WAU_NAME'" > /dev/null
+    fi
+fi
+echo "wau.value $WAU_VALUE"
+
+MAU_NAME='main.mau'
+MAU_SYS_TIME=`date +"%Y%m%d"`
+MAU_DB_TIME=`psql -d $DB -U $USER -t -c "select to_char(update_time,'YYYYMMdd') from stat.munin where var_name='$MAU_NAME'"`
+MAU_DB_TIME=$(echo $MAU_DB_TIME | tr -d ' ')
+
+if [ "$MAU_SYS_TIME" = "$MAU_DB_TIME" ]; then
+    MAU_VALUE=`psql -d $DB -U $USER -t -c "select var_value from stat.munin where var_name='$MAU_NAME'"`
+else
+    MAU_VALUE=`psql -d $DB -U $USER -t -c "select count(id) from wormswar.user_profile where last_login_time > now() - interval '1 month'"`
+    if [ -z "$MAU_DB_TIME" ]; then
+        psql -d $DB -U $USER -t -c "insert into stat.munin(var_name, var_value) values('$MAU_NAME', $MAU_VALUE)" > /dev/null
+    else
+        psql -d $DB -U $USER -t -c "update stat.munin set var_value = $MAU_VALUE, update_time=now() where var_name='$MAU_NAME'" > /dev/null
+    fi
+fi
+echo "mau.value $MAU_VALUE"

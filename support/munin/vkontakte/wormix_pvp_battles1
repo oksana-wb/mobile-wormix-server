@@ -1,0 +1,42 @@
+#!/bin/sh
+#
+# Плагин для мониторинга PVP коннекта
+
+StatDump=/home/user/server_pvp/logs/statistics/stat.dump
+
+if [ "$1" = "config" ]; then
+    echo 'graph_title Wormix Server (PVP Battles #1)'
+    echo 'graph_vlabel pvp_battles'
+    echo 'graph_noscale true'
+    echo 'graph_category Wormix'
+    echo 'graph_info This graph shows statistics about Wormix Server (PVP Battles)'
+
+
+    echo 'friend_pvp.label FRIEND_PvP'
+    echo 'friend_pvp.info FRIEND_PvP'
+
+    echo 'wager_2x2.label WAGER_PvP_2x2'
+    echo 'wager_2x2.info WAGER_PvP_2x2'
+
+    echo 'wager_3_for_all.label WAGER_PvP_3_FOR_ALL'
+    echo 'wager_3_for_all.info WAGER_PvP_3_FOR_ALL'
+
+    echo 'wager_duel_15.label WAGER_PvP_DUEL_15'
+    echo 'wager_duel_15.info WAGER_PvP_DUEL 15'
+
+    echo 'wager_duel_20.label WAGER_PvP_DUEL_20'
+    echo 'wager_duel_20.info WAGER_PvP_DUEL 20'
+
+    exit 0
+fi
+
+echo -n "friend_pvp.value "
+cat $StatDump | grep "^pvp:FRIEND_PvP" | awk '{print $3}'
+echo -n "wager_2x2.value "
+cat $StatDump | grep "^pvp:WAGER_PvP_2x2" | awk '{result = result + $3} END {print result}'
+echo -n "wager_3_for_all.value "
+cat $StatDump | grep "^pvp:WAGER_PvP_3_FOR_ALL" | awk '{print $3}'
+echo -n "wager_duel_15.value "
+cat $StatDump | grep "^pvp:WAGER_PvP_DUEL_15" | awk '{print $3}'
+echo -n "wager_duel_20.value "
+cat $StatDump | grep "^pvp:WAGER_PvP_DUEL_20" | awk '{print $3}'

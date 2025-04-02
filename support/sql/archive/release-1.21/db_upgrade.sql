@@ -1,0 +1,10 @@
+﻿ALTER TABLE achieve.worms_achievements ADD COLUMN craft_legendary smallint;
+ALTER TABLE achieve.worms_achievements ADD COLUMN superboss_defeated smallint;
+ALTER TABLE achieve.worms_achievements ADD COLUMN s_killed_rhinos smallint;
+ALTER TABLE achieve.worms_achievements ADD COLUMN s_killed_boars smallint;
+ALTER TABLE achieve.worms_achievements ADD COLUMN posts_made smallint;
+ALTER TABLE achieve.worms_achievements ADD COLUMN buy_race smallint;
+ALTER TABLE achieve.worms_achievements ADD COLUMN coliseum_win smallint;
+ALTER TABLE achieve.worms_achievements ADD COLUMN coliseum_win_10 smallint;
+ALTER TABLE achieve.worms_achievements ADD COLUMN with_friend_win smallint;
+ALTER TABLE achieve.worms_achievements ADD COLUMN callback_friends smallint;

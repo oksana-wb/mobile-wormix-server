@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:wormix="http://pragmatix-corp.com/schema/wormix"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/util
+           http://www.springframework.org/schema/util/spring-util.xsd
+           http://pragmatix-corp.com/schema/wormix http://pragmatix-corp.com/schema/wormix.xsd">
+
+    <bean class="com.pragmatix.app.settings.DailyBonusAwardSettings">
+        <property name="dailyBonusAward">
+            <map>
+                <entry key="1"><!-- 1-ая неделя -->
+                    <bean class="com.pragmatix.app.settings.DailyBonusAwardSettings.WeeklyAward" p:needLevel="1">
+                        <property name="dailyAward">
+                            <map>
+                                 <entry key="1">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:money="50"/>
+                                 </entry>
+                                 <entry key="2">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:reactionRate="5"/>
+                                 </entry>
+                                 <entry key="3">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:seasonWeapons="4:1"/>
+                                 </entry>
+                                 <entry key="4">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:experience="5">
+                                         <property name="levelMaxAward">
+                                             <bean class="com.pragmatix.app.settings.GenericAward" p:reagentsStr="51:1"/>
+                                         </property>
+                                     </bean>
+                                 </entry>
+                                 <entry key="5">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:battlesCount="2"/>
+                                 </entry>
+                                 <entry key="6">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:battlesCount="3"/>
+                                 </entry>
+                                 <entry key="7">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:realMoney="2"/>
+                                 </entry>
+                             </map>
+                         </property>
+                    </bean>
+                </entry>
+                <entry key="2"><!-- 2-ая неделя -->
+                    <bean class="com.pragmatix.app.settings.DailyBonusAwardSettings.WeeklyAward" p:needLevel="10">
+                         <property name="dailyAward">
+                             <map>
+                                 <entry key="1">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:money="75"/>
+                                 </entry>
+                                 <entry key="2">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:reactionRate="10"/>
+                                 </entry>
+                                 <entry key="3">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:seasonWeapons="6:1"/>
+                                 </entry>
+                                 <entry key="4">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:experience="10">
+                                         <property name="levelMaxAward">
+                                             <bean class="com.pragmatix.app.settings.GenericAward" p:reagentsStr="51:2"/>
+                                         </property>
+                                     </bean>
+                                 </entry>
+                                 <entry key="5">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:wagerWinAwardToken="1"/>
+                                 </entry>
+                                 <entry key="6">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:bossWinAwardToken="1"/>
+                                 </entry>
+                                 <entry key="7">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:realMoney="2"/>
+                                 </entry>
+                             </map>
+                         </property>
+                    </bean>
+                </entry>
+                <entry key="3"><!-- 3-я неделя -->
+                    <bean class="com.pragmatix.app.settings.DailyBonusAwardSettings.WeeklyAward" p:needLevel="18">
+                         <property name="dailyAward">
+                             <map>
+                                 <entry key="1">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:money="100"/>
+                                 </entry>
+                                 <entry key="2">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:reactionRate="15"/>
+                                 </entry>
+                                 <entry key="3">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:seasonWeapons="8:1"/>
+                                 </entry>
+                                 <entry key="4">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:experience="15">
+                                         <property name="levelMaxAward">
+                                             <bean class="com.pragmatix.app.settings.GenericAward" p:reagentsStr="51:3"/>
+                                         </property>
+                                     </bean>
+                                 </entry>
+                                 <entry key="5">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:wagerWinAwardToken="2"/>
+                                 </entry>
+                                 <entry key="6">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:bossWinAwardToken="1"/>
+                                 </entry>
+                                 <entry key="7">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:realMoney="2"/>
+                                 </entry>
+                             </map>
+                         </property>
+                    </bean>
+                </entry>
+                <entry key="4"><!-- 4-ая неделя -->
+                    <bean class="com.pragmatix.app.settings.DailyBonusAwardSettings.WeeklyAward" p:needLevel="25">
+                         <property name="dailyAward">
+                             <map>
+                                 <entry key="1">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:money="125"/>
+                                 </entry>
+                                 <entry key="2">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:reactionRate="20"/>
+                                 </entry>
+                                 <entry key="3">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:seasonWeapons="10:1"/>
+                                 </entry>
+                                 <entry key="4">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:experience="20">
+                                         <property name="levelMaxAward">
+                                             <bean class="com.pragmatix.app.settings.GenericAward" p:reagentsStr="51:4"/>
+                                         </property>
+                                     </bean>
+                                 </entry>
+                                 <entry key="5">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:wagerWinAwardToken="3"/>
+                                 </entry>
+                                 <entry key="6">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:bossWinAwardToken="1"/>
+                                 </entry>
+                                 <entry key="7">
+                                     <bean class="com.pragmatix.app.settings.GenericAward" p:realMoney="2"/>
+                                 </entry>
+                             </map>
+                         </property>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <!-- награда за возврат в игру -->
+    <bean id="comebackBonusSettings" class="com.pragmatix.app.settings.ComebackBonusSettings">
+        <property name="name" value="comebackBonusSettings"/>
+        <property name="absetDays" value="${comebackBonusSettings.absetDays:21}"/>
+        <property name="money" value="300"/>
+        <property name="realMoney" value="3"/>
+        <property name="reactionRate" value="15"/>
+        <property name="reagentsCount" value="15"/>
+        <property name="reagentsMassStr" value="0 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+    </bean>
+
+    <!-- награда за возвращенного в игру друга-->
+    <bean id="comebackCallerBonus" class="com.pragmatix.app.settings.GenericAward">
+        <property name="name" value="comebackCallerBonus"/>
+        <property name="money" value="150"/>
+        <property name="reactionRate" value="3"/>
+        <property name="reagentsCount" value="5"/>
+        <property name="reagentsMassStr" value="0 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+    </bean>
+
+    <!-- награда за 1-ое место в дневном Топе-->
+    <util:map id="firstPlaceDailyTopAward" key-type="com.pragmatix.pvp.BattleWager">
+        <entry key="WAGER_15_DUEL" value-ref="firstPlace_WAGER_15_DUEL"/>
+        <entry key="WAGER_50_2x2" value-ref="firstPlace_WAGER_50_2x2"/>
+    </util:map>
+
+    <!-- награда за места со 2-го по 10-ое в дневном Топе-->
+    <util:map id="secondPlaceDailyTopAward" key-type="com.pragmatix.pvp.BattleWager">
+        <entry key="WAGER_15_DUEL" value-ref="secondPlace_WAGER_15_DUEL"/>
+        <entry key="WAGER_50_2x2" value-ref="secondPlace_WAGER_50_2x2"/>
+    </util:map>
+
+    <!-- награда за места >10 в дневном Топе-->
+    <util:map id="thirdPlaceDailyTopAward" key-type="com.pragmatix.pvp.BattleWager">
+        <entry key="WAGER_15_DUEL" value-ref="thirdPlace_WAGER_15_DUEL"/>
+        <entry key="WAGER_50_2x2" value-ref="thirdPlace_WAGER_50_2x2"/>
+    </util:map>
+
+    <wormix:award id="firstPlace_WAGER_15_DUEL" awardItemsStr="1704:44" setItem="false"/>
+    <wormix:award id="secondPlace_WAGER_15_DUEL" awardItemsStr="1703:23" setItem="false"/>
+    <wormix:award id="thirdPlace_WAGER_15_DUEL" awardItemsStr="1702:23" setItem="false"/>
+
+    <wormix:award id="firstPlace_WAGER_50_2x2" awardItemsStr="1714:44" setItem="false"/>
+    <wormix:award id="secondPlace_WAGER_50_2x2" awardItemsStr="1713:23" setItem="false"/>
+    <wormix:award id="thirdPlace_WAGER_50_2x2" awardItemsStr="1712:23" setItem="false"/>
+
+    <util:map id="pvpExperience">
+        <entry key="WAGER_15_DUEL" value="0"/>
+        <entry key="WAGER_20_DUEL" value="0"/>
+        <entry key="WAGER_50_3_FOR_ALL" value="0"/>
+        <entry key="WAGER_50_2x2" value="0"/>
+        <entry key="WAGER_50_2x2_FRIENDS" value="0"/>
+        <entry key="WAGER_300_DUEL" value="0"/>
+    </util:map>
+
+    <util:list id="battleWagerDefinitions">
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="NO_WAGER" c:team="0" c:value="0" c:award="0"/>
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="FRIEND_20_DUEL" c:team="0" c:value="0" c:award="0"/>
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="FRIEND_ROPE_RACE" c:team="0" c:value="0" c:award="0"/>
+
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="WAGER_15_DUEL" c:team="1" c:value="5" c:award="5"/>
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="WAGER_15_DUEL" c:team="2" c:value="10" c:award="10"/>
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="WAGER_15_DUEL" c:team="3" c:value="20" c:award="20"/>
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="WAGER_15_DUEL" c:team="4" c:value="30" c:award="30"/>
+
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="WAGER_20_DUEL" c:team="0" c:value="20" c:award="20"/>
+
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="WAGER_50_3_FOR_ALL" c:team="0" c:value="10" c:award="20"/>
+
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="WAGER_50_2x2" c:team="0" c:value="50" c:award="50"/>
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="WAGER_50_2x2_FRIENDS" c:team="0" c:value="50" c:award="50"/>
+
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="WAGER_300_DUEL" c:team="0" c:value="300" c:award="250"/>
+
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="GLADIATOR_DUEL" c:team="0" c:value="0" c:award="0"/>
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="ROPE_RACE_QUEST" c:team="0" c:value="0" c:award="0"/>
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="FRIEND_ROPE_RACE_QUEST" c:team="0" c:value="0" c:award="0"/>
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="MERCENARIES_DUEL" c:team="0" c:value="0" c:award="0"/>
+
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="PvE_FRIEND" c:team="0" c:value="0" c:award="0"/>
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="PvE_PARTNER" c:team="0" c:value="0" c:award="0"/>
+    </util:list>
+
+    <util:list id="awardForDroppedUnits">
+        <value>0</value>
+        <value>8</value>
+        <value>20</value>
+        <value>40</value>
+    </util:list>
+
+    <bean class="com.pragmatix.app.model.TopClanAwardParams">
+        <property name="minRating" value="10000"/>
+        <property name="reagents">
+            <list>
+                <value>50</value><!-- эмблемы -->
+                <value>51</value><!-- ключи -->
+                <value>52</value><!-- мутагены -->
+            </list>
+        </property>
+        <property name="reactionRatio" value="15"/>
+        <property name="experienceRatio" value="1"/>
+        <property name="items">
+            <list>
+                <bean class="com.pragmatix.app.model.TopClanAwardParams$Item" p:placeFrom="1" p:placeTo="1" p:leaderItemId="2606" p:officerItemId="2596"/>
+                <bean class="com.pragmatix.app.model.TopClanAwardParams$Item" p:placeFrom="2" p:placeTo="2" p:leaderItemId="2605" p:officerItemId="2595"/>
+                <bean class="com.pragmatix.app.model.TopClanAwardParams$Item" p:placeFrom="3" p:placeTo="3" p:leaderItemId="2604" p:officerItemId="2594"/>
+                <bean class="com.pragmatix.app.model.TopClanAwardParams$Item" p:placeFrom="4" p:placeTo="10" p:leaderItemId="2603" p:officerItemId="2593"/>
+                <bean class="com.pragmatix.app.model.TopClanAwardParams$Item" p:placeFrom="11" p:placeTo="50" p:leaderItemId="2602" p:officerItemId="2592"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>

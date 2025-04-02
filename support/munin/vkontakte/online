@@ -1,0 +1,48 @@
+#!/bin/sh
+#
+# Плагин для мониторинга количества пользователей 
+
+
+if [ "$1" = "config" ]; then
+    echo 'graph_title Wormix online users'
+    echo 'graph_vlabel online'
+    echo 'graph_noscale true'
+    echo 'graph_category Wormix'
+    echo 'graph_info This graph shows amount of users connected to Wormix'
+    #echo 'graph_args --base 1000 -l 0' 
+    
+    echo 'users_main.label main'
+    echo 'users_main.info Main users amount'
+    #echo 'users_main.type DERIVE'
+    echo 'users_main.min 0'
+    echo 'users_main.max 60000'
+    
+    echo 'users_main_v.label 6000 others'
+    echo 'users_main_v.info others connections on 6000 port'
+    #echo 'users_main_v.type DERIVE'
+    echo 'users_main_v.min 0'
+    echo 'users_main_v.max 60000'
+    
+    echo 'users_pvp.label pvp'
+    echo 'users_pvp.info Pvp users amount'
+    #echo 'users_pvp.type DERIVE'
+    echo 'users_pvp.min 0'
+    echo 'users_pvp.max 60000'
+
+    echo 'users_pvp_v.label 6004 others'
+    echo 'users_pvp_v.info others connections on 6000 port'
+    #echo 'users_pvp_v.type DERIVE'
+    echo 'users_pvp_v.min 0'
+    echo 'users_pvp_v.max 60000'
+
+    exit 0
+fi
+
+echo -n "users_main.value "
+echo `netstat -n | grep ESTABLISHED | grep :60101 | wc -l`
+echo -n "users_pvp.value "
+echo `netstat -n | grep ESTABLISHED | grep :60102 | wc -l`
+echo -n "users_main_v.value "
+echo `netstat -n | grep -v ESTABLISHED | grep :60101 | wc -l`
+echo -n "users_pvp_v.value "
+echo `netstat -n | grep -v ESTABLISHED | grep :60102 | wc -l`

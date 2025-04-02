@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+                 version="2.0">
+
+    <entity class="com.pragmatix.app.domain.ShopStatisticEntity" name="ShopStatisticEntity">
+        <table name="shop_statistic" schema="wormswar"/>
+        <sequence-generator name="SHOP_SEQUENCE" sequence-name="SHOP_SEQUENCE" allocation-size="1"/>
+
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="SHOP_SEQUENCE"/>
+            </id>
+            <basic name="profileId">
+                <column nullable="false"/>
+            </basic>
+            <basic name="itemType">
+                <column nullable="false"/>
+            </basic>
+            <basic name="itemId">
+                <column nullable="false"/>
+            </basic>
+            <basic name="moneyType">
+                <column nullable="false"/>
+            </basic>
+            <basic name="price">
+                <column nullable="false"/>
+            </basic>
+            <basic name="count">
+                <column nullable="false"/>
+            </basic>
+            <basic name="date">
+                <column nullable="false"/>
+                <temporal>TIMESTAMP</temporal>
+            </basic>
+            <basic name="level">
+                <column nullable="true"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity class="com.pragmatix.app.domain.AwardStatisticEntity" name="AwardStatisticEntity">
+        <table name="award_statistic" schema="wormswar"/>
+        <sequence-generator name="AWARD_SEQUENCE" sequence-name="AWARD_SEQUENCE" allocation-size="1"/>
+
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="AWARD_SEQUENCE"/>
+            </id>
+            <basic name="profileId">
+                <column nullable="false"/>
+            </basic>
+            <basic name="awardType">
+                <column nullable="false"/>
+            </basic>
+            <basic name="itemId">
+                <column nullable="false"/>
+            </basic>
+            <basic name="money">
+                <column nullable="false"/>
+            </basic>
+            <basic name="realmoney">
+                <column nullable="false"/>
+            </basic>
+            <basic name="date">
+                <column nullable="false"/>
+                <temporal>TIMESTAMP</temporal>
+            </basic>
+            <basic name="note">
+                <column nullable="true" length="1024"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity class="com.pragmatix.app.domain.WipeStatisticEntity" name="WipeStatisticEntity">
+        <table name="wipe_statistic" schema="wormswar"/>
+        <sequence-generator name="WIPE_SEQUENCE" sequence-name="WIPE_SEQUENCE" allocation-size="1"/>
+
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="WIPE_SEQUENCE"/>
+            </id>
+            <basic name="profileId">
+                <column nullable="false"/>
+            </basic>
+            <basic name="money">
+                <column nullable="false"/>
+            </basic>
+            <basic name="realmoney">
+                <column nullable="false"/>
+            </basic>
+            <basic name="date">
+                <column nullable="false"/>
+                <temporal>TIMESTAMP</temporal>
+            </basic>
+            <basic name="level">
+                <column nullable="false"/>
+            </basic>
+            <basic name="rating">
+                <column nullable="false"/>
+            </basic>
+            <basic name="reactionRate">
+                <column nullable="false"/>
+            </basic>
+            <basic name="adminLogin">
+                <column nullable="true"/>
+            </basic>
+            <basic name="profileStructure">
+                <column nullable="true" length="10240"/>
+            </basic>
+            <basic name="cmd">
+                <column nullable="true"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity class="com.pragmatix.app.domain.PaymentStatisticEntity" name="PaymentStatisticEntity">
+        <table name="payment_statistic" schema="wormswar"/>
+        <sequence-generator name="PAYMENT_SEQUENCE" sequence-name="PAYMENT_SEQUENCE" allocation-size="1"/>
+
+        <named-query name="updatePaymentStatistic">
+            <query>update PaymentStatisticEntity e set e.paymentStatus = :paymentStatus, e.completed=:completed, e.updateDate=:updateDate where e.id = :paymentId</query>
+        </named-query>
+
+        <named-query name="updateSuccessPaymentStatistic">
+            <query>update PaymentStatisticEntity e set e.paymentStatus = 0, e.completed = true, e.updateDate = :updateDate, e.balanse = :balanse, e.transactionId = :transactionId
+                where e.id = :paymentId and e.paymentStatus in (-1, 1)</query>
+        </named-query>
+
+        <named-query name="updateFailurePaymentStatistic">
+            <query>update PaymentStatisticEntity e set e.paymentStatus = 1, e.updateDate = :updateDate, e.balanse = :balanse, e.transactionId = :transactionId
+                where e.id = :paymentId and e.paymentStatus = -1</query>
+        </named-query>
+
+        <named-query name="selectPaymentByTransactionId">
+            <query>select e from PaymentStatisticEntity e where e.transactionId = :transactionId</query>
+        </named-query>
+
+        <named-native-query name="selectAllPaymentStatictic" result-class="com.pragmatix.app.domain.PaymentStatisticEntity">
+            <query>select * from payment_statistic_parent
+                where profile_id= :profileId and
+                        coalesce(payment_status, 0) = 0</query>
+        </named-native-query>
+
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="PAYMENT_SEQUENCE"/>
+            </id>
+            <basic name="profileId">
+                <column nullable="false"/>
+            </basic>
+            <basic name="moneyType">
+                <column nullable="false"/>
+            </basic>
+            <basic name="votes">
+                <column nullable="false"/>
+            </basic>
+            <basic name="date">
+                <column nullable="false"/>
+                <temporal>TIMESTAMP</temporal>
+            </basic>
+            <basic name="completed">
+                <column nullable="false"/>
+            </basic>
+            <basic name="updateDate">
+                <column nullable="true"/>
+                <temporal>TIMESTAMP</temporal>
+            </basic>
+            <basic name="transactionId">
+                <column nullable="true" name="transaction_id"/>
+            </basic>
+            <basic name="amount">
+                <column nullable="false"/>
+            </basic>
+            <basic name="balanse">
+                <column nullable="false"/>
+            </basic>
+            <basic name="item">
+                <column nullable="false"/>
+            </basic>
+
+            <many-to-one name="userProfile" optional="true" target-entity="com.pragmatix.app.domain.UserProfileEntity" fetch="LAZY">
+                <join-column name="profileId" nullable="false" referenced-column-name="id" insertable="false" updatable="false"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+
+    <entity class="com.pragmatix.app.domain.stat.AuditAdminActionEntity" name="AuditAdminActionEntity">
+        <table name="audit_admin_action" schema="stat"/>
+        <sequence-generator name="AUDIT_ADMIN_ACTION_SEQUENCE" sequence-name="AUDIT_ADMIN_ACTION_SEQUENCE" allocation-size="1"/>
+
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="AUDIT_ADMIN_ACTION_SEQUENCE"/>
+            </id>
+            <basic name="login">
+                <column nullable="false" length="64"/>
+            </basic>
+            <basic name="date">
+                <column nullable="false"/>
+                <temporal>TIMESTAMP</temporal>
+            </basic>
+            <basic name="ip">
+                <column nullable="false" length="16"/>
+            </basic>
+            <basic name="userProfileId">
+                <column name="user_profile_id" nullable="true" length="64"/>
+            </basic>
+            <basic name="commandId">
+                <column name="command_id" nullable="false"/>
+            </basic>
+            <basic name="note">
+                <column nullable="false" length="1024"/>
+            </basic>
+            <basic name="adminNote">
+                <column name="admin_note" nullable="true" length="1024"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity class="com.pragmatix.app.domain.UserProfileEntity" name="UserProfileEntity">
+        <table name="user_profile" schema="wormswar"/>
+
+        <named-query name="setLastSearchTime">
+            <query>update UserProfileEntity a set lastSearchTime = :lastSearchTime where a.id = :id</query>
+        </named-query>
+
+        <named-query name="setReactionRate">
+            <query>update UserProfileEntity a set reactionRate = :reactionRate where a.id = :id</query>
+        </named-query>
+
+        <named-query name="updateUserProfile">
+            <query>update UserProfileEntity a set a.money=:money, a.realmoney=:realmoney, a.rating=:rating, a.armor=:armor, a.vipExpiryTime=:vipExpiryTime,
+                a.attack=:attack, a.battlesCount=:battlesCount, a.level=:level, a.experience=:experience, a.hat=:hat, a.race=:race, a.races=:races, a.kit=:kit,
+                a.selectRaceTime=:selectRaceTime, a.skins=:skins,
+                a.stuff=:stuff, a.temporalStuff=:temporalStuff, a.lastBattleTime=:lastBattleTime, a.loginSequence=:loginSequence, a.reactionRate=:reactionRate,
+                a.currentMission=:currentMission, a.currentNewMission=:currentNewMission,
+                a.lastLoginTime=:lastLoginTime, a.lastSearchTime=:lastSearchTime, a.recipes=:recipes, a.comebackedFriends=:comebackedFriends, a.locale=:locale, a.name=:name,
+                a.renameAct=:renameAct, a.logoutTime=:logoutTime, a.levelUpTime=:levelUpTime, a.releaseAward=:releaseAward,
+                a.pickUpDailyBonus=:pickUpDailyBonus, a.renameVipAct=:renameVipAct, a.vipSubscriptionId=:vipSubscriptionId, a.countryCode=:countryCode, a.currencyCode=:currencyCode
+                where a.id = :id
+            </query>
+        </named-query>
+
+        <named-native-query name="getProfilesById" result-class="com.pragmatix.app.domain.UserProfileEntity">
+            <query>select * from wormswar.user_profile u where u.id in (:ids)</query>
+        </named-native-query>
+
+        <named-native-query name="insertOrUpdateLastBeingComebackedTime">
+            <query>
+                update wormswar.user_profile_meta set last_comebacked_time = :lastBeingComebackedTime where profile_id = :id ;
+                insert into wormswar.user_profile_meta (profile_id, last_comebacked_time)
+                    select :id, :lastBeingComebackedTime where not exists (
+                            select 1 from wormswar.user_profile_meta um where um.profile_id = :id
+                    );
+            </query>
+        </named-native-query>
+
+        <named-native-query name="insertOrUpdateRankValues">
+            <query>
+                update wormswar.ranks set rank_points = :rankPoints, best_rank = :bestRank where profile_id = :profileId ;
+                insert into wormswar.ranks (profile_id, rank_points, best_rank)
+                    select :profileId, :rankPoints, :bestRank where not exists (
+                            select 1 from wormswar.ranks r where r.profile_id = :profileId
+                    );
+            </query>
+        </named-native-query>
+
+        <named-native-query name="clearMeta">
+            <query>delete from wormswar.user_profile_meta where profile_id = :profileId</query>
+        </named-native-query>
+
+        <named-native-query name="clearRank">
+            <query>delete from wormswar.ranks where profile_id = :profileId</query>
+        </named-native-query>
+
+        <attributes>
+            <id name="id"/>
+            <basic name="money">
+                <column nullable="false"/>
+            </basic>
+            <basic name="realmoney">
+                <column nullable="false"/>
+            </basic>
+            <basic name="rating">
+                <column nullable="false"/>
+            </basic>
+            <basic name="armor">
+                <column nullable="false"/>
+            </basic>
+            <basic name="attack">
+                <column nullable="false"/>
+            </basic>
+            <basic name="battlesCount">
+                <column nullable="false"/>
+            </basic>
+            <basic name="level">
+                <column nullable="false"/>
+            </basic>
+            <basic name="experience">
+                <column nullable="false"/>
+            </basic>
+            <basic name="hat">
+                <column nullable="false"/>
+            </basic>
+            <basic name="race">
+                <column nullable="true"/>
+            </basic>
+            <basic name="races">
+                <column nullable="true"/>
+            </basic>
+            <basic name="kit">
+                <column nullable="true"/>
+            </basic>
+            <basic name="stuff">
+                <column nullable="true"/>
+            </basic>
+            <basic name="temporalStuff">
+                <column name="temporal_stuff" nullable="true"/>
+            </basic>
+            <basic name="lastBattleTime">
+                <column nullable="false"/>
+                <temporal>TIMESTAMP</temporal>
+            </basic>
+            <basic name="lastLoginTime">
+                <column nullable="true"/>
+                <temporal>TIMESTAMP</temporal>
+            </basic>
+            <basic name="lastSearchTime">
+                <column nullable="true"/>
+                <temporal>TIMESTAMP</temporal>
+            </basic>
+            <basic name="loginSequence">
+                <column name="login_sequence" nullable="true"/>
+            </basic>
+            <basic name="reactionRate">
+                <column name="reaction_rate" nullable="true"/>
+            </basic>
+            <basic name="recipes">
+                <column nullable="true"/>
+            </basic>
+            <basic name="comebackedFriends">
+                <column name="comebacked_friends" nullable="true"/>
+            </basic>
+            <basic name="currentMission">
+                <column name="current_mission" nullable="true"/>
+            </basic>
+            <basic name="currentNewMission">
+                <column name="current_new_mission" nullable="true"/>
+            </basic>
+            <basic name="locale">
+                <column name="locale" nullable="true"/>
+            </basic>
+            <basic name="name">
+                <column name="name" nullable="true"/>
+            </basic>
+            <basic name="renameAct">
+                <column name="rename_act" nullable="true"/>
+            </basic>
+            <basic name="logoutTime">
+                <column name="logout_time" nullable="true"/>
+            </basic>
+            <basic name="skins">
+                <column name="skins" nullable="true"/>
+            </basic>
+            <basic name="vipExpiryTime">
+                <column name="vip_expiry_time" nullable="true"/>
+            </basic>
+            <basic name="renameVipAct">
+                <column name="rename_vip_act" nullable="true"/>
+            </basic>
+            <basic name="vipSubscriptionId">
+                <column name="vip_subscription_id" nullable="true"/>
+            </basic>
+            <basic name="countryCode">
+                <column name="country_code" nullable="true"/>
+            </basic>
+            <basic name="currencyCode">
+                <column name="currency_code" nullable="true"/>
+            </basic>
+            <basic name="levelUpTime">
+                <column name="level_up_time" nullable="true"/>
+            </basic>
+            <basic name="releaseAward">
+                <column name="release_award" nullable="true"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity class="com.pragmatix.app.domain.WormGroupsEntity" name="WormGroupsEntity">
+        <table name="worm_groups" schema="wormswar"/>
+        <named-query name="updateWormGroups">
+            <query>
+                update WormGroupsEntity e set
+                e.teamMember1=:teamMember1, e.teamMember2=:teamMember2, e.teamMember3=:teamMember3, e.teamMember4=:teamMember4, e.teamMember5=:teamMember5, e.teamMember6=:teamMember6, e.teamMember7=:teamMember7,
+                e.teamMemberMeta1=:teamMemberMeta1, e.teamMemberMeta2=:teamMemberMeta2, e.teamMemberMeta3=:teamMemberMeta3, e.teamMemberMeta4=:teamMemberMeta4, e.teamMemberMeta5=:teamMemberMeta5, e.teamMemberMeta6=:teamMemberMeta6, e.teamMemberMeta7=:teamMemberMeta7,
+                e.extraGroupSlotsCount=:extraGroupSlotsCount,
+                e.teamMemberNames=:teamMemberNames
+                where e.profileId = :profileId
+            </query>
+        </named-query>
+        <named-query name="deleteGroup">
+            <query>
+                delete from WormGroupsEntity a where a.profileId = :profileId
+            </query>
+        </named-query>
+        <named-native-query name="getWormGroupsByProfileIds" result-class="com.pragmatix.app.domain.WormGroupsEntity">
+            <query>
+                select * from wormswar.worm_groups gr
+                    where gr.profile_Id  in (:profileIds)
+            </query>
+        </named-native-query>
+        <attributes>
+            <id name="profileId"/>
+            <basic name="teamMember1">
+                <column name="team_member_1" nullable="false"/>
+            </basic>
+            <basic name="teamMember2">
+                <column name="team_member_2" nullable="false"/>
+            </basic>
+            <basic name="teamMember3">
+                <column name="team_member_3" nullable="true"/>
+            </basic>
+            <basic name="teamMember4">
+                <column name="team_member_4" nullable="true"/>
+            </basic>
+            <basic name="teamMember5">
+                <column name="team_member_5" nullable="true"/>
+            </basic>
+            <basic name="teamMember6">
+                <column name="team_member_6" nullable="true"/>
+            </basic>
+            <basic name="teamMember7">
+                <column name="team_member_7" nullable="true"/>
+            </basic>
+            <basic name="teamMemberMeta1">
+                <column name="team_member_meta_1" nullable="true"/>
+            </basic>
+            <basic name="teamMemberMeta2">
+                <column name="team_member_meta_2" nullable="true"/>
+            </basic>
+            <basic name="teamMemberMeta3">
+                <column name="team_member_meta_3" nullable="true"/>
+            </basic>
+            <basic name="teamMemberMeta4">
+                <column name="team_member_meta_4" nullable="true"/>
+            </basic>
+            <basic name="teamMemberMeta5">
+                <column name="team_member_meta_5" nullable="true"/>
+            </basic>
+            <basic name="teamMemberMeta6">
+                <column name="team_member_meta_6" nullable="true"/>
+            </basic>
+            <basic name="teamMemberMeta7">
+                <column name="team_member_meta_7" nullable="true"/>
+            </basic>
+            <basic name="teamMemberNames">
+                <column name="team_member_names" nullable="true"/>
+            </basic>
+            <basic name="extraGroupSlotsCount">
+                <column name="extra_group_slots_count" nullable="true"/>
+            </basic>
+            <transient name="teamMembers"/>
+            <transient name="teamMemberNamesMap"/>
+            <transient name="teamMembersCount"/>
+            <transient name="id"/>
+        </attributes>
+    </entity>
+
+    <entity class="com.pragmatix.app.domain.BanEntity" name="BanEntity">
+        <table name="ban_list" schema="wormswar"/>
+        <sequence-generator name="BAN_SEQUENCE" sequence-name="BAN_SEQUENCE" allocation-size="1"/>
+        <named-query name="deleteFromBanList">
+            <query>delete from BanEntity a where a.profileId = :profileId</query>
+        </named-query>
+        <named-query name="selectGamersBans">
+            <query>select b from BanEntity b where b.profileId = :profileId order by b.id</query>
+        </named-query>
+        <named-native-query name="getActualBanList" result-class="com.pragmatix.app.domain.BanEntity">
+            <query>select * from wormswar.ban_list
+                where end_date is null or end_date &gt; now()</query>
+        </named-native-query>
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="BAN_SEQUENCE"/>
+            </id>
+            <basic name="profileId">
+                <column nullable="false"/>
+            </basic>
+            <basic name="date">
+                <column nullable="false"/>
+            </basic>
+            <basic name="type">
+                <column nullable="false"/>
+            </basic>
+            <basic name="note">
+                <column nullable="true"/>
+            </basic>
+            <basic name="endDate">
+                <column nullable="true"/>
+                <temporal>TIMESTAMP</temporal>
+            </basic>
+            <basic name="admin">
+                <column nullable="true"/>
+            </basic>
+            <basic name="attachments">
+                <column nullable="true"/>
+            </basic>
+            <many-to-one name="userProfile" optional="true" target-entity="com.pragmatix.app.domain.UserProfileEntity"
+                         fetch="LAZY">
+                <join-column name="profileId" nullable="false" referenced-column-name="id" insertable="false"
+                             updatable="false"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+
+    <entity class="com.pragmatix.app.domain.RestrictionEntity" name="RestrictionEntity">
+        <table name="restrictions" schema="wormswar"/>
+        <named-query name="deleteRestrictionsFor">
+            <query>delete from RestrictionEntity r where r.profileId = :profileId</query>
+        </named-query>
+        <named-query name="getRestrictionsHistoryFor">
+            <query>select r from RestrictionEntity r where r.profileId = :profileId</query>
+        </named-query>
+        <named-native-query name="getActualRestrictions" result-class="com.pragmatix.app.domain.RestrictionEntity">
+            <query>select * from wormswar.restrictions
+                where end_date is null or end_date &gt; now()
+                order by start_date desc</query>
+        </named-native-query>
+        <attributes>
+            <id name="id">
+                <generated-value strategy="IDENTITY"/>
+            </id>
+            <basic name="profileId">
+                <column nullable="false"/>
+            </basic>
+            <basic name="startDate">
+                <column nullable="false"/>
+            </basic>
+            <basic name="endDate">
+                <column nullable="true"/>
+            </basic>
+            <basic name="reason">
+                <column nullable="false"/>
+            </basic>
+            <basic name="history">
+                <column nullable="true"/>
+            </basic>
+            <basic name="blocks">
+                <column nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity class="com.pragmatix.app.domain.AdminProfileEntity" name="AdminProfileEntity">
+        <table name="admin_profile" schema="wormswar"/>
+        <named-query name="deleteAdminProfileByLogin">
+            <query>delete AdminProfileEntity a where a.login = :login</query>
+            <hint name="org.hibernate.cacheable" value="true"/>
+        </named-query>
+        <attributes>
+            <id name="id"/>
+            <basic name="name">
+                <column nullable="true"/>
+            </basic>
+            <basic name="login">
+                <column nullable="false"/>
+            </basic>
+            <basic name="password">
+                <column nullable="false"/>
+            </basic>
+            <basic name="role">
+                <column nullable="false"/>
+            </basic>
+            <basic name="createDate">
+                <column nullable="true"/>
+                <temporal>TIMESTAMP</temporal>
+            </basic>
+            <basic name="createdBy">
+                <column nullable="true"/>
+            </basic>
+
+        </attributes>
+    </entity>
+
+    <entity class="com.pragmatix.app.domain.BackpackItemEntity" name="BackpackItemEntity">
+        <table name="backpack_item" schema="wormswar"/>
+
+        <named-native-query name="getBackpacksByProfileIds" result-class="com.pragmatix.app.domain.BackpackItemEntity">
+            <query>select * from wormswar.backpack_item b
+                where b.profile_Id  in (:profileIds)</query>
+            <hint name="org.hibernate.cacheable" value="true"/>
+        </named-native-query>
+        <named-native-query name="getBackpackByProfileId0" result-class="com.pragmatix.app.domain.BackpackItemEntity">
+            <query>select * from wormswar.backpack_item_0 b
+                where b.profile_Id  = :profileId</query>
+            <hint name="org.hibernate.cacheable" value="true"/>
+        </named-native-query>
+        <named-native-query name="getBackpackByProfileId1" result-class="com.pragmatix.app.domain.BackpackItemEntity">
+            <query>select * from wormswar.backpack_item_1 b
+                where b.profile_Id  = :profileId</query>
+            <hint name="org.hibernate.cacheable" value="true"/>
+        </named-native-query>
+        <named-native-query name="getBackpackByProfileId2" result-class="com.pragmatix.app.domain.BackpackItemEntity">
+            <query>select * from wormswar.backpack_item_2 b
+                where b.profile_Id  = :profileId</query>
+            <hint name="org.hibernate.cacheable" value="true"/>
+        </named-native-query>
+        <named-native-query name="getBackpackByProfileId3" result-class="com.pragmatix.app.domain.BackpackItemEntity">
+            <query>select * from wormswar.backpack_item_3 b
+                where b.profile_Id  = :profileId</query>
+            <hint name="org.hibernate.cacheable" value="true"/>
+        </named-native-query>
+
+        <attributes>
+            <id name="profileId">
+                <column nullable="false"/>
+            </id>
+            <id name="weaponId">
+                <column nullable="false"/>
+            </id>
+            <basic name="weaponCount">
+                <column nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity class="com.pragmatix.app.domain.AppParamsEntity">
+        <table name="app_params" schema="wormswar"/>
+    </entity>
+
+    <entity class="com.pragmatix.app.domain.SocialIdEntity">
+        <table name="social_id" schema="wormswar"/>
+        <sequence-generator name="PROFILE_ID_SEQUENCE" sequence-name="PROFILE_ID_SEQUENCE" allocation-size="1"/>
+        <named-query name="selectByStringId">
+            <query>select e from SocialIdEntity e where e.stringId = :stringId</query>
+        </named-query>
+        <named-query name="reassignStingIdToNewProfile">
+            <query>update SocialIdEntity e set profileId = :profileId where e.stringId = :stringId</query>
+        </named-query>
+        <named-query name="dissociateStingIdFromProfile">
+            <query>delete from SocialIdEntity e where e.stringId = :stringId and profileId = :profileId</query>
+        </named-query>
+        <attributes>
+            <id name="stringId">
+                <column name="string_id" nullable="false"/>
+            </id>
+            <basic name="socialNetId">
+                <column name="social_net_id" nullable="false"/>
+            </basic>
+            <basic name="profileId">
+                <column name="profile_id" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity class="com.pragmatix.app.domain.CheaterStatisticEntity">
+        <table name="cheater_statistic" schema="wormswar"/>
+        <named-query name="updateCheaterStatistic">
+            <query>update CheaterStatisticEntity e set e.count = :count, e.note=:note where e.id = :id</query>
+        </named-query>
+        <attributes>
+            <id name="id">
+                <generated-value strategy="IDENTITY"/>
+            </id>
+            <basic name="date">
+                <column name="date" nullable="false"/>
+                <temporal>TIMESTAMP</temporal>
+            </basic>
+            <basic name="profileId">
+                <column name="profile_id" nullable="false"/>
+            </basic>
+            <basic name="actionType">
+                <column name="action_type" nullable="false"/>
+            </basic>
+            <basic name="actionParam">
+                <column name="action_param" nullable="false" length="64"/>
+            </basic>
+            <basic name="count">
+                <column name="count" nullable="false"/>
+            </basic>
+            <basic name="note">
+                <column name="note" nullable="false" length="1024"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity class="com.pragmatix.app.domain.TrueSkillEntity" name="TrueSkillEntity">
+        <table name="true_skill" schema="wormswar"/>
+
+        <named-query name="TrueSkillEntity.update">
+            <query>update TrueSkillEntity set mean=:mean, standardDeviation=:ststandardDeviation, battles=:battles where profileId=:profileId</query>
+        </named-query>
+        <attributes>
+            <basic name="standardDeviation">
+                <column name="spread"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity class="com.pragmatix.notify.NotifyRegistrationEntity" name="NotifyRegistrationEntity">
+        <table name="notify_registration" schema="wormswar"/>
+        <attributes>
+            <id name="profileId">
+                <column name="profile_id"/>
+            </id>
+            <basic name="socialNetId">
+                <column name="social_net_id" nullable="false"/>
+            </basic>
+            <basic name="registrationId">
+                <column name="registration_id" nullable="false"/>
+            </basic>
+            <basic name="registrationDate">
+                <column name="registration_date" nullable="false"/>
+            </basic>
+            <basic name="unregistrationDate">
+                <column name="unregistration_date" nullable="true"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity class="com.pragmatix.app.domain.StoreItemEntity" name="StoreItemEntity">
+        <table name="store" schema="wormswar"/>
+    </entity>
+
+    <entity class="com.pragmatix.app.domain.BackpackConfEntity" name="BackpackConfEntity">
+        <table name="backpack_conf" schema="wormswar"/>
+
+        <named-query name="BackpackConfEntity.update">
+            <query>update BackpackConfEntity set config=:config1, config2=:config2, config3=:config3, activeConfig=:activeConfig, hotkeys=:hotkeys where profileId=:profileId </query>
+        </named-query>
+    </entity>
+
+    <entity class="com.pragmatix.app.domain.ReferralLinkEntity" name="ReferralLinkEntity">
+        <table name="referral_link" schema="wormswar"/>
+
+        <named-query name="ReferralLinkEntity.updateVisitors">
+            <query>update ReferralLinkEntity set visitors=:visitors where id=:id</query>
+        </named-query>
+    </entity>
+
+    <entity class="com.pragmatix.app.domain.BossBattleExtraRewardEntity" name="BossBattleExtraRewardEntity">
+        <table name="boss_battle_extra_reward" schema="wormswar"/>
+    </entity>
+
+    <entity class="com.pragmatix.app.domain.BundleEntity" name="BundleEntity">
+        <table name="bundles" schema="wormswar"/>
+    </entity>
+
+    <entity class="com.pragmatix.app.domain.DepositEntity" name="DepositEntity">
+        <table name="deposits" schema="wormswar"/>
+
+        <named-query name="DepositEntity.selectByProfile">
+            <query>select d from DepositEntity d where d.profileId = :profileId and d.paidOff is false order by d.startDate</query>
+        </named-query>
+
+        <named-query name="DepositEntity.selectAllByProfile">
+            <query>select d from DepositEntity d where d.profileId = :profileId order by d.startDate</query>
+        </named-query>
+
+        <named-query name="DepositEntity.updateProgress">
+            <query>update DepositEntity d set progress=:progress, paidOff=:paidOff, lastPayDate=:lastPayDate where id=:id</query>
+        </named-query>
+
+        <attributes>
+            <id name="id">
+                <column name="id" nullable="false"/>
+            </id>
+
+            <basic name="profileId">
+                <column name="profile_id" nullable="false"/>
+            </basic>
+
+            <basic name="dividendsByDays">
+                <column name="dividends_by_days" nullable="false"/>
+            </basic>
+
+            <basic name="startDate">
+                <column name="start_date" nullable="false"/>
+            </basic>
+
+            <basic name="progress">
+                <column name="progress" nullable="false"/>
+            </basic>
+
+            <basic name="lastPayDate">
+                <column name="last_pay_date" nullable="true"/>
+            </basic>
+
+            <basic name="paidOff">
+                <column name="paid_off" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+
+</entity-mappings>

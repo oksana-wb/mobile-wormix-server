@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="AGS" transaction-type="RESOURCE_LOCAL">
+
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <mapping-file>META-INF/mapping-file.xml</mapping-file>
+
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_sql_comments" value="false"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.max_fetch_depth" value="3"/>
+            <property name="hibernate.connection.autocommit" value="false" />
+            <property name="hibernate.connection.release_mode" value="auto" />
+
+            <property name="hibernate.physical_naming_strategy" value="com.pragmatix.spring.SpringPhysicalNamingStrategy"/>
+        </properties>
+
+    </persistence-unit>
+
+</persistence>

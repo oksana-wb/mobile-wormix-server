@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+# Плагин для мониторинга количества пользователей 
+
+
+if [ "$1" = "config" ]; then
+    echo 'graph_title Wormix Steam online users'
+    echo 'graph_vlabel online'
+    echo 'graph_noscale true'
+    echo 'graph_category Wormix Steam'
+    echo 'graph_info This graph shows amount of users connected to Wormix Steam'
+    
+    echo 'users_main.label main'
+    echo 'users_main.info Main users amount'
+    echo 'users_main.min 0'
+    #echo 'users_main.max 60000'
+    
+    echo 'users_pvp.label pvp'
+    echo 'users_pvp.info Pvp users amount'
+    echo 'users_pvp.min 0'
+    #echo 'users_pvp.max 60000'
+
+    exit 0
+fi
+
+echo -n "users_main.value "
+echo `ss -t -o state established '( sport = :60800 )' | grep 60800 | wc -l`
+echo -n "users_pvp.value "
+echo `ss -t -o state established '( sport = :60802 )' | grep 60802 | wc -l`

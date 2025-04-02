@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:wormix="http://pragmatix-corp.com/schema/wormix"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://pragmatix-corp.com/schema/wormix
+         http://pragmatix-corp.com/schema/wormix.xsd
+         http://www.springframework.org/schema/util
+         http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="levelCreator" class="com.pragmatix.app.init.LevelCreator">
+        <property name="levels">
+            <list>
+                <wormix:level level=" 0" nextLevelExp="   0" levelHp="  0" maxWormsCount="0"/>
+                <wormix:level level=" 1" nextLevelExp="  20" levelHp="100" maxWormsCount="1"/>
+                <wormix:level level=" 2" nextLevelExp="  40" levelHp="150" maxWormsCount="1" awardItems="35:3 11:4 14:4 7:4"/>
+                <wormix:level level=" 3" nextLevelExp="  70" levelHp="200" maxWormsCount="1" awardItems="39 26:3 29:4 9:4"/>
+                <wormix:level level=" 4" nextLevelExp=" 100" levelHp="250" maxWormsCount="1" awardItems="5 38:3 40:3 45:3"/>
+                <wormix:level level=" 5" nextLevelExp=" 130" levelHp="275" maxWormsCount="2" awardItems="34:4 10:3 14:3 72:2"/>
+                <wormix:level level=" 6" nextLevelExp=" 160" levelHp="300" maxWormsCount="2" awardItems="9 26:3 11:4 53:2"/>
+                <wormix:level level=" 7" nextLevelExp=" 190" levelHp="325" maxWormsCount="2" awardItems="49:6 23:4 33:4 27:2"/>
+                <wormix:level level=" 8" nextLevelExp=" 220" levelHp="350" maxWormsCount="2" awardItems="49 44:4 10:4 51:1 57:1"/>
+                <wormix:level level=" 9" nextLevelExp=" 250" levelHp="375" maxWormsCount="2" awardItems="34:4 54:3 66:2 43:1"/>
+                <wormix:level level="10" nextLevelExp=" 280" levelHp="400" maxWormsCount="2" awardItems="42:3 52:2 46:2 33:3"/>
+                <wormix:level level="11" nextLevelExp=" 310" levelHp="425" maxWormsCount="2" awardItems="34:4 48:3 55:3 28:1"/>
+                <wormix:level level="12" nextLevelExp=" 340" levelHp="450" maxWormsCount="2" awardItems="42:3 63:3 62:3 64:3"/>
+                <wormix:level level="13" nextLevelExp=" 370" levelHp="465" maxWormsCount="3" awardItems="42:3 50:3 56:1 57:2"/>
+                <wormix:level level="14" nextLevelExp=" 400" levelHp="480" maxWormsCount="3" awardItems="52:3 23:3 83:2 51:1"/>
+                <wormix:level level="15" nextLevelExp=" 430" levelHp="495" maxWormsCount="3" awardItems="35:3 26:3 41:2 27:1"/>
+                <wormix:level level="16" nextLevelExp=" 470" levelHp="510" maxWormsCount="3" awardItems="32:3 46:3 65:2 55:3"/>
+                <wormix:level level="17" nextLevelExp=" 510" levelHp="525" maxWormsCount="3" awardItems="82:2 76:4 60:3 58:2"/>
+                <wormix:level level="18" nextLevelExp=" 550" levelHp="540" maxWormsCount="3" awardItems="30:4 37:4 43:1 36:1"/>
+                <wormix:level level="19" nextLevelExp=" 590" levelHp="555" maxWormsCount="3" awardItems="83:4 69:3 25:3 51:1"/>
+                <wormix:level level="20" nextLevelExp=" 630" levelHp="570" maxWormsCount="3" awardItems="57:2 41:2 80:2 72:2"/>
+                <wormix:level level="21" nextLevelExp=" 670" levelHp="580" maxWormsCount="4" awardItems="47:3 80:2 72:2 94:2"/>
+                <wormix:level level="22" nextLevelExp=" 710" levelHp="590" maxWormsCount="4" awardItems="24:2 80:2 72:2 116:2"/>
+                <wormix:level level="23" nextLevelExp=" 750" levelHp="600" maxWormsCount="4" awardItems="48:4 80:2 72:2 117:4"/>
+                <wormix:level level="24" nextLevelExp=" 790" levelHp="610" maxWormsCount="4" awardItems="32:3 96:3 80:2 72:2"/>
+                <wormix:level level="25" nextLevelExp=" 830" levelHp="620" maxWormsCount="4" awardItems="78:4 36:2 80:2 72:2"/>
+                <wormix:level level="26" nextLevelExp=" 930" levelHp="630" maxWormsCount="4" awardItems="64:3 80:3 72:3 70:2"/>
+                <wormix:level level="27" nextLevelExp="1030" levelHp="640" maxWormsCount="4" awardItems="67:3 80:3 72:3 94:3"/>
+                <wormix:level level="28" nextLevelExp="1130" levelHp="650" maxWormsCount="4" awardItems="28:3 80:3 72:3 26:3"/>
+                <wormix:level level="29" nextLevelExp="1230" levelHp="660" maxWormsCount="4" awardItems="105:3 80:3 72:3 43:3"/>
+                <wormix:level level="30" nextLevelExp="1330" levelHp="670" maxWormsCount="4" awardItems="80:4 72:4 36:3 24:3"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean class="com.pragmatix.app.services.rating.RankService"
+          p:maxRatingPoints="70"
+    >
+        <property name="battleModeBonus">
+            <bean class="java.util.EnumMap">
+                <constructor-arg>
+                    <util:map key-type="com.pragmatix.pvp.PvpBattleKey" value-type="java.lang.Double">
+                        <entry key="WAGER_PvP_DUEL_15" value="1.0"/>
+                        <entry key="WAGER_PvP_DUEL_300" value="1.2"/>
+                        <entry key="WAGER_PvP_3_FOR_ALL" value="1.2"/>
+                        <entry key="WAGER_PvP_2x2" value="1.5"/>
+                    </util:map>
+                </constructor-arg>
+            </bean>
+        </property>
+        <property name="teamSizeModifiers">
+            <list>
+                <value>0.2</value>
+                <value>0.4</value>
+                <value>0.6</value>
+                <value>1.0</value>
+            </list>
+        </property>
+        <property name="ranks">
+            <list>
+                <bean class="com.pragmatix.app.model.RankItem" c:pointsToNext="-1" c:maxVictoryPoints="999" c:victoryBonus="1.5" c:defeatPenalty="1.2"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:pointsToNext="700" c:maxVictoryPoints="100" c:victoryBonus="1.4" c:defeatPenalty="1.2"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:pointsToNext="650" c:maxVictoryPoints="95" c:victoryBonus="1.3" c:defeatPenalty="1.1"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:pointsToNext="600" c:maxVictoryPoints="90" c:victoryBonus="1.2" c:defeatPenalty="1.0"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:pointsToNext="550" c:maxVictoryPoints="85" c:victoryBonus="1.1" c:defeatPenalty="0.9"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:pointsToNext="500" c:maxVictoryPoints="75" c:victoryBonus="1.0" c:defeatPenalty="0.8"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:pointsToNext="450" c:maxVictoryPoints="75" c:victoryBonus="0.75" c:defeatPenalty="0.7"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:pointsToNext="400" c:maxVictoryPoints="70" c:victoryBonus="0.75" c:defeatPenalty="0.65"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:pointsToNext="350" c:maxVictoryPoints="65" c:victoryBonus="0.75" c:defeatPenalty="0.6"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:pointsToNext="300" c:maxVictoryPoints="60" c:victoryBonus="0.75" c:defeatPenalty="0.55"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:pointsToNext="250" c:maxVictoryPoints="50" c:victoryBonus="0.75" c:defeatPenalty="0.5"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:pointsToNext="200" c:maxVictoryPoints="40" c:victoryBonus="0.625" c:defeatPenalty="0.45"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:pointsToNext="150" c:maxVictoryPoints="30" c:victoryBonus="0.625" c:defeatPenalty="0.4"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:pointsToNext="100" c:maxVictoryPoints="25" c:victoryBonus="0.625" c:defeatPenalty="0.35"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:pointsToNext="70" c:maxVictoryPoints="20" c:victoryBonus="0.625" c:defeatPenalty="0.3"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:pointsToNext="50" c:maxVictoryPoints="18" c:victoryBonus="0.625" c:defeatPenalty="0.25"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:pointsToNext="40" c:maxVictoryPoints="15" c:victoryBonus="0.5" c:defeatPenalty="0"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:pointsToNext="30" c:maxVictoryPoints="12" c:victoryBonus="0.5" c:defeatPenalty="0"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:pointsToNext="20" c:maxVictoryPoints="10" c:victoryBonus="0.5" c:defeatPenalty="0"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:pointsToNext="15" c:maxVictoryPoints="8" c:victoryBonus="0.5" c:defeatPenalty="0"/>
+                <bean class="com.pragmatix.app.model.RankItem" c:pointsToNext="10" c:maxVictoryPoints="7" c:victoryBonus="0.5" c:defeatPenalty="0"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean class="com.pragmatix.pvp.services.RankBasedRatingFormula"/>
+
+</beans>

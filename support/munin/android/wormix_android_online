@@ -1,0 +1,35 @@
+#!/bin/bash
+#
+# Плагин для мониторинга сервера Android
+
+munin=/home/user/munin
+statDump=${munin}/var/wormswar_android_stat.dump
+pvpStatLog=${munin}/var/wormswar_android_pvp_stat.log
+
+if [ "$1" = "config" ]; then
+    echo 'graph_title Wormix Android Online'
+    echo 'graph_vlabel amount'
+    echo 'graph_noscale true'
+    echo 'graph_category wormix_android'
+    echo 'graph_info This graph shows statistics about android server online'
+
+    echo 'online_main.label Online'
+    echo 'online_main.info Online'
+
+    echo 'online_pvp.label Online PVP#1'
+    echo 'online_pvp.info Online PVP#1'
+
+    echo 'online_pvp2.label Online PVP#2'
+    echo 'online_pvp2.info Online PVP#2'
+
+    exit 0
+fi
+
+awk '
+$1 == "online:main" {print "online_main.value "$3}
+$1 == "online.pvp" {print "online_pvp.value "$2}
+$1 == "online.pvp2" {print "online_pvp2.value "$2}
+' ${statDump}
+
+
+

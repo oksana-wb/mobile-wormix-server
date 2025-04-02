@@ -1,0 +1,23 @@
+rem https://www.websequencediagrams.com
+title Передача хода (Совместный бой с Боссом)
+
+participant "Client 1" as C1
+participant "Pvp Server" as P
+participant "Client 2" as C2
+
+note over P: Начинает бой Client1
+C1 -> P: PvpActionEx
+P -> C2: PvpActionEx
+C1 -> P: PvpEndTurn
+P -> C2: PvpEndTurn
+C2 -> P: EndTurnResponce
+note over P: Передача хода Client2
+C2 -> P: PvpActionEx
+P -> C1: PvpActionEx
+C2 -> P: PvpEndTurn
+P -> C1: PvpEndTurn
+C1 -> P: EndTurnResponce
+
+note over P: Передача хода боту
+C2 -> P: EndTurnResponce
+C1 -> P: EndTurnResponce

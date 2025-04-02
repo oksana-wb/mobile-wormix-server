@@ -1,0 +1,3 @@
+#!/bin/sh
+
+awk -v from="`date +%Y'-'%m'-'%d'_'%H':'%M':'%S -d "15 minute ago"`" -f ../filter.awk /home/user/munin/var/wormswar_mobile_pvp_stat.log | awk -f ../stat_d15.awk

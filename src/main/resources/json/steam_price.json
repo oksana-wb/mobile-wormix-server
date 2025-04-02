@@ -1,0 +1,6194 @@
+{
+    "defaultCurrency": "USD",
+    "defaultLang": "EN",
+    "currencies": [
+        {
+            "code": "AED",
+            "name": "United Arab Emirates Dirhams",
+            "description": "United Arab Emirates Dirham, reported in fils",
+            "centRounding": 1,
+            "multiplier": 3.3046092184368736
+        },
+        {
+            "code": "BRL",
+            "name": "Brazilian Reals",
+            "description": "Brazilian Reals, reported in centavos",
+            "centRounding": 1,
+            "multiplier": 2.002004008016032
+        },
+        {
+            "code": "CAD",
+            "name": "Canadian Dollars",
+            "description": "Canadian Dollars, reported in cents",
+            "centRounding": 1,
+            "multiplier": 1.1002004008016033
+        },
+        {
+            "code": "CHF",
+            "name": "Swiss Francs",
+            "description": "Swiss Francs, reported in centime",
+            "centRounding": 1,
+            "multiplier": 1.002004008016032
+        },
+        {
+            "code": "CLP",
+            "name": "Chilian Peso",
+            "description": "Chilean Peso, reported in centavos. Must result in whole Peso (e.g. 1000, not 1050).",
+            "centRounding": 100,
+            "multiplier": 551.1022044088177
+        },
+        {
+            "code": "CNY",
+            "name": "Yuan",
+            "description": "Chinese Renminbi (yuan), reported in fēn. Must result in whole Renminbi (e.g. 1000, not 1050).",
+            "centRounding": 100,
+            "multiplier": 3.6072144288577155
+        },
+        {
+            "code": "COP",
+            "name": "Colombian Peso",
+            "description": "Colombian Peso, reported in centavos. Must result in whole Peso (e.g. 1000, not 1050).",
+            "centRounding": 100,
+            "multiplier": 32.06412825651302
+        },
+        {
+            "code": "EUR",
+            "name": "Euro",
+            "description": "European Union Euro, reported in eurocents",
+            "centRounding": 1,
+            "multiplier": 1
+        },
+        {
+            "code": "GBP",
+            "name": "Pound",
+            "description": "United Kingdom Pound, reported in pence",
+            "centRounding": 1,
+            "multiplier": 0.6993987975951904
+        },
+        {
+            "code": "HKD",
+            "name": "Hong Kong Dollar",
+            "description": "Hong Kong Dollar, reported in sin",
+            "centRounding": 1,
+            "multiplier": 7.515030060120241
+        },
+        {
+            "code": "IDR",
+            "name": "Indonesian Rupiah",
+            "description": "Indonesian Rupiah, reported in sen. Must result in whole Rupiah (e.g. 1000, not 1050).",
+            "centRounding": 100,
+            "multiplier": 9018.036072144288
+        },
+        {
+            "code": "INR",
+            "name": "Indian Rupee",
+            "description": "Indian Rupee, reported in pais. Must result in whole Rupee (e.g. 1000, not 1050).",
+            "centRounding": 100,
+            "multiplier": 36.87374749498998
+        },
+        {
+            "code": "JPY",
+            "name": "Japanese Yen",
+            "description": "Japanese Yen, reported in sen. Must result in whole Yen (e.g. 1000, not 1050).",
+            "centRounding": 100,
+            "multiplier": 98.19639278557115
+        },
+        {
+            "code": "KRW",
+            "name": "South Korean Won",
+            "description": "South Korean Won, reported in jeon. Must result in increments of 10 whole Won (e.g. 2000, not 1599 or 1600).",
+            "centRounding": 10,
+            "multiplier": 1052.1042084168337
+        },
+        {
+            "code": "MXN",
+            "name": "Mexican Peso",
+            "description": "Mexican Peso, reported in centavos",
+            "centRounding": 1,
+            "multiplier": 11.02004008016032
+        },
+        {
+            "code": "MYR",
+            "name": "Malaysian Ringgit",
+            "description": "Malaysian Ringgit, reported in sen",
+            "centRounding": 1,
+            "multiplier": 2.3046092184368736
+        },
+        {
+            "code": "NOK",
+            "name": "Norwegian Krone",
+            "description": "Norwegian Krone, reported in Øre",
+            "centRounding": 1,
+            "multiplier": 7.01002004008016
+        },
+        {
+            "code": "NZD",
+            "name": "New Zealand Dollar",
+            "description": "New Zealand Dollar, reported in cents",
+            "centRounding": 1,
+            "multiplier": 1.2004008016032064
+        },
+        {
+            "code": "PEN",
+            "name": "Peruvian Nuevo Sol",
+            "description": "Peruvian Nuevo Sol, reported in céntimos",
+            "centRounding": 1,
+            "multiplier": 2.80561122244489
+        },
+        {
+            "code": "PHP",
+            "name": "Philippine Peso",
+            "description": "Philippine Peso, reported in centavos",
+            "centRounding": 1,
+            "multiplier": 32.06412825651302
+        },
+        {
+            "code": "RUB",
+            "name": "Russian Rouble",
+            "description": "Russian Rouble, reported in kopeks",
+            "centRounding": 1,
+            "multiplier": 64
+        },
+        {
+            "code": "SAR",
+            "name": "Saudi Riyal",
+            "description": "Saudi Riyal, reported in halalah",
+            "centRounding": 1,
+            "multiplier": 3.306613226452906
+        },
+        {
+            "code": "SGD",
+            "name": "Singapore Dollar",
+            "description": "Singapore Dollar, reported in cents",
+            "centRounding": 1,
+            "multiplier": 1.0420841683366733
+        },
+        {
+            "code": "THB",
+            "name": "Thai Baht",
+            "description": "Thai Baht, reported in satang",
+            "centRounding": 1,
+            "multiplier": 21.9438877755511
+        },
+        {
+            "code": "TRY",
+            "name": "Turkish Lira",
+            "description": "Turkish Lira, reported in kuruş",
+            "centRounding": 1,
+            "multiplier": 1.8036072144288577
+        },
+        {
+            "code": "TWD",
+            "name": "Taiwan Dollar",
+            "description": "New Taiwan Dollar, reported in fēn. Must result in whole Dollar (e.g. 1000, not 1050).",
+            "centRounding": 100,
+            "multiplier": 28.0561122244489
+        },
+        {
+            "code": "UAH",
+            "name": "Ukrainian Hryvnia",
+            "description": "Ukrainian Hryvnia",
+            "centRounding": 100,
+            "multiplier": 26.53
+        },
+        {
+            "code": "USD",
+            "name": "United States Dollar",
+            "description": "United States Dollar, reported in cents",
+            "centRounding": 1,
+            "multiplier": 1,
+            "segments": [
+                "USD_LIGHT",
+                "USD"
+            ]
+        },
+        {
+            "code": "ZAR",
+            "name": "South African Rand",
+            "description": "South African Rand, reported in cents",
+            "centRounding": 1,
+            "multiplier": 10.92184368737475
+        }
+    ],
+    "countries": [
+        {
+            "code": "AE",
+            "name": "United Arab Emirates",
+            "segment": "AED"
+        },
+        {
+            "code": "BR",
+            "name": "Brazil",
+            "segment": "BRL"
+        },
+        {
+            "code": "CA",
+            "name": "Canada",
+            "segment": "CAD"
+        },
+        {
+            "code": "CH",
+            "name": "Switzerland",
+            "segment": "CHF"
+        },
+        {
+            "code": "CL",
+            "name": "Chile",
+            "segment": "CLP"
+        },
+        {
+            "code": "CN",
+            "name": "China",
+            "segment": "CNY"
+        },
+        {
+            "code": "CO",
+            "name": "Colombia",
+            "segment": "COP"
+        },
+        {
+            "code": "AT",
+            "name": "Austria",
+            "segment": "EUR"
+        },
+        {
+            "code": "BE",
+            "name": "Belgium",
+            "segment": "EUR"
+        },
+        {
+            "code": "BG",
+            "name": "Bulgaria",
+            "segment": "EUR"
+        },
+        {
+            "code": "HR",
+            "name": "Croatia",
+            "segment": "EUR"
+        },
+        {
+            "code": "CY",
+            "name": "Cyprus",
+            "segment": "EUR"
+        },
+        {
+            "code": "CZ",
+            "name": "Czech Republic",
+            "segment": "EUR"
+        },
+        {
+            "code": "DK",
+            "name": "Denmark",
+            "segment": "EUR"
+        },
+        {
+            "code": "EE",
+            "name": "Estonia",
+            "segment": "EUR"
+        },
+        {
+            "code": "FI",
+            "name": "Finland",
+            "segment": "EUR"
+        },
+        {
+            "code": "FR",
+            "name": "France",
+            "segment": "EUR"
+        },
+        {
+            "code": "GF",
+            "name": "French Guiana",
+            "segment": "EUR"
+        },
+        {
+            "code": "TF",
+            "name": "French Southern Territories ",
+            "segment": "EUR"
+        },
+        {
+            "code": "DE",
+            "name": "Germany ",
+            "segment": "EUR"
+        },
+        {
+            "code": "GR",
+            "name": "Greece",
+            "segment": "EUR"
+        },
+        {
+            "code": "VA",
+            "name": "Holy See (Vatican City State)",
+            "segment": "EUR"
+        },
+        {
+            "code": "HU",
+            "name": "Hungary",
+            "segment": "EUR"
+        },
+        {
+            "code": "IE",
+            "name": "Ireland",
+            "segment": "EUR"
+        },
+        {
+            "code": "IT",
+            "name": "Italy ",
+            "segment": "EUR"
+        },
+        {
+            "code": "LV",
+            "name": "Latvia",
+            "segment": "EUR"
+        },
+        {
+            "code": "LT",
+            "name": "Lithuania",
+            "segment": "EUR"
+        },
+        {
+            "code": "LU",
+            "name": "Luxembourg",
+            "segment": "EUR"
+        },
+        {
+            "code": "MT",
+            "name": "Malta",
+            "segment": "EUR"
+        },
+        {
+            "code": "NL",
+            "name": "Netherlands",
+            "segment": "EUR"
+        },
+        {
+            "code": "PL",
+            "name": "Poland",
+            "segment": "EUR"
+        },
+        {
+            "code": "PT",
+            "name": "Portugal",
+            "segment": "EUR"
+        },
+        {
+            "code": "RO",
+            "name": "Romania",
+            "segment": "EUR"
+        },
+        {
+            "code": "SK",
+            "name": "Slovakia",
+            "segment": "EUR"
+        },
+        {
+            "code": "SI",
+            "name": "Slovenia",
+            "segment": "EUR"
+        },
+        {
+            "code": "ES",
+            "name": "Spain",
+            "segment": "EUR"
+        },
+        {
+            "code": "SE",
+            "name": "Sweden",
+            "segment": "EUR"
+        },
+        {
+            "code": "GB",
+            "name": "United Kingdom",
+            "segment": "GBP"
+        },
+        {
+            "code": "HK",
+            "name": "Hong Kong, SAR China",
+            "segment": "HKD"
+        },
+        {
+            "code": "ID",
+            "name": "Indonesia",
+            "segment": "IDR"
+        },
+        {
+            "code": "IN",
+            "name": "India",
+            "segment": "INR"
+        },
+        {
+            "code": "JP",
+            "name": "Japan",
+            "segment": "JPY"
+        },
+        {
+            "code": "KR",
+            "name": "Korea (South)",
+            "segment": "KRW"
+        },
+        {
+            "code": "MX",
+            "name": "Mexico",
+            "segment": "MXN"
+        },
+        {
+            "code": "MY",
+            "name": "Malaysia",
+            "segment": "MYR"
+        },
+        {
+            "code": "NO",
+            "name": "Norway",
+            "segment": "NOK"
+        },
+        {
+            "code": "NZ",
+            "name": "New Zealand",
+            "segment": "NZD"
+        },
+        {
+            "code": "PE",
+            "name": "Peru",
+            "segment": "PEN"
+        },
+        {
+            "code": "PH",
+            "name": "Philippines",
+            "segment": "PHP"
+        },
+        {
+            "code": "RU",
+            "name": "Russian Federation ",
+            "segment": "RUB"
+        },
+        {
+            "code": "SA",
+            "name": "Saudi Arabia",
+            "segment": "SAR"
+        },
+        {
+            "code": "SG",
+            "name": "Singapore",
+            "segment": "SGD"
+        },
+        {
+            "code": "TH",
+            "name": "Thailand",
+            "segment": "THB"
+        },
+        {
+            "code": "TR",
+            "name": "Turkey",
+            "segment": "TRY"
+        },
+        {
+            "code": "TW",
+            "name": "Taiwan, Republic of China ",
+            "segment": "TWD"
+        },
+        {
+            "code": "AU",
+            "name": "Australia",
+            "segment": "USD"
+        },
+        {
+            "code": "BH",
+            "name": "Bahrain",
+            "segment": "USD"
+        },
+        {
+            "code": "BT",
+            "name": "Bhutan",
+            "segment": "USD"
+        },
+        {
+            "code": "BN",
+            "name": "Brunei Darussalam",
+            "segment": "USD"
+        },
+        {
+            "code": "KY",
+            "name": "Cayman Islands ",
+            "segment": "USD"
+        },
+        {
+            "code": "EG",
+            "name": "Egypt",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "FK",
+            "name": "Falkland Islands (Malvinas) ",
+            "segment": "USD"
+        },
+        {
+            "code": "GI",
+            "name": "Gibraltar ",
+            "segment": "USD"
+        },
+        {
+            "code": "GL",
+            "name": "Greenland",
+            "segment": "USD"
+        },
+        {
+            "code": "IS",
+            "name": "Iceland",
+            "segment": "USD"
+        },
+        {
+            "code": "IL",
+            "name": "Israel ",
+            "segment": "USD"
+        },
+        {
+            "code": "JM",
+            "name": "Jamaica",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "KW",
+            "name": "Kuwait",
+            "segment": "USD"
+        },
+        {
+            "code": "LB",
+            "name": "Lebanon",
+            "segment": "USD"
+        },
+        {
+            "code": "LI",
+            "name": "Liechtenstein",
+            "segment": "USD"
+        },
+        {
+            "code": "MC",
+            "name": "Monaco",
+            "segment": "USD"
+        },
+        {
+            "code": "OM",
+            "name": "Oman",
+            "segment": "USD"
+        },
+        {
+            "code": "QA",
+            "name": "Qatar",
+            "segment": "USD"
+        },
+        {
+            "code": "US",
+            "name": "United States of America",
+            "segment": "USD"
+        },
+        {
+            "code": "UM",
+            "name": "US Minor Outlying Islands ",
+            "segment": "USD"
+        },
+        {
+            "code": "AF",
+            "name": "Afghanistan",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "AX",
+            "name": "Aland Islands",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "AL",
+            "name": "Albania",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "DZ",
+            "name": "Algeria",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "AS",
+            "name": "American Samoa",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "AD",
+            "name": "Andorra",
+            "segment": "USD"
+        },
+        {
+            "code": "AO",
+            "name": "Angola",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "AI",
+            "name": "Anguilla",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "AQ",
+            "name": "Antarctica ",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "AG",
+            "name": "Antigua and Barbuda",
+            "segment": "USD"
+        },
+        {
+            "code": "AR",
+            "name": "Argentina",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "AM",
+            "name": "Armenia",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "AW",
+            "name": "Aruba",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "AZ",
+            "name": "Azerbaijan",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "BS",
+            "name": "Bahamas",
+            "segment": "USD"
+        },
+        {
+            "code": "BD",
+            "name": "Bangladesh",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "BB",
+            "name": "Barbados",
+            "segment": "USD"
+        },
+        {
+            "code": "BY",
+            "name": "Belarus",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "BZ",
+            "name": "Belize",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "BJ",
+            "name": "Benin",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "BM",
+            "name": "Bermuda",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "BO",
+            "name": "Bolivia",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "BA",
+            "name": "Bosnia and Herzegovina",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "BW",
+            "name": "Botswana",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "BV",
+            "name": "Bouvet Island",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "IO",
+            "name": "British Indian Ocean Territory",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "VG",
+            "name": "British Virgin Islands",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "BF",
+            "name": "Burkina Faso",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "BI",
+            "name": "Burundi",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "KH",
+            "name": "Cambodia",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "CM",
+            "name": "Cameroon",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "CV",
+            "name": "Cape Verde",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "CF",
+            "name": "Central African Republic",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "TD",
+            "name": "Chad",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "CX",
+            "name": "Christmas Island",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "CC",
+            "name": "Cocos (Keeling) Islands",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "KM",
+            "name": "Comoros",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "CG",
+            "name": "Congo (Brazzaville) ",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "CD",
+            "name": "Congo, (Kinshasa)",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "CK",
+            "name": "Cook Islands ",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "CR",
+            "name": "Costa Rica",
+            "segment": "USD"
+        },
+        {
+            "code": "CI",
+            "name": "Côte d'Ivoire",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "CU",
+            "name": "Cuba",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "DJ",
+            "name": "Djibouti",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "DM",
+            "name": "Dominica",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "DO",
+            "name": "Dominican Republic",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "EC",
+            "name": "Ecuador",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "SV",
+            "name": "El Salvador",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "GQ",
+            "name": "Equatorial Guinea",
+            "segment": "USD"
+        },
+        {
+            "code": "ER",
+            "name": "Eritrea",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "ET",
+            "name": "Ethiopia",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "FO",
+            "name": "Faroe Islands",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "FJ",
+            "name": "Fiji",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "PF",
+            "name": "French Polynesia",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "GA",
+            "name": "Gabon",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "GM",
+            "name": "Gambia",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "GE",
+            "name": "Georgia",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "GH",
+            "name": "Ghana",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "GD",
+            "name": "Grenada",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "GP",
+            "name": "Guadeloupe",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "GU",
+            "name": "Guam",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "GT",
+            "name": "Guatemala",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "GG",
+            "name": "Guernsey",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "GN",
+            "name": "Guinea",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "GW",
+            "name": "Guinea-Bissau",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "GY",
+            "name": "Guyana",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "HT",
+            "name": "Haiti",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "HM",
+            "name": "Heard and Mcdonald Islands",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "HN",
+            "name": "Honduras",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "IR",
+            "name": "Iran, Islamic Republic of",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "IQ",
+            "name": "Iraq",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "IM",
+            "name": "Isle of Man ",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "JE",
+            "name": "Jersey",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "JO",
+            "name": "Jordan",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "KZ",
+            "name": "Kazakhstan",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "KE",
+            "name": "Kenya",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "KI",
+            "name": "Kiribati",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "KP",
+            "name": "Korea (North)",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "KG",
+            "name": "Kyrgyzstan",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "LA",
+            "name": "Lao PDR",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "LS",
+            "name": "Lesotho",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "LR",
+            "name": "Liberia",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "LY",
+            "name": "Libya",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "MO",
+            "name": "Macao, SAR China",
+            "segment": "USD"
+        },
+        {
+            "code": "MK",
+            "name": "Macedonia, Republic of",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "MG",
+            "name": "Madagascar",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "MW",
+            "name": "Malawi",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "MV",
+            "name": "Maldives",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "ML",
+            "name": "Mali",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "MH",
+            "name": "Marshall Islands",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "MQ",
+            "name": "Martinique",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "MR",
+            "name": "Mauritania",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "MU",
+            "name": "Mauritius",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "YT",
+            "name": "Mayotte",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "FM",
+            "name": "Micronesia, Federated States of",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "MD",
+            "name": "Moldova",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "MN",
+            "name": "Mongolia",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "ME",
+            "name": "Montenegro",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "MS",
+            "name": "Montserrat",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "MA",
+            "name": "Morocco",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "MZ",
+            "name": "Mozambique",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "MM",
+            "name": "Myanmar",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "NA",
+            "name": "Namibia",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "NR",
+            "name": "Nauru",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "NP",
+            "name": "Nepal",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "AN",
+            "name": "Netherlands Antilles",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "NC",
+            "name": "New Caledonia",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "NI",
+            "name": "Nicaragua",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "NE",
+            "name": "Niger",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "NG",
+            "name": "Nigeria",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "NU",
+            "name": "Niue ",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "NF",
+            "name": "Norfolk Island",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "MP",
+            "name": "Northern Mariana Islands",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "PK",
+            "name": "Pakistan",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "PW",
+            "name": "Palau",
+            "segment": "USD"
+        },
+        {
+            "code": "PS",
+            "name": "Palestinian Territory",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "PA",
+            "name": "Panama",
+            "segment": "USD"
+        },
+        {
+            "code": "PG",
+            "name": "Papua New Guinea",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "PY",
+            "name": "Paraguay",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "PN",
+            "name": "Pitcairn ",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "PR",
+            "name": "Puerto Rico",
+            "segment": "USD"
+        },
+        {
+            "code": "RE",
+            "name": "Réunion",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "RW",
+            "name": "Rwanda",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "SH",
+            "name": "Saint Helena ",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "KN",
+            "name": "Saint Kitts and Nevis",
+            "segment": "USD"
+        },
+        {
+            "code": "LC",
+            "name": "Saint Lucia",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "PM",
+            "name": "Saint Pierre and Miquelon ",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "VC",
+            "name": "Saint Vincent and Grenadines",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "BL",
+            "name": "Saint-Barthélemy",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "MF",
+            "name": "Saint-Martin (French part)",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "WS",
+            "name": "Samoa",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "SM",
+            "name": "San Marino",
+            "segment": "USD"
+        },
+        {
+            "code": "ST",
+            "name": "Sao Tome and Principe",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "SN",
+            "name": "Senegal",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "RS",
+            "name": "Serbia",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "SC",
+            "name": "Seychelles",
+            "segment": "USD"
+        },
+        {
+            "code": "SL",
+            "name": "Sierra Leone",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "SB",
+            "name": "Solomon Islands",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "SO",
+            "name": "Somalia",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "GS",
+            "name": "South Georgia and the South Sandwich Islands",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "SS",
+            "name": "South Sudan",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "LK",
+            "name": "Sri Lanka",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "SD",
+            "name": "Sudan",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "SR",
+            "name": "Suriname",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "SJ",
+            "name": "Svalbard and Jan Mayen Islands ",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "SZ",
+            "name": "Swaziland",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "SY",
+            "name": "Syrian Arab Republic (Syria)",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "TJ",
+            "name": "Tajikistan",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "TZ",
+            "name": "Tanzania, United Republic of ",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "TL",
+            "name": "Timor-Leste",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "TG",
+            "name": "Togo",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "TK",
+            "name": "Tokelau ",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "TO",
+            "name": "Tonga",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "TT",
+            "name": "Trinidad and Tobago",
+            "segment": "USD"
+        },
+        {
+            "code": "TN",
+            "name": "Tunisia",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "TM",
+            "name": "Turkmenistan",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "TC",
+            "name": "Turks and Caicos Islands ",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "TV",
+            "name": "Tuvalu",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "UG",
+            "name": "Uganda",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "UA",
+            "name": "Ukraine",
+            "segment": "UAH"
+        },
+        {
+            "code": "UY",
+            "name": "Uruguay",
+            "segment": "USD"
+        },
+        {
+            "code": "UZ",
+            "name": "Uzbekistan",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "VU",
+            "name": "Vanuatu",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "VE",
+            "name": "Venezuela (Bolivarian Republic)",
+            "segment": "USD"
+        },
+        {
+            "code": "VN",
+            "name": "Viet Nam",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "VI",
+            "name": "Virgin Islands, US",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "WF",
+            "name": "Wallis and Futuna Islands ",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "EH",
+            "name": "Western Sahara ",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "YE",
+            "name": "Yemen",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "ZM",
+            "name": "Zambia",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "ZW",
+            "name": "Zimbabwe",
+            "segment": "USD_LIGHT"
+        },
+        {
+            "code": "ZA",
+            "name": "South Africa",
+            "segment": "ZAR"
+        }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "category": "ruby",
+            "code": "instant_ruby_5",
+            "count": 5,
+            "description": {
+                "ru": "Горсть рубинов",
+                "en": "Handful of rubies",
+                "zn": "一把红宝石"
+            }
+        },
+        {
+            "id": 2,
+            "category": "ruby",
+            "code": "instant_ruby_11",
+            "count": 11,
+            "description": {
+                "ru": "Куча рубинов",
+                "en": "Pile of rubies",
+                "zn": "一堆红宝石"
+            }
+        },
+        {
+            "id": 3,
+            "category": "ruby",
+            "code": "instant_ruby_30",
+            "count": 30,
+            "description": {
+                "ru": "Мешочек рубинов",
+                "en": "Bag of rubies",
+                "zn": "一袋红宝石"
+            }
+        },
+        {
+            "id": 4,
+            "category": "ruby",
+            "code": "instant_ruby_65",
+            "count": 65,
+            "description": {
+                "ru": "Мешок рубинов",
+                "en": "Big bag of rubies",
+                "zn": "一大袋红宝石"
+            }
+        },
+        {
+            "id": 5,
+            "category": "ruby",
+            "code": "instant_ruby_140",
+            "count": 140,
+            "description": {
+                "ru": "Сундучок рубинов",
+                "en": "Chest of rubies",
+                "zn": "一箱红宝石"
+            }
+        },
+        {
+            "id": 6,
+            "category": "ruby",
+            "code": "instant_ruby_375",
+            "count": 375,
+            "description": {
+                "ru": "Сундук рубинов",
+                "en": "Big chest of rubies",
+                "zn": "一大箱红宝石"
+            }
+        },
+        {
+            "id": 7,
+            "category": "ruby",
+            "code": "instant_ruby_800",
+            "count": 800,
+            "description": {
+                "ru": "Сейф рубинов",
+                "en": "Safe of rubies",
+                "zn": "一保险柜红宝石"
+            }
+        },
+        {
+            "id": 11,
+            "category": "fuzy",
+            "code": "instant_fuzy_500",
+            "count": 500,
+            "description": {
+                "ru": "Горсть фузов",
+                "en": "Handful of coins",
+                "zn": "一把金币"
+            }
+        },
+        {
+            "id": 12,
+            "category": "fuzy",
+            "code": "instant_fuzy_1100",
+            "count": 1100,
+            "description": {
+                "ru": "Куча фузов",
+                "en": "Pile of coins",
+                "zn": "一堆金币"
+            }
+        },
+        {
+            "id": 13,
+            "category": "fuzy",
+            "code": "instant_fuzy_3000",
+            "count": 3000,
+            "description": {
+                "ru": "Мешочек фузов",
+                "en": "Bag of coins",
+                "zn": "一袋金币"
+            }
+        },
+        {
+            "id": 14,
+            "category": "fuzy",
+            "code": "instant_fuzy_6500",
+            "count": 6500,
+            "description": {
+                "ru": "Мешок фузов",
+                "en": "Big bag of coins",
+                "zn": "一大袋金币"
+            }
+        },
+        {
+            "id": 15,
+            "category": "fuzy",
+            "code": "instant_fuzy_14000",
+            "count": 14000,
+            "description": {
+                "ru": "Сундучок фузов",
+                "en": "Chest of coins",
+                "zn": "一箱金币"
+            }
+        },
+        {
+            "id": 16,
+            "category": "fuzy",
+            "code": "instant_fuzy_37500",
+            "count": 37500,
+            "description": {
+                "ru": "Сундук фузов",
+                "en": "Big chest of coins",
+                "zn": "一大箱金币"
+            }
+        },
+        {
+            "id": 17,
+            "category": "fuzy",
+            "code": "instant_fuzy_80000",
+            "count": 80000,
+            "description": {
+                "ru": "Сейф фузов",
+                "en": "Safe of coins",
+                "zn": "一保险柜金币"
+            }
+        },
+        {
+            "id": 21,
+            "category": "rename",
+            "code": "rename",
+            "count": 1,
+            "description": {
+                "ru": "Переименование",
+                "en": "Renaming",
+                "zn": "重命名"
+            }
+        },
+        {
+            "id": 61,
+            "category": "vip",
+            "code": "vip7",
+            "count": 7,
+            "description": {
+                "ru": "ВИП: 7 дней",
+                "en": "VIP: 7 days",
+                "zn": "VIP：7 日"
+            }
+        },
+        {
+            "id": 72,
+            "category": "vip",
+            "code": "vip30",
+            "count": 30,
+            "description": {
+                "ru": "ВИП: 30 дней",
+                "en": "VIP: 30 days",
+                "zn": "VIP：30 日"
+            }
+        },
+        {
+            "id": 81,
+            "category": "daily_ruby",
+            "code": "daily_ruby10",
+            "count": 10,
+            "description": {
+                "ru": "Камешек к камушку",
+                "en": "A gem for a gem",
+                "zn": "宝石换宝石"
+            }
+        },
+        {
+            "id": 82,
+            "category": "daily_ruby",
+            "code": "daily_ruby20",
+            "count": 20,
+            "description": {
+                "ru": "Все в кучу!",
+                "en": "Pile it up!",
+                "zn": "堆积如山!"
+            }
+        },
+        {
+            "id": 83,
+            "category": "daily_ruby",
+            "code": "daily_ruby50",
+            "count": 50,
+            "description": {
+                "ru": "Чёткая огранка",
+                "en": "Ice on the fringe",
+                "zn": "锦上添花"
+            }
+        },
+        {
+            "id": 84,
+            "category": "daily_ruby",
+            "code": "daily_ruby105",
+            "count": 105,
+            "description": {
+                "ru": "50 оттенков красного",
+                "en": "50 shades of red",
+                "zn": "五十个色度的红宝石"
+            }
+        },
+        {
+            "id": 85,
+            "category": "daily_ruby",
+            "code": "daily_ruby220",
+            "count": 220,
+            "description": {
+                "ru": "Рубиновый беспредел",
+                "en": "Ruby madness",
+                "zn": "红宝石狂热者"
+            }
+        },
+        {
+            "id": 91,
+            "category": "daily_fuzy",
+            "code": "daily_fuzy1000",
+            "count": 1000,
+            "description": {
+                "ru": "Чисто попробовать",
+                "en": "Just looking",
+                "zn": "只是看看"
+            }
+        },
+        {
+            "id": 92,
+            "category": "daily_fuzy",
+            "code": "daily_fuzy2000",
+            "count": 2000,
+            "description": {
+                "ru": "Позолоти ручку",
+                "en": "Grease a palm",
+                "zn": "行贿买通"
+            }
+        },
+        {
+            "id": 93,
+            "category": "daily_fuzy",
+            "code": "daily_fuzy5000",
+            "count": 5000,
+            "description": {
+                "ru": "Дальше-больше",
+                "en": "More than that",
+                "zn": "远不止如此"
+            }
+        },
+        {
+            "id": 94,
+            "category": "daily_fuzy",
+            "code": "daily_fuzy10500",
+            "count": 10500,
+            "description": {
+                "ru": "Крупный игрок",
+                "en": "Wealthy whale",
+                "zn": "富有的鲸鱼"
+            }
+        },
+        {
+            "id": 95,
+            "category": "daily_fuzy",
+            "code": "daily_fuzy22000",
+            "count": 22000,
+            "description": {
+                "ru": "ШатапЭндТейкМайМани!",
+                "en": "ShutUpAndTakeMyMoney",
+                "zn": "ShutUpAndTakeMyMoney"
+            }
+        },
+        {
+            "id": 101,
+            "category": "stickers",
+            "code": "stickers_1",
+            "count": 1,
+            "description": {
+                "ru": "Набор стикеров #1",
+                "en": "Sticker pack #1",
+                "zn": "贴纸包#1"
+            }
+        },
+        {
+            "id": 102,
+            "category": "stickers",
+            "code": "stickers_2",
+            "count": 1,
+            "description": {
+                "ru": "Набор стикеров #2",
+                "en": "Sticker pack #2",
+                "zn": "贴纸包#2"
+            }
+        },
+        {
+            "id": 201,
+            "category": "craft_box",
+            "code": "craft_box_1",
+            "count": 1,
+            "description": {
+                "ru": "Набор ресурсов",
+                "en": "Craft box",
+                "zn": "???"
+            }
+        },
+        {
+            "id": 202,
+            "category": "craft_box",
+            "code": "craft_box_2",
+            "count": 1,
+            "description": {
+                "ru": "Большой набор русурсов",
+                "en": "Big craft box ",
+                "zn": "???"
+            }
+        },
+        {
+            "id": 301,
+            "category": "clan_donate",
+            "code": "clan_donate_1",
+            "count": 40,
+            "paymentAmountComeback": 30,
+            "description": {
+                "ru": "40 рубинов в казну",
+                "en": "40 rubies to the treasury",
+                "zn": "40颗红宝石库"
+            }
+        },
+        {
+            "id": 302,
+            "category": "clan_donate",
+            "code": "clan_donate_2",
+            "count": 85,
+            "paymentAmountComeback": 65,
+            "description": {
+                "ru": "85 рубинов в казну",
+                "en": "85 rubies to the treasury",
+                "zn": "85颗红宝石库"
+            }
+        },
+        {
+            "id": 303,
+            "category": "clan_donate",
+            "code": "clan_donate_3",
+            "count": 185,
+            "paymentAmountComeback": 140,
+            "description": {
+                "ru": "185 рубинов в казну",
+                "en": "185 rubies to the treasury",
+                "zn": "185颗红宝石库"
+            }
+        },
+        {
+            "id": 304,
+            "category": "clan_donate",
+            "code": "clan_donate_4",
+            "count": 490,
+            "paymentAmountComeback": 375,
+            "description": {
+                "ru": "490 рубина в казну",
+                "en": "490 rubies to the treasury",
+                "zn": "490颗红宝石库"
+            }
+        }
+
+    ],
+    "priceList": [
+        {
+            "segment": "AED",
+            "products": [
+                {
+                    "price": 350,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 700,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 1650,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 3350,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 6700,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 16600,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 25000,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 350,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 700,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 1650,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 3350,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 6700,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 16600,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 25000,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 350,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 700,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 1650,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 3350,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 6700,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 350,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 700,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 1650,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 3350,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 6700,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 850,
+                    "code": "vip7"
+                },
+                {
+                    "price": 2350,
+                    "code": "vip30"
+                },
+                {
+                    "price": 700,
+                    "code": "rename"
+                },
+                {
+                    "price": 500,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 500,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 1650,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 3000,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 1650,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 3350,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 6700,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 16600,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "BRL",
+            "products": [
+                {
+                    "price": 200,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 400,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 1000,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 2050,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 4050,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 10100,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 15100,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 200,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 400,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 1000,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 2050,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 4050,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 10100,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 15100,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 200,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 400,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 1000,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 2050,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 4050,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 200,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 400,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 1000,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 2050,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 4050,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 550,
+                    "code": "vip7"
+                },
+                {
+                    "price": 1450,
+                    "code": "vip30"
+                },
+                {
+                    "price": 400,
+                    "code": "rename"
+                },
+                {
+                    "price": 350,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 350,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 1000,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 1800,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 1000,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 2050,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 4050,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 10100,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "CAD",
+            "products": [
+                {
+                    "price": 150,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 250,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 550,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 1100,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 2200,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 5500,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 8300,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 150,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 250,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 550,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 1100,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 2200,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 5500,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 8300,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 150,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 250,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 550,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 1100,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 2200,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 150,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 250,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 550,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 1100,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 2200,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 300,
+                    "code": "vip7"
+                },
+                {
+                    "price": 800,
+                    "code": "vip30"
+                },
+                {
+                    "price": 250,
+                    "code": "rename"
+                },
+                {
+                    "price": 200,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 200,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 550,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 1000,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 550,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 1100,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 2200,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 5500,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "CHF",
+            "products": [
+                {
+                    "price": 100,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 200,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 500,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 1050,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 2050,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 5100,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 7600,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 100,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 200,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 500,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 1050,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 2050,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 5100,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 7600,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 100,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 200,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 500,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 1050,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 2050,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 100,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 200,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 500,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 1050,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 2050,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 300,
+                    "code": "vip7"
+                },
+                {
+                    "price": 750,
+                    "code": "vip30"
+                },
+                {
+                    "price": 200,
+                    "code": "rename"
+                },
+                {
+                    "price": 200,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 200,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 500,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 950,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 500,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 1050,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 2050,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 5100,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "CLP",
+            "products": [
+                {
+                    "price": 55000,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 110000,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 275000,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 560000,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 1110000,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 2800000,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 4150000,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 55000,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 110000,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 275000,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 560000,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 1110000,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 2800000,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 4150000,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 55000,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 110000,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 275000,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 560000,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 1110000,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 55000,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 110000,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 275000,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 560000,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 1110000,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 140000,
+                    "code": "vip7"
+                },
+                {
+                    "price": 390000,
+                    "code": "vip30"
+                },
+                {
+                    "price": 110000,
+                    "code": "rename"
+                },
+                {
+                    "price": 85000,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 85000,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 275000,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 500000,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 275000,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 560000,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 1110000,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 2800000,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "CNY",
+            "products": [
+                {
+                    "price": 5000,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 5000,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 5000,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 5000,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 10000,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 20000,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 30000,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 5000,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 5000,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 5000,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 5000,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 10000,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 20000,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 30000,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 5000,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 5000,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 5000,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 5000,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 10000,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 5000,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 5000,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 5000,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 5000,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 10000,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 5000,
+                    "code": "vip7"
+                },
+                {
+                    "price": 5000,
+                    "code": "vip30"
+                },
+                {
+                    "price": 5000,
+                    "code": "rename"
+                },
+                {
+                    "price": 5000,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 5000,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 5000,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 5000,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 5000,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 5000,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 10000,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 20000,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "COP",
+            "products": [
+                {
+                    "price": 5000,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 10000,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 20000,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 35000,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 65000,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 165000,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 245000,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 5000,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 10000,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 20000,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 35000,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 65000,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 165000,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 245000,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 5000,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 10000,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 20000,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 35000,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 65000,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 5000,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 10000,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 20000,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 35000,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 65000,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 10000,
+                    "code": "vip7"
+                },
+                {
+                    "price": 25000,
+                    "code": "vip30"
+                },
+                {
+                    "price": 10000,
+                    "code": "rename"
+                },
+                {
+                    "price": 5000,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 5000,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 20000,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 30000,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 20000,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 35000,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 65000,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 165000,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "EUR",
+            "products": [
+                {
+                    "price": 100,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 200,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 500,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 1000,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 2000,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 5000,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 7500,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 100,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 200,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 500,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 1000,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 2000,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 5000,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 7500,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 100,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 200,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 500,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 1000,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 2000,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 100,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 200,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 500,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 1000,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 2000,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 250,
+                    "code": "vip7"
+                },
+                {
+                    "price": 700,
+                    "code": "vip30"
+                },
+                {
+                    "price": 200,
+                    "code": "rename"
+                },
+                {
+                    "price": 150,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 150,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 500,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 900,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 500,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 1000,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 2000,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 5000,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "GBP",
+            "products": [
+                {
+                    "price": 100,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 150,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 350,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 700,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 1400,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 3500,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 5300,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 100,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 150,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 350,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 700,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 1400,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 3500,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 5300,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 100,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 150,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 350,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 700,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 1400,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 100,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 150,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 350,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 700,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 1400,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 200,
+                    "code": "vip7"
+                },
+                {
+                    "price": 500,
+                    "code": "vip30"
+                },
+                {
+                    "price": 150,
+                    "code": "rename"
+                },
+                {
+                    "price": 150,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 150,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 350,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 650,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 350,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 700,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 1400,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 3500,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "HKD",
+            "products": [
+                {
+                    "price": 750,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 1500,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 3750,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 7600,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 15100,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 38000,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 56500,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 750,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 1500,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 3750,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 7600,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 15100,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 38000,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 56500,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 750,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 1500,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 3750,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 7600,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 15100,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 750,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 1500,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 3750,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 7600,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 15100,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 1900,
+                    "code": "vip7"
+                },
+                {
+                    "price": 5300,
+                    "code": "vip30"
+                },
+                {
+                    "price": 1500,
+                    "code": "rename"
+                },
+                {
+                    "price": 1150,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 1150,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 3750,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 6800,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 3750,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 7600,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 15100,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 38000,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "IDR",
+            "products": [
+                {
+                    "price": 900000,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 1800000,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 4500000,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 9050000,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 18050000,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 45100000,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 67650000,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 900000,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 1800000,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 4500000,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 9050000,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 18050000,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 45100000,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 67650000,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 900000,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 1800000,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 4500000,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 9050000,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 18050000,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 900000,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 1800000,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 4500000,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 9050000,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 18050000,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 2300000,
+                    "code": "vip7"
+                },
+                {
+                    "price": 6350000,
+                    "code": "vip30"
+                },
+                {
+                    "price": 1800000,
+                    "code": "rename"
+                },
+                {
+                    "price": 1360000,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 1360000,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 4500000,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 8150000,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 4500000,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 9050000,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 18050000,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 45100000,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "INR",
+            "products": [
+                {
+                    "price": 5000,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 10000,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 20000,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 40000,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 75000,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 185000,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 280000,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 5000,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 10000,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 20000,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 40000,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 75000,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 185000,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 280000,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 5000,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 10000,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 20000,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 40000,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 75000,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 5000,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 10000,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 20000,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 40000,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 75000,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 10000,
+                    "code": "vip7"
+                },
+                {
+                    "price": 30000,
+                    "code": "vip30"
+                },
+                {
+                    "price": 10000,
+                    "code": "rename"
+                },
+                {
+                    "price": 10000,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 10000,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 20000,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 35000,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 20000,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 40000,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 75000,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 185000,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "JPY",
+            "products": [
+                {
+                    "price": 10000,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 20000,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 50000,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 100000,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 200000,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 495000,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 740000,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 10000,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 20000,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 50000,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 100000,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 200000,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 495000,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 740000,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 10000,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 20000,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 50000,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 100000,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 200000,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 10000,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 20000,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 50000,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 100000,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 200000,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 25000,
+                    "code": "vip7"
+                },
+                {
+                    "price": 70000,
+                    "code": "vip30"
+                },
+                {
+                    "price": 20000,
+                    "code": "rename"
+                },
+                {
+                    "price": 15000,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 15000,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 50000,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 90000,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 50000,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 100000,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 200000,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 495000,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "KRW",
+            "products": [
+                {
+                    "price": 105000,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 210000,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 525000,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 1055000,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 2105000,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 5260000,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 7895000,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 105000,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 210000,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 525000,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 1055000,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 2105000,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 5260000,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 7895000,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 105000,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 210000,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 525000,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 1055000,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 2105000,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 105000,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 210000,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 525000,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 1055000,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 2105000,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 265000,
+                    "code": "vip7"
+                },
+                {
+                    "price": 740000,
+                    "code": "vip30"
+                },
+                {
+                    "price": 210000,
+                    "code": "rename"
+                },
+                {
+                    "price": 158000,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 158000,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 525000,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 950000,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 525000,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 1055000,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 2105000,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 5260000,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "MXN",
+            "products": [
+                {
+                    "price": 1100,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 2200,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 5500,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 11100,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 22500,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 55500,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 83000,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 1100,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 2200,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 5500,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 11100,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 22500,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 55500,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 83000,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 1100,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 2200,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 5500,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 11100,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 22500,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 1100,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 2200,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 5500,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 11100,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 22500,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 2800,
+                    "code": "vip7"
+                },
+                {
+                    "price": 7800,
+                    "code": "vip30"
+                },
+                {
+                    "price": 2200,
+                    "code": "rename"
+                },
+                {
+                    "price": 1700,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 1700,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 5500,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 10000,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 5500,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 11100,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 22500,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 55500,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "MYR",
+            "products": [
+                {
+                    "price": 250,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 500,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 1150,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 2350,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 4650,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 11600,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 17300,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 250,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 500,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 1150,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 2350,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 4650,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 11600,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 17300,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 250,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 500,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 1150,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 2350,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 4650,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 250,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 500,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 1150,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 2350,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 4650,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 600,
+                    "code": "vip7"
+                },
+                {
+                    "price": 1650,
+                    "code": "vip30"
+                },
+                {
+                    "price": 500,
+                    "code": "rename"
+                },
+                {
+                    "price": 350,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 350,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 1150,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 2100,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 1150,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 2350,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 4650,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 11600,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "NOK",
+            "products": [
+                {
+                    "price": 700,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 1400,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 3500,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 7100,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 14100,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 35500,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 53000,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 700,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 1400,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 3500,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 7100,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 14100,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 35500,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 53000,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 700,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 1400,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 3500,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 7100,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 14100,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 700,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 1400,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 3500,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 7100,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 14100,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 1800,
+                    "code": "vip7"
+                },
+                {
+                    "price": 4950,
+                    "code": "vip30"
+                },
+                {
+                    "price": 1400,
+                    "code": "rename"
+                },
+                {
+                    "price": 1100,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 1100,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 3500,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 6400,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 3500,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 7100,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 14100,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 35500,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "NZD",
+            "products": [
+                {
+                    "price": 150,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 250,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 600,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 1200,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 2400,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 6100,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 9100,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 150,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 250,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 600,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 1200,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 2400,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 6100,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 9100,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 150,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 250,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 600,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 1200,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 2400,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 150,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 250,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 600,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 1200,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 2400,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 350,
+                    "code": "vip7"
+                },
+                {
+                    "price": 850,
+                    "code": "vip30"
+                },
+                {
+                    "price": 250,
+                    "code": "rename"
+                },
+                {
+                    "price": 200,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 200,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 600,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 1100,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 600,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 1200,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 2400,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 6100,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "PEN",
+            "products": [
+                {
+                    "price": 300,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 600,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 1400,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 2850,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 5700,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 14100,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 21500,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 300,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 600,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 1400,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 2850,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 5700,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 14100,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 21500,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 300,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 600,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 1400,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 2850,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 5700,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 300,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 600,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 1400,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 2850,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 5700,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 750,
+                    "code": "vip7"
+                },
+                {
+                    "price": 2000,
+                    "code": "vip30"
+                },
+                {
+                    "price": 600,
+                    "code": "rename"
+                },
+                {
+                    "price": 450,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 450,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 1400,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 2550,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 1400,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 2850,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 5700,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 14100,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "PHP",
+            "products": [
+                {
+                    "price": 3200,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 6400,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 16000,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 32500,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 64500,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 160500,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 240500,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 3200,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 6400,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 16000,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 32500,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 64500,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 160500,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 240500,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 3200,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 6400,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 16000,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 32500,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 64500,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 3200,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 6400,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 16000,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 32500,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 64500,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 8100,
+                    "code": "vip7"
+                },
+                {
+                    "price": 22500,
+                    "code": "vip30"
+                },
+                {
+                    "price": 6400,
+                    "code": "rename"
+                },
+                {
+                    "price": 4850,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 4850,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 16000,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 29000,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 16000,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 32500,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 64500,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 160500,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "RUB",
+            "products": [
+                {
+                    "price": 6400,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 12800,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 32000,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 64000,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 128000,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 320000,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 480000,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 6400,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 12800,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 32000,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 64000,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 128000,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 320000,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 480000,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 6400,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 12800,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 32000,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 64000,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 128000,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 6400,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 12800,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 32000,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 64000,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 128000,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 16000,
+                    "code": "vip7"
+                },
+                {
+                    "price": 45000,
+                    "code": "vip30"
+                },
+                {
+                    "price": 12800,
+                    "code": "rename"
+                },
+                {
+                    "price": 9600,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 9600,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 32000,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 58000,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 32000,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 64000,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 128000,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 320000,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "SAR",
+            "products": [
+                {
+                    "price": 350,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 700,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 1650,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 3350,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 6700,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 16600,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 25000,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 350,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 700,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 1650,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 3350,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 6700,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 16600,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 25000,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 350,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 700,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 1650,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 3350,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 6700,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 350,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 700,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 1650,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 3350,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 6700,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 850,
+                    "code": "vip7"
+                },
+                {
+                    "price": 2350,
+                    "code": "vip30"
+                },
+                {
+                    "price": 700,
+                    "code": "rename"
+                },
+                {
+                    "price": 500,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 500,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 1650,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 3000,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 1650,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 3350,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 6700,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 16600,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "SGD",
+            "products": [
+                {
+                    "price": 150,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 250,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 550,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 1050,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 2100,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 5300,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 7900,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 150,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 250,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 550,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 1050,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 2100,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 5300,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 7900,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 150,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 250,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 550,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 1050,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 2100,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 150,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 250,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 550,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 1050,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 2100,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 300,
+                    "code": "vip7"
+                },
+                {
+                    "price": 750,
+                    "code": "vip30"
+                },
+                {
+                    "price": 250,
+                    "code": "rename"
+                },
+                {
+                    "price": 200,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 200,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 550,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 950,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 550,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 1050,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 2100,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 5300,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "THB",
+            "products": [
+                {
+                    "price": 2200,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 4400,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 11000,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 22000,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 44000,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 110000,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 165000,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 2200,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 4400,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 11000,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 22000,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 44000,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 110000,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 165000,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 2200,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 4400,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 11000,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 22000,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 44000,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 2200,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 4400,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 11000,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 22000,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 44000,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 5500,
+                    "code": "vip7"
+                },
+                {
+                    "price": 15400,
+                    "code": "vip30"
+                },
+                {
+                    "price": 4400,
+                    "code": "rename"
+                },
+                {
+                    "price": 3300,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 3300,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 11000,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 19800,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 11000,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 22000,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 44000,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 110000,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "TRY",
+            "products": [
+                {
+                    "price": 200,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 400,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 900,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 1850,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 3650,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 9100,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 13600,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 200,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 400,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 900,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 1850,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 3650,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 9100,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 13600,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 200,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 400,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 900,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 1850,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 3650,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 200,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 400,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 900,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 1850,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 3650,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 500,
+                    "code": "vip7"
+                },
+                {
+                    "price": 1300,
+                    "code": "vip30"
+                },
+                {
+                    "price": 400,
+                    "code": "rename"
+                },
+                {
+                    "price": 300,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 300,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 900,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 1650,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 900,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 1850,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 3650,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 9100,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "TWD",
+            "products": [
+                {
+                    "price": 5000,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 10000,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 15000,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 30000,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 60000,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 145000,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 215000,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 5000,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 10000,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 15000,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 30000,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 60000,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 145000,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 215000,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 5000,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 10000,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 15000,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 30000,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 60000,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 5000,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 10000,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 15000,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 30000,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 60000,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 10000,
+                    "code": "vip7"
+                },
+                {
+                    "price": 20000,
+                    "code": "vip30"
+                },
+                {
+                    "price": 10000,
+                    "code": "rename"
+                },
+                {
+                    "price": 5000,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 5000,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 15000,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 30000,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 15000,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 30000,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 60000,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 145000,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "UAH",
+            "products": [
+                {
+                    "price": 5000,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 10000,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 15000,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 30000,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 55000,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 135000,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 200000,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 5000,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 10000,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 15000,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 30000,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 55000,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 135000,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 200000,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 5000,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 10000,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 15000,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 30000,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 55000,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 5000,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 10000,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 15000,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 30000,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 55000,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 10000,
+                    "code": "vip7"
+                },
+                {
+                    "price": 20000,
+                    "code": "vip30"
+                },
+                {
+                    "price": 10000,
+                    "code": "rename"
+                },
+                {
+                    "price": 5000,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 5000,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 15000,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 25000,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 15000,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 30000,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 55000,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 135000,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "USD",
+            "products": [
+                {
+                    "price": 99,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 199,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 499,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 999,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 1999,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 4999,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 7500,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 99,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 199,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 499,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 999,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 1999,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 4999,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 7500,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 99,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 199,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 499,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 999,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 1999,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 99,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 199,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 499,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 999,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 1999,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 250,
+                    "code": "vip7"
+                },
+                {
+                    "price": 700,
+                    "code": "vip30"
+                },
+                {
+                    "price": 199,
+                    "code": "rename"
+                },
+                {
+                    "price": 150,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 150,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 499,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 899,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 499,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 999,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 1999,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 4999,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "USD_LIGHT",
+            "products": [
+                {
+                    "price": 99,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 199,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 499,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 999,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 1999,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 4999,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 7500,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 99,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 199,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 499,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 999,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 1999,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 4999,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 7500,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 99,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 199,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 499,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 999,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 1999,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 99,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 199,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 499,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 999,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 1999,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 250,
+                    "code": "vip7"
+                },
+                {
+                    "price": 700,
+                    "code": "vip30"
+                },
+                {
+                    "price": 199,
+                    "code": "rename"
+                },
+                {
+                    "price": 150,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 150,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 499,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 899,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 499,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 999,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 1999,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 4999,
+                    "code": "clan_donate_4"
+                }
+            ]
+        },
+        {
+            "segment": "ZAR",
+            "products": [
+                {
+                    "price": 1100,
+                    "code": "instant_ruby_5"
+                },
+                {
+                    "price": 2200,
+                    "code": "instant_ruby_11"
+                },
+                {
+                    "price": 5500,
+                    "code": "instant_ruby_30"
+                },
+                {
+                    "price": 11000,
+                    "code": "instant_ruby_65"
+                },
+                {
+                    "price": 22000,
+                    "code": "instant_ruby_140"
+                },
+                {
+                    "price": 55000,
+                    "code": "instant_ruby_375"
+                },
+                {
+                    "price": 82000,
+                    "code": "instant_ruby_800"
+                },
+                {
+                    "price": 1100,
+                    "code": "instant_fuzy_500"
+                },
+                {
+                    "price": 2200,
+                    "code": "instant_fuzy_1100"
+                },
+                {
+                    "price": 5500,
+                    "code": "instant_fuzy_3000"
+                },
+                {
+                    "price": 11000,
+                    "code": "instant_fuzy_6500"
+                },
+                {
+                    "price": 22000,
+                    "code": "instant_fuzy_14000"
+                },
+                {
+                    "price": 55000,
+                    "code": "instant_fuzy_37500"
+                },
+                {
+                    "price": 82000,
+                    "code": "instant_fuzy_80000"
+                },
+                {
+                    "price": 1100,
+                    "code": "daily_ruby10"
+                },
+                {
+                    "price": 2200,
+                    "code": "daily_ruby20"
+                },
+                {
+                    "price": 5500,
+                    "code": "daily_ruby50"
+                },
+                {
+                    "price": 11000,
+                    "code": "daily_ruby105"
+                },
+                {
+                    "price": 22000,
+                    "code": "daily_ruby220"
+                },
+                {
+                    "price": 1100,
+                    "code": "daily_fuzy1000"
+                },
+                {
+                    "price": 2200,
+                    "code": "daily_fuzy2000"
+                },
+                {
+                    "price": 5500,
+                    "code": "daily_fuzy5000"
+                },
+                {
+                    "price": 11000,
+                    "code": "daily_fuzy10500"
+                },
+                {
+                    "price": 22000,
+                    "code": "daily_fuzy22000"
+                },
+                {
+                    "price": 2750,
+                    "code": "vip7"
+                },
+                {
+                    "price": 7700,
+                    "code": "vip30"
+                },
+                {
+                    "price": 2200,
+                    "code": "rename"
+                },
+                {
+                    "price": 1650,
+                    "code": "stickers_1"
+                },
+                {
+                    "price": 1650,
+                    "code": "stickers_2"
+                },
+                {
+                    "price": 5500,
+                    "code": "craft_box_1"
+                },
+                {
+                    "price": 9900,
+                    "code": "craft_box_2"
+                },
+                {
+                    "price": 5500,
+                    "code": "clan_donate_1"
+                },
+                {
+                    "price": 11000,
+                    "code": "clan_donate_2"
+                },
+                {
+                    "price": 22000,
+                    "code": "clan_donate_3"
+                },
+                {
+                    "price": 55000,
+                    "code": "clan_donate_4"
+                }
+            ]
+        }
+    ]
+}

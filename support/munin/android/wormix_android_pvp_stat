@@ -1,0 +1,81 @@
+#!/bin/bash
+#
+# Плагин для мониторинга сервера Android PVP
+
+munin=/home/user/munin
+statDump=${munin}/var/wormswar_android_stat.dump
+pvpStatLog=${munin}/var/wormswar_android_pvp_stat.log
+
+if [ "$1" = "config" ]; then
+    echo 'graph_title Wormix Android PVP'
+    echo 'graph_vlabel amount'
+    echo 'graph_noscale true'
+    echo 'graph_category wormix_android'
+    echo 'graph_info This graph shows statistics about android server PVP (last day)'
+
+    echo 'avg_battles.label Battles amount per user x10'
+    echo 'avg_battles.info Battles amount per user x10'
+
+    echo 'pvp_proportion.label PVP users proportion in %'
+    echo 'pvp_proportion.info  PVP users proportion from DAO in persent'
+
+    echo 'bl_ratio.label battles time / lobby time x10'
+    echo 'bl_ratio.info  total battles time / total lobby time x10'
+
+    exit 0
+fi
+
+pvp_dao=$(awk -v from="`date +%Y'-'%m'-'%d'_'%H':'%M':'%S -d "24 hour ago"`" -f ${munin}/bin/filter.awk ${pvpStatLog} | awk '$3 == 4 {print $7; print $19}' | sort | uniq | wc -l)
+dao=$(awk '$1 == "dao.value" {print $2}' ${statDump})
+
+awk -v from="`date +%Y'-'%m'-'%d'_'%H':'%M':'%S -d "24 hour ago"`" -f ${munin}/bin/filter.awk ${pvpStatLog} | awk -v dao=$dao -v pvp_dao=$pvp_dao '
+$3 == 4 {
+  split($4, arr, "/")
+  if(arr[1] == 15 || arr[1] == 50) {
+    battles++
+    lobbyTime += getTime($12) + getTime($24)
+    battlesTime += getBattleTime($5)
+  }
+}
+$3 == "LEAVE_LOBBY" && ($7 == 15 || $7 == 50) {
+  leaveLobbyTime += getTime($4)
+}
+END{
+   printf("avg_battles.value %d\n",    battles / pvp_dao * 10)
+   printf("pvp_proportion.value %d\n", pvp_dao * 100 / dao)
+   printf("bl_ratio.value %.0f\n",     battlesTime / (lobbyTime + leaveLobbyTime) * 10)
+}
+function getTime(line){
+  mils=0
+  secs=0
+  mins=0
+  hours=0
+  split(line, arr, ".")
+  if(length(arr[1]) == 0){
+    mils = arr[2]
+  }else{
+    mils = arr[2]
+    split(arr[1],arr2,":")
+    if(length(arr2) == 1){
+      secs = arr[1]
+    }else if (length(arr2) == 2){
+      secs = arr2[2]
+      mins = arr2[1]
+    }else if (length(arr2) == 3){
+      secs = arr2[3]
+      mins = arr2[2]
+      hours = arr2[1]
+    }
+  }
+  return (hours * 60 * 60 * 1000) + (mins * 60 * 1000) + (secs * 1000) + mils
+}
+function getBattleTime(line){
+  split(line, arr2, ":")
+  secs = arr2[3]
+  mins = arr2[2]
+  hours = arr2[1]
+  return (hours * 60 * 60 * 1000) + (mins * 60 * 1000) + (secs * 1000)
+}
+'
+
+

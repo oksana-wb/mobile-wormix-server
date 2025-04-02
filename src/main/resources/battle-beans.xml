@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/util
+           http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean name="wagerBattleLobby" class="com.pragmatix.pvp.services.matchmaking.lobby.WagerBattleLobby" scope="prototype"/>
+
+    <bean class="com.pragmatix.pvp.services.matchmaking.WagerMatchmakingService">
+        <property name="wagerMatchmakingLobbyMap">
+            <bean class="java.util.EnumMap">
+                <constructor-arg>
+                    <util:map key-type="com.pragmatix.pvp.PvpBattleKey">
+                        <entry key="PvE_PARTNER">
+                            <bean class="com.pragmatix.pvp.services.matchmaking.lobby.BossBattleLobby"/>
+                        </entry>
+                        <entry key="WAGER_PvP_DUEL_15" value-ref="wagerBattleLobby"/>
+                        <entry key="WAGER_PvP_DUEL_20" value-ref="wagerBattleLobby"/>
+                        <entry key="WAGER_PvP_DUEL_50" value-ref="wagerBattleLobby"/>
+                        <entry key="WAGER_PvP_DUEL_300" value-ref="wagerBattleLobby"/>
+                        <entry key="WAGER_PvP_3_FOR_ALL" value-ref="wagerBattleLobby"/>
+                        <entry key="WAGER_PvP_2x2" value-ref="wagerBattleLobby"/>
+                        <entry key="GLADIATOR_DUEL">
+                            <bean class="com.pragmatix.pvp.services.matchmaking.lobby.GladiatorBattleLobby"/>
+                        </entry>
+                        <entry key="ROPE_RACE_QUEST">
+                            <bean class="com.pragmatix.pvp.services.matchmaking.lobby.QuestBattleLobby"/>
+                        </entry>
+                        <entry key="MERCENARIES_DUEL">
+                            <bean class="com.pragmatix.pvp.services.matchmaking.lobby.MercenariesBattleLobby"/>
+                        </entry>
+                    </util:map>
+                </constructor-arg>
+            </bean>
+        </property>
+    </bean>
+
+    <bean class="com.pragmatix.pvp.services.matchmaking.lobby.LobbyWagerDef" c:wager="WAGER_15_DUEL"      c:matchBySameIp="false"/>
+    <bean class="com.pragmatix.pvp.services.matchmaking.lobby.LobbyWagerDef" c:wager="WAGER_300_DUEL"     c:matchBySameIp="false"/>
+    <bean class="com.pragmatix.pvp.services.matchmaking.lobby.LobbyWagerDef" c:wager="WAGER_50_3_FOR_ALL" c:matchBySameIp="false"/>
+    <bean class="com.pragmatix.pvp.services.matchmaking.lobby.LobbyWagerDef" c:wager="GLADIATOR_DUEL"     c:matchBySameIp="false"/>
+
+    <util:map id="extraBattlesTimetable">
+        <entry key="ROPE_RACE" value="2017-11-01,2018-11-30"/>
+        <entry key="DUEL_20" value=""/>
+        <entry key="MERCENARIES_DUEL" value=""/>
+    </util:map>
+
+    <bean name="battleAwardSettings" class="com.pragmatix.app.settings.BattleAwardSettings">
+        <property name="awardSettingsMap">
+            <map>
+                <entry key="-5" value-ref="learningBattleAwardSettings_05"/>
+                <entry key="-4" value-ref="learningBattleAwardSettings_04"/>
+                <entry key="-3" value-ref="learningBattleAwardSettings_03"/>
+                <entry key="-2" value-ref="learningBattleAwardSettings_02"/>
+                <entry key="-1" value-ref="learningBattleAwardSettings_01"/>
+
+                <entry key="0" value-ref="botsBattleAwardSettings"/>
+
+                <entry key="1" value-ref="bossMission_01"/>
+                <entry key="2" value-ref="bossMission_02"/>
+                <entry key="3" value-ref="bossMission_03"/>
+                <entry key="4" value-ref="bossMission_04"/>
+                <entry key="5" value-ref="bossMission_05"/>
+                <entry key="6" value-ref="bossMission_06"/>
+                <entry key="7" value-ref="bossMission_07"/>
+                <entry key="8" value-ref="bossMission_08"/>
+                <entry key="9" value-ref="bossMission_09"/>
+                <entry key="10" value-ref="bossMission_10"/>
+                <entry key="11" value-ref="bossMission_11"/>
+                <entry key="12" value-ref="bossMission_12"/>
+                <entry key="13" value-ref="bossMission_13"/>
+                <entry key="14" value-ref="bossMission_14"/>
+                <entry key="15" value-ref="bossMission_15"/>
+                <entry key="16" value-ref="bossMission_16"/>
+                <entry key="17" value-ref="bossMission_17"/>
+                <entry key="18" value-ref="bossMission_18"/>
+                <entry key="19" value-ref="bossMission_19"/>
+                <entry key="20" value-ref="bossMission_20"/>
+                <entry key="21" value-ref="bossMission_21"/>
+                <entry key="22" value-ref="bossMission_22"/>
+                <entry key="23" value-ref="bossMission_23"/>
+                <entry key="24" value-ref="bossMission_24"/>
+                <entry key="25" value-ref="bossMission_25"/>
+                <entry key="26" value-ref="bossMission_26"/>
+                <entry key="27" value-ref="bossMission_27"/>
+                <entry key="28" value-ref="bossMission_28"/>
+                <entry key="29" value-ref="bossMission_29"/>
+                <entry key="30" value-ref="bossMission_30"/>
+                <entry key="31" value-ref="bossMission_31"/>
+
+                <entry key="101" value-ref="bossMission_new_01"/>
+                <entry key="102" value-ref="bossMission_new_02"/>
+                <entry key="103" value-ref="bossMission_new_03"/>
+                <entry key="104" value-ref="bossMission_new_04"/>
+                <entry key="105" value-ref="bossMission_new_05"/>
+                <entry key="106" value-ref="bossMission_new_06"/>
+                <entry key="107" value-ref="bossMission_new_07"/>
+                <entry key="108" value-ref="bossMission_new_08"/>
+                <entry key="109" value-ref="bossMission_new_09"/>
+                <entry key="110" value-ref="bossMission_new_10"/>
+                <entry key="111" value-ref="bossMission_new_11"/>
+                <entry key="112" value-ref="bossMission_new_12"/>
+                <entry key="113" value-ref="bossMission_new_13"/>
+                <entry key="114" value-ref="bossMission_new_14"/>
+                <entry key="115" value-ref="bossMission_new_15"/>
+            </map>
+        </property>
+
+        <property name="heroicMissionLevels">
+            <map>
+                <entry key="1_3"       value="0" />
+                <entry key="1_7"       value="0" />
+                <entry key="1_8"       value="0" />
+                <entry key="1_13"      value="0" />
+                <entry key="1_14"      value="0" />
+                <entry key="2_1"       value="0" />
+                <entry key="2_13"      value="0" />
+                <entry key="3_7"       value="0" />
+                <entry key="3_13"      value="0" />
+                <entry key="7_13"      value="0" />
+                <entry key="9_1"       value="0" />
+                <entry key="9_3"       value="0" />
+                <entry key="9_13"      value="0" />
+                <entry key="9_14"      value="0" />
+                <entry key="11_1"      value="0" />
+                <entry key="11_2"      value="0" />
+                <entry key="15_1"      value="0" />
+                <entry key="17_1"      value="0" />
+                <entry key="18_3"      value="0" />
+                <entry key="18_9"      value="0" />
+                <entry key="18_13"     value="0" />
+                <!--TODO-->
+                <entry key="1_104"     value="1" />
+                <entry key="2_3"       value="1" />
+                <entry key="2_14"      value="1" />
+                <entry key="3_8"       value="1" />
+                <entry key="3_14"      value="1" />
+                <entry key="3_104"     value="1" />
+                <entry key="4_1"       value="1" />
+                <entry key="6_1"       value="1" />
+                <entry key="6_14"      value="1" />
+                <entry key="7_7"       value="1" />
+                <entry key="9_2"       value="1" />
+                <entry key="9_6"       value="1" />
+                <entry key="9_101"     value="1" />
+                <entry key="10_1"      value="1" />
+                <entry key="11_3"      value="1" />
+                <entry key="11_4"      value="1" />
+                <entry key="11_9"      value="1" />
+                <entry key="11_13"     value="1" />
+                <entry key="11_14"     value="1" />
+                <entry key="12_1"      value="1" />
+                <entry key="12_2"      value="1" />
+                <entry key="12_3"      value="1" />
+                <entry key="12_9"      value="1" />
+                <entry key="12_13"     value="1" />
+                <entry key="12_14"     value="1" />
+                <entry key="13_4"      value="1" />
+                <entry key="13_6"      value="1" />
+                <entry key="13_8"      value="1" />
+                <entry key="13_14"     value="1" />
+                <entry key="15_3"      value="1" />
+                <entry key="15_9"      value="1" />
+                <entry key="15_13"     value="1" />
+                <entry key="16_1"      value="1" />
+                <entry key="16_13"     value="1" />
+                <entry key="17_3"      value="1" />
+                <entry key="17_7"      value="1" />
+                <entry key="17_9"      value="1" />
+                <entry key="17_11"     value="1" />
+                <entry key="17_12"     value="1" />
+                <entry key="17_13"     value="1" />
+                <entry key="17_18"     value="1" />
+                <entry key="17_101"    value="1" />
+                <entry key="18_14"     value="1" />
+                <entry key="18_101"    value="1" />
+                <entry key="108_1"     value="1" />
+                <!--TODO-->
+                <entry key="1_101"     value="2" />
+                <entry key="2_6"       value="2" />
+                <entry key="2_8"       value="2" />
+                <entry key="3_6"       value="2" />
+                <entry key="3_10"      value="2" />
+                <entry key="3_101"     value="2" />
+                <entry key="4_2"       value="2" />
+                <entry key="4_3"       value="2" />
+                <entry key="4_6"       value="2" />
+                <entry key="4_7"       value="2" />
+                <entry key="4_8"       value="2" />
+                <entry key="4_10"      value="2" />
+                <entry key="4_14"      value="2" />
+                <entry key="6_7"       value="2" />
+                <entry key="6_104"     value="2" />
+                <entry key="7_2"       value="2" />
+                <entry key="7_14"      value="2" />
+                <entry key="8_8"       value="2" />
+                <entry key="8_14"      value="2" />
+                <entry key="9_4"       value="2" />
+                <entry key="9_7"       value="2" />
+                <entry key="9_8"       value="2" />
+                <entry key="9_10"      value="2" />
+                <entry key="9_104"     value="2" />
+                <entry key="10_2"      value="2" />
+                <entry key="10_13"     value="2" />
+                <entry key="10_14"     value="2" />
+                <entry key="10_15"     value="2" />
+                <entry key="11_6"      value="2" />
+                <entry key="11_7"      value="2" />
+                <entry key="11_101"    value="2" />
+                <entry key="11_104"    value="2" />
+                <entry key="12_4"      value="2" />
+                <entry key="12_7"      value="2" />
+                <entry key="12_8"      value="2" />
+                <entry key="12_10"     value="2" />
+                <entry key="12_11"     value="2" />
+                <entry key="12_101"    value="2" />
+                <entry key="13_104"    value="2" />
+                <entry key="15_2"      value="2" />
+                <entry key="15_4"      value="2" />
+                <entry key="15_6"      value="2" />
+                <entry key="15_11"     value="2" />
+                <entry key="15_12"     value="2" />
+                <entry key="15_14"     value="2" />
+                <entry key="15_18"     value="2" />
+                <entry key="15_101"    value="2" />
+                <entry key="16_2"      value="2" />
+                <entry key="16_3"      value="2" />
+                <entry key="16_4"      value="2" />
+                <entry key="16_7"      value="2" />
+                <entry key="16_9"      value="2" />
+                <entry key="16_12"     value="2" />
+                <entry key="16_14"     value="2" />
+                <entry key="16_15"     value="2" />
+                <entry key="16_18"     value="2" />
+                <entry key="16_101"    value="2" />
+                <entry key="17_2"      value="2" />
+                <entry key="17_4"      value="2" />
+                <entry key="17_6"      value="2" />
+                <entry key="17_8"      value="2" />
+                <entry key="17_14"     value="2" />
+                <entry key="17_15"     value="2" />
+                <entry key="17_16"     value="2" />
+                <entry key="18_2"      value="2" />
+                <entry key="18_4"      value="2" />
+                <entry key="18_6"      value="2" />
+                <entry key="18_7"      value="2" />
+                <entry key="18_10"     value="2" />
+                <entry key="18_12"     value="2" />
+                <entry key="19_1"      value="2" />
+                <entry key="19_3"      value="2" />
+                <entry key="22_1"      value="2" />
+                <entry key="22_9"      value="2" />
+                <entry key="22_13"     value="2" />
+                <entry key="22_14"     value="2" />
+                <entry key="22_15"     value="2" />
+                <entry key="22_17"     value="2" />
+                <entry key="22_18"     value="2" />
+                <entry key="101_2"     value="2" />
+                <entry key="101_7"     value="2" />
+                <entry key="101_10"    value="2" />
+                <entry key="101_13"    value="2" />
+                <entry key="101_14"    value="2" />
+                <entry key="104_7"     value="2" />
+                <entry key="104_14"    value="2" />
+                <entry key="108_3"     value="2" />
+                <entry key="108_6"     value="2" />
+                <entry key="108_7"     value="2" />
+                <entry key="108_9"     value="2" />
+                <entry key="108_11"    value="2" />
+                <entry key="108_12"    value="2" />
+                <entry key="108_13"    value="2" />
+                <entry key="108_14"    value="2" />
+                <entry key="108_15"    value="2" />
+                <entry key="108_18"    value="2" />
+                <entry key="23_1"      value="2" />
+                <entry key="23_3"      value="2" />
+                <entry key="23_9"      value="2" />
+                <entry key="23_13"     value="2" />
+                <entry key="23_14"     value="2" />
+                <entry key="23_18"     value="2" />
+                <!--TODO-->
+                <entry key="2_19"      value="3" />
+                <entry key="3_22"      value="3" />
+                <entry key="4_101"     value="3" />
+                <entry key="4_104"     value="3" />
+                <entry key="6_8"       value="3" />
+                <entry key="6_101"     value="3" />
+                <entry key="8_7"       value="3" />
+                <entry key="10_6"      value="3" />
+                <entry key="10_7"      value="3" />
+                <entry key="10_8"      value="3" />
+                <entry key="11_8"      value="3" />
+                <entry key="11_10"     value="3" />
+                <entry key="12_6"      value="3" />
+                <entry key="12_104"    value="3" />
+                <entry key="15_7"      value="3" />
+                <entry key="15_8"      value="3" />
+                <entry key="15_104"    value="3" />
+                <entry key="16_6"      value="3" />
+                <entry key="16_8"      value="3" />
+                <entry key="16_10"     value="3" />
+                <entry key="16_11"     value="3" />
+                <entry key="16_104"    value="3" />
+                <entry key="17_10"     value="3" />
+                <entry key="17_19"     value="3" />
+                <entry key="17_104"    value="3" />
+                <entry key="19_4"      value="3" />
+                <entry key="19_6"      value="3" />
+                <entry key="19_7"      value="3" />
+                <entry key="19_8"      value="3" />
+                <entry key="19_9"      value="3" />
+                <entry key="19_10"     value="3" />
+                <entry key="19_11"     value="3" />
+                <entry key="19_12"     value="3" />
+                <entry key="19_13"     value="3" />
+                <entry key="19_14"     value="3" />
+                <entry key="19_15"     value="3" />
+                <entry key="19_16"     value="3" />
+                <entry key="19_18"     value="3" />
+                <entry key="19_101"    value="3" />
+                <entry key="22_2"      value="3" />
+                <entry key="22_4"      value="3" />
+                <entry key="22_6"      value="3" />
+                <entry key="22_7"      value="3" />
+                <entry key="22_8"      value="3" />
+                <entry key="22_10"     value="3" />
+                <entry key="22_11"     value="3" />
+                <entry key="22_12"     value="3" />
+                <entry key="22_16"     value="3" />
+                <entry key="22_19"     value="3" />
+                <entry key="22_101"    value="3" />
+                <entry key="22_108"    value="3" />
+                <entry key="101_8"     value="3" />
+                <entry key="101_101"   value="3" />
+                <entry key="101_104"   value="3" />
+                <entry key="104_2"     value="3" />
+                <entry key="104_8"     value="3" />
+                <entry key="104_10"    value="3" />
+                <entry key="104_19"    value="3" />
+                <entry key="104_22"    value="3" />
+                <entry key="108_2"     value="3" />
+                <entry key="108_4"     value="3" />
+                <entry key="108_8"     value="3" />
+                <entry key="108_10"    value="3" />
+                <entry key="108_16"    value="3" />
+                <entry key="108_17"    value="3" />
+                <entry key="108_19"    value="3" />
+                <entry key="108_101"   value="3" />
+                <entry key="108_104"   value="3" />
+                <entry key="108_108"   value="3" />
+                <entry key="104_104"   value="3" />
+                <entry key="22_22"     value="3" />
+                <entry key="19_19"     value="3" />
+                <entry key="17_17"     value="3" />
+                <entry key="15_15"     value="3" />
+                <entry key="10_10"     value="3" />
+                <entry key="23_2"      value="3" />
+                <entry key="23_4"      value="3" />
+                <entry key="23_6"      value="3" />
+                <entry key="23_7"      value="3" />
+                <entry key="23_8"      value="3" />
+                <entry key="23_10"     value="3" />
+                <entry key="23_11"     value="3" />
+                <entry key="23_12"     value="3" />
+                <entry key="23_15"     value="3" />
+                <entry key="16_23"     value="3" />
+                <entry key="23_17"     value="3" />
+                <entry key="23_19"     value="3" />
+                <entry key="23_21"     value="3" />
+                <entry key="23_101"    value="3" />
+                <entry key="23_104"    value="3" />
+                <entry key="23_108"    value="3" />
+                <entry key="23_23"     value="3" />
+            </map>
+        </property>
+
+        <property name="heroicMissionHistoryDeep">
+            <map>
+                <entry key="0" value="7"/>
+                <entry key="1" value="7"/>
+                <entry key="2" value="7"/>
+                <entry key="3" value="7"/>
+            </map>
+        </property>
+
+        <property name="heroicMissionAwards">
+            <map>
+                <entry key="0" value-ref="heroicMissionAwardLevel_0"/>
+                <entry key="1" value-ref="heroicMissionAwardLevel_1"/>
+                <entry key="2" value-ref="heroicMissionAwardLevel_2"/>
+                <entry key="3" value-ref="heroicMissionAwardLevel_3"/>
+            </map>
+        </property>
+
+    </bean>
+
+    <!--TODO HEROIC MISSION--> <!--0-->
+    <bean p:key="1_3"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="30 44 49 53 78"                     />
+    <bean p:key="1_7"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="10 28 29 97 100"                    />
+    <bean p:key="1_8"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="5 35 57 88 111"                     />
+    <bean p:key="1_13"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="2 3 4 5 37"                         />
+    <bean p:key="1_14"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="96 97 124 127 139"                  />
+    <bean p:key="2_1"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="14 32 34 39 54"                     />
+    <bean p:key="2_13"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="55 56 79 87 108"                    />
+    <bean p:key="3_7"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="36 49 52 94 104"                    />
+    <bean p:key="3_13"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="40 50 58 65 71"                     />
+    <bean p:key="7_13"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="65 89 92 101 134"                   />
+    <bean p:key="9_1"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="6 54 56 57 119"                     />
+    <bean p:key="9_3"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="29 31 32 52 62"                     />
+    <bean p:key="9_13"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="42 68 71 98"                        />
+    <bean p:key="9_14"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="63 70 79 81 89"                     />
+    <bean p:key="11_1"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="29 43 49 60 93"                     />
+    <bean p:key="11_2"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="32 34 41 51 53"                     />
+    <bean p:key="15_1"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="42 44 51 54 60"                     />
+    <bean p:key="17_1"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="54 80 86 88 114"                    />
+    <bean p:key="18_3"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="6 29 32 36 39"                      />
+    <bean p:key="18_9"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="14 28 42 65 66"                     />
+    <bean p:key="18_13"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="33 44 48 53 62"                     />
+    <!--TODO HEROIC MISSION--> <!--1-->
+    <bean p:key="1_104"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="32 44 71 81 113"                    />
+    <bean p:key="2_3"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="30 35 44 50 134"                    />
+    <bean p:key="2_14"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="60 73 75 78 99"                     />
+    <bean p:key="3_8"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="14 28 34 41 47"                     />
+    <bean p:key="3_14"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="34 42 55 58 69"                     />
+    <bean p:key="3_104"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="63 66 71 102 108"                   />
+    <bean p:key="4_1"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="26 30 35 60 66 97 108 120"          />
+    <bean p:key="6_1"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="42 44 55 63 84"                     />
+    <bean p:key="6_14"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="44 59 67 88 89"                     />
+    <bean p:key="7_7"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="90 91 92 114 129"                   />
+    <bean p:key="9_2"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="42 58 63 71 98"                     />
+    <bean p:key="9_6"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="81 87 91 103 104"                   />
+    <bean p:key="9_101"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="74 77 82 96 144"                    />
+    <bean p:key="10_1"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="29 36 44 55 94"                     />
+    <bean p:key="11_3"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="8 46 55 70 105"                     />
+    <bean p:key="11_4"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="59 71 77 98 104"                    />
+    <bean p:key="11_9"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="72 73 84 86 94"                     />
+    <bean p:key="11_13"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="26 68 110 112 113 121 140"          />
+    <bean p:key="11_14"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="84 86 94 99 104"                    />
+    <bean p:key="12_1"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="26 33 40 58 60 61 67 145"           />
+    <bean p:key="12_2"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="77 100 101 104 105"                 />
+    <bean p:key="12_3"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="34 41 42 50 60"                     />
+    <bean p:key="12_9"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="14 75 79 80 105"                    />
+    <bean p:key="12_13"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="51 62 71 82 105"                    />
+    <bean p:key="12_14"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="60 74 76 81 85"                     />
+    <bean p:key="13_4"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="32 52 67 88 98"                     />
+    <bean p:key="13_6"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="48 54 56 63 93"                     />
+    <bean p:key="13_8"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="30 51 52 59 71 93 144"              />
+    <bean p:key="13_14"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="14 51 57 68 118"                    />
+    <bean p:key="15_3"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="14 29 32 36 40"                     />
+    <bean p:key="15_9"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="63 66 68 109 142"                   />
+    <bean p:key="15_13"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="55 58 63 66 67"                     />
+    <bean p:key="16_1"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="36 48 51 53 106"                    />
+    <bean p:key="16_13"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="26 73 80 99 107"                    />
+    <bean p:key="17_3"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="48 93 107 119 120"                  />
+    <bean p:key="17_7"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="77 78 82 89 122"                    />
+    <bean p:key="17_9"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="42 58 63 74 123"                    />
+    <bean p:key="17_11"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="40 53 88 93 95"                     />
+    <bean p:key="17_12"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="33 100 105 114 123"                 />
+    <bean p:key="17_13"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="110 111 112 113 121"                />
+    <bean p:key="17_18"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="49 50 68 82 108"                    />
+    <bean p:key="17_101"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="88 90 93 101 104"                   />
+    <bean p:key="18_14"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="66 69 73 77 96"                     />
+    <bean p:key="18_101"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="8 32 41 43 45"                      />
+    <bean p:key="108_1"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="35 39 62 106 120"                   />
+    <!--TODO HEROIC MISSION--> <!--2-->
+    <bean p:key="1_101"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="90 110 111 127 128"                 />
+    <bean p:key="2_6"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="75 78 87 96 107"                    />
+    <bean p:key="2_8"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="75 78 84 93 101"                    />
+    <bean p:key="3_6"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="31 40 46 107 109 140"               />
+    <bean p:key="3_10"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="58 62 66 73 74"                     />
+    <bean p:key="3_101"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="89 110 111 129 140 141 143"         />
+    <bean p:key="4_2"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="59 79 85 109 115 124 146"           />
+    <bean p:key="4_3"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="14 26 42 61 63"                     />
+    <bean p:key="4_6"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="42 61 89 103 108"                   />
+    <bean p:key="4_7"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="52 58 77 82 89"                     />
+    <bean p:key="4_8"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="28 74 75 78 108"                    />
+    <bean p:key="4_10"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="66 72 85 88 89"                     />
+    <bean p:key="4_14"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="49 70 97 116 131 141"               />
+    <bean p:key="6_7"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="52 78 81 89 91"                     />
+    <bean p:key="6_104"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="89 97 103 139 141 146"              />
+    <bean p:key="7_2"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="66 75 76 81 91"                     />
+    <bean p:key="7_14"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="91 94 96 97 101"                    />
+    <bean p:key="8_8"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="70 72 110 111 115"                  />
+    <bean p:key="8_14"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="50 85 86 94 142"                    />
+    <bean p:key="9_4"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="57 58 69 92 102"                    />
+    <bean p:key="9_7"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="79 85 86 88 97"                     />
+    <bean p:key="9_8"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="30 43 44 63 66"                     />
+    <bean p:key="9_10"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="70 72 75 115 124 140"               />
+    <bean p:key="9_104"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="69 75 76 80 86"                     />
+    <bean p:key="10_2"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="55 67 74 75 88"                     />
+    <bean p:key="10_13"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="64 92 105 110 111"                  />
+    <bean p:key="10_14"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="70 74 75 83 92"                     />
+    <bean p:key="10_15"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="75 86 87 91 92"                     />
+    <bean p:key="11_6"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="78 90 91 99 102"                    />
+    <bean p:key="11_7"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="75 88 92 103 104"                   />
+    <bean p:key="11_101"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="90 98 111 115 131 146"              />
+    <bean p:key="11_104"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="78 84 85 92 103"                    />
+    <bean p:key="12_4"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="74 79 82 98 102"                    />
+    <bean p:key="12_7"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="37 42 47 54 56 94 107 121"          />
+    <bean p:key="12_8"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="60 74 87 94 100"                    />
+    <bean p:key="12_10"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="81 91 92 103 104"                   />
+    <bean p:key="12_11"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="33 58 78 80 88"                     />
+    <bean p:key="12_101"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="69 71 82 98 100"                    />
+    <bean p:key="13_104"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="72 81 89 90 107"                    />
+    <bean p:key="15_2"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="41 43 50 52 61"                     />
+    <bean p:key="15_4"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="76 97 103 104 114"                  />
+    <bean p:key="15_6"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="99 100 101 103 104"                 />
+    <bean p:key="15_11"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="77 78 84 88 99"                     />
+    <bean p:key="15_12"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="74 79 98 105 108"                   />
+    <bean p:key="15_14"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="53 59 71 72 73"                     />
+    <bean p:key="15_18"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="33 48 62 69 107"                    />
+    <bean p:key="15_101"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="34 43 47 56 65"                     />
+    <bean p:key="16_2"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="69 71 95 102 107"                   />
+    <bean p:key="16_3"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="6 29 31 32 34"                      />
+    <bean p:key="16_4"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="49 54 55 87 107"                    />
+    <bean p:key="16_7"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="28 77 82 89 105"                    />
+    <bean p:key="16_9"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="73 88 107 108 114"                  />
+    <bean p:key="16_12"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="55 60 67 74 77"                     />
+    <bean p:key="16_14"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="81 83 84 93 94"                     />
+    <bean p:key="16_15"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="14 52 63 82 108"                    />
+    <bean p:key="16_18"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="78 92 96 103 114"                   />
+    <bean p:key="16_101"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="91 96 97 98 100"                    />
+    <bean p:key="17_2"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="77 96 97 104 123"                   />
+    <bean p:key="17_4"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="54 56 66 69 71"                     />
+    <bean p:key="17_6"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="42 76 79 87 103"                    />
+    <bean p:key="17_8"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="52 80 97 102 103"                   />
+    <bean p:key="17_14"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="69 80 87 98 105"                    />
+    <bean p:key="17_15"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="99 100 102 107 116"                 />
+    <bean p:key="17_16"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="75 83 84 93 119"                    />
+    <bean p:key="18_2"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="64 89 92 96 98"                     />
+    <bean p:key="18_4"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="46 76 79 85 87"                     />
+    <bean p:key="18_6"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="42 61 63 85 109"                    />
+    <bean p:key="18_7"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="60 82 89 98 105"                    />
+    <bean p:key="18_10"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="30 31 51 68 109"                    />
+    <bean p:key="18_12"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="50 62 69 85 114"                    />
+    <bean p:key="19_1"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="83 84 93 94 119"                    />
+    <bean p:key="19_3"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="32 36 51 56 62"                     />
+    <bean p:key="22_1"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="28 54 55 84 114"                    />
+    <bean p:key="22_9"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="37 45 102 117 120"                  />
+    <bean p:key="22_13"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="6 64 110 111 116"                   />
+    <bean p:key="22_14"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="91 99 115 125 131"                  />
+    <bean p:key="22_15"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="71 77 79 99 104"                    />
+    <bean p:key="22_17"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="42 61 63 133 141"                   />
+    <bean p:key="22_18"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="65 73 132 133 138"                  />
+    <bean p:key="101_2"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="91 100 103 110 111"                 />
+    <bean p:key="101_7"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="91 97 101 103 104"                  />
+    <bean p:key="101_10"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="70 93 95 96 104"                    />
+    <bean p:key="101_13"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="30 63 66 68 86"                     />
+    <bean p:key="101_14"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="71 72 80 93 95"                     />
+    <bean p:key="104_7"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="33 41 46 52 65"                     />
+    <bean p:key="104_14"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="69 90 97 98 105"                    />
+    <bean p:key="108_3"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="32 54 60 80 106"                    />
+    <bean p:key="108_6"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="54 80 93 94 95"                     />
+    <bean p:key="108_7"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="76 86 112 113 114"                  />
+    <bean p:key="108_9"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="44 56 60 61 102"                    />
+    <bean p:key="108_11"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="80 83 86 95 109"                    />
+    <bean p:key="108_12"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="85 86 103 112 114"                  />
+    <bean p:key="108_13"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="106 107 108 109 120"                />
+    <bean p:key="108_14"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="44 54 62 95 97"                     />
+    <bean p:key="108_15"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="54 60 98 103 114"                   />
+    <bean p:key="108_18"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="94 95 107 109 112"                  />
+    <bean p:key="23_1"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="14 34 35 51 102"                    />
+    <bean p:key="23_3"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="5 8 30 45 116"                      />
+    <bean p:key="23_9"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="82 124 140 141 150"                 />
+    <bean p:key="23_13"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="117 139 142 149 150"                />
+    <bean p:key="23_14"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="89 91 92 105 125"                   />
+    <bean p:key="23_18"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="89 92 135 141 146"                  />
+    <!--TODO HEROIC MISSION--> <!--3-->
+    <bean p:key="2_19"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="98 105 112 121 124"                 />
+    <bean p:key="3_22"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="110 111 116 121 134"                />
+    <bean p:key="4_101"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="68 101 102 116 140"                 />
+    <bean p:key="4_104"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="30 68 110 111 116"                  />
+    <bean p:key="6_8"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="28 105 108 112 113"                 />
+    <bean p:key="6_101"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="72 85 99 100 104"                   />
+    <bean p:key="8_7"       class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="14 28 37 92 127"                    />
+    <bean p:key="10_6"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="30 35 68 107 127"                   />
+    <bean p:key="10_7"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="75 80 89 90 91"                     />
+    <bean p:key="10_8"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="72 91 99 101 102"                   />
+    <bean p:key="11_8"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="26 64 70 92 134 140"                />
+    <bean p:key="11_10"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="83 92 93 94 95"                     />
+    <bean p:key="12_6"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="65 67 73 86 103"                    />
+    <bean p:key="12_104"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="26 31 43 50 107 109 117"            />
+    <bean p:key="15_7"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="14 35 62 108 116 142 144"           />
+    <bean p:key="15_8"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="30 48 51 56 64 68"                  />
+    <bean p:key="15_104"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="26 29 34 64 97 116 140"             />
+    <bean p:key="16_6"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="91 98 100 101 104"                  />
+    <bean p:key="16_8"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="75 76 78 79 85"                     />
+    <bean p:key="16_10"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="54 69 81 94 95"                     />
+    <bean p:key="16_11"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="72 110 111 112 113"                 />
+    <bean p:key="16_104"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="42 43 47 50 61"                     />
+    <bean p:key="17_10"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="70 75 81 105 115"                   />
+    <bean p:key="17_19"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="74 91 92 97 98"                     />
+    <bean p:key="17_104"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="110 111 131 135 140 146"            />
+    <bean p:key="19_4"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="51 60 62 65 66"                     />
+    <bean p:key="19_6"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="74 75 96 97 119"                    />
+    <bean p:key="19_7"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="76 91 92 101 104"                   />
+    <bean p:key="19_8"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="71 74 75 88 90"                     />
+    <bean p:key="19_9"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="77 80 104 114 123"                  />
+    <bean p:key="19_10"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="97 112 113 121 124"                 />
+    <bean p:key="19_11"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="53 83 84 94 118"                    />
+    <bean p:key="19_12"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="26 50 100 112 140"                  />
+    <bean p:key="19_13"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="64 110 111 113 121"                 />
+    <bean p:key="19_14"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="66 69 81 86 107"                    />
+    <bean p:key="19_15"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="83 88 91 101 125"                   />
+    <bean p:key="19_16"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="51 54 94 95 114"                    />
+    <bean p:key="19_18"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="99 100 103 105 123"                 />
+    <bean p:key="19_101"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="28 31 40 68 116"                    />
+    <bean p:key="22_2"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="14 26 30 37 127"                    />
+    <bean p:key="22_4"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="70 72 105 115 135"                  />
+    <bean p:key="22_6"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="49 55 60 122 123"                   />
+    <bean p:key="22_7"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="65 74 83 84 114"                    />
+    <bean p:key="22_8"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="70 72 110 111 115"                  />
+    <bean p:key="22_10"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="128 129 130 131 135"                />
+    <bean p:key="22_11"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="52 99 101 124 140"                  />
+    <bean p:key="22_12"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="74 76 119 123 131"                  />
+    <bean p:key="22_16"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="44 50 61 108 117"                   />
+    <bean p:key="22_19"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="83 84 103 107 114"                  />
+    <bean p:key="22_101"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="97 121 127 134 139"                 />
+    <bean p:key="22_108"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="30 35 45 47 127"                    />
+    <bean p:key="101_8"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="82 102 105 107 108"                 />
+    <bean p:key="101_101"   class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="128 129 130 131 135"                />
+    <bean p:key="101_104"   class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="78 80 85 88 90"                     />
+    <bean p:key="104_2"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="69 71 74 79 80"                     />
+    <bean p:key="104_8"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="61 67 88 93 94"                     />
+    <bean p:key="104_10"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="74 78 79 89 92"                     />
+    <bean p:key="104_19"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="105 112 113 121 124"                />
+    <bean p:key="104_22"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="105 112 113 121 134"                />
+    <bean p:key="108_2"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="62 66 71 107 120"                   />
+    <bean p:key="108_4"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="68 96 116 118 143"                  />
+    <bean p:key="108_8"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="97 98 100 114 120"                  />
+    <bean p:key="108_10"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="74 89 92 135 146"                   />
+    <bean p:key="108_16"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="60 94 95 108 109"                   />
+    <bean p:key="108_17"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="86 103 112 114 120"                 />
+    <bean p:key="108_19"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="54 93 101 103 104"                  />
+    <bean p:key="108_101"   class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="94 95 106 107 109"                  />
+    <bean p:key="108_104"   class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="53 54 60 107 108"                   />
+    <bean p:key="108_108"   class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="28 64 108 121 124"                  />
+    <bean p:key="104_104"   class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="96 97 110 111 127"                  />
+    <bean p:key="22_22"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="2 3 4 14 68"                        />
+    <bean p:key="19_19"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="91 99 134 135 141"                  />
+    <bean p:key="17_17"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="26 64 100 116 134"                  />
+    <bean p:key="15_15"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="14 68 106 109 120"                  />
+    <bean p:key="10_10"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="92 128 129 131 135"                 />
+    <bean p:key="23_2"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="112 113 121 124 150"                />
+    <bean p:key="23_4"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="70 72 105 115 135"                  />
+    <bean p:key="23_6"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="28 57 64 116 117"                   />
+    <bean p:key="23_7"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="5 30 35 64 68"                      />
+    <bean p:key="23_8"      class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="70 72 110 111 115"                  />
+    <bean p:key="23_10"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="128 129 130 131 135"                />
+    <bean p:key="23_11"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="57 112 139 140 141"                 />
+    <bean p:key="23_12"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="26 62 949 95 100"                   />
+    <bean p:key="23_15"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="5 34 68 106 109"                    />
+    <bean p:key="16_23"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="110 111 113 134 140"                />
+    <bean p:key="23_17"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="30 43 46 117 127"                   />
+    <bean p:key="23_19"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="101 114 139 144 148"                />
+    <bean p:key="23_21"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="26 100 102 116 134"                 />
+    <bean p:key="23_101"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="30 43 46 117 127"                   />
+    <bean p:key="23_104"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="35 46 68 116 127"                   />
+    <bean p:key="23_108"    class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="30 33 46 64 140"                    />
+    <bean p:key="23_23"     class="com.pragmatix.app.settings.HeroicMission" p:mapsSet="91 92 103 115 135"                  />
+
+</beans>

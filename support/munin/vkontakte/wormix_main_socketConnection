@@ -1,0 +1,46 @@
+#!/bin/sh
+#
+# Плагин для мониторинга PVP коннекта
+
+StatDump=/home/user/server/logs/statistics/stat.dump
+
+if [ "$1" = "config" ]; then
+    echo 'graph_title Wormix Main Server (SocketConnection)'
+    echo 'graph_vlabel main_connection'
+    echo 'graph_noscale true'
+    echo 'graph_category Wormix VK Main'
+    echo 'graph_info This graph shows statistics about Wormix Main Server (SocketConnection)'
+
+    echo 'anonMessages.label anonMessages'
+    echo 'anonMessages.info Anon messages in second'
+
+    echo 'authMessages.label authMessages'
+    echo 'authMessages.info Auth messages in second'
+
+    echo 'inMessages.label inMessages'
+    echo 'inMessages.info In messages in second'
+
+    echo 'outMessages.label outMessages'
+    echo 'outMessages.info Out messages in second'
+
+    echo 'connected.label connected'
+    echo 'connected.info Connected channels in second'
+
+    echo 'disconnected.label disconnected'
+    echo 'disconnected.info Disconnected channels in second'
+
+    exit 0
+fi
+
+echo -n "anonMessages.value "
+cat $StatDump | grep "Connection#0:anonMessages" | awk '{print $3}'
+echo -n "authMessages.value "
+cat $StatDump | grep "Connection#0:authMessages" | awk '{print $3}'
+echo -n "inMessages.value "
+cat $StatDump | grep "Connection#0:inMessages" | awk '{print $3}'
+echo -n "outMessages.value "
+cat $StatDump | grep "Connection#0:outMessages" | awk '{print $3}'
+echo -n "connected.value "
+cat $StatDump | grep "Connection#0:channelsConnected" | awk '{print $3}'
+echo -n "disconnected.value "
+cat $StatDump | grep "Connection#0:channelsDisconnected" | awk '{print $3}'

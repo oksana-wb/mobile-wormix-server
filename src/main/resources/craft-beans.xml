@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/util
+           http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <util:map id="craftPvpBattleReagentsMassMap" key-type="java.lang.Integer">
+        <entry key="15" value-ref="craftWager15PvpBattleReagentsMassMap"/>
+        <entry key="50" value-ref="craftWager50PvpBattleReagentsMassMap"/>
+        <entry key="300" value-ref="craftWager300PvpBattleReagentsMassMap"/>
+        <entry key="0" value-ref="craftWager300PvpBattleReagentsMassMap"/>
+    </util:map>
+
+    <util:map id="craftServiceUnluckyThreshold" key-type="java.lang.Integer">
+        <entry key="4">
+            <util:map key-type="java.lang.Integer" value-type="java.lang.Integer">
+                <entry key="2" value="2"/>
+                <entry key="3" value="5"/>
+                <entry key="4" value="10"/>
+            </util:map>
+        </entry>
+        <entry key="5">
+            <util:map key-type="java.lang.Integer" value-type="java.lang.Integer">
+                <entry key="2" value="2"/>
+                <entry key="3" value="3"/>
+                <entry key="4" value="10"/>
+                <entry key="5" value="30"/>
+            </util:map>
+        </entry>
+        <entry key="6">
+            <util:map key-type="java.lang.Integer" value-type="java.lang.Integer">
+                <entry key="2" value="2"/>
+                <entry key="3" value="3"/>
+                <entry key="4" value="5"/>
+                <entry key="5" value="15"/>
+                <entry key="6" value="40"/>
+            </util:map>
+        </entry>
+    </util:map>
+
+    <util:map id="craftReagentsPrice" key-type="com.pragmatix.craft.domain.Reagent">
+        <entry key="battery" value="50"/>
+        <entry key="gear" value="50"/>
+        <entry key="wood" value="50"/>
+        <entry key="stone" value="50"/>
+        <entry key="metal_plate" value="50"/>
+        <entry key="coal" value="50"/>
+        <entry key="pipe" value="50"/>
+        <entry key="spring" value="50"/>
+        <entry key="umbrella" value="100"/>
+        <entry key="accumulator" value="100"/>
+        <entry key="hammer" value="100"/>
+        <entry key="gunpowder" value="100"/>
+        <entry key="steel_bar" value="100"/>
+        <entry key="wrench" value="100"/>
+        <entry key="crystal" value="150"/>
+        <entry key="generator" value="150"/>
+        <entry key="microchip" value="150"/>
+        <entry key="sniper_scope" value="150"/>
+        <entry key="titan_bar" value="150"/>
+        <entry key="medal" value="500"/>
+    </util:map>
+
+    <util:list id="craftRecipesList">
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="1" p:baseRecipeId="0" p:weaponId="5" p:name="Граната Ф-1" p:needLevel="10" p:reagents="4:15 3:25 26:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="2" p:baseRecipeId="1" p:weaponId="5" p:name="Граната Пиранья" p:needLevel="16" p:reagents="10:30 23:20 42:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="3" p:baseRecipeId="1" p:weaponId="5" p:name="Сенсорная граната" p:needLevel="16" p:reagents="0:40 21:15 41:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="4" p:baseRecipeId="0" p:weaponId="9" p:name="Осадная мортира" p:needLevel="8" p:reagents="3:15 6:15 20:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="5" p:baseRecipeId="4" p:weaponId="9" p:name="Осколочный разрушитель" p:needLevel="12" p:reagents="1:20 22:20 41:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="6" p:baseRecipeId="4" p:weaponId="9" p:name="Многозарядная мортира" p:needLevel="12" p:reagents="3:40 21:10 44:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="7" p:baseRecipeId="0" p:weaponId="45" p:name="Облегчённые сюрикены" p:needLevel="8" p:reagents="4:25 6:18 22:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="8" p:baseRecipeId="7" p:weaponId="45" p:name="Ножи мастера" p:needLevel="16" p:reagents="10:35 24:15 40:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="9" p:baseRecipeId="7" p:weaponId="45" p:name="Сюрикены мастера" p:needLevel="16" p:reagents="0:25 20:15 44:15"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="10" p:baseRecipeId="0" p:weaponId="29" p:name="Биомасса" p:needLevel="10" p:reagents="0:25 2:15 21:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="11" p:baseRecipeId="10" p:weaponId="29" p:name="Липучая отрава" p:needLevel="18" p:reagents="2:40 23:12 40:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="12" p:baseRecipeId="10" p:weaponId="29" p:name="Липучая взрывчатка" p:needLevel="18" p:reagents="9:35 26:20 42:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="13" p:baseRecipeId="0" p:weaponId="23" p:name="Тактическая винтовка" p:needLevel="10" p:reagents="2:10 24:18 43:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="14" p:baseRecipeId="0" p:weaponId="14" p:name="Боевой дробовик" p:needLevel="10" p:reagents="2:25 10:20 23:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="15" p:baseRecipeId="14" p:weaponId="14" p:name="Ремингтон" p:needLevel="18" p:reagents="4:40 22:15 40:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="16" p:baseRecipeId="14" p:weaponId="14" p:name="Джекхаммер" p:needLevel="18" p:reagents="6:45 26:15 44:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="17" p:baseRecipeId="0" p:weaponId="10" p:name="Цепной пулемёт" p:needLevel="10" p:reagents="1:25 9:20 24:15"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="18" p:baseRecipeId="17" p:weaponId="10" p:name="Большой левис" p:needLevel="16" p:reagents="9:35 20:15 41:15"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="19" p:baseRecipeId="17" p:weaponId="10" p:name="Ракетомёт" p:needLevel="16" p:reagents="1:35 21:15 42:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="20" p:baseRecipeId="0" p:weaponId="1" p:name="Фаустпатрон" p:needLevel="4" p:reagents="4:4 3:4 6:2"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="21" p:baseRecipeId="20" p:weaponId="1" p:name="Кумулятивный снаряд" p:needLevel="12" p:reagents="1:20 6:20 22:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="22" p:baseRecipeId="0" p:weaponId="2" p:name="Ручная бомба" p:needLevel="4" p:reagents="0:4 1:4 10:2"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="23" p:baseRecipeId="22" p:weaponId="2" p:name="Контузящая граната" p:needLevel="12" p:reagents="0:20 3:15 23:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="24" p:baseRecipeId="0" p:weaponId="4" p:name="Охотничья винтовка" p:needLevel="4" p:reagents="2:4 9:6"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="25" p:baseRecipeId="0" p:weaponId="38" p:name="Тепловая ракета" p:needLevel="8" p:reagents="0:15 4:15 20:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="26" p:baseRecipeId="25" p:weaponId="38" p:name="Инфракрасная ракета" p:needLevel="14" p:reagents="10:20 26:10 43:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="27" p:baseRecipeId="0" p:weaponId="50" p:name="Китобой" p:needLevel="10" p:reagents="2:25 9:15 43:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="28" p:baseRecipeId="27" p:weaponId="50" p:name="Трезубец" p:needLevel="16" p:reagents="10:25 22:20 44:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="29" p:baseRecipeId="27" p:weaponId="50" p:name="Энергетическая винтовка" p:needLevel="16" p:reagents="9:25 21:20 42:12"/><!-- TODO -->
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="30" p:baseRecipeId="0" p:weaponId="17" p:name="Улучшнный бур" p:needLevel="4" p:reagents="1:6 6:2 9:2"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="31" p:baseRecipeId="30" p:weaponId="17" p:name="Тактический бур" p:needLevel="12" p:reagents="4:10 23:10 26:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="32" p:baseRecipeId="0" p:weaponId="39" p:name="Противопехотная мина" p:needLevel="6" p:reagents="0:4 3:4 10:6"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="33" p:baseRecipeId="32" p:weaponId="39" p:name="Разрушительная мина" p:needLevel="18" p:reagents="3:25 6:20 26:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="34" p:baseRecipeId="0" p:weaponId="7" p:name="Модернизированный узи" p:needLevel="6" p:reagents="2:4 4:4 6:6"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="35" p:baseRecipeId="0" p:weaponId="76" p:name="Лазерная защита" p:needLevel="16" p:reagents="3:15 20:8 41:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="36" p:baseRecipeId="0" p:weaponId="25" p:name="Проклятая граната" p:needLevel="18" p:reagents="2:20 24:10 40:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="37" p:baseRecipeId="0" p:weaponId="48" p:name="Тарантул" p:needLevel="26" p:reagents="1:20 4:20 24:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="38" p:baseRecipeId="0" p:weaponId="19" p:name="Связка динамита" p:needLevel="8" p:reagents="3:15 6:15 23:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="39" p:baseRecipeId="0" p:weaponId="19" p:name="Пояс камикадзе" p:needLevel="8" p:reagents="4:20 10:20 21:15"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="40" p:baseRecipeId="0" p:weaponId="46" p:name="Ручная пушка" p:needLevel="16" p:reagents="6:20 22:12 40:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="41" p:baseRecipeId="40" p:weaponId="46" p:name="Бомбарда" p:needLevel="22" p:reagents="20:15 43:12 44:5"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="42" p:baseRecipeId="0" p:weaponId="33" p:name="Паралайзер" p:needLevel="6" p:reagents="0:15 10:10 26:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="43" p:baseRecipeId="0" p:weaponId="44" p:name="Котомет" p:needLevel="8" p:reagents="2:15 9:15 20:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="44" p:baseRecipeId="43" p:weaponId="44" p:name="Хаотичный котомет" p:needLevel="12" p:reagents="0:20 24:15 42:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="45" p:baseRecipeId="43" p:weaponId="44" p:name="Огненный котомет" p:needLevel="12" p:reagents="4:20 23:15 41:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="46" p:baseRecipeId="0" p:weaponId="53" p:name="Эластичная балка" p:needLevel="12" p:reagents="1:20 24:15 44:5"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="47" p:baseRecipeId="0" p:weaponId="40" p:name="Управляемый свин" p:needLevel="22" p:reagents="1:15 26:15 41:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="48" p:baseRecipeId="0" p:weaponId="40" p:name="Горящий свин" p:needLevel="22" p:reagents="6:20 21:20 40:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="49" p:baseRecipeId="0" p:weaponId="71" p:name="Экстренный телепорт" p:needLevel="16" p:reagents="9:10 21:8 22:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="50" p:baseRecipeId="49" p:weaponId="71" p:name="Эвакуатор" p:needLevel="18" p:reagents="4:10 26:15 43:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="51" p:baseRecipeId="0" p:weaponId="69" p:name="Сбалансированный бумеранг" p:needLevel="10" p:reagents="2:20 24:8 26:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="52" p:baseRecipeId="51" p:weaponId="69" p:name="Смертоносный бумеранг" p:needLevel="14" p:reagents="20:10 22:30 24:15"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="53" p:baseRecipeId="0" p:weaponId="34" p:name="Управляемый телепорт" p:needLevel="14" p:reagents="20:20 41:8 42:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="54" p:baseRecipeId="0" p:weaponId="66" p:name="Микстура" p:needLevel="12" p:reagents="0:12 9:12 23:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="55" p:baseRecipeId="54" p:weaponId="66" p:name="Настойка из мухоморов" p:needLevel="22" p:reagents="10:15 23:12 40:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="56" p:baseRecipeId="54" p:weaponId="66" p:name="Защитный раствор" p:needLevel="22" p:reagents="3:15 21:12 44:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="57" p:baseRecipeId="0" p:weaponId="16" p:name="Безопасная дрель" p:needLevel="6" p:reagents="1:2 4:2 6:6"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="58" p:baseRecipeId="0" p:weaponId="83" p:name="Пиявка" p:needLevel="14" p:reagents="22:18 40:6 42:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="59" p:baseRecipeId="24" p:weaponId="4" p:name="Бронебойная винтовка" p:needLevel="12" p:reagents="4:20 23:10 26:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="60" p:baseRecipeId="13" p:weaponId="23" p:name="Слонобой" p:needLevel="14" p:reagents="23:15 24:20 43:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="61" p:baseRecipeId="13" p:weaponId="23" p:name="Мухобойка" p:needLevel="14" p:reagents="20:20 21:18 43:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="62" p:baseRecipeId="0" p:weaponId="27" p:name="Точечный удар" p:needLevel="24" p:reagents="20:20 23:15 43:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="63" p:baseRecipeId="0" p:weaponId="82" p:name="Блокиратор mk2" p:needLevel="22" p:reagents="9:20 26:18 44:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="64" p:baseRecipeId="63" p:weaponId="82" p:name="Негатор" p:needLevel="30" p:reagents="3:25 22:25 42:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="65" p:baseRecipeId="63" p:weaponId="82" p:name="Регенератор" p:needLevel="30" p:reagents="24:20 26:18 44:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="66" p:baseRecipeId="0" p:weaponId="74" p:name="Громобой" p:needLevel="16" p:reagents="21:20 40:18 41:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="67" p:baseRecipeId="0" p:weaponId="81" p:name="Разъедающий газ" p:needLevel="20" p:reagents="2:25 23:15 40:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="68" p:baseRecipeId="42" p:weaponId="33" p:name="Дуговой шокер" p:needLevel="12" p:reagents="4:20 9:20 41:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="69" p:baseRecipeId="0" p:weaponId="58" p:name="Бронебойный бункеролом" p:needLevel="16" p:reagents="1:20 24:20 44:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="70" p:baseRecipeId="0" p:weaponId="28" p:name="Метеоритный дождь" p:needLevel="24" p:reagents="3:20 20:25 23:25"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="71" p:baseRecipeId="0" p:weaponId="26" p:name="Телепорт mk2" p:needLevel="26" p:reagents="0:15 10:15 21:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="72" p:baseRecipeId="0" p:weaponId="37" p:name="Напалмовая граната" p:needLevel="14" p:reagents="6:30 23:15 42:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="73" p:baseRecipeId="0" p:weaponId="52" p:name="АКМ" p:needLevel="14" p:reagents="2:30 10:30 24:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="74" p:baseRecipeId="0" p:weaponId="36" p:name="Двойной котоудар" p:needLevel="26" p:reagents="3:40 22:20 42:15"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="75" p:baseRecipeId="0" p:weaponId="94" p:name="Лазерная винтовка" p:needLevel="22" p:reagents="0:35 21:15 43:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="76" p:baseRecipeId="75" p:weaponId="94" p:name="Тяжёлый лазер" p:needLevel="24" p:reagents="9:35 26:20 40:15"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="77" p:baseRecipeId="75" p:weaponId="94" p:name="Выжигатель" p:needLevel="24" p:reagents="4:45 41:15 44:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="78" p:baseRecipeId="0" p:weaponId="43" p:name="Напалмовая бомбардировка" p:needLevel="22" p:reagents="6:25 26:18 41:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="79" p:baseRecipeId="0" p:weaponId="49" p:name="Кошка" p:needLevel="14" p:reagents="1:25 10:10 24:15"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="80" p:baseRecipeId="0" p:weaponId="73" p:name="Гравитационное ружье" p:needLevel="12" p:reagents="0:20 1:25 21:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="81" p:baseRecipeId="0" p:weaponId="65" p:name="Боевая тарелка" p:needLevel="16" p:reagents="0:20 1:20 20:20"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="82" p:baseRecipeId="81" p:weaponId="65" p:name="Похититель" p:needLevel="26" p:reagents="22:25 24:20 42:15"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="83" p:baseRecipeId="0" p:weaponId="41" p:name="Дикий свин" p:needLevel="18" p:reagents="6:25 23:15 41:5"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="84" p:baseRecipeId="83" p:weaponId="41" p:name="Грозовой свин" p:needLevel="22" p:reagents="10:35 21:20 40:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="85" p:baseRecipeId="73" p:weaponId="52" p:name="Штурмовая винтовка" p:needLevel="18" p:reagents="2:40 26:20 44:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="86" p:baseRecipeId="57" p:weaponId="16" p:name="Набор шахтера" p:needLevel="20" p:reagents="1:20 6:15 26:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="87" p:baseRecipeId="35" p:weaponId="76" p:name="Лазерный заградитель" p:needLevel="28" p:reagents="20:15 21:15 42:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="88" p:baseRecipeId="69" p:weaponId="58" p:name="Контузящий бункеролом" p:needLevel="24" p:reagents="3:25 22:20 44:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="89" p:baseRecipeId="36" p:weaponId="25" p:name="Глазобомба" p:needLevel="24" p:reagents="9:30 23:20 41:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="90" p:baseRecipeId="80" p:weaponId="73" p:name="Граббер" p:needLevel="18" p:reagents="22:20 26:20 41:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="91" p:baseRecipeId="0" p:weaponId="54" p:name="Криогенная базука" p:needLevel="14" p:reagents="4:25 20:15 40:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="92" p:baseRecipeId="0" p:weaponId="109" p:name="Тактическая гравимина" p:needLevel="24" p:reagents="0:30 21:20 41:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="93" p:baseRecipeId="0" p:weaponId="47" p:name="Боевой молот" p:needLevel="26" p:reagents="20:20 40:8 44:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="94" p:baseRecipeId="0" p:weaponId="51" p:name="Усиленная бита" p:needLevel="18" p:reagents="2:30 24:15 44:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="95" p:baseRecipeId="0" p:weaponId="24" p:name="Адский арбуз" p:needLevel="20" p:reagents="1:30 10:30 42:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="96" p:baseRecipeId="50" p:weaponId="71" p:name="Медэвак" p:needLevel="22" p:reagents="20:15 24:15 43:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="97" p:baseRecipeId="46" p:weaponId="53" p:name="Тактическая балка" p:needLevel="18" p:reagents="4:25 26:15 44:5"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="98" p:baseRecipeId="79" p:weaponId="49" p:name="Инженерный канат" p:needLevel="20" p:reagents="2:20 9:20 43:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="99" p:baseRecipeId="0" p:weaponId="47" p:name="Боевой молот" p:needLevel="26" p:reagents="2:25 22:25 24:25"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="100" p:baseRecipeId="83" p:weaponId="41" p:name="Жадный свин" p:needLevel="22" p:reagents="6:10 23:25 43:15"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="101" p:baseRecipeId="0" p:weaponId="105" p:name="Ледяной ливень" p:needLevel="18" p:reagents="20:15 21:15 41:15"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="102" p:baseRecipeId="101" p:weaponId="105" p:name="Ледяной град" p:needLevel="24" p:reagents="3:40 6:40 23:30"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="103" p:baseRecipeId="101" p:weaponId="105" p:name="Морозный дождь" p:needLevel="24" p:reagents="20:20 21:20 40:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="104" p:baseRecipeId="0" p:weaponId="116" p:name="Якорь mk2" p:needLevel="24" p:reagents="9:15 20:10 42:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="105" p:baseRecipeId="104" p:weaponId="116" p:name="Якорь mk3" p:needLevel="28" p:reagents="1:20 21:20 42:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="106" p:baseRecipeId="0" p:weaponId="117" p:name="Балкометатель" p:needLevel="22" p:reagents="2:15 22:15 26:15"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="107" p:baseRecipeId="0" p:weaponId="30" p:name="Управляемый огнемет" p:needLevel="20" p:reagents="6:20 23:15 43:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="108" p:baseRecipeId="0" p:weaponId="12" p:name="Сверлящий таран" p:needLevel="10" p:reagents="1:10 26:15 44:5"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="109" p:baseRecipeId="108" p:weaponId="12" p:name="Сверлящий искатель" p:needLevel="14" p:reagents="4:15 26:15 43:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="110" p:baseRecipeId="58" p:weaponId="83" p:name="Слизень" p:needLevel="28" p:reagents="0:30 9:30 41:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="111" p:baseRecipeId="0" p:weaponId="95" p:name="Дробитель" p:needLevel="20" p:reagents="3:30 10:20 44:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="112" p:baseRecipeId="0" p:weaponId="26" p:name="Медицинский телепорт" p:needLevel="26" p:reagents="0:15 20:10 40:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="113" p:baseRecipeId="0" p:weaponId="60" p:name="Скрытый охранник" p:needLevel="28" p:reagents="4:20 24:20 42:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="114" p:baseRecipeId="0" p:weaponId="107" p:name="Магнитный заземлитель" p:needLevel="20" p:reagents="1:30 22:20 43:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="115" p:baseRecipeId="0" p:weaponId="60" p:name="Шипастый охранник" p:needLevel="28" p:reagents="2:20 10:30 40:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="116" p:baseRecipeId="111" p:weaponId="95" p:name="Аккуратный дробитель" p:needLevel="24" p:reagents="3:20 24:20 43:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="117" p:baseRecipeId="91" p:weaponId="54" p:name="Ледяной шип" p:needLevel="20" p:reagents="20:15 26:20 44:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="118" p:baseRecipeId="0" p:weaponId="54" p:name="Снегомет" p:needLevel="14" p:reagents="9:25 24:15 40:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="119" p:baseRecipeId="118" p:weaponId="54" p:name="Прицельный снегомет" p:needLevel="20" p:reagents="20:20 22:15 43:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="120" p:baseRecipeId="0" p:weaponId="81" p:name="Морозящий газ" p:needLevel="20" p:reagents="6:30 21:15 41:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="121" p:baseRecipeId="0" p:weaponId="48" p:name="Леденящий паук" p:needLevel="26" p:reagents="0:25 4:25 42:5"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="122" p:baseRecipeId="36" p:weaponId="25" p:name="Полярная чума" p:needLevel="24" p:reagents="23:20 24:15 26:15"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="123" p:baseRecipeId="0" p:weaponId="107" p:name="Зимний страж" p:needLevel="20" p:reagents="10:30 22:20 44:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="124" p:baseRecipeId="0" p:weaponId="86" p:name="Суровый душемёт" p:needLevel="20" p:reagents="9:10 23:10 43:15"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="125" p:baseRecipeId="124" p:weaponId="86" p:name="Эмпатический душемёт" p:needLevel="24" p:reagents="1:35 20:15 42:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="126" p:baseRecipeId="124" p:weaponId="86" p:name="Ядовитый душемёт" p:needLevel="24" p:reagents="9:30 21:20 40:8"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="127" p:baseRecipeId="94" p:weaponId="51" p:name="Вышибатель души" p:needLevel="26" p:reagents="6:40 23:20 41:5"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="128" p:baseRecipeId="94" p:weaponId="51" p:name="Вышибатель мозгов" p:needLevel="26" p:reagents="2:30 22:15 44:12"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="129" p:baseRecipeId="0" p:weaponId="52" p:name="Снежкомёт" p:needLevel="18" p:reagents="3:35 21:20 42:10"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="130" p:baseRecipeId="129" p:weaponId="52" p:name="АК Морозко" p:needLevel="26" p:reagents="10:30 20:25 40:20"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="131" p:baseRecipeId="90" p:weaponId="73" p:name="Кинезис" p:needLevel="24" p:reagents="1:40 23:20 44:15"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="132" p:baseRecipeId="50" p:weaponId="71" p:name="Антитрап" p:needLevel="30" p:reagents="4:50 40:30 42:20"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="133" p:baseRecipeId="0" p:weaponId="57" p:name="Кайтеновый хищник" p:needLevel="30" p:reagents="0:40 26:30 41:20"/>
+        <bean class="com.pragmatix.craft.model.Recipe" p:id="134" p:baseRecipeId="116" p:weaponId="95" p:name="Небесный дробитель" p:needLevel="28" p:reagents="3:50 23:20 41:5"/>
+        <!--<bean class="com.pragmatix.craft.model.Recipe" p:id="!" p:baseRecipeId="27" p:weaponId="50" p:name="Гарпунная пушка" p:needLevel="30" p:reagents="2:40 22:30 42:20"/>-->
+    </util:list>
+
+    <util:list id="craftStuffRecipesList">
+
+        <!-- TODO шапки -->
+
+        <bean p:id="1500" p:resultStuffsMass="1501:25 1502:25 1503:25 1504:10 1505:5" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="1500" p:needRealMoney="15" p:baseStuffs="1011" p:reagents="50:2"
+              p:recraftMoney="800" p:recraftRealMoney="8" p:recraftBaseStuffs="" p:recraftReagents="50:2"/>
+
+        <bean p:id="1510" p:resultStuffsMass="1511:25 1512:30 1513:10 1514:5" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="1200" p:needRealMoney="12" p:baseStuffs="1030 1005" p:reagents="50:4"
+              p:recraftMoney="3000" p:recraftRealMoney="30" p:recraftBaseStuffs="" p:recraftReagents="50:6"/>
+
+        <bean p:id="1520" p:resultStuffsMass="1521:35 1522:25 1523:25 1524:8 1525:2" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="1800" p:needRealMoney="18" p:baseStuffs="1075 1015" p:reagents="50:8"
+              p:recraftMoney="2800" p:recraftRealMoney="28" p:recraftBaseStuffs="" p:recraftReagents="50:8"/>
+
+        <bean p:id="1530" p:resultStuffsMass="1531:25 1532:25 1533:25 1534:15 1535:5 1536:2" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="1000" p:needRealMoney="10" p:baseStuffs="2014 1065 2005" p:reagents="50:6"
+              p:recraftMoney="3200" p:recraftRealMoney="32" p:recraftBaseStuffs="" p:recraftReagents="50:10"/>
+
+        <bean p:id="1540" p:resultStuffsMass="1541:35 1542:25 1543:25 1544:5 1545:2" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="1500" p:needRealMoney="15" p:baseStuffs="1066 1024" p:reagents="50:8"
+              p:recraftMoney="4400" p:recraftRealMoney="44" p:recraftBaseStuffs="" p:recraftReagents="50:14"/>
+
+        <bean p:id="1550" p:resultStuffsMass="1551:35 1552:30 1553:30 1554:5 1555:2" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="1200" p:needRealMoney="12" p:baseStuffs="1057 1091" p:reagents="50:6"
+              p:recraftMoney="2000" p:recraftRealMoney="20" p:recraftBaseStuffs="" p:recraftReagents="50:8"/>
+
+        <bean p:id="1560" p:resultStuffsMass="1561:25 1562:25 1563:25 1564:15 1565:5 1566:2" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="1400" p:needRealMoney="14" p:baseStuffs="1004 1064" p:reagents="50:8"
+              p:recraftMoney="2800" p:recraftRealMoney="28" p:recraftBaseStuffs="" p:recraftReagents="50:10"/>
+
+        <bean p:id="1570" p:resultStuffsMass="1571:25 1572:25 1573:25 1574:10 1575:3 1576:1" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="1800" p:needRealMoney="18" p:baseStuffs="1080 1000" p:reagents="50:10"
+              p:recraftMoney="4600" p:recraftRealMoney="46" p:recraftBaseStuffs="" p:recraftReagents="50:14"/>
+
+        <bean p:id="1580" p:resultStuffsMass="1581:25 1582:25 1583:25 1584:10 1585:3 1586:1" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="2200" p:needRealMoney="22" p:baseStuffs="1074 1096" p:reagents="50:10"
+              p:recraftMoney="5000" p:recraftRealMoney="50" p:recraftBaseStuffs="" p:recraftReagents="50:16"/>
+
+        <bean p:id="1590" p:resultStuffsMass="1591:25 1592:25 1593:25 1594:10 1595:3 1596:1" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="1600" p:needRealMoney="16" p:baseStuffs="1055 1028 1040" p:reagents="50:8"
+              p:recraftMoney="5200" p:recraftRealMoney="52" p:recraftBaseStuffs="" p:recraftReagents="50:14"/>
+
+        <bean p:id="1600" p:resultStuffsMass="1601:25 1602:25 1603:25 1604:10 1605:3 1606:1" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="1800" p:needRealMoney="18" p:baseStuffs="1052 1014 1135" p:reagents="50:10"
+              p:recraftMoney="4800" p:recraftRealMoney="48" p:recraftBaseStuffs="" p:recraftReagents="50:14"/>
+
+        <bean p:id="1610" p:resultStuffsMass="1611:25 1612:25 1613:25 1614:5 1615:2" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="1400" p:needRealMoney="14" p:baseStuffs="1062 1038 2028" p:reagents="50:4"
+              p:recraftMoney="3600" p:recraftRealMoney="36" p:recraftBaseStuffs="" p:recraftReagents="50:10"/>
+
+        <bean p:id="1620" p:resultStuffsMass="1621:25 1622:25 1623:25 1624:10 1625:3 1626:1" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="1400" p:needRealMoney="14" p:baseStuffs="1061 1079 1103" p:reagents="50:6"
+              p:recraftMoney="5200" p:recraftRealMoney="52" p:recraftBaseStuffs="" p:recraftReagents="50:16"/>
+
+        <bean p:id="1630" p:resultStuffsMass="1631:25 1632:25 1633:25 1634:10 1635:5 1636:2" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="1000" p:needRealMoney="10" p:baseStuffs="1010 1012" p:reagents="50:6"
+              p:recraftMoney="2200" p:recraftRealMoney="22" p:recraftBaseStuffs="" p:recraftReagents="50:6"/>
+
+        <bean p:id="1640" p:resultStuffsMass="1641:25 1642:25 1643:25 1644:10 1645:5 1646:2" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="1600" p:needRealMoney="16" p:baseStuffs="1063 1042" p:reagents="50:6"
+              p:recraftMoney="3000" p:recraftRealMoney="30" p:recraftBaseStuffs="" p:recraftReagents="50:10"/>
+
+        <bean p:id="1650" p:resultStuffsMass="1651:25 1652:25 1653:25 1654:10 1655:5 1656:2" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="2200" p:needRealMoney="22" p:baseStuffs="1121 1095 1129" p:reagents="50:10"
+              p:recraftMoney="5800" p:recraftRealMoney="58" p:recraftBaseStuffs="" p:recraftReagents="50:18"/>
+
+        <bean p:id="1660" p:resultStuffsMass="1661:25 1662:25 1663:25 1664:10 1665:5 1666:2" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="1800" p:needRealMoney="18" p:baseStuffs="1056 1058 1123" p:reagents="50:8"
+              p:recraftMoney="6200" p:recraftRealMoney="62" p:recraftBaseStuffs="" p:recraftReagents="50:20"/>
+
+        <!-- 1670-1710 шапки за топ, не участвуют в крафте -->
+
+        <bean p:id="1720" p:resultStuffsMass="1721:25 1722:25 1723:25 1724:10 1725:5 1726:2" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="2200" p:needRealMoney="22" p:baseStuffs="1041 1149 2048" p:reagents="50:10"
+              p:recraftMoney="6000" p:recraftRealMoney="60" p:recraftBaseStuffs="" p:recraftReagents="50:16"/>
+
+        <!-- 1730-1740 шапки за турнир, не участвуют в крафте -->
+
+        <!-- TODO артефакты -->
+
+        <bean p:id="2500" p:resultStuffsMass="2501:20 2502:20 2503:20 2504:20 2505:10 2506:5" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="400" p:needRealMoney="4" p:baseStuffs="2001 2002 2008" p:reagents="50:4"
+              p:recraftMoney="1200" p:recraftRealMoney="12" p:recraftBaseStuffs="" p:recraftReagents="50:3"/>
+
+        <bean p:id="2510" p:resultStuffsMass="2511:25 2512:30 2513:25 2514:10 2515:5" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="600" p:needRealMoney="6" p:baseStuffs="2004 2003" p:reagents="50:4"
+              p:recraftMoney="1400" p:recraftRealMoney="14" p:recraftBaseStuffs="" p:recraftReagents="50:4"/>
+
+        <bean p:id="2520" p:resultStuffsMass="2521:25 2522:20 2523:20 2524:20 2525:5 2526:2" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="1500" p:needRealMoney="15" p:baseStuffs="2003 2010 2007" p:reagents="50:8"
+              p:recraftMoney="3600" p:recraftRealMoney="36" p:recraftBaseStuffs="" p:recraftReagents="50:12"/>
+
+        <bean p:id="2530" p:resultStuffsMass="2531:25 2532:20 2533:20 2534:20 2535:5 2536:2" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="1800" p:needRealMoney="18" p:baseStuffs="2006 2009" p:reagents="50:7"
+              p:recraftMoney="2400" p:recraftRealMoney="24" p:recraftBaseStuffs="" p:recraftReagents="50:10"/>
+
+        <bean p:id="2540" p:resultStuffsMass="2541:25 2542:20 2543:20 2544:20 2545:5 2546:2" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="2000" p:needRealMoney="20" p:baseStuffs="2012 2021" p:reagents="50:8"
+              p:recraftMoney="4600" p:recraftRealMoney="46" p:recraftBaseStuffs="" p:recraftReagents="50:14"/>
+
+        <bean p:id="2550" p:resultStuffsMass="2551:30 2552:30 2553:25 2554:5 2555:2" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="1600" p:needRealMoney="16" p:baseStuffs="2019 2015" p:reagents="50:6"
+              p:recraftMoney="3800" p:recraftRealMoney="38" p:recraftBaseStuffs="" p:recraftReagents="50:10"/>
+
+        <bean p:id="2560" p:resultStuffsMass="2561:25 2562:20 2563:20 2564:20 2565:5 2566:2" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="2400" p:needRealMoney="24" p:baseStuffs="2023 1701" p:reagents="50:10"
+              p:recraftMoney="4200" p:recraftRealMoney="42" p:recraftBaseStuffs="" p:recraftReagents="50:14"/>
+
+        <bean p:id="2570" p:resultStuffsMass="2571:25 2572:30 2573:5 2574:5" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="1000" p:needRealMoney="10" p:baseStuffs="2029" p:reagents="50:4"
+              p:recraftMoney="1000" p:recraftRealMoney="10" p:recraftBaseStuffs="" p:recraftReagents="50:6"/>
+
+        <bean p:id="2580" p:resultStuffsMass="2581:25 2582:20 2583:20 2584:20 2585:5 2586:2" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="3200" p:needRealMoney="32" p:baseStuffs="2039 2019" p:reagents="50:10"
+              p:recraftMoney="5400" p:recraftRealMoney="54" p:recraftBaseStuffs="" p:recraftReagents="50:14"/>
+
+        <!-- 2590-2600 артефакты за топ кланов, не участвуют в крафте -->
+
+        <bean p:id="2610" p:resultStuffsMass="2611:25 2612:20 2613:20 2614:20 2615:5 2616:2" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="2000" p:needRealMoney="20" p:baseStuffs="2011 2017 1117" p:reagents="50:10"
+              p:recraftMoney="5400" p:recraftRealMoney="54" p:recraftBaseStuffs="" p:recraftReagents="50:14"/>
+
+        <bean p:id="2620" p:resultStuffsMass="2621:25 2622:20 2623:20 2624:20 2625:5 2626:2" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="3000" p:needRealMoney="30" p:baseStuffs="2036 1711" p:reagents="50:10"
+              p:recraftMoney="5200" p:recraftRealMoney="52" p:recraftBaseStuffs="" p:recraftReagents="50:16"/>
+
+        <bean p:id="2630" p:resultStuffsMass="2631:25 2632:20 2633:15 2634:10 2635:5 2636:2" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="3000" p:needRealMoney="30" p:baseStuffs="1059 2046 2020" p:reagents="50:10"
+              p:recraftMoney="5200" p:recraftRealMoney="52" p:recraftBaseStuffs="" p:recraftReagents="50:14"/>
+
+        <bean p:id="2640" p:resultStuffsMass="2641:25 2642:20 2643:15 2644:10 2645:5 2646:2" class="com.pragmatix.craft.model.StuffRecipe"
+              p:needMoney="2200" p:needRealMoney="22" p:baseStuffs="1077 2031 2043" p:reagents="50:10"
+              p:recraftMoney="5400" p:recraftRealMoney="54" p:recraftBaseStuffs="" p:recraftReagents="50:14"/>
+
+        <!-- 2650-2660 артефакты за турнир, не участвуют в крафте -->
+
+        <!-- TODO ящик боеприпасов -->
+
+        <bean p:id="3000" p:needLevel="1" p:reagents="51:1" class="com.pragmatix.craft.model.StuffRecipe"
+              p:resultStuffsMass="1:1 2:1 3:1 4:8 5:45 6:30 7:10 8:1 9:1 10:1 11:1"/>
+    </util:list>
+
+    <util:map id="craftResultItemsMap">
+        <entry key="3000">
+            <util:map>
+                <entry key="1"> <bean class="com.pragmatix.craft.model.CraftResultItem" p:rubyCount="1"/></entry>
+                <entry key="2"> <bean class="com.pragmatix.craft.model.CraftResultItem" p:rubyCount="2"/></entry>
+                <entry key="3"> <bean class="com.pragmatix.craft.model.CraftResultItem" p:rubyCount="3"/></entry>
+                <entry key="4"> <bean class="com.pragmatix.craft.model.CraftResultItem" p:seasonStuff="true"/></entry>
+                <entry key="5"> <bean class="com.pragmatix.craft.model.CraftResultItem" p:weaponCount="1"/></entry>
+                <entry key="6"> <bean class="com.pragmatix.craft.model.CraftResultItem" p:weaponCount="2"/></entry>
+                <entry key="7"> <bean class="com.pragmatix.craft.model.CraftResultItem" p:weaponCount="3"/></entry>
+                <entry key="8"> <bean class="com.pragmatix.craft.model.CraftResultItem" p:medalCount="1"/></entry>
+                <entry key="9"> <bean class="com.pragmatix.craft.model.CraftResultItem" p:mutagenCount="10"/></entry>
+                <entry key="10"><bean class="com.pragmatix.craft.model.CraftResultItem" p:experience="100"/></entry>
+                <entry key="11"><bean class="com.pragmatix.craft.model.CraftResultItem" p:moneyCount="100"/></entry>
+            </util:map>
+        </entry>
+    </util:map>
+
+    <bean id="craftServiceParams" class="java.util.EnumMap">
+        <constructor-arg>
+            <util:map id="craftServiceParams" key-type="com.pragmatix.craft.services.CraftService.ParamsEnum" value-type="java.lang.Integer">
+                <entry key="OpenChestWeaponLimit" value="0"/>
+                <entry key="OpenChestInsteadWeaponMoneyFrom" value="35"/>
+                <entry key="OpenChestInsteadWeaponMoneyTo" value="65"/>
+            </util:map>
+        </constructor-arg>
+    </bean>
+
+    <util:map id="craftSimpleBattleLevelReagentsMassMap">
+        <entry key="4" value="44 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50"/>
+        <entry key="5" value="43 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50"/>
+        <entry key="6" value="42 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50"/>
+        <entry key="7" value="41 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50"/>
+        <entry key="8" value="40 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50"/>
+        <entry key="9" value="39 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50"/>
+        <entry key="10" value="38 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50"/>
+        <entry key="11" value="37 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50"/>
+        <entry key="12" value="36 51:72 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:8 41:8 42:8 43:8 44:8"/>
+        <entry key="13" value="35 51:72 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:8 41:8 42:8 43:8 44:8"/>
+        <entry key="14" value="34 51:72 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:8 41:8 42:8 43:8 44:8"/>
+        <entry key="15" value="33 51:72 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:8 41:8 42:8 43:8 44:8"/>
+        <entry key="16" value="32 51:72 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:8 41:8 42:8 43:8 44:8"/>
+        <entry key="17" value="31 51:72 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:8 41:8 42:8 43:8 44:8"/>
+        <entry key="18" value="30 51:72 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:8 41:8 42:8 43:8 44:8"/>
+        <entry key="19" value="29 51:72 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:8 41:8 42:8 43:8 44:8"/>
+        <entry key="20" value="28 51:72 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:8 41:8 42:8 43:8 44:8"/>
+        <entry key="21" value="27 51:72 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:8 41:8 42:8 43:8 44:8"/>
+        <entry key="22" value="26 51:72 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:8 41:8 42:8 43:8 44:8"/>
+        <entry key="23" value="25 51:72 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:8 41:8 42:8 43:8 44:8"/>
+        <entry key="24" value="24 51:72 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:8 41:8 42:8 43:8 44:8"/>
+        <entry key="25" value="23 51:72 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:8 41:8 42:8 43:8 44:8"/>
+        <entry key="26" value="22 51:72 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:8 41:8 42:8 43:8 44:8"/>
+        <entry key="27" value="21 51:72 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:8 41:8 42:8 43:8 44:8"/>
+        <entry key="28" value="20 51:72 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:8 41:8 42:8 43:8 44:8"/>
+        <entry key="29" value="19 51:72 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:8 41:8 42:8 43:8 44:8"/>
+        <entry key="30" value="18 51:72 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:8 41:8 42:8 43:8 44:8"/>
+    </util:map>
+
+    <util:map id="craftBossBattleReagentsMassMap">
+        <entry key="1" value="52 51:64 0:62 1:62 2:62 4:62 3:62 6:62 9:62 10:62 20:83 21:83 22:83 23:83 24:83 26:83"/>
+        <entry key="2" value="50 51:64 0:62 1:62 2:62 4:62 3:62 6:62 9:62 10:62 20:83 21:83 22:83 23:83 24:83 26:83"/>
+        <entry key="3" value="48 51:64 0:62 1:62 2:62 4:62 3:62 6:62 9:62 10:62 20:83 21:83 22:83 23:83 24:83 26:83"/>
+        <entry key="4" value="46 51:64 0:62 1:62 2:62 4:62 3:62 6:62 9:62 10:62 20:83 21:83 22:83 23:83 24:83 26:83"/>
+        <entry key="5" value="44 51:64 0:62 1:62 2:62 4:62 3:62 6:62 9:62 10:62 20:83 21:83 22:83 23:83 24:83 26:83"/>
+        <entry key="6" value="42 51:64 0:62 1:62 2:62 4:62 3:62 6:62 9:62 10:62 20:83 21:83 22:83 23:83 24:83 26:83"/>
+        <entry key="7" value="40 51:64 0:62 1:62 2:62 4:62 3:62 6:62 9:62 10:62 20:83 21:83 22:83 23:83 24:83 26:83"/>
+        <entry key="8" value="38 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="9" value="36 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="10" value="34 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="11" value="32 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="12" value="30 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="13" value="28 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="14" value="26 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="15" value="24 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="16" value="22 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="17" value="20 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="18" value="18 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="19" value="16 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="20" value="14 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="21" value="12 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="22" value="10 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="23" value="9 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="24" value="8 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="25" value="7 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="26" value="6 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="27" value="5 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="28" value="4 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="29" value="3 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="30" value="2 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="31" value="2 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:40 41:40 42:40 43:40 44:40"/>
+
+        <entry key="101" value="36 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="102" value="34 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="103" value="32 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="104" value="30 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="105" value="28 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="106" value="26 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="107" value="24 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="108" value="22 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="109" value="20 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="110" value="18 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="111" value="16 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="112" value="14 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="113" value="12 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="114" value="10 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="115" value="8 51:50 20:83 21:83 22:83 23:83 24:83 26:83 40:20 41:20 42:20 43:20 44:20"/>
+    </util:map>
+
+    <util:map id="craftHeroicBattleReagentsMassMap">
+        <entry key="0" value="50 50"/>
+        <entry key="1" value="51 50 50 50"/>
+        <entry key="2" value="51 50 50 50 50"/>
+        <entry key="3" value="51 51 50 50 50 50 50"/>
+    </util:map>
+
+    <util:map id="craftWager15PvpBattleReagentsMassMap" key-type="java.lang.Integer">
+        <entry key="4" value="67 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="5" value="67 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="6" value="66 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="7" value="66 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="8" value="65 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="9" value="65 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="10" value="64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="11" value="64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="12" value="63 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="13" value="63 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="14" value="62 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="15" value="62 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="16" value="61 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="17" value="61 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="18" value="60 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="19" value="60 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="20" value="59 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="21" value="59 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="22" value="58 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="23" value="58 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="24" value="57 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="25" value="57 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="26" value="56 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="27" value="56 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="28" value="55 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="29" value="55 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+        <entry key="30" value="54 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:33 21:33 22:33 23:33 24:33 26:33"/>
+    </util:map>
+
+    <util:map id="craftWager50PvpBattleReagentsMassMap" key-type="java.lang.Integer">
+        <entry key="11" value="73 0:50 1:50 2:50 4:50 3:50 6:50 9:50 10:50 20:50 21:50 22:50 23:50 24:50 26:50"/>
+        <entry key="12" value="72 0:50 1:50 2:50 4:50 3:50 6:50 9:50 10:50 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="13" value="72 0:50 1:50 2:50 4:50 3:50 6:50 9:50 10:50 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="14" value="71 0:50 1:50 2:50 4:50 3:50 6:50 9:50 10:50 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="15" value="70 0:50 1:50 2:50 4:50 3:50 6:50 9:50 10:50 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="16" value="69 0:50 1:50 2:50 4:50 3:50 6:50 9:50 10:50 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="17" value="69 0:50 1:50 2:50 4:50 3:50 6:50 9:50 10:50 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="18" value="68 0:50 1:50 2:50 4:50 3:50 6:50 9:50 10:50 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="19" value="67 0:50 1:50 2:50 4:50 3:50 6:50 9:50 10:50 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="20" value="67 0:50 1:50 2:50 4:50 3:50 6:50 9:50 10:50 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="21" value="66 0:50 1:50 2:50 4:50 3:50 6:50 9:50 10:50 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="22" value="65 0:50 1:50 2:50 4:50 3:50 6:50 9:50 10:50 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="23" value="65 0:50 1:50 2:50 4:50 3:50 6:50 9:50 10:50 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="24" value="64 0:50 1:50 2:50 4:50 3:50 6:50 9:50 10:50 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="25" value="63 0:50 1:50 2:50 4:50 3:50 6:50 9:50 10:50 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="26" value="62 0:50 1:50 2:50 4:50 3:50 6:50 9:50 10:50 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="27" value="62 0:50 1:50 2:50 4:50 3:50 6:50 9:50 10:50 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="28" value="61 0:50 1:50 2:50 4:50 3:50 6:50 9:50 10:50 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="29" value="60 0:50 1:50 2:50 4:50 3:50 6:50 9:50 10:50 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="30" value="60 0:50 1:50 2:50 4:50 3:50 6:50 9:50 10:50 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+    </util:map>
+
+    <util:map id="craftWager300PvpBattleReagentsMassMap" key-type="java.lang.Integer">
+        <entry key="21" value="62 0:37 1:37 2:37 4:37 3:37 6:37 9:37 10:37 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="22" value="61 0:37 1:37 2:37 4:37 3:37 6:37 9:37 10:37 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="23" value="60 0:37 1:37 2:37 4:37 3:37 6:37 9:37 10:37 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="24" value="59 0:37 1:37 2:37 4:37 3:37 6:37 9:37 10:37 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="25" value="58 0:37 1:37 2:37 4:37 3:37 6:37 9:37 10:37 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="26" value="57 0:37 1:37 2:37 4:37 3:37 6:37 9:37 10:37 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="27" value="56 0:37 1:37 2:37 4:37 3:37 6:37 9:37 10:37 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="28" value="55 0:37 1:37 2:37 4:37 3:37 6:37 9:37 10:37 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="29" value="54 0:37 1:37 2:37 4:37 3:37 6:37 9:37 10:37 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+        <entry key="30" value="53 0:37 1:37 2:37 4:37 3:37 6:37 9:37 10:37 20:50 21:50 22:50 23:50 24:50 26:50 40:40 41:40 42:40 43:40 44:40"/>
+    </util:map>
+
+    <util:map id="craftFriendSearchReagentsMassMap">
+        <entry key="4" value="70 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="5" value="70 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="6" value="69 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="7" value="69 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="8" value="69 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="9" value="69 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="10" value="69 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="11" value="69 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="12" value="69 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="13" value="69 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="14" value="69 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="15" value="69 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="16" value="68 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="17" value="68 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="18" value="68 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="19" value="68 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="20" value="68 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="21" value="68 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="22" value="68 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="23" value="68 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="24" value="68 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="25" value="68 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="26" value="67 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="27" value="67 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="28" value="67 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="29" value="67 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+        <entry key="30" value="67 51:64 0:112 1:112 2:112 4:112 3:112 6:112 9:112 10:112 20:50 21:50 22:50 23:50 24:50 26:50 40:20 41:20 42:20 43:20 44:20"/>
+    </util:map>
+
+</beans>

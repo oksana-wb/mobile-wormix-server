@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/util
+           http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean class="com.pragmatix.app.settings.DailyBonusAwardSettings">
+        <property name="dailyBonusAward">
+            <map>
+                <entry key="1"><!-- 1-ая неделя -->
+                    <bean class="com.pragmatix.app.settings.DailyBonusAwardSettings.WeeklyAward" p:needLevel="1">
+                        <property name="dailyAward">
+                            <map>
+                                <entry key="1">
+                                    <bean class="com.pragmatix.app.settings.GenericAward" p:money="50"/>
+                                </entry>
+                                <entry key="2">
+                                    <bean class="com.pragmatix.app.settings.GenericAward" p:money="75"/>
+                                </entry>
+                                <entry key="3">
+                                    <bean class="com.pragmatix.app.settings.GenericAward" p:reactionRate="10"/>
+                                </entry>
+                                <entry key="4">
+                                    <bean class="com.pragmatix.app.settings.GenericAward" p:money="100"/>
+                                </entry>
+                                <entry key="5">
+                                    <bean class="com.pragmatix.app.settings.GenericAward" p:realMoney="2"/>
+                                </entry>
+                            </map>
+                        </property>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    <!-- награда за возвращенного в игру друга-->
+    <bean id="comebackCallerBonus" class="com.pragmatix.app.settings.GenericAward"/>
+
+    <!-- награда за 1-ое место в дневном Топе-->
+    <util:map id="firstPlaceDailyTopAward" key-type="com.pragmatix.pvp.BattleWager">
+        <entry key="NO_WAGER" value-ref="firstPlace_NO_WAGER"/>
+        <entry key="WAGER_15_DUEL" value-ref="firstPlace_WAGER_15_DUEL"/>
+        <entry key="WAGER_50_DUEL" value-ref="firstPlace_WAGER_50_DUEL"/>
+        <entry key="WAGER_50_2x2" value-ref="firstPlace_WAGER_50_2x2"/>
+    </util:map>
+
+    <!-- награда за места со 2-го по 5-ое в дневном Топе-->
+    <util:map id="secondPlaceDailyTopAward" key-type="com.pragmatix.pvp.BattleWager">
+        <entry key="NO_WAGER" value-ref="secondPlace_NO_WAGER"/>
+        <entry key="WAGER_15_DUEL" value-ref="secondPlace_WAGER_15_DUEL"/>
+        <entry key="WAGER_50_DUEL" value-ref="secondPlace_WAGER_50_DUEL"/>
+        <entry key="WAGER_50_2x2" value-ref="secondPlace_WAGER_50_2x2"/>
+    </util:map>
+
+    <!-- награда за места >5 в дневном Топе-->
+    <util:map id="thirdPlaceDailyTopAward" key-type="com.pragmatix.pvp.BattleWager">
+        <entry key="NO_WAGER" value-ref="thirdPlace_NO_WAGER"/>
+        <entry key="WAGER_15_DUEL" value-ref="thirdPlace_WAGER_15_DUEL"/>
+        <entry key="WAGER_50_DUEL" value-ref="thirdPlace_WAGER_50_DUEL"/>
+        <entry key="WAGER_50_2x2" value-ref="thirdPlace_WAGER_50_2x2"/>
+    </util:map>
+
+    <bean name="firstPlace_NO_WAGER" class="com.pragmatix.app.settings.GenericAward" p:awardItemsStr="1083:60" p:setItem="false"/>
+    <bean name="secondPlace_NO_WAGER" class="com.pragmatix.app.settings.GenericAward" p:awardItemsStr="1082:23" p:setItem="false"/>
+    <bean name="thirdPlace_NO_WAGER" class="com.pragmatix.app.settings.GenericAward" p:awardItemsStr="1081:23" p:setItem="false"/>
+
+    <bean name="firstPlace_WAGER_15_DUEL" class="com.pragmatix.app.settings.GenericAward" p:awardItemsStr="1090:45" p:setItem="false"/>
+    <bean name="secondPlace_WAGER_15_DUEL" class="com.pragmatix.app.settings.GenericAward" p:awardItemsStr="1089:23" p:setItem="false"/>
+    <bean name="thirdPlace_WAGER_15_DUEL" class="com.pragmatix.app.settings.GenericAward" p:awardItemsStr="1088:23" p:setItem="false"/>
+
+    <bean name="firstPlace_WAGER_50_DUEL" class="com.pragmatix.app.settings.GenericAward" p:awardItemsStr="1094:45" p:setItem="false"/>
+    <bean name="secondPlace_WAGER_50_DUEL" class="com.pragmatix.app.settings.GenericAward" p:awardItemsStr="1093:23" p:setItem="false"/>
+    <bean name="thirdPlace_WAGER_50_DUEL" class="com.pragmatix.app.settings.GenericAward" p:awardItemsStr="1092:23" p:setItem="false"/>
+
+    <bean name="firstPlace_WAGER_50_2x2" class="com.pragmatix.app.settings.GenericAward" p:awardItemsStr="1087:45" p:setItem="false"/>
+    <bean name="secondPlace_WAGER_50_2x2" class="com.pragmatix.app.settings.GenericAward" p:awardItemsStr="1086:23" p:setItem="false"/>
+    <bean name="thirdPlace_WAGER_50_2x2" class="com.pragmatix.app.settings.GenericAward" p:awardItemsStr="1085:23" p:setItem="false"/>
+
+    <util:map id="pvpExperience">
+        <entry key="WAGER_15_DUEL" value="3"/>
+        <entry key="WAGER_50_DUEL" value="6"/>
+        <entry key="WAGER_50_2x2" value="4"/>
+        <entry key="WAGER_50_2x2_FRIENDS" value="4"/>
+    </util:map>
+
+    <util:list id="battleWagerDefinitions">
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="NO_WAGER" c:team="0" c:value="0" c:award="0"/>
+
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="WAGER_15_DUEL" c:team="0" c:value="15" c:award="12"/>
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="WAGER_50_DUEL" c:team="0" c:value="50" c:award="40"/>
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="WAGER_50_2x2"  c:team="0" c:value="50" c:award="40"/>
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="WAGER_50_2x2_FRIENDS"  c:team="0" c:value="50" c:award="40"/>
+
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="PvE_FRIEND" c:team="0" c:value="0" c:award="0"/>
+        <bean class="com.pragmatix.app.model.WagerDef" c:wager="PvE_PARTNER" c:team="0" c:value="0" c:award="0"/>
+    </util:list>
+
+    <util:list id="awardForDroppedUnits">
+        <value>0</value>
+        <value>0</value>
+        <value>0</value>
+        <value>0</value>
+    </util:list>
+
+    <bean class="com.pragmatix.app.model.TopClanAwardParams">
+        <property name="minRating" value="10000"/>
+        <property name="reactionRatio" value="10"/>
+        <property name="experienceRatio" value="20"/>
+        <property name="seasonWeapons">
+            <list>
+                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="501" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/>
+                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="502" p:clanAwardParam1="0.2" p:clanAwardParam2="2"/>
+                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="503" p:clanAwardParam1="0.1" p:clanAwardParam2="2"/>
+                <bean class="com.pragmatix.app.model.SeasonWeaponItem" c:weaponId="504" p:clanAwardParam1="0.3" p:clanAwardParam2="3"/>
+            </list>
+        </property>
+        <property name="items">
+            <list>
+                <bean class="com.pragmatix.app.model.TopClanAwardParams$Item" p:placeFrom="1" p:placeTo="1" p:leaderItemId="2606" p:officerItemId="2596"/>
+                <bean class="com.pragmatix.app.model.TopClanAwardParams$Item" p:placeFrom="2" p:placeTo="2" p:leaderItemId="2605" p:officerItemId="2595"/>
+                <bean class="com.pragmatix.app.model.TopClanAwardParams$Item" p:placeFrom="3" p:placeTo="3" p:leaderItemId="2604" p:officerItemId="2594"/>
+                <bean class="com.pragmatix.app.model.TopClanAwardParams$Item" p:placeFrom="4" p:placeTo="10" p:leaderItemId="2603" p:officerItemId="2593"/>
+                <bean class="com.pragmatix.app.model.TopClanAwardParams$Item" p:placeFrom="11" p:placeTo="50" p:leaderItemId="2602" p:officerItemId="2592"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>

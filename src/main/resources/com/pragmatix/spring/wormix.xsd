@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://pragmatix-corp.com/schema/wormix"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    targetNamespace="http://pragmatix-corp.com/schema/wormix"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+
+   <xsd:import namespace="http://www.springframework.org/schema/beans"/>
+
+   <xsd:element name="weapon">
+      <xsd:complexType>
+         <xsd:complexContent>
+            <xsd:extension base="beans:identifiedType">
+               <xsd:attribute name="weaponId" type="xsd:string" use="required"/>
+               <xsd:attribute name="name" type="xsd:string" use="required"/>
+               <xsd:attribute name="price" type="xsd:string" use="required"/>
+               <xsd:attribute name="realPrice" type="xsd:string" use="required"/>
+               <xsd:attribute name="level" type="xsd:integer" use="required"/>
+               <xsd:attribute name="type" type="xsd:string" use="optional" default="INFINITE"/>
+               <xsd:attribute name="sellPrice" type="xsd:integer" use="optional" default="0"/>
+               <xsd:attribute name="maxWeaponLevel" type="xsd:integer" use="optional" default="0"/>
+               <xsd:attribute name="shots" type="xsd:integer" use="optional" default="1"/>
+               <xsd:attribute name="bullets" type="xsd:integer" use="optional" default="1"/>
+            </xsd:extension>
+         </xsd:complexContent>
+      </xsd:complexType>
+   </xsd:element>
+
+   <xsd:element name="stuff">
+      <xsd:complexType>
+         <xsd:complexContent>
+            <xsd:extension base="beans:identifiedType">
+               <xsd:attribute name="stuffId" type="xsd:string" use="required"/>
+               <xsd:attribute name="name" type="xsd:string" use="required"/>
+               <xsd:attribute name="price" type="xsd:string" use="required"/>
+               <xsd:attribute name="realPrice" type="xsd:string" use="required"/>
+               <xsd:attribute name="requiredLevel" type="xsd:integer" use="optional" default="1"/>
+               <xsd:attribute name="hp" type="xsd:string" use="optional" default="0"/>
+                <xsd:attribute name="reaction" type="xsd:string" use="optional" default="0"/>
+                <xsd:attribute name="special" type="xsd:string" use="optional" default="false"/>
+                <xsd:attribute name="temporal" type="xsd:string" use="optional" default="false"/>
+                <xsd:attribute name="kit" type="xsd:boolean" use="optional" default="false"/>
+                <xsd:attribute name="expire" type="xsd:string" use="optional" default=""/>
+               <xsd:attribute name="boostFamily" type="xsd:string" use="optional" default=""/>
+               <xsd:attribute name="boostParam" type="xsd:integer" use="optional"  default="0"/>
+               <xsd:attribute name="sticker" type="xsd:boolean" use="optional" default="false"/>
+               <xsd:attribute name="craftBase" type="xsd:boolean" use="optional" default="false"/>
+            </xsd:extension>
+         </xsd:complexContent>
+      </xsd:complexType>
+   </xsd:element>
+
+   <xsd:element name="level">
+      <xsd:complexType>
+         <xsd:complexContent>
+            <xsd:extension base="beans:identifiedType">
+               <xsd:attribute name="level" type="xsd:string" use="required"/>
+               <xsd:attribute name="nextLevelExp" type="xsd:string" use="required"/>
+               <xsd:attribute name="levelHp" type="xsd:string" use="required"/>
+               <xsd:attribute name="worms" type="xsd:string" use="required"/>
+               <xsd:attribute name="delay" type="xsd:integer" use="optional" default="60"/>
+               <xsd:attribute name="award" type="xsd:string" use="optional" default=""/>
+            </xsd:extension>
+         </xsd:complexContent>
+      </xsd:complexType>
+   </xsd:element>
+
+   <xsd:element name="award">
+      <xsd:complexType>
+         <xsd:complexContent>
+            <xsd:extension base="beans:identifiedType">
+               <xsd:attribute name="name" type="xsd:string" use="optional"/>
+               <xsd:attribute name="awardItemsStr" type="xsd:string" use="optional"/>
+               <xsd:attribute name="reagentsMassStr" type="xsd:string" use="optional"/>
+               <xsd:attribute name="reagentsCount" type="xsd:string" use="optional"/>
+               <xsd:attribute name="reagentsMap" type="xsd:string" use="optional"/>
+               <xsd:attribute name="seasonWeapons" type="xsd:string" use="optional"/>
+               <xsd:attribute name="money" type="xsd:string" use="optional" default="0"/>
+               <xsd:attribute name="realMoney" type="xsd:string" use="optional" default="0"/>
+               <xsd:attribute name="reactionRate" type="xsd:string" use="optional" default="0"/>
+               <xsd:attribute name="key" type="xsd:integer" use="optional" default="0"/>
+               <xsd:attribute name="price" type="xsd:integer" use="optional" default="0"/>
+               <xsd:attribute name="setStuff" type="xsd:boolean" use="optional" default="false"/>
+               <xsd:attribute name="setItem" type="xsd:boolean" use="optional" default="false"/>
+               <xsd:attribute name="addExperience" type="xsd:boolean" use="optional" default="false"/>
+               <xsd:attribute name="race" type="xsd:string" use="optional" default=""/>
+               <xsd:attribute name="skins" type="xsd:string" use="optional" default=""/>
+               <xsd:attribute name="wagerToken" type="xsd:string" use="optional" default=""/>
+               <xsd:attribute name="bossToken" type="xsd:string" use="optional" default=""/>
+               <xsd:attribute name="battles" type="xsd:string" use="optional" default=""/>
+               <xsd:attribute name="experience" type="xsd:string" use="optional" default=""/>
+            </xsd:extension>
+         </xsd:complexContent>
+      </xsd:complexType>
+   </xsd:element>
+
+</xsd:schema>

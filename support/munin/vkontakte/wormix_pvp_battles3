@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+# Плагин для мониторинга PVP коннекта
+
+StatDump=/home/user/server_pvp/logs/statistics/stat.dump
+
+if [ "$1" = "config" ]; then
+    echo 'graph_title Wormix Server (PVP Battles #3)'
+    echo 'graph_vlabel pvp_battles'
+    echo 'graph_noscale true'
+    echo 'graph_category Wormix'
+    echo 'graph_info This graph shows statistics about Wormix Server (PVP Battles)'
+
+
+    echo 'gladiator_duel.label GLADIATOR DUEL'
+    echo 'gladiator_duel.info GLADIATOR DUEL'
+
+    echo 'quest_duel.label QUEST DUEL'
+    echo 'quest_duel.info QUEST DUEL'
+
+    echo 'mercenaries_duel.label MERCENARIES DUEL'
+    echo 'mercenaries_duel.info MERCENARIES DUEL'
+
+    exit 0
+fi
+
+echo -n "gladiator_duel.value "
+cat $StatDump | grep "^pvp:GLADIATOR_DUEL" | awk '{print $3}'
+echo -n "quest_duel.value "
+cat $StatDump | grep "^pvp:QUEST_DUEL" | awk '{print $3}'
+echo -n "mercenaries_duel.value "
+cat $StatDump | grep "^pvp:MERCENARIES_DUEL" | awk '{print $3}'

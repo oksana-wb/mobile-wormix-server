@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:wormix="http://pragmatix-corp.com/schema/wormix"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://pragmatix-corp.com/schema/wormix http://pragmatix-corp.com/schema/wormix.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="levelCreator" class="com.pragmatix.app.init.LevelCreator">
+        <property name="levels">
+            <list>
+                <wormix:level level=" 0" nextLevelExp="     0" levelHp="  0" worms="0"/>
+                <wormix:level level=" 1" nextLevelExp="    20" levelHp="500" worms="1" delay="0"/>
+                <wormix:level level=" 2" nextLevelExp="    40" levelHp="500" worms="1" award="level_02" delay="1"/>
+                <wormix:level level=" 3" nextLevelExp="    70" levelHp="500" worms="1" award="level_03" delay="1"/>
+                <wormix:level level=" 4" nextLevelExp="   100" levelHp="500" worms="1" award="level_04" delay="1"/>
+                <wormix:level level=" 5" nextLevelExp="   130" levelHp="500" worms="2" award="level_05" delay="2"/>
+                <wormix:level level=" 6" nextLevelExp="   160" levelHp="500" worms="2" award="level_06" delay="3"/>
+                <wormix:level level=" 7" nextLevelExp="   190" levelHp="500" worms="2" award="level_07" delay="4"/>
+                <wormix:level level=" 8" nextLevelExp="   220" levelHp="500" worms="2" award="level_08" delay="5"/>
+                <wormix:level level=" 9" nextLevelExp="   250" levelHp="500" worms="2" award="level_09" delay="6"/>
+                <wormix:level level="10" nextLevelExp="   280" levelHp="500" worms="2" award="level_10" delay="8"/>
+                <wormix:level level="11" nextLevelExp="   310" levelHp="500" worms="2" award="level_11" delay="10"/>
+                <wormix:level level="12" nextLevelExp="   340" levelHp="500" worms="2" award="level_12" delay="12"/>
+                <wormix:level level="13" nextLevelExp="   370" levelHp="500" worms="3" award="level_13" delay="14"/>
+                <wormix:level level="14" nextLevelExp="   400" levelHp="500" worms="3" award="level_14" delay="17"/>
+                <wormix:level level="15" nextLevelExp="   430" levelHp="500" worms="3" award="level_15" delay="20"/>
+                <wormix:level level="16" nextLevelExp="   470" levelHp="500" worms="3" award="level_16" delay="22"/>
+                <wormix:level level="17" nextLevelExp="   510" levelHp="500" worms="3" award="level_17" delay="26"/>
+                <wormix:level level="18" nextLevelExp="   550" levelHp="500" worms="3" award="level_18" delay="29"/>
+                <wormix:level level="19" nextLevelExp="   590" levelHp="500" worms="3" award="level_19" delay="32"/>
+                <wormix:level level="20" nextLevelExp="   630" levelHp="500" worms="3" award="level_20" delay="36"/>
+                <wormix:level level="21" nextLevelExp="   670" levelHp="500" worms="4" award="level_21" delay="40"/>
+                <wormix:level level="22" nextLevelExp="   710" levelHp="500" worms="4" award="level_22" delay="44"/>
+                <wormix:level level="23" nextLevelExp="   750" levelHp="500" worms="4" award="level_23" delay="46"/>
+                <wormix:level level="24" nextLevelExp="   790" levelHp="500" worms="4" award="level_24" delay="48"/>
+                <wormix:level level="25" nextLevelExp="   830" levelHp="500" worms="4" award="level_25" delay="50"/>
+                <wormix:level level="26" nextLevelExp="   930" levelHp="500" worms="4" award="level_26" delay="52"/>
+                <wormix:level level="27" nextLevelExp="  1030" levelHp="500" worms="4" award="level_27" delay="54"/>
+                <wormix:level level="28" nextLevelExp="  1130" levelHp="500" worms="4" award="level_28" delay="56"/>
+                <wormix:level level="29" nextLevelExp="  1230" levelHp="500" worms="4" award="level_29" delay="58"/>
+                <wormix:level level="30" nextLevelExp="  1330" levelHp="500" worms="4" award="level_30" delay="60"/>
+                <wormix:level level="31" nextLevelExp="  1430" levelHp="500" worms="4" award="level_31" delay="60"/>
+                <wormix:level level="32" nextLevelExp="  1530" levelHp="500" worms="4" award="level_32" delay="60"/>
+                <wormix:level level="33" nextLevelExp="  1640" levelHp="500" worms="4" award="level_33" delay="60"/>
+                <wormix:level level="34" nextLevelExp="  1750" levelHp="500" worms="4" award="level_34" delay="60"/>
+                <wormix:level level="35" nextLevelExp="  1860" levelHp="500" worms="4" award="level_35" delay="60"/>
+                <wormix:level level="36" nextLevelExp="  1970" levelHp="500" worms="4" award="level_36" delay="60"/>
+                <wormix:level level="37" nextLevelExp="  2080" levelHp="500" worms="4" award="level_37" delay="60"/>
+                <wormix:level level="38" nextLevelExp="  2190" levelHp="500" worms="4" award="level_38" delay="60"/>
+                <wormix:level level="39" nextLevelExp="  2300" levelHp="500" worms="4" award="level_39" delay="60"/>
+                <wormix:level level="40" nextLevelExp="  2450" levelHp="500" worms="4" award="level_40" delay="60"/>
+                <wormix:level level="41" nextLevelExp="  2600" levelHp="500" worms="4" award="level_41" delay="60"/>
+                <wormix:level level="42" nextLevelExp="  2750" levelHp="500" worms="4" award="level_42" delay="60"/>
+                <wormix:level level="43" nextLevelExp="  2900" levelHp="500" worms="4" award="level_43" delay="60"/>
+                <wormix:level level="44" nextLevelExp="  3050" levelHp="500" worms="4" award="level_44" delay="60"/>
+                <wormix:level level="45" nextLevelExp="  3200" levelHp="500" worms="4" award="level_45" delay="60"/>
+                <wormix:level level="46" nextLevelExp="  3350" levelHp="500" worms="4" award="level_46" delay="60"/>
+                <wormix:level level="47" nextLevelExp="  3500" levelHp="500" worms="4" award="level_47" delay="60"/>
+                <wormix:level level="48" nextLevelExp="  3650" levelHp="500" worms="4" award="level_48" delay="60"/>
+                <wormix:level level="49" nextLevelExp="  3800" levelHp="500" worms="4" award="level_49" delay="60"/>
+                <wormix:level level="50" nextLevelExp="  4000" levelHp="500" worms="4" award="level_50" delay="60"/>
+                <wormix:level level="51" nextLevelExp="  4200" levelHp="500" worms="4" award="level_51" delay="60"/>
+                <wormix:level level="52" nextLevelExp="  4400" levelHp="500" worms="4" award="level_52" delay="60"/>
+                <wormix:level level="53" nextLevelExp="  4600" levelHp="500" worms="4" award="level_53" delay="60"/>
+                <wormix:level level="54" nextLevelExp="  4800" levelHp="500" worms="4" award="level_54" delay="60"/>
+                <wormix:level level="55" nextLevelExp="  5000" levelHp="500" worms="4" award="level_55" delay="60"/>
+                <wormix:level level="56" nextLevelExp="  5200" levelHp="500" worms="4" award="level_56" delay="60"/>
+                <wormix:level level="57" nextLevelExp="  5400" levelHp="500" worms="4" award="level_57" delay="60"/>
+                <wormix:level level="58" nextLevelExp="  5600" levelHp="500" worms="4" award="level_58" delay="60"/>
+                <wormix:level level="59" nextLevelExp="  5800" levelHp="500" worms="4" award="level_59" delay="60"/>
+                <wormix:level level="60" nextLevelExp="  6000" levelHp="500" worms="4" award="level_60" delay="60"/>
+                <wormix:level level="61" nextLevelExp="  6250" levelHp="500" worms="4" award="level_61" delay="60"/>
+                <wormix:level level="62" nextLevelExp="  6500" levelHp="500" worms="4" award="level_62" delay="60"/>
+                <wormix:level level="63" nextLevelExp="  6750" levelHp="500" worms="4" award="level_63" delay="60"/>
+                <wormix:level level="64" nextLevelExp="  7000" levelHp="500" worms="4" award="level_64" delay="60"/>
+                <wormix:level level="65" nextLevelExp="  7250" levelHp="500" worms="4" award="level_65" delay="60"/>
+                <wormix:level level="66" nextLevelExp="  7500" levelHp="500" worms="4" award="level_66" delay="60"/>
+                <wormix:level level="67" nextLevelExp="  7750" levelHp="500" worms="4" award="level_67" delay="60"/>
+                <wormix:level level="68" nextLevelExp="  8000" levelHp="500" worms="4" award="level_68" delay="60"/>
+                <wormix:level level="69" nextLevelExp="  8250" levelHp="500" worms="4" award="level_69" delay="60"/>
+                <wormix:level level="70" nextLevelExp="  8500" levelHp="500" worms="4" award="level_70" delay="60"/>
+                <wormix:level level="71" nextLevelExp="  8750" levelHp="500" worms="4" award="level_71" delay="60"/>
+                <wormix:level level="72" nextLevelExp="  9000" levelHp="500" worms="4" award="level_72" delay="60"/>
+                <wormix:level level="73" nextLevelExp="  9320" levelHp="500" worms="4" award="level_73" delay="60"/>
+                <wormix:level level="74" nextLevelExp="  9640" levelHp="500" worms="4" award="level_74" delay="60"/>
+                <wormix:level level="75" nextLevelExp="  9960" levelHp="500" worms="4" award="level_75" delay="60"/>
+                <wormix:level level="76" nextLevelExp=" 10280" levelHp="500" worms="4" award="level_76" delay="60"/>
+                <wormix:level level="77" nextLevelExp=" 10600" levelHp="500" worms="4" award="level_77" delay="60"/>
+                <wormix:level level="78" nextLevelExp=" 10920" levelHp="500" worms="4" award="level_78" delay="60"/>
+                <wormix:level level="79" nextLevelExp=" 11240" levelHp="500" worms="4" award="level_79" delay="60"/>
+                <wormix:level level="80" nextLevelExp=" 11560" levelHp="500" worms="4" award="level_80" delay="60"/>
+                <wormix:level level="81" nextLevelExp=" 11880" levelHp="500" worms="4" award="level_81" delay="60"/>
+                <wormix:level level="82" nextLevelExp=" 12200" levelHp="500" worms="4" award="level_82" delay="60"/>
+                <wormix:level level="83" nextLevelExp=" 12600" levelHp="500" worms="4" award="level_83" delay="60"/>
+                <wormix:level level="84" nextLevelExp=" 13000" levelHp="500" worms="4" award="level_84" delay="60"/>
+                <wormix:level level="85" nextLevelExp=" 13400" levelHp="500" worms="4" award="level_85" delay="60"/>
+                <wormix:level level="86" nextLevelExp=" 13800" levelHp="500" worms="4" award="level_86" delay="60"/>
+                <wormix:level level="87" nextLevelExp=" 14200" levelHp="500" worms="4" award="level_87" delay="60"/>
+                <wormix:level level="88" nextLevelExp=" 14600" levelHp="500" worms="4" award="level_88" delay="60"/>
+                <wormix:level level="89" nextLevelExp=" 15000" levelHp="500" worms="4" award="level_89" delay="60"/>
+                <wormix:level level="90" nextLevelExp=" 15600" levelHp="500" worms="4" award="level_90" delay="60"/>
+                <wormix:level level="91" nextLevelExp=" 16200" levelHp="500" worms="4" award="level_91" delay="60"/>
+                <wormix:level level="92" nextLevelExp=" 16800" levelHp="500" worms="4" award="level_92" delay="60"/>
+                <wormix:level level="93" nextLevelExp=" 17400" levelHp="500" worms="4" award="level_93" delay="60"/>
+                <wormix:level level="94" nextLevelExp=" 18000" levelHp="500" worms="4" award="level_94" delay="60"/>
+                <wormix:level level="95" nextLevelExp=" 18800" levelHp="500" worms="4" award="level_95" delay="60"/>
+                <wormix:level level="96" nextLevelExp=" 19600" levelHp="500" worms="4" award="level_96" delay="60"/>
+                <wormix:level level="97" nextLevelExp=" 20400" levelHp="500" worms="4" award="level_97" delay="60"/>
+                <wormix:level level="98" nextLevelExp=" 21200" levelHp="500" worms="4" award="level_98" delay="60"/>
+                <wormix:level level="99" nextLevelExp=" 22000" levelHp="500" worms="4" award="level_99" delay="60"/>
+            </list>
+        </property>
+    </bean>
+
+    <wormix:award id="level_02" money="150" awardItemsStr="11:2"/>
+    <wormix:award id="level_03" money="150" awardItemsStr="45:1 16:1"/>
+    <wormix:award id="level_04" money="150" awardItemsStr="5 29:1 14:1"/>
+    <wormix:award id="level_05" money="150" awardItemsStr="9 34:1 42:1"/>
+    <wormix:award id="level_06" money="150" awardItemsStr="10:1 11:2 33:1"/>
+    <wormix:award id="level_07" money="150" awardItemsStr="44:1 53:1 38:1"/>
+    <wormix:award id="level_08" money="150" awardItemsStr="35:1 27:2"/>
+    <wormix:award id="level_09" money="150" awardItemsStr="23:1 66:2"/>
+    <wormix:award id="level_10" money="150" awardItemsStr="52:1 43:2"/>
+    <wormix:award id="level_11" money="150" awardItemsStr="55:1 28:2"/>
+    <wormix:award id="level_12" money="150" awardItemsStr="63:3 62:3"/>
+    <wormix:award id="level_13" money="150" awardItemsStr="50:1 56:2"/>
+    <wormix:award id="level_14" money="150" awardItemsStr="51:2"/>
+    <wormix:award id="level_15" money="150" awardItemsStr="27:2"/>
+    <wormix:award id="level_16" money="150" awardItemsStr="32:2"/>
+    <wormix:award id="level_17" money="150" awardItemsStr="58:2"/>
+    <wormix:award id="level_18" money="150" awardItemsStr="11:3"/>
+    <wormix:award id="level_19" money="150" awardItemsStr="66:2"/>
+    <wormix:award id="level_20" money="150" awardItemsStr="36:2"/>
+    <wormix:award id="level_21" money="150" awardItemsStr="67:2"/>
+    <wormix:award id="level_22" money="150" awardItemsStr="24:2"/>
+    <wormix:award id="level_23" money="150" awardItemsStr="64:2"/>
+    <wormix:award id="level_24" money="150" awardItemsStr="32:3"/>
+    <wormix:award id="level_25" money="150" awardItemsStr="36:2"/>
+    <wormix:award id="level_26" money="150" awardItemsStr="64:3"/>
+    <wormix:award id="level_27" money="150" awardItemsStr="67:3"/>
+    <wormix:award id="level_28" money="150" awardItemsStr="63:3"/>
+    <wormix:award id="level_29" money="150" awardItemsStr="64:2 62:3"/>
+    <wormix:award id="level_30" money="150" awardItemsStr="32:2 28:2"/>
+    <wormix:award id="level_31" money="150" realMoney="1"/>
+    <wormix:award id="level_32" money="150" realMoney="1"/>
+    <wormix:award id="level_33" money="150" realMoney="1"/>
+    <wormix:award id="level_34" money="150" realMoney="1"/>
+    <wormix:award id="level_35" money="150" realMoney="1"/>
+    <wormix:award id="level_36" money="150" realMoney="1"/>
+    <wormix:award id="level_37" money="150" realMoney="1"/>
+    <wormix:award id="level_38" money="150" realMoney="1"/>
+    <wormix:award id="level_39" money="150" realMoney="1"/>
+    <wormix:award id="level_40" money="150" realMoney="10"/>
+    <wormix:award id="level_41" money="150" realMoney="1"/>
+    <wormix:award id="level_42" money="150" realMoney="1"/>
+    <wormix:award id="level_43" money="150" realMoney="1"/>
+    <wormix:award id="level_44" money="150" realMoney="1"/>
+    <wormix:award id="level_45" money="150" realMoney="1"/>
+    <wormix:award id="level_46" money="150" realMoney="1"/>
+    <wormix:award id="level_47" money="150" realMoney="1"/>
+    <wormix:award id="level_48" money="150" realMoney="1"/>
+    <wormix:award id="level_49" money="150" realMoney="1"/>
+    <wormix:award id="level_50" money="150" realMoney="10"/>
+    <wormix:award id="level_51" money="150" realMoney="1"/>
+    <wormix:award id="level_52" money="150" realMoney="1"/>
+    <wormix:award id="level_53" money="150" realMoney="1"/>
+    <wormix:award id="level_54" money="150" realMoney="1"/>
+    <wormix:award id="level_55" money="150" realMoney="1"/>
+    <wormix:award id="level_56" money="150" realMoney="1"/>
+    <wormix:award id="level_57" money="150" realMoney="1"/>
+    <wormix:award id="level_58" money="150" realMoney="1"/>
+    <wormix:award id="level_59" money="150" realMoney="1"/>
+    <wormix:award id="level_60" money="150" realMoney="10"/>
+    <wormix:award id="level_61" money="150" realMoney="1"/>
+    <wormix:award id="level_62" money="150" realMoney="1"/>
+    <wormix:award id="level_63" money="150" realMoney="1"/>
+    <wormix:award id="level_64" money="150" realMoney="1"/>
+    <wormix:award id="level_65" money="150" realMoney="1"/>
+    <wormix:award id="level_66" money="150" realMoney="1"/>
+    <wormix:award id="level_67" money="150" realMoney="1"/>
+    <wormix:award id="level_68" money="150" realMoney="1"/>
+    <wormix:award id="level_69" money="150" realMoney="1"/>
+    <wormix:award id="level_70" money="150" realMoney="10"/>
+    <wormix:award id="level_71" money="150" realMoney="1"/>
+    <wormix:award id="level_72" money="150" realMoney="1"/>
+    <wormix:award id="level_73" money="150" realMoney="1"/>
+    <wormix:award id="level_74" money="150" realMoney="1"/>
+    <wormix:award id="level_75" money="150" realMoney="1"/>
+    <wormix:award id="level_76" money="150" realMoney="1"/>
+    <wormix:award id="level_77" money="150" realMoney="1"/>
+    <wormix:award id="level_78" money="150" realMoney="1"/>
+    <wormix:award id="level_79" money="150" realMoney="1"/>
+    <wormix:award id="level_80" money="150" realMoney="10"/>
+    <wormix:award id="level_81" money="150" realMoney="1"/>
+    <wormix:award id="level_82" money="150" realMoney="1"/>
+    <wormix:award id="level_83" money="150" realMoney="1"/>
+    <wormix:award id="level_84" money="150" realMoney="1"/>
+    <wormix:award id="level_85" money="150" realMoney="1"/>
+    <wormix:award id="level_86" money="150" realMoney="1"/>
+    <wormix:award id="level_87" money="150" realMoney="1"/>
+    <wormix:award id="level_88" money="150" realMoney="1"/>
+    <wormix:award id="level_89" money="150" realMoney="1"/>
+    <wormix:award id="level_90" money="150" realMoney="10"/>
+    <wormix:award id="level_91" money="150" realMoney="1"/>
+    <wormix:award id="level_92" money="150" realMoney="1"/>
+    <wormix:award id="level_93" money="150" realMoney="1"/>
+    <wormix:award id="level_94" money="150" realMoney="1"/>
+    <wormix:award id="level_95" money="150" realMoney="1"/>
+    <wormix:award id="level_96" money="150" realMoney="1"/>
+    <wormix:award id="level_97" money="150" realMoney="1"/>
+    <wormix:award id="level_98" money="150" realMoney="1"/>
+    <wormix:award id="level_99" money="150" realMoney="1"/>
+
+
+    <bean id="profileInitParamsProd" class="com.pragmatix.app.model.SteamProfileInitParams" abstract="true" scope="prototype">
+        <property name="level" value="1"/>
+        <property name="money" value="800"/>
+        <property name="realMoney" value="4"/>
+        <property name="battlesCount" value="5"/>
+        <property name="race" value="BOXER"/>
+        <property name="attack" value="30"/>
+        <property name="armor" value="30"/>
+        <property name="renameActions" value="3"/>
+        <property name="defaultEndlessWeapons">
+            <set>
+                <!--создаем базуку(1), гранату(2), ружьё(4) и сварку(17) у всех игроков по умолчанию-->
+                <!--mobile: к тем оружиям что уже там етсь, надо добавить - Мина, Осколочная граната,  Мортира, Веревка, Узи, Динамит (39, 5, 9, 49, 7, 19)-->
+                <value>1</value>
+                <value>2</value>
+                <value>4</value>
+                <value>17</value>
+                <value>39</value>
+                <value>5</value>
+                <value>9</value>
+                <value>49</value>
+                <value>7</value>
+                <value>19</value>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="weaponsCreator" class="com.pragmatix.app.init.WeaponsCreator">
+        <constructor-arg>
+            <list>
+                <wormix:weapon weaponId="  1" name="Базука                             " price="    -" realPrice="  -" level=" 1"/>
+                <wormix:weapon weaponId="  2" name="Граната                            " price="    -" realPrice="  -" level=" 1"/>
+                <wormix:weapon weaponId="  4" name="Ружьё                              " price="    -" realPrice="  -" level=" 1"/>
+                <wormix:weapon weaponId="  5" name="Осколочная граната                 " price="  950" realPrice=" 10" level=" 1"/>
+                <wormix:weapon weaponId="  7" name="Узи                                " price="  400" realPrice="  4" level=" 1" maxWeaponLevel="4"/>
+                <wormix:weapon weaponId="  9" name="Мортира                            " price=" 1100" realPrice=" 12" level=" 1"/>
+                <wormix:weapon weaponId=" 10" name="Пулемёт                            " price="  700" realPrice="  7" level=" 1" maxWeaponLevel="4"/>
+                <wormix:weapon weaponId=" 11" name="Сверлящая ракета (один выстрел)    " price="   60" realPrice="  -" level=" 1" type="CONSUMABLE"/>
+                <wormix:weapon weaponId=" 12" name="Сверлящая ракета                   " price="  600" realPrice="  6" level=" 1" maxWeaponLevel="4"/>
+                <wormix:weapon weaponId=" 14" name="Дробовик                           " price="  600" realPrice="  6" level=" 1" maxWeaponLevel="4"/>
+                <wormix:weapon weaponId=" 16" name="Отбойный молоток                   " price="  200" realPrice="  2" level=" 1" maxWeaponLevel="4"/>
+                <wormix:weapon weaponId=" 17" name="Сварка                             " price="    -" realPrice="  -" level=" 1"/>
+                <wormix:weapon weaponId=" 19" name="Динамит                            " price="  200" realPrice="  2" level=" 1" maxWeaponLevel="4"/>
+                <wormix:weapon weaponId=" 23" name="Снайперская винтовка               " price=" 1200" realPrice=" 12" level=" 1" maxWeaponLevel="4"/>
+                <wormix:weapon weaponId=" 24" name="Арбузобомба                        " price=" 6000" realPrice=" 60" level=" 1"/>
+                <wormix:weapon weaponId=" 26" name="Телепорт                           " price="    -" realPrice=" 25" level=" 1" maxWeaponLevel="3"/>
+                <wormix:weapon weaponId=" 27" name="Авиаудар                           " price=" 5000" realPrice=" 50" level=" 1"/>
+                <wormix:weapon weaponId=" 28" name="Метеорит                           " price="    -" realPrice=" 55" level=" 1"/>
+                <wormix:weapon weaponId=" 29" name="Липучая граната                    " price="  500" realPrice="  5" level=" 1" maxWeaponLevel="4"/>
+                <wormix:weapon weaponId=" 30" name="Огнемет                            " price=" 1100" realPrice=" 11" level=" 1" maxWeaponLevel="4"/>
+                <wormix:weapon weaponId=" 32" name="Фейерверк                          " price="    -" realPrice=" 35" level=" 1"/>
+                <wormix:weapon weaponId=" 33" name="Электрошокер                       " price="  700" realPrice="  7" level=" 1" maxWeaponLevel="4"/>
+                <wormix:weapon weaponId=" 34" name="Портативный телепорт               " price="  700" realPrice="  7" level=" 1" maxWeaponLevel="4"/>
+                <wormix:weapon weaponId=" 35" name="Реактивный ранец                   " price=" 5000" realPrice=" 50" level=" 1" maxWeaponLevel="4"/>
+                <wormix:weapon weaponId=" 36" name="Ковровый удар                      " price="    -" realPrice=" 60" level=" 1"/>
+                <wormix:weapon weaponId=" 37" name="Коктейль Молотова                  " price=" 1000" realPrice=" 10" level=" 1" maxWeaponLevel="4"/>
+                <wormix:weapon weaponId=" 38" name="Самонаводящаяся ракета             " price="  700" realPrice="  7" level=" 1" maxWeaponLevel="4"/>
+                <wormix:weapon weaponId=" 39" name="Мина                               " price="  800" realPrice="  8" level=" 1"/>
+                <wormix:weapon weaponId=" 40" name="Баран                              " price="  600" realPrice="  6" level=" 1" maxWeaponLevel="3"/>
+                <wormix:weapon weaponId=" 41" name="Супербаран                         " price="    -" realPrice=" 22" level=" 1" maxWeaponLevel="2"/>
+                <wormix:weapon weaponId=" 42" name="Передача хода                      " price=" 1500" realPrice=" 15" level=" 1" maxWeaponLevel="3"/>
+                <wormix:weapon weaponId=" 43" name="Удар напалмом                      " price=" 4600" realPrice=" 46" level=" 1"/>
+                <wormix:weapon weaponId=" 44" name="Ковровая базука                    " price="  800" realPrice="  8" level=" 1" maxWeaponLevel="4"/>
+                <wormix:weapon weaponId=" 45" name="Сюрикены                           " price="  500" realPrice="  5" level=" 1" maxWeaponLevel="4"/>
+                <wormix:weapon weaponId=" 46" name="Винтажная пушка                    " price=" 1300" realPrice=" 13" level=" 1" maxWeaponLevel="3"/>
+                <wormix:weapon weaponId=" 47" name="Кувалда                            " price=" 2000" realPrice=" 20" level=" 1" maxWeaponLevel="3"/>
+                <wormix:weapon weaponId=" 48" name="Мина-Паук                          " price="    -" realPrice=" 14" level=" 1" maxWeaponLevel="3"/>
+                <wormix:weapon weaponId=" 49" name="Веревка                            " price=" 2000" realPrice=" 22" level=" 1"/>
+                <wormix:weapon weaponId=" 50" name="Электрогарпун                      " price="  700" realPrice="  7" level=" 1" maxWeaponLevel="4"/>
+                <wormix:weapon weaponId=" 51" name="Бита                               " price=" 3200" realPrice=" 32" level=" 1"/>
+                <wormix:weapon weaponId=" 52" name="АК-47                              " price=" 1000" realPrice=" 10" level=" 1" maxWeaponLevel="4"/>
+                <wormix:weapon weaponId=" 53" name="Балка                              " price=" 2000" realPrice=" 20" level=" 1" maxWeaponLevel="2"/>
+                <wormix:weapon weaponId=" 54" name="Ледяная базука                     " price="  800" realPrice="  8" level=" 1" maxWeaponLevel="4"/>
+                <wormix:weapon weaponId=" 55" name="Арбалет                            " price=" 1200" realPrice=" 12" level=" 1" maxWeaponLevel="3"/>
+                <wormix:weapon weaponId=" 56" name="Ледяная мина                       " price=" 2600" realPrice=" 26" level=" 1"/>
+                <wormix:weapon weaponId=" 57" name="Фугасная ракета                    " price="    -" realPrice=" 40" level=" 1" maxWeaponLevel="2"/>
+                <wormix:weapon weaponId=" 58" name="Бункеролом                         " price=" 4400" realPrice=" 44" level=" 1"/>
+                <wormix:weapon weaponId=" 60" name="Охранник                           " price=" 2000" realPrice=" 20" level=" 1" maxWeaponLevel="2"/>
+                <wormix:weapon weaponId=" 62" name="Дискомет                           " price="    -" realPrice="  -" level=" 1"/>
+                <wormix:weapon weaponId=" 63" name="Прыгающая граната                  " price="    -" realPrice="  -" level=" 1"/>
+                <wormix:weapon weaponId=" 64" name="Радиоуправляемый вертолет          " price="    -" realPrice="  -" level=" 1"/>
+                <wormix:weapon weaponId=" 65" name="Летающая тарелка                   " price="    -" realPrice=" 32" level=" 1"/>
+                <wormix:weapon weaponId=" 66" name="Антифриз                           " price=" 2200" realPrice=" 25" level=" 1"/>
+                <wormix:weapon weaponId=" 67" name="Силовое поле                       " price="    -" realPrice="  -" level=" 1"/>
+                <wormix:weapon weaponId=" 68" name="Цирковая пушка                     " price="    -" realPrice="  -" level=" 1"/>
+                <wormix:weapon weaponId=" 69" name="Бумеранг                           " price="  900" realPrice="  9" level=" 1" maxWeaponLevel="3"/>
+                <wormix:weapon weaponId=" 70" name="Наковальня                         " price="    -" realPrice="  -" level=" 1"/>
+                <wormix:weapon weaponId=" 71" name="Экстренный телепорт                " price=" 2800" realPrice=" 28" level=" 1"/>
+                <wormix:weapon weaponId=" 72" name="Перевязка                          " price="    -" realPrice="  1" level=" 1" type="CONSUMABLE"/>
+                <wormix:weapon weaponId=" 73" name="Гравитационная пушка               " price=" 1300" realPrice=" 13" level=" 1" maxWeaponLevel="2"/>
+                <wormix:weapon weaponId=" 74" name="Разрядник                          " price=" 3500" realPrice=" 35" level=" 1" maxWeaponLevel="2"/>
+                <wormix:weapon weaponId=" 75" name="Буран                              " price="    -" realPrice="  -" level=" 1" type="CONSUMABLE"/>
+                <wormix:weapon weaponId=" 76" name="Лазерный барьер                    " price=" 3500" realPrice=" 35" level=" 1"/>
+                <wormix:weapon weaponId=" 77" name="Атомная бомба                      " price="    -" realPrice="  -" level=" 1"/>
+                <wormix:weapon weaponId=" 78" name="Базука                             " price="    -" realPrice="  -" level=" 1"/>
+                <wormix:weapon weaponId=" 80" name="Антитоксин                         " price="    -" realPrice="  1" level=" 1" type="CONSUMABLE"/>
+                <wormix:weapon weaponId=" 81" name="Газовая граната                    " price=" 1200" realPrice=" 12" level=" 1" maxWeaponLevel="3"/>
+                <wormix:weapon weaponId=" 82" name="Блокиратор                         " price=" 1800" realPrice=" 18" level=" 1" maxWeaponLevel="2"/>
+                <wormix:weapon weaponId=" 83" name="Паразит                            " price=" 1100" realPrice=" 11" level=" 1" maxWeaponLevel="3"/>
+                <wormix:weapon weaponId=" 84" name="Скверная тыква                     " price="    -" realPrice="  -" level=" 1" type="CONSUMABLE"/>
+                <wormix:weapon weaponId=" 93" name="Гвоздевая граната                  " price="    -" realPrice="  -" level=" 1" type="CONSUMABLE"/>
+                <wormix:weapon weaponId=" 94" name="Лазерный луч                       " price=" 2100" realPrice=" 21" level=" 1" maxWeaponLevel="2"/>
+                <wormix:weapon weaponId="101" name="Зелье алхимика                     " price="    -" realPrice="  -" level=" 1" type="CONSUMABLE"/>
+                <wormix:weapon weaponId="103" name="Зловонный арбуз                    " price="    -" realPrice="  -" level=" 1" type="CONSUMABLE"/>
+                <wormix:weapon weaponId="104" name="Марш зомби                         " price="    -" realPrice="  -" level=" 1" type="CONSUMABLE"/>
+                <wormix:weapon weaponId="107" name="Заземлитель                        " price=" 3600" realPrice=" 36" level=" 1"/>
+                <wormix:weapon weaponId="109" name="Гравимина                          " price=" 1400" realPrice=" 14" level=" 1" maxWeaponLevel="2"/>
+                <wormix:weapon weaponId="501" name="Буран (сезон 1)                    " price="     " realPrice="  -" level=" 1" type="CONSUMABLE"/>
+                <wormix:weapon weaponId="502" name="Ледяной орб (сезон 1)              " price="     " realPrice="  -" level=" 1" type="CONSUMABLE"/>
+                <wormix:weapon weaponId="503" name="Душемет (сезон 1)                  " price="     " realPrice="  -" level=" 1" type="CONSUMABLE"/>
+                <wormix:weapon weaponId="504" name="Докторская сумка (сезон 1)         " price="     " realPrice="  -" level=" 1" type="CONSUMABLE"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean class="com.pragmatix.app.init.StuffCreator" autowire="byType">
+        <property name="stuffEntities">
+            <list>
+                <wormix:stuff stuffId="1000" name="Шапка aса                               " price="5800" realPrice=" -" requiredLevel="24" hp="110"/>
+                <wormix:stuff stuffId="1002" name="Шапка мастера                           " price="5200" realPrice=" -" requiredLevel="22" hp="105"/>
+                <wormix:stuff stuffId="1003" name="Панамка                                 " price=" 500" realPrice=" 5" requiredLevel=" 5" hp=" 20"/>
+                <wormix:stuff stuffId="1004" name="Каска                                   " price="1000" realPrice="10" requiredLevel=" 6" hp=" 10"/>
+                <wormix:stuff stuffId="1005" name="Инопланетный шлем                       " price="1400" realPrice="14" requiredLevel="10" hp="  0"/>
+                <wormix:stuff stuffId="1006" name="Цилиндр                                 " price="   -" realPrice="12" requiredLevel=" 1" hp=" 30"/>
+                <wormix:stuff stuffId="1007" name="Шлем викингов                           " price="2000" realPrice="20" requiredLevel="11" hp=" 20"/>
+                <wormix:stuff stuffId="1008" name="Пиратская шапка                         " price="   -" realPrice="24" requiredLevel=" 1" hp=" 30"/>
+                <wormix:stuff stuffId="1009" name="Шлем танкиста                           " price="   -" realPrice=" -" requiredLevel=" 9" hp="  0"/>
+                <wormix:stuff stuffId="1010" name="Маска потрошителя                       " price="2200" realPrice="22" requiredLevel="12" hp=" 20"/>
+                <wormix:stuff stuffId="1011" name="Самурайский шлем                        " price="   -" realPrice="26" requiredLevel=" 1" hp=" 50"/>
+                <wormix:stuff stuffId="1012" name="Шлем с шипами                           " price="3000" realPrice=" -" requiredLevel="14" hp=" 45"/>
+                <wormix:stuff stuffId="1013" name="Изысканный самурайский шлем             " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 75"/>
+                <wormix:stuff stuffId="1014" name="Шлем легионера                          " price="3700" realPrice=" -" requiredLevel="16" hp=" 80"/>
+                <wormix:stuff stuffId="1015" name="Корона древних                          " price="4100" realPrice="41" requiredLevel="18" hp=" 90"/>
+                <wormix:stuff stuffId="1016" name="Берет                                   " price="1800" realPrice="18" requiredLevel="12" hp=" 20"/>
+                <wormix:stuff stuffId="1017" name="Корона древних женская                  " price="   -" realPrice=" -" requiredLevel="25" hp=" 90"/>
+                <wormix:stuff stuffId="1018" name="Японская прическа                       " price="   -" realPrice="12" requiredLevel=" 1" hp=" 30"/>
+                <wormix:stuff stuffId="1019" name="Розовая шапка                           " price=" 800" realPrice=" 8" requiredLevel=" 9" hp="  0"/>
+                <wormix:stuff stuffId="1020" name="Розовый шлем                            " price="   -" realPrice=" -" requiredLevel="15" hp=" 45"/>
+                <wormix:stuff stuffId="1021" name="Берет девочки                           " price="1800" realPrice="18" requiredLevel="12" hp="  0"/>
+                <wormix:stuff stuffId="1022" name="Белая шапка                             " price=" 800" realPrice=" 8" requiredLevel=" 6" hp=" 10"/>
+                <wormix:stuff stuffId="1023" name="Бейсбольная кепка                       " price="1400" realPrice="14" requiredLevel="10" hp=" 20"/>
+                <wormix:stuff stuffId="1024" name="Гангстерская шапка                      " price="3000" realPrice=" -" requiredLevel="14" hp=" 45"/>
+                <wormix:stuff stuffId="1025" name="Шапка звездочета                        " price=" 500" realPrice=" 5" requiredLevel=" 5" hp=" 20"/>
+                <wormix:stuff stuffId="1026" name="Изысканный шлем легионера               " price="4500" realPrice=" -" requiredLevel="22" hp=" 80"/>
+                <wormix:stuff stuffId="1027" name="Маска кролик вуду                       " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 20"/>
+                <wormix:stuff stuffId="1028" name="Маска шаман кролей                      " price="7000" realPrice="70" requiredLevel="28" hp=" 50"/>
+                <wormix:stuff stuffId="1029" name="Сомбреро                                " price="3200" realPrice="32" requiredLevel="15" hp=" 20"/>
+                <wormix:stuff stuffId="1030" name="Противогаз                              " price="4400" realPrice="44" requiredLevel="18" hp=" 10"/>
+                <wormix:stuff stuffId="1031" name="Перо индейца                            " price="2600" realPrice="26" requiredLevel="13" hp=" 15"/>
+                <wormix:stuff stuffId="1032" name="Шляпа шерифа                            " price="5500" realPrice=" -" requiredLevel="26" hp=" 90"/>
+                <wormix:stuff stuffId="1033" name="Перья вождя                             " price="   -" realPrice="38" requiredLevel=" 1" hp=" 55"/>
+                <wormix:stuff stuffId="1034" name="Акваланг                                " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 50"/>
+                <wormix:stuff stuffId="1035" name="Пиратская шапка капитана                " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 40" temporal="true"/>
+                <wormix:stuff stuffId="1036" name="Цилиндр иллюзиониста                    " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 90" temporal="true"/>
+                <wormix:stuff stuffId="1037" name="Маска шамана вуду                       " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 30" temporal="true"/>
+                <wormix:stuff stuffId="1038" name="Великий шлем викингов                   " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 75" temporal="true"/>
+                <wormix:stuff stuffId="1039" name="Шапка мастера ветра                     " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 90" temporal="true"/>
+                <wormix:stuff stuffId="1040" name="Маска призрака                          " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 40" temporal="true"/>
+                <wormix:stuff stuffId="1041" name="Прическа Элвиса                         " price="   -" realPrice="60" requiredLevel=" 1" hp=" 35"/>
+                <wormix:stuff stuffId="1042" name="Огнеупорный шлем                        " price="5400" realPrice="54" requiredLevel="24" hp=" 30"/>
+                <wormix:stuff stuffId="1043" name="Шлем короля мертвых                     " price="   -" realPrice=" -" requiredLevel=" 1" hp="120" temporal="true"/>
+                <wormix:stuff stuffId="1044" name="Шапка капитана-зомби                    " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 50" temporal="true"/>
+                <wormix:stuff stuffId="1045" name="Шапка Ромео                             " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 60" temporal="true"/>
+                <wormix:stuff stuffId="1046" name="Шапка Джульетты                         " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 30" temporal="true"/>
+                <wormix:stuff stuffId="1047" name="Повязка банды якудза                    " price="5200" realPrice="52" requiredLevel="22" hp=" 30"/>
+                <wormix:stuff stuffId="1048" name="Повязка банды якудза                    " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 40" temporal="true"/>
+                <wormix:stuff stuffId="1049" name="Повязка банды якудза                    " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 20" temporal="true"/>
+                <wormix:stuff stuffId="1050" name="Советская шапка                         " price="6600" realPrice="66" requiredLevel="28" hp=" 80"/>
+                <wormix:stuff stuffId="1051" name="Шапка-ушанка                            " price="5400" realPrice="54" requiredLevel="24" hp=" 70"/>
+                <wormix:stuff stuffId="1052" name="Офицерская фуражка                      " price="6000" realPrice=" -" requiredLevel="28" hp=" 80"/>
+                <wormix:stuff stuffId="1053" name="Бейсбольная кепка                       " price="   -" realPrice=" -" requiredLevel="30" hp=" 40"/>
+                <wormix:stuff stuffId="1054" name="Шапка aса                               " price="   -" realPrice=" -" requiredLevel="30" hp=" 99"/>
+                <wormix:stuff stuffId="1055" name="Шляпа вампира                           " price="7800" realPrice="78" requiredLevel="28" hp=" 30"/>
+                <wormix:stuff stuffId="1056" name="Докторская повязка                      " price="   -" realPrice="72" requiredLevel=" 1" hp=" 55"/>
+                <wormix:stuff stuffId="1057" name="Очки Нео                                " price="4800" realPrice="48" requiredLevel="20" hp=" 20"/>
+                <wormix:stuff stuffId="1058" name="Повязка ниндзя                          " price="6400" realPrice=" -" requiredLevel="26" hp=" 10"/>
+                <wormix:stuff stuffId="1059" name="Каска инженера                          " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 50" temporal="true"/>
+                <wormix:stuff stuffId="1060" name="Шлем стража                             " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 70" temporal="true"/>
+                <wormix:stuff stuffId="1061" name="Черный ворон                            " price="7900" realPrice="79" requiredLevel="28" hp=" 60"/>
+                <wormix:stuff stuffId="1062" name="Гоночный шлем                           " price="   -" realPrice="56" requiredLevel=" 1" hp=" 55"/>
+                <wormix:stuff stuffId="1063" name="Шлем каскадера                          " price="5700" realPrice="57" requiredLevel="24" hp=" 85"/>
+                <wormix:stuff stuffId="1064" name="Гладиаторский шлем                      " price="4200" realPrice="42" requiredLevel="18" hp=" 25"/>
+                <wormix:stuff stuffId="1065" name="Нимб                                    " price="4000" realPrice="40" requiredLevel="16" hp=" 30"/>
+                <wormix:stuff stuffId="1066" name="Маска героя                             " price="7600" realPrice="76" requiredLevel="28" hp=" 70"/>
+                <wormix:stuff stuffId="1067" name="Шлем темного рыцаря                     " price="   -" realPrice=" -" requiredLevel=" 1" hp="130" temporal="true"/>
+                <wormix:stuff stuffId="1068" name="Шлем паладина                           " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 70" temporal="true"/>
+                <wormix:stuff stuffId="1069" name="Очки хакера                             " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 50" temporal="true"/>
+                <wormix:stuff stuffId="1072" name="Маска вора                              " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 30" temporal="true"/>
+                <wormix:stuff stuffId="1073" name="Маска фантома                           " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 30" temporal="true"/>
+                <wormix:stuff stuffId="1074" name="Челюсть                                 " price="7200" realPrice=" -" requiredLevel="28" hp=" 65"/>
+                <wormix:stuff stuffId="1075" name="Шлем биотика                            " price="6400" realPrice=" -" requiredLevel="26" hp=" 70"/>
+                <wormix:stuff stuffId="1076" name="Шлем телепата                           " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 90" temporal="true"/>
+                <wormix:stuff stuffId="1077" name="Зеленый ирокез                          " price="2900" realPrice="29" requiredLevel="14" hp="  0"/>
+                <wormix:stuff stuffId="1078" name="Цветной ирокез                          " price="3400" realPrice="34" requiredLevel="15" hp="  0"/>
+                <wormix:stuff stuffId="1079" name="Крик                                    " price="   -" realPrice="80" requiredLevel=" 1" hp=" 45"/>
+                <wormix:stuff stuffId="1080" name="Демонический шлем                       " price="7400" realPrice="74" requiredLevel="28" hp=" 50"/>
+                <wormix:stuff stuffId="1081" name="Волчья накидка мастера                  " price="   -" realPrice=" -" requiredLevel=" 1" hp="120" temporal="true"/>
+                <wormix:stuff stuffId="1082" name="Волчья накидка аса                      " price="   -" realPrice=" -" requiredLevel=" 1" hp="130" temporal="true"/>
+                <wormix:stuff stuffId="1083" name="Волчья накидка чемпиона                 " price="   -" realPrice=" -" requiredLevel=" 1" hp="130" temporal="true"/>
+                <wormix:stuff stuffId="1084" name="Прибор ночного видения                  " price="4500" realPrice="45" requiredLevel="20" hp=" 40"/>
+                <wormix:stuff stuffId="1085" name="Шапка стратега                          " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 80" temporal="true"/>
+                <wormix:stuff stuffId="1086" name="Шапка наставника                        " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 90" temporal="true"/>
+                <wormix:stuff stuffId="1087" name="Шапка гуру                              " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 90" temporal="true"/>
+                <wormix:stuff stuffId="1088" name="Рыцарский шлем мастера                  " price="   -" realPrice=" -" requiredLevel=" 1" hp="100" temporal="true"/>
+                <wormix:stuff stuffId="1089" name="Рыцарский шлем аса                      " price="   -" realPrice=" -" requiredLevel=" 1" hp="110" temporal="true"/>
+                <wormix:stuff stuffId="1090" name="Рыцарский шлем чемпиона                 " price="   -" realPrice=" -" requiredLevel=" 1" hp="120" temporal="true"/>
+                <wormix:stuff stuffId="1091" name="Очки иллюзиониста                       " price="3600" realPrice=" -" requiredLevel=" 1" hp=" 15"/>
+                <wormix:stuff stuffId="1092" name="Хоккейный шлем мастера                  " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 90" temporal="true"/>
+                <wormix:stuff stuffId="1093" name="Хоккейный шлем аса                      " price="   -" realPrice=" -" requiredLevel=" 1" hp="100" temporal="true"/>
+                <wormix:stuff stuffId="1094" name="Хоккейный шлем чемпиона                 " price="   -" realPrice=" -" requiredLevel=" 1" hp="110" temporal="true"/>
+                <wormix:stuff stuffId="1095" name="Капюшон                                 " price="   -" realPrice="46" requiredLevel=" 1" hp=" 30"/>
+                <wormix:stuff stuffId="1096" name="Капюшон ассасина                        " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 65" temporal="true"/>
+                <wormix:stuff stuffId="1097" name="Скафандр                                " price="2000" realPrice="20" requiredLevel="10" hp=" 20"/>
+                <wormix:stuff stuffId="1098" name="Очки авиатора                           " price="2600" realPrice="26" requiredLevel="13" hp="  0"/>
+                <wormix:stuff stuffId="1099" name="Боевой шлем мастера                     " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 95" temporal="true"/>
+                <wormix:stuff stuffId="1100" name="Боевой шлем аса                         " price="   -" realPrice=" -" requiredLevel=" 1" hp="100" temporal="true"/>
+                <wormix:stuff stuffId="1101" name="Боевой шлем чемпиона                    " price="   -" realPrice=" -" requiredLevel=" 1" hp="105" temporal="true"/>
+                <wormix:stuff stuffId="1102" name="Шапка монаха                            " price="1600" realPrice="16" requiredLevel=" 8" hp=" 20"/>
+                <wormix:stuff stuffId="1103" name="Шляпа алхимика                          " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 80" temporal="true"/>
+                <wormix:stuff stuffId="1104" name="Колдовская шляпа                        " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 40" temporal="true"/>
+                <wormix:stuff stuffId="1105" name="Зловещая шляпа                          " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 60" temporal="true"/>
+                <wormix:stuff stuffId="1106" name="Оранжевая тыква                         " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 30" temporal="true"/>
+                <wormix:stuff stuffId="1107" name="Адская тыква                            " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 90" temporal="true"/>
+                <wormix:stuff stuffId="1108" name="Скверная тыква                          " price="   -" realPrice=" -" requiredLevel=" 1" hp="  0"/>
+                <wormix:stuff stuffId="1109" name="Оранжевая тыква                         " price="   -" realPrice=" -" requiredLevel=" 1" hp="  0"/>
+                <wormix:stuff stuffId="1110" name="Адская тыква                            " price="   -" realPrice=" -" requiredLevel=" 1" hp="  0"/>
+                <wormix:stuff stuffId="1111" name="Синяя шапка йети                        " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 80" temporal="true"/>
+                <wormix:stuff stuffId="1112" name="Белая шапка йети                        " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 80" temporal="true"/>
+                <wormix:stuff stuffId="1113" name="Черная шапка йети                       " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 90" temporal="true"/>
+                <wormix:stuff stuffId="1114" name="Новогодняя шапка                        " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 30" temporal="true"/>
+                <wormix:stuff stuffId="1122" name="Шапкобомба                              " price="4400" realPrice="44" requiredLevel="18" hp="  0"/>
+                <wormix:stuff stuffId="1128" name="Шапка архибота                          " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 40"/>
+                <wormix:stuff stuffId="1129" name="Ночная шапка                            " price="5200" realPrice="52" requiredLevel="22" hp=" 25"/>
+                <wormix:stuff stuffId="1130" name="Маска доктора                           " price="4600" realPrice="46" requiredLevel="20" hp=" 15"/>
+                <wormix:stuff stuffId="1131" name="Электрошапка                            " price="3500" realPrice="35" requiredLevel="15" hp="  0"/>
+                <wormix:stuff stuffId="1132" name="Боевая кастрюля                         " price="2800" realPrice="28" requiredLevel="14" hp=" 15"/>
+                <wormix:stuff stuffId="1135" name="Феска императора                        " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 70" temporal="true"/>
+                <wormix:stuff stuffId="1136" name="Очки ученого                            " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 40" temporal="true"/>
+                <wormix:stuff stuffId="1137" name="Шлем симбиота                           " price="   -" realPrice=" -" requiredLevel=" 1" hp="110" temporal="true"/>
+                <wormix:stuff stuffId="1139" name="Робоцып                                 " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 90" temporal="true"/>
+                <wormix:stuff stuffId="1141" name="Черная повязка                          " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 40" temporal="true"/>
+                <wormix:stuff stuffId="2001" name="Деревянный щит                          " price="1000" realPrice="10" requiredLevel=" 8" hp="  5" kit="true"/>
+                <wormix:stuff stuffId="2002" name="Тренировочный щит                       " price="1200" realPrice="12" requiredLevel="10" hp=" 25" kit="true"/>
+                <wormix:stuff stuffId="2003" name="Cломанный меч                           " price="   -" realPrice="16" requiredLevel=" 1" hp=" 15" kit="true"/>
+                <wormix:stuff stuffId="2004" name="Короткий меч                            " price="1000" realPrice="10" requiredLevel=" 8" hp="  5" kit="true"/>
+                <wormix:stuff stuffId="2005" name="Ловец снов                              " price="2200" realPrice="22" requiredLevel="12" hp=" 40" kit="true"/>
+                <wormix:stuff stuffId="2006" name="Посох с черепушкой                      " price="   -" realPrice="26" requiredLevel=" 1" hp="  0" kit="true"/>
+                <wormix:stuff stuffId="2007" name="Щит Архидемона                          " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 40" kit="true" temporal="true"/>
+                <wormix:stuff stuffId="2008" name="Железный щит                            " price="1800" realPrice="18" requiredLevel="12" hp=" 30" kit="true"/>
+                <wormix:stuff stuffId="2009" name="Световой меч                            " price="2400" realPrice="24" requiredLevel="14" hp="  0" kit="true"/>
+                <wormix:stuff stuffId="2010" name="Тотем огня                              " price="2700" realPrice="27" requiredLevel="14" hp="  0" kit="true"/>
+                <wormix:stuff stuffId="2011" name="Тотем яда                               " price="   -" realPrice="28" requiredLevel=" 1" hp=" 20" kit="true"/>
+                <wormix:stuff stuffId="2012" name="Пила                                    " price="3000" realPrice="30" requiredLevel="16" hp="  0" kit="true"/>
+                <wormix:stuff stuffId="2013" name="Пиратский крюк                          " price="4200" realPrice="42" requiredLevel="18" hp="  0" kit="true"/>
+                <wormix:stuff stuffId="2014" name="Меч паладина                            " price="2000" realPrice="20" requiredLevel=" 1" hp=" 15" kit="true"/>
+                <wormix:stuff stuffId="2015" name="Робощит                                 " price="2800" realPrice="28" requiredLevel="14" hp="  0" kit="true"/>
+                <wormix:stuff stuffId="2016" name="Копье ярла                              " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 20" kit="true" temporal="true"/>
+                <wormix:stuff stuffId="2017" name="Каменный молот                          " price="6400" realPrice="64" requiredLevel="22" hp="  0" kit="true"/>
+                <wormix:stuff stuffId="2018" name="Жезл архибота                           " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 20" kit="true" temporal="true"/>
+                <wormix:stuff stuffId="2019" name="Ледяной клык                            " price="   -" realPrice="42" requiredLevel=" 1" hp="  0" kit="true"/>
+                <wormix:stuff stuffId="2020" name="Меч глубин                              " price="   -" realPrice=" -" requiredLevel=" 1" hp="  0" kit="true" temporal="true"/>
+                <wormix:stuff stuffId="2021" name="Вампирический меч                       " price="3200" realPrice="32" requiredLevel="16" hp="  0" kit="true"/>
+                <wormix:stuff stuffId="2022" name="Моргенштерн                             " price="   -" realPrice=" -" requiredLevel=" 1" hp="  0" kit="true"/>
+                <wormix:stuff stuffId="2023" name="Огненный кинжал                         " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 35" kit="true" temporal="true"/>
+                <wormix:stuff stuffId="2024" name="Посох смерти                            " price="   -" realPrice=" -" requiredLevel=" 1" hp="  0" kit="true" temporal="true"/>
+                <wormix:stuff stuffId="2025" name="Императорский скипетр                   " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 35" kit="true" temporal="true"/>
+                <wormix:stuff stuffId="2026" name="Странное устройство                     " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 40" kit="true" temporal="true"/>
+                <wormix:stuff stuffId="2027" name="Биоклинок                               " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 30" kit="true" temporal="true"/>
+
+                <!--Результаты крафта -->
+                <wormix:stuff stuffId="1501" name="Добротный самурайский шлем              " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 70"/>
+                <wormix:stuff stuffId="1502" name="Крепкий самурайский шлем                " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 80"/>
+                <wormix:stuff stuffId="1503" name="Защитный самурайский шлем               " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 80"/>
+                <wormix:stuff stuffId="1504" name="Жестокий самурайский шлем               " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 80"/>
+                <wormix:stuff stuffId="1505" name="Эпичный самурайский шлем                " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 90"/>
+
+                <wormix:stuff stuffId="1511" name="Добротный респиратор                    " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 40"/>
+                <wormix:stuff stuffId="1512" name="Крепкий респиратор                      " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 40"/>
+                <wormix:stuff stuffId="1513" name="Защитный респиратор                     " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 50"/>
+                <wormix:stuff stuffId="1514" name="Эпичный респиратор                      " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 60"/>
+
+                <wormix:stuff stuffId="1521" name="Добротный шлем псайкера                 " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 85"/>
+                <wormix:stuff stuffId="1522" name="Яростный шлем псайкера                  " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 90"/>
+                <wormix:stuff stuffId="1523" name="Защитный шлем псайкера                  " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 90"/>
+                <wormix:stuff stuffId="1524" name="Жестокий шлем псайкера                  " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 95"/>
+                <wormix:stuff stuffId="1525" name="Эпичный шлем псайкера                   " price="   -" realPrice=" -" requiredLevel=" 1" hp="100"/>
+
+                <wormix:stuff stuffId="1531" name="Добротный шлем чемпиона                 " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 40"/>
+                <wormix:stuff stuffId="1532" name="Крепкий шлем чемпиона                   " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 50"/>
+                <wormix:stuff stuffId="1533" name="Защитный шлем чемпиона                  " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 50"/>
+                <wormix:stuff stuffId="1534" name="Жестокий шлем чемпиона                  " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 50"/>
+                <wormix:stuff stuffId="1535" name="Эпичный шлем чемпиона                   " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 60"/>
+                <wormix:stuff stuffId="1536" name="Легендарный шлем чемпиона               " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 60"/>
+
+                <wormix:stuff stuffId="1541" name="Добротный шлем спецназа                 " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 75"/>
+                <wormix:stuff stuffId="1542" name="Защитный шлем спецназа                  " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 80"/>
+                <wormix:stuff stuffId="1543" name="Жестокий шлем спецназа                  " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 85"/>
+                <wormix:stuff stuffId="1544" name="Эпичный шлем спецназа                   " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 95"/>
+                <wormix:stuff stuffId="1545" name="Легендарный шлем спецназа               " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 95"/>
+
+                <wormix:stuff stuffId="1551" name="Добротный окуляр                        " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 40"/>
+                <wormix:stuff stuffId="1552" name="Крепкий окуляр                          " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 50"/>
+                <wormix:stuff stuffId="1553" name="Жестокий окуляр                         " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 50"/>
+                <wormix:stuff stuffId="1554" name="Эпичный окуляр                          " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 60"/>
+                <wormix:stuff stuffId="1555" name="Легендарный окуляр                      " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 65"/>
+
+                <wormix:stuff stuffId="1561" name="Добротный скандинавский шлем            " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 50"/>
+                <wormix:stuff stuffId="1562" name="Крепкий скандинавский шлем              " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 60"/>
+                <wormix:stuff stuffId="1563" name="Защитный скандинавский шлем             " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 60"/>
+                <wormix:stuff stuffId="1564" name="Жестокий скандинавский шлем             " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 70"/>
+                <wormix:stuff stuffId="1565" name="Эпичный скандинавский шлем              " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 70"/>
+                <wormix:stuff stuffId="1566" name="Легендарный скандинавский шлем          " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 80"/>
+
+                <wormix:stuff stuffId="1571" name="Добротный горящий череп                 " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 90"/>
+                <wormix:stuff stuffId="1572" name="Крепкий горящий череп                   " price="   -" realPrice=" -" requiredLevel=" 1" hp="100"/>
+                <wormix:stuff stuffId="1573" name="Яростный горящий череп                  " price="   -" realPrice=" -" requiredLevel=" 1" hp="110"/>
+                <wormix:stuff stuffId="1574" name="Жестокий горящий череп                  " price="   -" realPrice=" -" requiredLevel=" 1" hp="120"/>
+                <wormix:stuff stuffId="1575" name="Эпичный горящий череп                   " price="   -" realPrice=" -" requiredLevel=" 1" hp="120"/>
+                <wormix:stuff stuffId="1576" name="Легендарный горящий череп               " price="   -" realPrice=" -" requiredLevel=" 1" hp="130"/>
+
+                <wormix:stuff stuffId="1581" name="Добротный шлем огня                     " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 60"/>
+                <wormix:stuff stuffId="1582" name="Крепкий шлем огня                       " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 70"/>
+                <wormix:stuff stuffId="1583" name="Яростный шлем огня                      " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 70"/>
+                <wormix:stuff stuffId="1584" name="Жестокий шлем огня                      " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 75"/>
+                <wormix:stuff stuffId="1585" name="Эпичный шлем огня                       " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 75"/>
+                <wormix:stuff stuffId="1586" name="Легендарный шлем огня                   " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 80"/>
+
+                <wormix:stuff stuffId="1591" name="Добротный зловещий образ                " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 35"/>
+                <wormix:stuff stuffId="1592" name="Крепкий зловещий образ                  " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 45"/>
+                <wormix:stuff stuffId="1593" name="Защитный зловещий образ                 " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 50"/>
+                <wormix:stuff stuffId="1594" name="Жестокий зловещий образ                 " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 55"/>
+                <wormix:stuff stuffId="1595" name="Эпичный зловещий образ                  " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 55"/>
+                <wormix:stuff stuffId="1596" name="Легендарный зловещий образ              " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 60"/>
+
+                <wormix:stuff stuffId="1601" name="Добротный головной убор комиссара       " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 80"/>
+                <wormix:stuff stuffId="1602" name="Крепкий головной убор комиссара         " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 90"/>
+                <wormix:stuff stuffId="1603" name="Яростный головной убор комиссара        " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 90"/>
+                <wormix:stuff stuffId="1604" name="Жестокий головной убор комиссара        " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 90"/>
+                <wormix:stuff stuffId="1605" name="Эпичный головной убор комиссара         " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 90"/>
+                <wormix:stuff stuffId="1606" name="Легендарный головной убор комиссара     " price="   -" realPrice=" -" requiredLevel=" 1" hp="100"/>
+
+                <wormix:stuff stuffId="1621" name="Добротный ворон                         " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 65"/>
+                <wormix:stuff stuffId="1622" name="Крепкий ворон                           " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 70"/>
+                <wormix:stuff stuffId="1623" name="Яростный ворон                          " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 70"/>
+                <wormix:stuff stuffId="1624" name="Жестокий ворон                          " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 70"/>
+                <wormix:stuff stuffId="1625" name="Эпичный ворон                           " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 70"/>
+                <wormix:stuff stuffId="1626" name="Легендарный ворон                       " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 75"/>
+
+                <wormix:stuff stuffId="1631" name="Добротный шлем изверга                  " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 55"/>
+                <wormix:stuff stuffId="1632" name="Крепкий шлем изверга                    " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 60"/>
+                <wormix:stuff stuffId="1633" name="Яростный шлем изверга                   " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 65"/>
+                <wormix:stuff stuffId="1634" name="Жестокий шлем изверга                   " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 65"/>
+                <wormix:stuff stuffId="1635" name="Эпичный шлем изверга                    " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 65"/>
+                <wormix:stuff stuffId="1636" name="Легендарный шлем изверга                " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 70"/>
+
+                <wormix:stuff stuffId="1641" name="Добротный шлем адского гонщика          " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 55"/>
+                <wormix:stuff stuffId="1642" name="Крепкий шлем адского гонщика            " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 60"/>
+                <wormix:stuff stuffId="1643" name="Защитный шлем адского гонщика           " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 60"/>
+                <wormix:stuff stuffId="1644" name="Жестокий шлем адского гонщика           " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 60"/>
+                <wormix:stuff stuffId="1645" name="Эпичный шлем адского гонщика            " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 60"/>
+                <wormix:stuff stuffId="1646" name="Легендарный шлем адского гонщика        " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 70"/>
+
+                <wormix:stuff stuffId="2521" name="Добротный меч архидемона                " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 25" kit="true"/>
+                <wormix:stuff stuffId="2522" name="Крепкий Меч архидемона                  " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 25" kit="true"/>
+                <wormix:stuff stuffId="2523" name="Яростный Меч архидемона                 " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 30" kit="true"/>
+                <wormix:stuff stuffId="2524" name="Жестокий Меч архидемона                 " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 35" kit="true"/>
+                <wormix:stuff stuffId="2525" name="Эпичный Меч архидемона                  " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 35" kit="true"/>
+                <wormix:stuff stuffId="2526" name="Легендарный Меч архидемона              " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 40" kit="true"/>
+
+                <wormix:stuff stuffId="2541" name="Добротный зубастый меч                  " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 20" kit="true"/>
+                <wormix:stuff stuffId="2542" name="Крепкий зубастый меч                    " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 30" kit="true"/>
+                <wormix:stuff stuffId="2543" name="Яростный зубастый меч                   " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 30" kit="true"/>
+                <wormix:stuff stuffId="2544" name="Жестокий зубастый меч                   " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 35" kit="true"/>
+                <wormix:stuff stuffId="2545" name="Эпичный зубастый меч                    " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 35" kit="true"/>
+                <wormix:stuff stuffId="2546" name="Легендарный зубастый меч                " price="   -" realPrice=" -" requiredLevel=" 1" hp=" 40" kit="true"/>
+
+                <wormix:stuff stuffId="2591" name="Добротный дуэльный меч                  " price="   -" realPrice=" -" requiredLevel=" 1" hp="  0" kit="true" temporal="true"/>
+                <wormix:stuff stuffId="2592" name="Крепкий дуэльный меч                    " price="   -" realPrice=" -" requiredLevel=" 1" hp="  0" kit="true" temporal="true"/>
+                <wormix:stuff stuffId="2593" name="Яростный дуэльный меч                   " price="   -" realPrice=" -" requiredLevel=" 1" hp="  0" kit="true" temporal="true"/>
+                <wormix:stuff stuffId="2594" name="Жестокий дуэльный меч                   " price="   -" realPrice=" -" requiredLevel=" 1" hp="  0" kit="true" temporal="true"/>
+                <wormix:stuff stuffId="2595" name="Эпичный дуэльный меч                    " price="   -" realPrice=" -" requiredLevel=" 1" hp="  0" kit="true" temporal="true"/>
+                <wormix:stuff stuffId="2596" name="Легендарный дуэльный меч                " price="   -" realPrice=" -" requiredLevel=" 1" hp="  0" kit="true" temporal="true"/>
+
+                <wormix:stuff stuffId="2601" name="Добротный парадный меч                  " price="   -" realPrice=" -" requiredLevel=" 1" hp="  0" kit="true" temporal="true"/>
+                <wormix:stuff stuffId="2602" name="Крепкий парадный меч                    " price="   -" realPrice=" -" requiredLevel=" 1" hp="  0" kit="true" temporal="true"/>
+                <wormix:stuff stuffId="2603" name="Яростный парадный меч                   " price="   -" realPrice=" -" requiredLevel=" 1" hp="  0" kit="true" temporal="true"/>
+                <wormix:stuff stuffId="2604" name="Жестокий парадный меч                   " price="   -" realPrice=" -" requiredLevel=" 1" hp="  0" kit="true" temporal="true"/>
+                <wormix:stuff stuffId="2605" name="Эпичный парадный меч                    " price="   -" realPrice=" -" requiredLevel=" 1" hp="  0" kit="true" temporal="true"/>
+                <wormix:stuff stuffId="2606" name="Легендарный парадный меч                " price="   -" realPrice=" -" requiredLevel=" 1" hp="  0" kit="true" temporal="true"/>
+
+                <wormix:stuff stuffId="4001" name="Стикеры #1                              " price="   -" realPrice=" -" requiredLevel=" 1" sticker="true"/>
+                <wormix:stuff stuffId="4002" name="Стикеры #2                              " price="   -" realPrice=" -" requiredLevel=" 1" sticker="true"/>
+
+                <wormix:stuff stuffId="5001" name="Военный билет                           " price="   -" realPrice=" -" requiredLevel=" 1" craftBase="true"/>
+                <wormix:stuff stuffId="5002" name="Монета иллюзиониста                     " price="   -" realPrice=" -" requiredLevel=" 1" craftBase="true"/>
+                <wormix:stuff stuffId="5003" name="Кольцо прислужника                      " price="   -" realPrice=" -" requiredLevel=" 1" craftBase="true"/>
+                <wormix:stuff stuffId="5004" name="Хрустальный шар                         " price="   -" realPrice=" -" requiredLevel=" 1" craftBase="true"/>
+                <wormix:stuff stuffId="5005" name="Философский амулет                      " price="   -" realPrice=" -" requiredLevel=" 1" craftBase="true"/>
+                <wormix:stuff stuffId="5006" name="Значек паладина                         " price="   -" realPrice=" -" requiredLevel=" 1" craftBase="true"/>
+                <wormix:stuff stuffId="5007" name="Камень архидемона (синий)               " price="   -" realPrice=" -" requiredLevel=" 1" craftBase="true"/>
+                <wormix:stuff stuffId="5008" name="Камень архидемона (жёлтый)              " price="   -" realPrice=" -" requiredLevel=" 1" craftBase="true"/>
+            </list>
+        </property>
+        <property name="vipStuff">
+            <array>
+                <value>4001</value>
+                <value>4002</value>
+            </array>
+        </property>
+    </bean>
+
+    <util:list id="bundle_stickers_1">
+        <bean class="com.pragmatix.app.messages.structures.GenericAwardStructure" p:awardKind="STUFF" p:itemId="4001"/>
+    </util:list>
+
+    <util:list id="bundle_stickers_2">
+        <bean class="com.pragmatix.app.messages.structures.GenericAwardStructure" p:awardKind="STUFF" p:itemId="4002"/>
+    </util:list>
+
+    <util:set id="specialDealWeapons"/>
+
+    <util:set id="specialDealStuff"/>
+
+    <!-- Оружия, для которых не осуществляется контроль за количеством выстрелов за ход (WORMIXADM-304) т.к. оно не ограничивается -->
+    <util:set id="unlimitedUseWeapons">
+        <!--Веревка и ее апгрейды-->
+        <value>49</value>
+        <value>379</value>
+        <value>398</value>
+
+        <value>42</value><!--Передача хода-->
+    </util:set>
+
+    <!-- Оружия, для которых один выстрел задается двумя или более одинаковыми экшнами -->
+    <util:map id="multiClickWeapons">
+        <!--key=[id оружия] value=[сколько повторных экшнов считать за один выстрел]-->
+        <entry key="374" value="2"/>
+    </util:map>
+
+</beans>

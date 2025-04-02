@@ -1,0 +1,1 @@
+﻿ALTER TABLE clan.season_total ADD COLUMN season_rating_total integer;

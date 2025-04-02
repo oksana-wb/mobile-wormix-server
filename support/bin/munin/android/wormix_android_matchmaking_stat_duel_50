@@ -1,0 +1,45 @@
+#!/bin/sh
+#
+# Плагин для мониторинга результатов подбора (Дуэль 50)
+
+munin=/home/user/munin
+statDump=${munin}/var/wormswar_android_stat.dump
+pvpStatLog=${munin}/var/wormswar_android_pvp_stat.log
+
+if [ "$1" = "config" ]; then
+    echo 'graph_title Wormix Android Matchmaking (Duel 50)'
+    echo 'graph_vlabel amount'
+    echo 'graph_noscale true'
+    echo 'graph_category wormix_android'
+    echo 'graph_info This graph shows statistics about matchmeking stats (Duel 50)'
+
+    echo 'lobby.label Waiting wagers amount x10'
+    echo 'lobby.info Waiting wagers amount x10'
+
+    echo 'battles.label Battles amount /10'
+    echo 'battles.info Battles amount (last day) /10'
+
+    echo 'avgL.label Matchmaking time x10'
+    echo 'avgL.info Average matchmaking time in seconds x10'
+
+    echo 'q4.label Quality #4 in %'
+    echo 'q4.info Matchmaking quality >0 and <4 in procent'
+
+    echo 'q6.label Quality #6 in %'
+    echo 'q6.info Matchmaking quality >4 and <6 in procent'
+
+    echo 'q8.label Quality #8 in %'
+    echo 'q8.info Matchmaking quality >6 and <8 in procent'
+
+    echo 'q10.label Quality #10 in %'
+    echo 'q10.info Matchmaking quality >8 and <10 in procent'
+
+    echo 'avgB.label Battle time x10'
+    echo 'avgB.info Average battle time in minutes x10'
+
+    exit 0
+fi
+
+awk '$1 == "matchmaking.pvp:WAGER_50_DUEL" {print "lobby.value "($3 * 10)}' ${statDump}
+
+awk -v from="`date +%Y'-'%m'-'%d'_'%H':'%M':'%S -d "24 hour ago"`" -f ${munin}/bin/filter.awk ${pvpStatLog} | awk -f ${munin}/bin/stat_d50.awk

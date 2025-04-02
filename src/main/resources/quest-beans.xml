@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:wormix="http://pragmatix-corp.com/schema/wormix"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://pragmatix-corp.com/schema/wormix http://pragmatix-corp.com/schema/wormix.xsd">
+
+    <bean id="quest_01" class="com.pragmatix.quest.quest01.Quest01">
+        <property name="awardFactory" ref="quest_01_awardFactory"/>
+    </bean>
+
+    <bean id="quest_01_awardFactory" class="com.pragmatix.app.settings.GenericAwardFactory">
+        <property name="addExperience" value="true"/>
+        <property name="resultAwardMass" value="1:6 2:3 3:1"/>
+        <property name="awards">
+            <list>
+                <wormix:award key="1" price="2" money="60-80"   reagentsMassStr="0 0:5 1:5 2:5 3:5 4:5 6:5 9:5 10:5 20:3 21:3 22:3 23:3 24:3 26:3 40:1 41:1 42:1 43:1 44:1 51:1" reagentsCount="2:1-2" reagentsMap="52:1"/>
+                <wormix:award key="2" price="3" money="100-140" reagentsMassStr="0 0:5 1:5 2:5 3:5 4:5 6:5 9:5 10:5 20:3 21:3 22:3 23:3 24:3 26:3 40:1 41:1 42:1 43:1 44:1 51:1" reagentsCount="2:1-3" reagentsMap="52:2"/>
+                <wormix:award key="3" price="4" money="160-180" reagentsMassStr="0 0:5 1:5 2:5 3:5 4:5 6:5 9:5 10:5 20:3 21:3 22:3 23:3 24:3 26:3 40:1 41:1 42:1 43:1 44:1 51:1" reagentsCount="2:2-3" reagentsMap="52:3"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="quest_02" class="com.pragmatix.quest.quest02.Quest02">
+        <property name="enabled" value="true"/>
+        <property name="finishWinCount" value="1"/>
+        <property name="rewardPriceInBattles" value="3"/>
+        <property name="finishAward">
+            <list>
+                <ref bean="quest02_finishAward_Slot1"/>
+                <ref bean="quest02_finishAward_Slot2_3"/>
+                <ref bean="quest02_finishAward_Slot2_3"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="quest02_finishAward_Slot1" class="com.pragmatix.app.settings.GenericAwardFactory">
+        <property name="addExperience" value="true"/>
+        <property name="resultAwardMass" value="1:18 2:10 3:18 4:18 5:18 6:18"/>
+        <property name="awards">
+            <list>
+                <wormix:award key="1" realMoney="1"/>
+                <wormix:award key="2" realMoney="2"/>
+                <wormix:award key="3" money="120"  />
+                <wormix:award key="4" money="140"  />
+                <wormix:award key="5" money="160"  />
+                <wormix:award key="6" money="180"  />
+            </list>
+        </property>
+    </bean>
+
+    <wormix:award id="quest02_finishAward_Slot2_3" reagentsMassStr="0 20:2 21:2 22:2 23:2 24:2 26:2 40:1 41:1 42:1 43:1 44:1 51:1 52:2" reagentsCount="1:1-3"/>
+
+    <bean id="quest_03" class="com.pragmatix.quest.quest03.Quest03"/>
+    <bean id="quest_04" class="com.pragmatix.quest.quest04.Quest04"/>
+
+</beans>

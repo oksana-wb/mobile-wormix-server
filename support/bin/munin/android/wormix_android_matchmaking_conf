@@ -1,0 +1,84 @@
+#!/bin/sh
+#
+# Плагин для мониторинга текущих параметров подбора
+
+munin=/home/user/munin
+statDump=${munin}/var/wormswar_android_stat.dump
+pvpStatLog=${munin}/var/wormswar_android_pvp_stat.log
+
+if [ "$1" = "config" ]; then
+    echo 'graph_title Wormix Android Matchmaking Conf'
+    echo 'graph_vlabel amount'
+    echo 'graph_noscale true'
+    echo 'graph_category wormix_android'
+    echo 'graph_info This graph shows matchmeking conf'
+
+    echo 'bestMatchQuality.label Min match quality x10'
+    echo 'bestMatchQuality.info Min match quality x10'
+
+    echo 'checkFakes.label Check fakes (4:Off/5:On)'
+    echo 'checkFakes.info Check fakes (4:Off/5:On) depends on ''Check opponents'''
+
+    echo 'checkLastOpponent.label Check last opponent (2:Off/3:On)'
+    echo 'checkLastOpponent.info Check last opponent (2:Off/3:On) depends on ''Check opponents'''
+
+    echo 'checkOpponents.label Check opponents (0:Off/1:On)'
+    echo 'checkOpponents.info Check opponents (0:Off/1:On)'
+
+    echo 'checkPourDowners.label Check pour downers (6:Off/7:On)'
+    echo 'checkPourDowners.info Check pour downers (6:Off/7:On) depends on ''Check opponents'''
+
+    echo 'enemyLevelRange.label Enemy level range'
+    echo 'enemyLevelRange.info Enemy level range +/- value depends on useLevelDiffFactor:false'
+
+    echo 'hpDiffFactor.label Hp diff factor x100'
+    echo 'hpDiffFactor.info Hp diff factor x100'
+
+    echo 'ignoreTeamHp.label Ignore team HP (10:Off/11:On)'
+    echo 'ignoreTeamHp.info Ignore team HP (10:Off/11:On)'
+
+    echo 'maxTemSizeDiff.label  Max team size diff'
+    echo 'maxTemSizeDiff.info Max team size diff'
+
+    echo 'maxBattlesWithSameUser.label Max battles with same opponent'
+    echo 'maxBattlesWithSameUser.info Max battles with same opponent'
+
+    echo 'sandboxDelimeter.label Sandbox delimeter'
+    echo 'sandboxDelimeter.info Sandbox battles amount'
+
+    echo 'useLevelDiffFactor.label Use level diff factor (8:Off/9:On)'
+    echo 'useLevelDiffFactor.info Use level diff factor (8:Off/9:On)'
+
+    exit 0
+fi
+
+awk '
+$1 == "lobbyConf:bestMatchQuality" {print "bestMatchQuality.value "($3 / 100)}
+$1 == "lobbyConf:checkFakes" {print "checkFakes.value "$3}
+$1 == "lobbyConf:checkLastOpponent" {print "checkLastOpponent.value "$3}
+$1 == "lobbyConf:checkOpponents" {print "checkOpponents.value "$3}
+$1 == "lobbyConf:checkPourDowners" {print "checkPourDowners.value "$3}
+$1 == "lobbyConf:enemyLevelRange" {print "enemyLevelRange.value "$3}
+$1 == "lobbyConf:hpDiffFactor" {print "hpDiffFactor.value "($3 / 10)}
+$1 == "lobbyConf:ignoreTeamHp" {print "ignoreTeamHp.value "$3}
+$1 == "lobbyConf:maxTemSizeDiff" {print "maxTemSizeDiff.value "$3}
+$1 == "lobbyConf:maxBattlesWithSameUser" {print "maxBattlesWithSameUser.value "$3}
+$1 == "lobbyConf:sandboxDelimeter" {print "sandboxDelimeter.value "$3}
+$1 == "lobbyConf:useLevelDiffFactor" {print "useLevelDiffFactor.value "$3}
+' ${statDump}
+#lobbyConf:bestMatchQuality 400 400 400
+#lobbyConf:checkFakes 5 5 5
+#lobbyConf:checkLastOpponent 3 3 3
+#lobbyConf:checkOpponents 0 0 0
+#lobbyConf:checkPourDowners 7 7 7
+#lobbyConf:deltaHpDiffFactor 20 20 20
+#lobbyConf:deltaMatchQuality 400 400 400
+#lobbyConf:enemyLevelRange 4 4 4
+#lobbyConf:hpDiffFactor 240 240 240
+#lobbyConf:ignoreTeamHp 10 10 10
+#lobbyConf:levelDiffFactor 150 150 150
+#lobbyConf:maxBattlesWithSameUser 3 3 3
+#lobbyConf:maxHpDiffFactor 240 240 240
+#lobbyConf:minNegativeRating -500 -500 -500
+#lobbyConf:sandboxDelimeter 10 10 10
+#lobbyConf:useLevelDiffFactor 8 8 8

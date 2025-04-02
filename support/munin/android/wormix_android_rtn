@@ -1,0 +1,35 @@
+#!/bin/bash
+#
+# Plugin for Retention calculation
+
+seq='1 2 3 4 5 6 7 14 30'
+
+host=lord.rmart.ru
+db=wormswar_android
+user=smos
+
+if [ "$1" = "config" ]; then
+    echo 'graph_title User Retention'
+    echo 'graph_vlabel %'
+    echo 'graph_args -l 0'
+    echo 'graph_noscale true'
+    echo 'graph_category Wormix Android Stat'
+    echo 'graph_info Retention on Wormix Android'
+
+    for i in $seq;
+    do
+        echo "day_$i.label day#$i"
+        echo "day_$i.info Day $i"
+    done
+
+    exit 0
+fi
+
+for i in $seq;
+do
+    echo "with newly_registered as \
+(select id from wormswar.creation_date where creation_date >= now() - interval '$((i+1)) days' and creation_date < now() - interval '$i days') \
+select $i as i, count(nr.id) as registered_users, sum(case when up.id is null then 0 else 1 end) as retained_users \
+from newly_registered nr left join wormswar.user_profile up on nr.id = up.id and up.last_login_time >= now() - interval '1 days'" |  psql -h $host -d $db -U $user -t -A -F " " | \
+    awk '$2==0 {printf "day_%s.value 0\n" ,$1} $2>0 {printf "day_%s.value %s\n" ,$1, 100.0*$3/$2}'  
+done

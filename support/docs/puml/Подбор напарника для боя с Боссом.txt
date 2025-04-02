@@ -1,0 +1,25 @@
+rem https://www.websequencediagrams.com
+title Подбор напарника для боя с Боссом
+
+participant "Client 1" as C1
+participant "Pvp Server" as P
+participant "Main Server" as M
+participant "Client 2" as C2
+
+C1 -> P: WannaBattle(PartnerJoint;missionId)
+P->+ M: GetUserProfile(C1;WaitStartBattle)
+M -->- P: UserProfileStructure(C1)
+
+C2 -> P: WannaBattle(PartnerJoint;missionId)
+P->+ M: GetUserProfile(C2;WaitStartBattle)
+M -->- P: UserProfileStructure(C2)
+
+alt Напарник подобран
+ P -> M: SetBattleState(C1;InBattle)
+ P -> M: SetBattleState(C2;InBattle)
+ P -> C1: BattleStart(battleId;UserPofileStructure[])
+ P -> C2: BattleStart(battleId;UserPofileStructure[])
+else Timeout
+ P -> C1: CancelBattle
+ P -> C2: CancelBattle
+end

@@ -1,0 +1,33 @@
+#!/bin/bash
+#
+# Плагин для мониторинга DUR
+
+HOST=lord.rmart.ru
+DB=wormswar_mobile
+USER=smos
+
+if [ "$1" = "config" ]; then
+    echo 'graph_title Daily Users Stat'
+    echo 'graph_vlabel count'
+    echo 'graph_args -l 0'
+    echo 'graph_noscale true'
+    echo 'graph_category Wormix iOS Stat'
+    echo 'graph_info Daily Users Stat on Wormix iOS'
+
+    echo 'dur.label dur'
+    echo 'dur.info DUR'
+    echo 'dur.min 0'
+
+    echo 'dau.label dau'
+    echo 'dau.info DAU'
+    echo 'dau.min 0'
+
+    exit 0
+fi
+
+echo -n "dur.value"
+echo "select count(id) from wormswar.creation_date where creation_date > now() - interval '24 hours'" | psql -h $HOST -d $DB -U $USER -t
+
+echo -n "dau.value "
+echo "select count(id) from wormswar.user_profile where last_login_time > now() - interval '24 hours'" | psql -h $HOST -d $DB -U $USER -t
+
