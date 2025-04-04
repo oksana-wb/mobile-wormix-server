@@ -449,34 +449,10 @@
                     <dependency>
                         <groupId>org.ow2.asm</groupId>
                         <artifactId>asm</artifactId>
-<!--                        <version>6.2</version>-->
-                        <version>9.7</version>
+                        <version>6.2</version>
+<!--                        <version>9.7</version>-->
                     </dependency>
                 </dependencies>
-            </plugin>
-
-            <plugin>
-                <groupId>org.bsc.maven</groupId>
-                <artifactId>maven-processor-plugin</artifactId>
-                <version>${maven-processor-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>process</id>
-                        <goals>
-                            <goal>process</goal>
-                        </goals>
-                        <phase>generate-sources</phase>
-                        <configuration>
-                            <encoding>UTF-8</encoding>
-                            <outputDirectory>${project.build.directory}/generated-sources/annotations</outputDirectory>
-                            <options>
-                                <appName>Wormix</appName>
-                            </options>
-<!--                            <includeCompileDependencies>true</includeCompileDependencies>-->
-                            <compilerArguments>-classpath ${project.build.directory}/classes</compilerArguments>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
 
             <plugin>
@@ -492,7 +468,7 @@
                 </executions>
 
                 <configuration>
-                    <executable>${java}</executable>
+                    <executable>${java.home}/bin/java</executable>
                     <classpathScope>compile</classpathScope>
                     <arguments>
                         <argument>-Dserver.id=${server.id}</argument>

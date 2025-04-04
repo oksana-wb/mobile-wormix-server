@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+
+<!--    <shutdownHook class="ch.qos.logback.core.hook.DefaultShutdownHook">-->
+<!--        <delay>3000</delay>-->
+<!--    </shutdownHook>-->
+    
+    <conversionRule conversionWord="account" converterClass="pixel.green.logging.PreLoadingAccountConverter"/>
+    <conversionRule conversionWord="launch_id" converterClass="pixel.green.logging.LaunchIdConverter"/>
+    <conversionRule conversionWord="coloron" converterClass="com.pragmatix.utils.logging.ColorOnConverter"/>
+    <conversionRule conversionWord="coloroff" converterClass="com.pragmatix.utils.logging.ColorOffConverter"/>
+
+    <variable name="PATTERN_COLORED"
+              value="%coloron%-58(%date{HH:mm:ss.SSS} %level [%replace(%thread){'nioEventLoop',''}] [%replace(%replace(%file){'(.+)MessageRouter','MessageRouter'}){'\.java',''}:%line]) [%account]%launch_id %msg%coloroff%n%throwable"/>
+    
+    <variable name="PATTERN"
+              value="%-58(%date{HH:mm:ss.SSS} %level [%replace(%thread){'nioEventLoop',''}] [%replace(%replace(%file){'(.+)MessageRouter','MessageRouter'}){'\.java',''}:%line]) [%account]%launch_id %msg%n%throwable"/>
+    
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>${PATTERN_COLORED}</Pattern> 
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/server.log</file>
+        <append>false</append>
+        <encoder>
+            <charset>UTF-8</charset>
+            <Pattern>${PATTERN}</Pattern>
+            </encoder>
+    </appender>
+    
+    <appender name="syslogAppender" class="ch.qos.logback.core.FileAppender">
+        <file>logs/syslog.log</file>
+         <append>false</append>
+        <encoder>
+            <charset>UTF-8</charset>
+            <Pattern>${PATTERN}</Pattern>
+        </encoder>
+    </appender>    
+    
+    <appender name="eventsCdrLogAppender" class="ch.qos.logback.core.FileAppender">
+        <file>logs/cdr/events/events.log</file>
+        <append>false</append>
+        <encoder>
+            <Pattern>
+                %msg%n
+            </Pattern>
+        </encoder>
+    </appender>
+
+<!--    <appender name="socketIOMessagesAppender" class="ch.qos.logback.core.FileAppender">-->
+<!--        <file>logs/messages.log</file>-->
+<!--        <append>false</append>-->
+<!--        <encoder>-->
+<!--            <Pattern>-->
+<!--                %date{HH:mm:ss.SSS} [%account]%launch_id %msg%n-->
+<!--            </Pattern>-->
+<!--        </encoder>-->
+<!--    </appender>-->
+
+    <logger name="org.apache.velocity" level="INFO" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <logger name="syslog" level="INFO" additivity="false">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <logger name="com.pragmatix.performance.statictics" level="OFF"/>
+
+    <logger name="EVENTS_CDR_LOGGER" level="INFO" additivity="false">
+        <appender-ref ref="eventsCdrLogAppender"/>
+    </logger>
+
+    <!-- фильтруем вывод -->
+    <logger name="MESSAGES" level="DEBUG"/>
+
+    <logger name="CONNECTION_MESSAGE_HANDLER" level="WARN"/>
+
+    <logger name="messages.in" level="OFF"/>
+
+    <logger name="messages.out" level="OFF"/>
+
+    <logger name="com.pragmatix.testcase.handlers.TestcaseMessageHandler" level="OFF"/>
+
+    <logger name="org.springframework" level="WARN"/>
+
+    <logger name="org.hibernate" level="WARN"/>
+
+    <logger name="org.apache.http" level="WARN"/>
+
+    <logger name="org.eclipse.jetty" level="WARN"/>
+
+    <logger name="io.netty" level="WARN"/>
+
+    <logger name="com.zaxxer.hikari" level="WARN"/>
+
+    <logger name="org.eclipse.jetty" level="WARN"/>
+
+    <logger name="com.pragmatix" level="DEBUG"/>
+
+    <logger name="com.pragmatix.serialization.BinarySerializer" level="WARN"/>
+
+    <logger name="com.pragmatix.gameapp.info.AppInfo" level="WARN"/>
+
+    <logger name="com.pragmatix.spring.ServerBeanNameGenerator" level="WARN"/>
+
+    <logger name="com.pragmatix.spring.http.converter.CommandHttpMessageConverter" level="WARN"/>
+
+    <logger name="com.pragmatix.webadmin" level="WARN"/>
+
+    <logger name="pixel.green.connections.http.CommandToProtoCommandProcessor" level="WARN"/>
+
+    <logger name="com.notnoop.apns.internal" level="INFO"/>
+
+    <logger name="com.querydsl.jpa.impl" level="warn"/>
+
+    <!-- Suppress debug message about missing serializer, which is not a problem for heap cache. For off-heap cache, this would be RuntimeException, not debug log -->
+    <logger name="org.ehcache" level="WARN"/>
+
+    <logger name="com.clickhouse" level="INFO"/>
+    
+    <logger name="org.eclipse.jgit" level="INFO"/>
+    
+<!--    <logger name="pixel.green.connections.soketio.metric.ClientConnectionMetrics" level="OFF"/>-->
+    
+    <logger name="merge.services.ingame" level="WARN"/>
+    <logger name="app.ingame.leaderboard" level="WARN"/>
+    <logger name="merge.services.EndGameEventService" level="WARN"/>
+    
+<!--   <logger name="com.corundumstudio" level="TRACE"/>-->
+<!--   <logger name="com.pixel.green.connections" level="TRACE"/>-->
+<!--   <logger name="io.socket" level="TRACE"/>-->
+    
+    <logger name="pixel.green.resources.remote.GitRemoteConfigLoader" level="ALL"/>
+    
+    <logger name="SOCKETIO_MESSAGES_LOGGER" level="OFF" additivity="true">
+        <appender-ref ref="socketIOMessagesAppender"/>
+    </logger>
+    
+    <logger name="syslog" level="INFO" additivity="false">
+        <appender-ref ref="syslogAppender"/>
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
+    </logger>    
+    
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+</configuration>
